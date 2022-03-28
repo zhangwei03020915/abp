@@ -7,6 +7,8 @@
         "Volo.CmsKit.Public.Tags.TagPublicController": {
           "controllerName": "TagPublic",
           "controllerGroupName": "TagPublic",
+          "isRemoteService": true,
+          "apiVersion": null,
           "type": "Volo.CmsKit.Public.Tags.TagPublicController",
           "interfaces": [
             {
@@ -76,6 +78,8 @@
         "Volo.CmsKit.Public.Reactions.ReactionPublicController": {
           "controllerName": "ReactionPublic",
           "controllerGroupName": "ReactionPublic",
+          "isRemoteService": true,
+          "apiVersion": null,
           "type": "Volo.CmsKit.Public.Reactions.ReactionPublicController",
           "interfaces": [
             {
@@ -299,6 +303,8 @@
         "Volo.CmsKit.Public.Ratings.RatingPublicController": {
           "controllerName": "RatingPublic",
           "controllerGroupName": "RatingPublic",
+          "isRemoteService": true,
+          "apiVersion": null,
           "type": "Volo.CmsKit.Public.Ratings.RatingPublicController",
           "interfaces": [
             {
@@ -502,6 +508,8 @@
         "Volo.CmsKit.Public.Pages.PagesPublicController": {
           "controllerName": "PagesPublic",
           "controllerGroupName": "PagesPublic",
+          "isRemoteService": true,
+          "apiVersion": null,
           "type": "Volo.CmsKit.Public.Pages.PagesPublicController",
           "interfaces": [
             {
@@ -551,6 +559,8 @@
         "Volo.CmsKit.Public.Menus.MenuItemPublicController": {
           "controllerName": "MenuItemPublic",
           "controllerGroupName": "MenuItemPublic",
+          "isRemoteService": true,
+          "apiVersion": null,
           "type": "Volo.CmsKit.Public.Menus.MenuItemPublicController",
           "interfaces": [
             {
@@ -575,9 +585,55 @@
             }
           }
         },
+        "Volo.CmsKit.Public.GlobalResources.GlobalResourcePublicController": {
+          "controllerName": "GlobalResourcePublic",
+          "controllerGroupName": "GlobalResourcePublic",
+          "isRemoteService": true,
+          "apiVersion": null,
+          "type": "Volo.CmsKit.Public.GlobalResources.GlobalResourcePublicController",
+          "interfaces": [
+            {
+              "type": "Volo.CmsKit.Public.GlobalResources.IGlobalResourcePublicAppService"
+            }
+          ],
+          "actions": {
+            "GetGlobalScriptAsync": {
+              "uniqueName": "GetGlobalScriptAsync",
+              "name": "GetGlobalScriptAsync",
+              "httpMethod": "GET",
+              "url": "api/cms-kit-public/global-resources/script",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Volo.CmsKit.Public.GlobalResources.GlobalResourceDto",
+                "typeSimple": "Volo.CmsKit.Public.GlobalResources.GlobalResourceDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.CmsKit.Public.GlobalResources.IGlobalResourcePublicAppService"
+            },
+            "GetGlobalStyleAsync": {
+              "uniqueName": "GetGlobalStyleAsync",
+              "name": "GetGlobalStyleAsync",
+              "httpMethod": "GET",
+              "url": "api/cms-kit-public/global-resources/style",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "Volo.CmsKit.Public.GlobalResources.GlobalResourceDto",
+                "typeSimple": "Volo.CmsKit.Public.GlobalResources.GlobalResourceDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.CmsKit.Public.GlobalResources.IGlobalResourcePublicAppService"
+            }
+          }
+        },
         "Volo.CmsKit.Public.Comments.CommentPublicController": {
           "controllerName": "CommentPublic",
           "controllerGroupName": "CommentPublic",
+          "isRemoteService": true,
+          "apiVersion": null,
           "type": "Volo.CmsKit.Public.Comments.CommentPublicController",
           "interfaces": [
             {
@@ -818,6 +874,8 @@
         "Volo.CmsKit.Public.Blogs.BlogPostPublicController": {
           "controllerName": "BlogPostPublic",
           "controllerGroupName": "BlogPostPublic",
+          "isRemoteService": true,
+          "apiVersion": null,
           "type": "Volo.CmsKit.Public.Blogs.BlogPostPublicController",
           "interfaces": [
             {
@@ -899,9 +957,9 @@
                 },
                 {
                   "name": "input",
-                  "typeAsString": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto, Volo.Abp.Ddd.Application.Contracts",
-                  "type": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
-                  "typeSimple": "Volo.Abp.Application.Dtos.PagedAndSortedResultRequestDto",
+                  "typeAsString": "Volo.CmsKit.Public.Blogs.BlogPostGetListInput, Volo.CmsKit.Public.Application.Contracts",
+                  "type": "Volo.CmsKit.Public.Blogs.BlogPostGetListInput",
+                  "typeSimple": "Volo.CmsKit.Public.Blogs.BlogPostGetListInput",
                   "isOptional": false,
                   "defaultValue": null
                 }
@@ -918,6 +976,30 @@
                   "constraintTypes": [],
                   "bindingSourceId": "Path",
                   "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "AuthorId",
+                  "jsonName": null,
+                  "type": "System.Guid?",
+                  "typeSimple": "string?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
                 },
                 {
                   "nameOnMethod": "input",
@@ -942,23 +1024,26 @@
                   "constraintTypes": null,
                   "bindingSourceId": "ModelBinding",
                   "descriptorName": "input"
-                },
-                {
-                  "nameOnMethod": "input",
-                  "name": "Sorting",
-                  "jsonName": null,
-                  "type": "System.String",
-                  "typeSimple": "string",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "ModelBinding",
-                  "descriptorName": "input"
                 }
               ],
               "returnValue": {
                 "type": "Volo.Abp.Application.Dtos.PagedResultDto<Volo.CmsKit.Public.Blogs.BlogPostPublicDto>",
                 "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<Volo.CmsKit.Public.Blogs.BlogPostPublicDto>"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.CmsKit.Public.Blogs.IBlogPostPublicAppService"
+            },
+            "GetAuthorsHasBlogPostsAsync": {
+              "uniqueName": "GetAuthorsHasBlogPostsAsync",
+              "name": "GetAuthorsHasBlogPostsAsync",
+              "httpMethod": "GET",
+              "url": "api/cms-kit-public/blog-posts/authors",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Volo.CmsKit.Users.CmsUserDto>",
+                "typeSimple": "[Volo.CmsKit.Users.CmsUserDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Volo.CmsKit.Public.Blogs.IBlogPostPublicAppService"
