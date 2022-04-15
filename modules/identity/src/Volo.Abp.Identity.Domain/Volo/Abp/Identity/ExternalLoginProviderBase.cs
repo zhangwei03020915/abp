@@ -143,6 +143,11 @@ public abstract class ExternalLoginProviderBase : IExternalLoginProvider
         (await UserManager.UpdateAsync(user)).CheckErrors();
     }
 
+    public virtual Task<bool> IsEnabledAsync()
+    {
+        return Task.FromResult(true);
+    }
+
     protected abstract Task<ExternalLoginUserInfo> GetUserInfoAsync(string userName);
 
     protected virtual Task<ExternalLoginUserInfo> GetUserInfoAsync(IdentityUser user)
