@@ -38,7 +38,7 @@ ABP框架的[文档](docs.abp.io)也是使用的此模块.
 
 ### 2- 运行这个空项目
 
-下载项目后, 解压压缩文档并且打开 `Acme.MyProject.sln`. 你可以看到这个解决方案包含了 `Application`, `Application.Contrawcts`, `DbMigrator`, `Domain`, `Domain.Shared`, `EntityFrameworkCore`, `EntityFrameworkCore.DbMigations`, `HttpApi`, `HttpApi.Client` 和 `Web` 项目. 右键选择 `Acme.MyProject.Web` 项目**设置为启动项目**.
+下载项目后, 解压压缩文档并且打开 `Acme.MyProject.sln`. 你可以看到这个解决方案包含了 `Application`, `Application.Contracts`, `DbMigrator`, `Domain`, `Domain.Shared`, `EntityFrameworkCore`, `EntityFrameworkCore.DbMigations`, `HttpApi`, `HttpApi.Client` 和 `Web` 项目. 右键选择 `Acme.MyProject.Web` 项目**设置为启动项目**.
 
 ![创建新项目](../images/docs-module_solution-explorer.png)
 
