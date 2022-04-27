@@ -12,10 +12,18 @@ Open the generated `permission-management.component.ts` in `src/app/permission-m
 
 ```js
 import { ConfigStateService, CurrentUserDto, ReplaceableComponents } from '@abp/ng.core';
+
+import { PermissionManagement } from '@abp/ng.permission-management';
+
 import {
   GetPermissionListResultDto,
-  PermissionGrantInfoDto, PermissionGroupDto, PermissionManagement, PermissionsService, ProviderInfoDto, UpdatePermissionDto
-} from '@abp/ng.permission-management';
+  PermissionGrantInfoDto,
+  PermissionGroupDto,
+  PermissionsService,
+  UpdatePermissionDto,
+  ProviderInfoDto,
+} from '@abp/ng.permission-management/proxy';
+
 import { LocaleDirection } from '@abp/ng.theme.shared';
 import {
   Component,
