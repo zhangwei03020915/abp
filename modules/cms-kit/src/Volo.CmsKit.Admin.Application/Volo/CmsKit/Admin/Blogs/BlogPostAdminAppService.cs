@@ -131,8 +131,7 @@ public class BlogPostAdminAppService : CmsKitAppServiceBase, IBlogPostAdminAppSe
     [Authorize(CmsKitAdminPermissions.BlogPosts.Delete)]
     public virtual async Task DeleteAsync(Guid id)
     {
-        await BlogPostRepository.DeleteAsync(id);
-        await CommentRepository.DeleteByEntityTypeAsync(BlogPostConsts.EntityType, id.ToString());
+        await BlogPostManager.DeleteAsync(id);
     }
 
     [Authorize(CmsKitAdminPermissions.BlogPosts.Publish)]

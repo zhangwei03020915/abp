@@ -113,7 +113,7 @@ public class PageAdminAppService : CmsKitAdminAppServiceBase, IPageAdminAppServi
         
         await PageRepository.DeleteAsync(page);
         await PageCache.RemoveAsync(PageCacheItem.GetKey(page.Slug));
-        await CommentRepository.DeleteByEntityTypeAsync(PageConsts.EntityType, id.ToString());
+        await CommentRepository.DeleteByEntityTypeAndIdAsync(PageConsts.EntityType, id.ToString());
     }
 
     [Authorize(CmsKitAdminPermissions.Pages.SetAsHomePage)]

@@ -50,7 +50,7 @@ public interface ICommentRepository : IBasicRepository<Comment, Guid>
 
     Task<bool> ExistsAsync(string idempotencyToken, CancellationToken cancellationToken = default);
     
-    Task DeleteByEntityTypeAsync(
+    Task DeleteByEntityTypeAndIdAsync(
         [NotNull] string entityType,
         [NotNull] string entityId,
         CancellationToken cancellationToken = default
