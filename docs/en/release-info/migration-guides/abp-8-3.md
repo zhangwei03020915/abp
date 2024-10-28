@@ -49,9 +49,9 @@ However, notice this package is used by the `@abp/aspnetcore.mvc.ui.theme.shared
 
 See the PR for more info: https://github.com/abpframework/abp/pull/19340
 
-### ApplyAbpConcepts to entities whose navigation property changed
+### `ApplyAbpConcepts` to Entities Whose Navigation Properties Changed
 
-In this version, We will update the entity's `EntityVersion`, `ModificationAuditProperties` and `ConcurrencyStamp` if its navigation property changes.
+In this version, we have started updating entities' `EntityVersion`, `ModificationAuditProperties`, and `ConcurrencyStamp` properties whenever their navigation property changes. Normally, this should not affect your code, however, you may need to fix your tests or codebase for this change. Please see [#20012](https://github.com/abpframework/abp/pull/20012#issuecomment-2438383059) for more information.
 
 ### Angular UI
 
