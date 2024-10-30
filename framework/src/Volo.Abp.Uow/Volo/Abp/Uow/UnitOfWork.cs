@@ -139,8 +139,8 @@ public class UnitOfWork : IUnitOfWork, ITransientDependency
             _isCompleting = true;
             await SaveChangesAsync(cancellationToken);
 
-            DistributedEvents.AddRange(GetEventsRecordsByPredicate(DistributedEventWithPredicates));
-            LocalEvents.AddRange(GetEventsRecordsByPredicate(LocalEventWithPredicates));
+            DistributedEvents.AddRange(GetEventsRecords(DistributedEventWithPredicates));
+            LocalEvents.AddRange(GetEventsRecords(LocalEventWithPredicates));
 
             while (LocalEvents.Any() || DistributedEvents.Any())
             {
@@ -152,7 +152,7 @@ public class UnitOfWork : IUnitOfWork, ITransientDependency
                     await UnitOfWorkEventPublisher.PublishLocalEventsAsync(
                         localEventsToBePublished
                     );
-                    LocalEvents.AddRange(GetEventsRecordsByPredicate(LocalEventWithPredicates));
+                    LocalEvents.AddRange(GetEventsRecords(LocalEventWithPredicates));
                 }
 
                 if (DistributedEvents.Any())
@@ -163,7 +163,7 @@ public class UnitOfWork : IUnitOfWork, ITransientDependency
                     await UnitOfWorkEventPublisher.PublishDistributedEventsAsync(
                         distributedEventsToBePublished
                     );
-                    DistributedEvents.AddRange(GetEventsRecordsByPredicate(DistributedEventWithPredicates));
+                    DistributedEvents.AddRange(GetEventsRecords(DistributedEventWithPredicates));
                 }
 
                 await SaveChangesAsync(cancellationToken);
@@ -265,7 +265,7 @@ public class UnitOfWork : IUnitOfWork, ITransientDependency
         DistributedEventWithPredicates.Add(new KeyValuePair<UnitOfWorkEventRecord, Predicate<UnitOfWorkEventRecord>?>(eventRecord, replacementSelector));
     }
 
-    protected virtual List<UnitOfWorkEventRecord> GetEventsRecordsByPredicate(List<KeyValuePair<UnitOfWorkEventRecord, Predicate<UnitOfWorkEventRecord>?>> eventWithPredicates)
+    protected virtual List<UnitOfWorkEventRecord> GetEventsRecords(List<KeyValuePair<UnitOfWorkEventRecord, Predicate<UnitOfWorkEventRecord>?>> eventWithPredicates)
     {
         var eventRecords = new List<UnitOfWorkEventRecord>();
         foreach (var eventWithPredicate in eventWithPredicates)
