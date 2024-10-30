@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Castle.DynamicProxy;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 using Volo.Abp.Content;
@@ -42,6 +43,8 @@ public class ClientProxyBase<TService> : ITransientDependency
     protected ClientProxyUrlBuilder ClientProxyUrlBuilder => LazyServiceProvider.LazyGetRequiredService<ClientProxyUrlBuilder>();
     protected ICurrentApiVersionInfo CurrentApiVersionInfo => LazyServiceProvider.LazyGetRequiredService<ICurrentApiVersionInfo>();
     protected ILocalEventBus LocalEventBus => LazyServiceProvider.LazyGetRequiredService<ILocalEventBus>();
+
+    protected IOptions<AbpHttpClientExecuteHttpActionOptions>  ExecuteHttpActionOptions => LazyServiceProvider.LazyGetRequiredService<IOptions<AbpHttpClientExecuteHttpActionOptions>>();
 
     protected virtual async Task RequestAsync(string methodName, ClientProxyRequestTypeValue? arguments = null)
     {
@@ -145,7 +148,10 @@ public class ClientProxyBase<TService> : ITransientDependency
 
         HttpResponseMessage response;
         try
-        {
+        {       
+            //Allows users to customize the timeout for remote methods of specific requests
+            ExecuteHttpActionOptions.Value.ExecuteHttpAction?.Invoke(requestContext.Action, client);
+
             response = await client.SendAsync(
                 requestMessage,
                 HttpCompletionOption.ResponseHeadersRead /*this will buffer only the headers, the content will be used as a stream*/,

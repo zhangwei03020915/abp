@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Http.Client;
@@ -60,5 +61,17 @@ public class AbpHttpClientTestModule : AbpModule
             options.FormDataConverts.Add(typeof(List<GetParamsNameValue>), typeof(TestObjectToFormData));
             options.PathConverts.Add(typeof(int), typeof(TestObjectToPath));
         });
+
+        Configure<AbpHttpClientExecuteHttpActionOptions>(options =>
+        {
+            options.ExecuteHttpAction = (method, httpclient) =>
+            {
+                if (method.Name.Equals("TimeOutRequestAsync"))
+                { 
+                    httpclient.Timeout = TimeSpan.FromMilliseconds(2000);
+                }
+            };
+        });
+        
     }
 }
