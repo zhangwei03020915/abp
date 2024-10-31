@@ -66,7 +66,47 @@ You can define new localization entries in the language files under the **Locali
 
 ### Angular UI
 
-//TODO:...
+Angular UI gets the localization resources from the [`application-localization`](../../framework/api-development/standard-apis/localization.md) API's response and merges these resources in the `ConfigStateService` for the localization entries/resources coming from the backend side.
+
+In addition, you may need to define some localization entries and only use them on the UI side. ABP already provides the related configuration for you, so you don't need to make any configurations related to that and instead you can directly define localization entries in the `app.-module.ts` file of your angular application as follows:
+
+```ts
+import { provideAbpCore, withOptions } from '@abp/ng.core';
+
+@NgModule({
+  providers: [
+    // ...
+    provideAbpCore(
+      withOptions({
+        environment,
+        registerLocaleFn: registerLocale(),
+        localizations: [
+            {
+                culture: 'en',
+                resources: [
+                    {
+                        resourceName: 'MyProjectName',
+                        texts: {
+                            "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information visit"
+                        }
+                    }
+                ]
+            }
+        ]
+      }),
+    ),
+    ...
+  ],
+})
+export class AppModule {}
+
+```
+
+After defining the localization entries, it can be used as below:
+
+```html
+<div>{{ 'MyProjectName::LongWelcomePage' | abpLocalization }}</div>
+```
 
 > For more information, please refer to [UI Localization section of the Angular Localization document](../../framework/ui/angular/localization.md).
 
