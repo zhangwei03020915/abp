@@ -24,6 +24,52 @@ The *Administration* microservice provides a set of APIs to manage localization.
 
 > The *Language Management* module is optional. If you don't need to manage localization resources from the UI, you can uncheck the *Language Management* module while creating the solution. However, each microservice's localization resources are still registered to the database and can be used by the applications.
 
+## UI Localizations
+
+In the microservice architecture, localizations also can be defined in the final host application, if they only need to be defined in the UI. When you create a new microservice solution template, independent from the UI, all configurations are made and you can directly define localization entries and use them in your final UI application.
+
+### MVC/Razor Pages & Blazor UIs
+
+For MVC & Blazor UIs, you can see the **Localization** directory in your final application, like in the following figure:
+
+![](./images/ui-localization-mvc.png)
+
+In this directory, you can see the language files, those are pre-defined for you to directly add localization entries. The related configurations are already made for you, in the module class (inside the `ConfigureLocalization` method) as below:
+
+```csharp
+    private void ConfigureLocalization(IWebHostEnvironment hostingEnvironment)
+    {
+        //code abbreviated for brevity...
+
+        Configure<AbpLocalizationOptions>(options =>
+        {
+            options.Resources
+                .Add<CloudCrmWebResource>("en")
+                .AddVirtualJson("/Localization/CloudCrmWeb");
+
+            options.DefaultResourceType = typeof(CloudCrmWebResource);
+        });
+    }
+```
+
+You can define new localization entries in the language files under the **Localization** folder and directly use them in your application by using the `IStringLocalizer<>` or `IHtmlLocalizer<>` services:
+
+```html
+@page
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<CloudCrmWebResource> L
+
+<div>
+  <h1>@L["LongWelcomeMessage"]</h1>
+</div>  
+```
+
+### Angular UI
+
+//TODO:...
+
+> For more information, please refer to [UI Localization section of the Angular Localization document](../../framework/ui/angular/localization.md).
+
 ## Creating a New Localization Resource
 
 To create a new localization resource, you can create a class named *MicroservicenameResource* in the *Contracts* project for the related microservice, which is already created by the solution template. For example, the *Identity* microservice has an *IdentityServiceResource* class and localization JSON files.
