@@ -649,7 +649,7 @@
     "Permission:HeroSections": "Hero Sections",
     "RedirectLink": "Redirect link",
     "HeroSectionsDeletionConfirmationMessage": "Are you sure you want to delete the hero section?",
-    "AbpStudioName": "Abp Studio name",
+    "AbpStudioName": "ABP Studio name",
     "Permission:EditAttendees" : "Edit Attendees",
     "AttendeesCount" : "Attendees Count",
     "CreateQRCode" : "Create QR Code",
