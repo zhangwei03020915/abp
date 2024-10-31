@@ -24,6 +24,28 @@ The *Administration* microservice provides a set of APIs to manage localization.
 
 > The *Language Management* module is optional. If you don't need to manage localization resources from the UI, you can uncheck the *Language Management* module while creating the solution. However, each microservice's localization resources are still registered to the database and can be used by the applications.
 
+## Dynamic Localization
+
+When you create a new microservice solution, you can **enable dynamic localization** option, which allows you to add/remove languages and change localization texts on the application UI:
+
+![](./images/enable-dynamic-localization.png)
+
+When you enable this option, a new microservice named **LanguageService** will be added (with the language management module integrated) and you can use its `LanguageServiceResource` class to use the localization entries in your UI application. It's already configured in your final host application, so you don't need to make any configuration related to that and directly use it.
+
+> **Note:** When you enable this option, then the **Language Management Module** will be removed from the optional module list.
+
+**Example:** You can inject the `IStringLocalizer<>` or `IHtmlLocalizer<>` services and use the localized values in your pages for MVC/Razor Pages UI:
+
+```html
+@page
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<MyProjectNameWebResource> L
+
+<div>
+  <h1>@L["LongWelcomeMessage"]</h1>
+</div>  
+```
+
 ## UI Localizations
 
 In the microservice architecture, localizations also can be defined in the final host application, if they only need to be defined in the UI. When you create a new microservice solution template, independent from the UI, all configurations are made and you can directly define localization entries and use them in your final UI application.
