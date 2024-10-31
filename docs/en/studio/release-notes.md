@@ -2,7 +2,12 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
-## 0.9.3 (2024-10-31)
+## 0.9.4 (2024-10-31)
+
+* Made the `TopMenuLayout` as the default layout type for microservice public website
+* Fixed application crashing problem when the ABP Suite is opened
+
+## 0.9.3 (2024-10-30)
 
 * Added the **standard module template**
 * Made enhancements on the pre-integrated browser
