@@ -2,13 +2,25 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.4 (2024-10-31)
+
+* Made the `TopMenuLayout` as the default layout type for microservice public website
+* Fixed application crashing problem when the ABP Suite is opened
+
+## 0.9.3 (2024-10-30)
+
+* Added the **standard module template**
+* Made enhancements on the pre-integrated browser
+* Fixed Blazor WebAssembly UI being not run on kubernetes problem
+* Added a database migration after a module added to the solution
+
 ## 0.9.2 (2024-10-22)
 
-* Added "Sample CRUD Page" option for pro templates
-* Generated *Signing-Certificate* for appnolayers template
+* Added a status bar to the pre-integrated browser for showing errors
+* Added **Sample CRUD Page** option to pro templates
 * Added test projects optionally for all templates
-* Added automapper configuration to apps/web project for ms template
-* Disabled *transaction* for `MongoDB` and `SQLite` by default
+* Added **AutoMapper** configurations to microservice host projects
+* Disabled **transaction** for *MongoDB* & *SQLite* by default.
 
 ## 0.9.1 (2024-10-10)
 
