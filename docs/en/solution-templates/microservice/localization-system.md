@@ -28,6 +28,8 @@ The *Administration* microservice provides a set of APIs to manage localization.
 
 In the microservice architecture, localizations also can be defined in the final host application, if they only need to be defined in the UI. When you create a new microservice solution template, independent from the UI, all configurations are made and you can directly define localization entries and use them in your final UI application.
 
+> **Note:** When you define localization entries in the host application, then you can't make dynamic localization with the language management module! (Because the language management module, would be unaware of the defined localization entries on the UI side)
+
 ### MVC/Razor Pages & Blazor UIs
 
 For MVC & Blazor UIs, you can see the **Localization** directory in your final application, like in the following figure:
