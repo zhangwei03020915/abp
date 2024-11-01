@@ -4,7 +4,7 @@
 
 It offers a flexible caching solution that combines the best aspects of local and distributed caching. **HybridCache** is particularly useful in scenarios where quick, in-memory access is desirable but data consistency across multiple application instances is also a requirement.
 
-In this article, we’ll explore HybridCache in .NET 9 and how it integrates with ABP Framework using AbpHybridCache. This new feature offers a robust solution for applications that need to scale while maintaining efficient caching strategies.
+In this article, we’ll explore **HybridCache** in .NET 9 and how it integrates with ABP Framework using `AbpHybridCache`. This new feature offers a robust solution for applications that need to scale while maintaining efficient caching strategies.
 
 ## What is HybridCache?
 
@@ -18,15 +18,15 @@ In this article, we’ll explore HybridCache in .NET 9 and how it integrates wit
 
 > For more information about the implementation in the ABP side, you can refer to the pull request [here](https://github.com/abpframework/abp/pull/20859).
 
-ABP Framework’s support for **HybridCache** is available starting from version 9.0 through the [`AbpHybridCache`](https://github.com/abpframework/abp/blob/dev/framework/src/Volo.Abp.Caching/Volo/Abp/Caching/Hybrid/AbpHybridCache.cs) service. By leveraging this feature, developers using ABP can implement hybrid caching in a way that aligns with ABP’s modular and extensible architecture.
+ABP's support for **HybridCache** is available starting from version 9.0 through the [`AbpHybridCache`](https://github.com/abpframework/abp/blob/dev/framework/src/Volo.Abp.Caching/Volo/Abp/Caching/Hybrid/AbpHybridCache.cs) implementation. By leveraging this feature, developers using ABP can implement hybrid caching in a way that aligns with ABP’s modular and extensible architecture.
 
 To demonstrate how to use **HybridCache** in ABP, let's start with a simple example.
 
 > You can create an ABP-based application with v9.0+, and then follow the next steps for using hybrid caching in your application.
 
-### Configuring the `AbpHybridCacheOptions`
+### Configuring the `AbpHybridCacheOptions` (Optional)
 
-First, you can configure the hybrid cache options in your module class as below:
+First, you can configure the hybrid cache options in your module class as below (it's optional):
 
 ```csharp
 public class YourModule : AbpModule
@@ -49,7 +49,7 @@ public class YourModule : AbpModule
 ```
 
 * You can configure the `AbpHybridCacheOptions` to set *keyPrefix* for your cache keys, throw or hide exceptions for the distributed cache (by default *it hides errors*), or configure cache for specific cache item keys and more...
-* By setting the `GlobalHybridCacheEntryOptions`, you specified the caching options globally in your application. Thanks to that, you don't need to manually pass the related options whenever you used the `IHybridCache` service.
+* By setting the `GlobalHybridCacheEntryOptions`, you specify the caching options globally in your application. Thanks to that, you don't need to manually pass the related options whenever you use the `IHybridCache` service.
 
 ### Using the `IHybridCache` Service
 
@@ -95,7 +95,7 @@ public class BookAppService : IBookAppService, ITransientDependency
 }
 ```
 
-* You can use the `IHybridCache<TCacheItem>` or `IHybridCache<TCacheItem, TCacheKey>` service to leverage of the hybrid caching. If you use `IHybridCache<TCacheItem>`as the service, then you should pass the cache key as *string* like in the example above.
+* You can use the `IHybridCache<TCacheItem>` or `IHybridCache<TCacheItem, TCacheKey>` service to leverage the hybrid caching. If you use `IHybridCache<TCacheItem>`as the service, then you should pass the cache key as *string* like in the example above.
 * In this example, you used the `GetOrCreateAsync` method, which first tries to get the cache item with the provided cache key, if there is no cache with the specified key, then it runs the factory method and add the returned data to the cache.
 * Alternatively, you can use the `SetAsync` method to set the cache item.
 
@@ -106,3 +106,9 @@ The **HybridCache** library in .NET 9 provides a powerful tool for applications 
 With ABP Framework’s `AbpHybridCache` support, integrating this feature into an ABP-based application becomes straightforward. This setup helps ensure that cached data remains synchronized across instances, bringing a new level of flexibility to caching in .NET 9 applications.
 
 > For more information, you can refer to the [Microsoft's official document](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-9.0?view=aspnetcore-9.0#new-hybridcache-library).
+
+## References
+
+- https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-9.0?view=aspnetcore-9.0#new-hybridcache-library
+- https://github.com/abpframework/abp/pull/20803
+- https://github.com/abpframework/abp/pull/20859
