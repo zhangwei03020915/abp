@@ -99,6 +99,16 @@ public class BookCacheItem
 * In this example, you used the `GetOrCreateAsync` method, which first tries to get the cache item with the provided cache key, if there is no cache with the specified key, then it runs the factory method and add the returned data to the cache.
 * Alternatively, you can use the `SetAsync` method to set the cache item.
 
+### Debugging the `IHybridCache` Service (deep-dive)
+
+When you debug the `IHybridCache` service, you'll notice the L1 and L2 cache stores. (L1 is in-memory cache store and L2 is the distributed cache store):
+
+![](debug-hybrid-cache.png)
+
+As you can see from the figure, it only set the cache item to the **LocalCache** (`MemoryCache`) and did not set the **BackendCache** (`DistributedCache`) because I did not configure the distributed cache and not running my application in multiple instances. But as you can notice, even without an `IDistributedCache` configuration, the `HybridCache` service will still provide in-process caching.
+
+**Note:** If you configure distributed caching options, `HybridCache` service uses the distributed cache and sets the **BackendCache**.
+
 ## Conclusion
 
 The **HybridCache** library in .NET 9 provides a powerful tool for applications needing both high-speed caching and consistency in distributed environments. 
