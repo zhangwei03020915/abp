@@ -32,9 +32,9 @@ When you create a new microservice solution, you can **enable dynamic localizati
 
 ![](./images/enable-dynamic-localization.png)
 
-When you enable this option, a new microservice named **LanguageService** will be added (with the language management module integrated) and you can use its `LanguageServiceResource` class to use the localization entries in your UI application. It's already configured in your final host application, so you don't need to make any configuration related to that. To define a new localization entry you can either use the language files in the `LanguageService` or update the already defined localization entries in the UI (on the *Language Texts* page).
+When you enable this option, a new microservice named **LanguageService** will be added (with the language management module integrated) and you can use its `LanguageServiceResource` class to use the localization entries in your UI application. It's already configured in your final host application, so you don't need to make any configuration related to that. To define a new localization entry you can either use the language files in the `LanguageService` or update the already defined localization entries in the UI (on the *Language Texts* page). 
 
-**Example:** You can inject the `IStringLocalizer<>` or `IHtmlLocalizer<>` services and use the localized values in your pages for MVC/Razor Pages UI:
+After defining localization entries or updating them, you can inject the `IStringLocalizer<>` or `IHtmlLocalizer<>` services and use the localized values in your pages for MVC/Razor Pages UI, for instance:
 
 ```html
 @page
