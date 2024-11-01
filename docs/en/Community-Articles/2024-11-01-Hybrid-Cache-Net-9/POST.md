@@ -29,6 +29,9 @@ To demonstrate how to use **HybridCache** in ABP, let's start with a simple exam
 First, you can configure the hybrid cache options in your module class as below (it's optional):
 
 ```csharp
+using Microsoft.Extensions.Caching.Hybrid;
+using Volo.Abp.Caching.Hybrid;
+
 public class YourModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
@@ -38,7 +41,7 @@ public class YourModule : AbpModule
         Configure<AbpHybridCacheOptions>(options =>
         {
             //configuring the global hybrid cache options
-            option.GlobalHybridCacheEntryOptions = new HybridCacheEntryOptions()
+            options.GlobalHybridCacheEntryOptions = new HybridCacheEntryOptions()
             {
                 Expiration = TimeSpan.FromMinutes(20),
                 LocalCacheExpiration = TimeSpan.FromMinutes(10)
@@ -56,24 +59,14 @@ public class YourModule : AbpModule
 After the configuration, now you can inject the `IHybridCache` and use it to set and retrieve cache values:
 
 ```csharp
-public class BookCacheItem
-{
-    public string Name { get; set; }
+using Volo.Abp.Caching.Hybrid;
 
-    public int PageCount { get; set; }
-}
-
-public class BookAppService : IBookAppService, ITransientDependency
+public class BookAppService : ApplicationService, IBookAppService
 {
-    private readonly IBookRepository _bookRepository;
     private readonly IHybridCache<BookCacheItem> _hybridCache;
 
-    public BookAppService(
-        IBookRepository bookRepository,
-        IHybridCache<BookCacheItem> hybridCache
-    )
+    public BookAppService(IHybridCache<BookCacheItem> hybridCache)
     {
-        _bookRepository = bookRepository;
         _hybridCache = hybridCache;
     }
 
@@ -92,6 +85,13 @@ public class BookAppService : IBookAppService, ITransientDependency
             };
         });
     }
+}
+
+public class BookCacheItem
+{
+    public string Name { get; set; }
+
+    public int PageCount { get; set; }
 }
 ```
 
