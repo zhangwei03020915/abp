@@ -23,6 +23,9 @@ public class IndexModel : CmsKitPublicPageModelBase
     public Guid? AuthorId { get; set; }
 
     [BindProperty(SupportsGet = true)]
+    public bool? FilterOnFavorites { get; set; }
+
+    [BindProperty(SupportsGet = true)]
     public Guid? TagId { get; set; }
 
     public PagedResultDto<BlogPostCommonDto> Blogs { get; protected set; }
@@ -49,7 +52,8 @@ public class IndexModel : CmsKitPublicPageModelBase
                 SkipCount = PageSize * (CurrentPage - 1),
                 MaxResultCount = PageSize,
                 AuthorId = AuthorId,
-                TagId = TagId
+                TagId = TagId,
+                FilterOnFavorites = FilterOnFavorites
             });
 
         if (AuthorId != null)
