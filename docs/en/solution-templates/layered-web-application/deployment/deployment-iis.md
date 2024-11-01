@@ -254,6 +254,37 @@ We can visit the websites from a browser.
 
 ![Tiered IIS deployment](../../../images/iis-sample-tiered-deployment.gif)
 
+## How to get stdout-log
+
+If your application is running on IIS and getting errors like `502.5, 500.3x`, you can enable stdout logs to see the error details.
+
+To enable and view stdout logs:
+
+1. Navigate to the site's deployment folder on the hosting system.
+2. If the logs folder isn't present, create the folder. For instructions on how to enable MSBuild to create the logs folder in the deployment automatically, see the [Directory structure topic](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/directory-structure?view=aspnetcore-8.0).
+3. Edit the `web.config` file. Set `stdoutLogEnabled` to `true` and change the `stdoutLogFile` path to point to the logs folder (for example, `.\logs\stdout`). stdout in the path is the log file name prefix. A timestamp, process id, and file extension are added automatically when the log is created. Using stdout as the file name prefix, a typical log file is named s`tdout_20180205184032_5412.log`.
+4. Ensure your application pool's identity has write permissions to the logs folder.
+5. Save the updated `web.config` file.
+6. Make a request to the app.
+7. Navigate to the logs folder. Find and open the most recent stdout log.
+
+> The following sample aspNetCore element configures stdout logging at the relative path `.\log\.` Confirm that the AppPool user identity has permission to write to the path provided.
+
+```xml
+<aspNetCore processPath="dotnet"
+    arguments=".\MyAbpApp.dll"
+    stdoutLogEnabled="true"
+    stdoutLogFile=".\logs\stdout"
+    hostingModel="inprocess">
+</aspNetCore>
+```
+
+Reference:
+
+[IIS log creation and redirection](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/logging-and-diagnostics)
+
+[Troubleshoot ASP.NET Core on Azure App Service and IIS](https://learn.microsoft.com/en-us/aspnet/core/test/troubleshoot-azure-iis)
+
 ## What's next?
 
 - [Docker Deployment using Docker Compose](deployment-docker-compose.md)
