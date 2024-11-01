@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Pagination;
+using Volo.Abp.GlobalFeatures;
+using Volo.CmsKit.Blogs;
 using Volo.CmsKit.Contents;
+using Volo.CmsKit.GlobalFeatures;
 using Volo.CmsKit.Public.Blogs;
 using Volo.CmsKit.Users;
 
@@ -35,12 +39,17 @@ public class IndexModel : CmsKitPublicPageModelBase
     public CmsUserDto SelectedAuthor { get; protected set; }
 
     public string FilteredTagName { get; protected set; }
+    public BlogFeatureDto MarkedItemsFeature { get; private set; }
 
     protected IBlogPostPublicAppService BlogPostPublicAppService { get; }
+    public IBlogFeatureAppService BlogFeatureAppService { get; }
 
-    public IndexModel(IBlogPostPublicAppService blogPostPublicAppService)
+    public IndexModel(
+        IBlogPostPublicAppService blogPostPublicAppService,
+        IBlogFeatureAppService blogFeatureAppService)
     {
         BlogPostPublicAppService = blogPostPublicAppService;
+        BlogFeatureAppService = blogFeatureAppService;
     }
 
     public virtual async Task<IActionResult> OnGetAsync()
@@ -64,6 +73,13 @@ public class IndexModel : CmsKitPublicPageModelBase
         if (TagId is not null)
         {
             FilteredTagName = await BlogPostPublicAppService.GetTagNameAsync(TagId.Value);
+        }
+
+        if (GlobalFeatureManager.Instance.IsEnabled<MarkedItemsFeature>() &&
+         Blogs.Items.Any())
+        {
+            var blogId = Blogs.Items.First().BlogId;
+            MarkedItemsFeature = await BlogFeatureAppService.GetOrDefaultAsync(blogId, GlobalFeatures.MarkedItemsFeature.Name);
         }
 
         return Page();

@@ -14,7 +14,7 @@
 
 @{
     const string dummyImageSource = "/cms-kit/dummy-placeholder-320x180.png";
-    var isMarkedItemFeatureEnabled = GlobalFeatureManager.Instance.IsEnabled<MarkedItemsFeature>();
+    var isMarkedItemFeatureEnabled = GlobalFeatureManager.Instance.IsEnabled<MarkedItemsFeature>() && Model.MarkedItemsFeature?.IsEnabled == true;
 }
 
 @section styles {
