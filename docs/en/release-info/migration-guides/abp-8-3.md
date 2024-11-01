@@ -57,6 +57,24 @@ In this version, we have started updating entities' `EntityVersion`, `Modificati
 
 We wish to formally inform you that ABP version 8.3 has been upgraded to incorporate Angular version 18. Consequently, we recommend migrating your application to [Angular v18](https://angular.dev/update-guide) to ensure compatibility.
 
+#### Tenant impersonation & User impersonation
+
+Add the `impersonation: { userImpersonation: true, tenantImpersonation: true}` object to the `oAuthConfig` of the environment if it does not exit.
+
+```
+export const environment = {
+  //Other props..
+  oAuthConfig: {
+    //Other props..
+    impersonation: {
+      userImpersonation: true,
+      tenantImpersonation: true,
+    },
+  },
+```
+
+See https://abp.io/docs/latest/modules/account/impersonation#angular
+
 ## PRO
 
 > Please check the **Open-Source (Framework)** section before reading this section. The listed topics might affect your application and you might need to take care of them.
