@@ -71,7 +71,7 @@ No need to do anything here.
 #### Web
 
 1. Depends `AbpAccountPublicWebImpersonationModule(Volo.Abp.Account.Pro.Public.Web.Impersonation)` on your `WebModule`
-2. Chnage the base class of `AccountController` to `AbpAccountImpersonationChallengeAccountController`
+2. Change the base class of `AccountController` to `AbpAccountImpersonationChallengeAccountController`
 
 ```cs
 public class AccountController : AbpAccountImpersonationChallengeAccountController
