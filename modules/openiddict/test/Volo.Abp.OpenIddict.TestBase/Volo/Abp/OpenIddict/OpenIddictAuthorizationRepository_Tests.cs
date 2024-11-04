@@ -24,10 +24,10 @@ public abstract class OpenIddictAuthorizationRepository_Tests<TStartupModule> : 
     [Fact]
     public async Task FindAsync()
     {
-        (await _authorizationRepository.FindAsync(subject: _testData.Subject1, client: new Guid())).Count.ShouldBe(0);
-        (await _authorizationRepository.FindAsync(subject: _testData.Subject1, client: _testData.App1Id)).Count.ShouldBe(1);
-        (await _authorizationRepository.FindAsync(subject: _testData.Subject1, client: _testData.App1Id, status: "NonExistsStatus")).Count.ShouldBe(0);
-        (await _authorizationRepository.FindAsync(subject: _testData.Subject1, client: _testData.App1Id, status: OpenIddictConstants.Statuses.Valid)).Count.ShouldBe(1);
+        (await _authorizationRepository.FindAsync(subject: _testData.Subject1, client: new Guid(), status: null, type: null)).Count.ShouldBe(0);
+        (await _authorizationRepository.FindAsync(subject: _testData.Subject1, client: _testData.App1Id, status: null, type: null)).Count.ShouldBe(1);
+        (await _authorizationRepository.FindAsync(subject: _testData.Subject1, client: _testData.App1Id, status: "NonExistsStatus", type: null)).Count.ShouldBe(0);
+        (await _authorizationRepository.FindAsync(subject: _testData.Subject1, client: _testData.App1Id, status: OpenIddictConstants.Statuses.Valid, type: null)).Count.ShouldBe(1);
         (await _authorizationRepository.FindAsync(subject: _testData.Subject1, client: _testData.App1Id, status: OpenIddictConstants.Statuses.Valid ,type: "NonExistsType")).Count.ShouldBe(0);
         (await _authorizationRepository.FindAsync(subject: _testData.Subject1, client: _testData.App1Id, status: OpenIddictConstants.Statuses.Valid ,type: OpenIddictConstants.AuthorizationTypes.Permanent)).Count.ShouldBe(1);
     }
@@ -69,6 +69,35 @@ public abstract class OpenIddictAuthorizationRepository_Tests<TStartupModule> : 
         (await _authorizationRepository.ListAsync(int.MaxValue, 0)).Count.ShouldBe(2);
         await _authorizationRepository.PruneAsync(DateTime.UtcNow - TimeSpan.FromDays(14));
         (await _authorizationRepository.ListAsync(int.MaxValue, 0)).Count.ShouldBe(1);
+    }
+
+    [Fact]
+    public async Task RevokeAsync()
+    {
+        var authorizations = await _authorizationRepository.FindByApplicationIdAsync(_testData.App1Id);
+        authorizations.Count.ShouldBe(1);
+        authorizations.First().ApplicationId.ShouldBe(_testData.App1Id);
+        authorizations.First().Status.ShouldBe(OpenIddictConstants.Statuses.Valid);
+
+        (await _authorizationRepository.RevokeAsync(null, _testData.App1Id, null, null)).ShouldBe(1);
+
+        authorizations = await _authorizationRepository.FindByApplicationIdAsync(_testData.App1Id);
+        authorizations.Count.ShouldBe(1);
+        authorizations.First().ApplicationId.ShouldBe(_testData.App1Id);
+        authorizations.First().Status.ShouldBe(OpenIddictConstants.Statuses.Revoked);
+
+
+        authorizations = await _authorizationRepository.FindBySubjectAsync(_testData.Subject2);
+        authorizations.Count.ShouldBe(1);
+        authorizations.First().Subject.ShouldBe(_testData.Subject2);
+        authorizations.First().Status.ShouldBe(OpenIddictConstants.Statuses.Inactive);
+
+        (await _authorizationRepository.RevokeAsync(_testData.Subject2, null, null, null)).ShouldBe(1);
+
+        authorizations = await _authorizationRepository.FindBySubjectAsync(_testData.Subject2);
+        authorizations.Count.ShouldBe(1);
+        authorizations.First().Subject.ShouldBe(_testData.Subject2);
+        authorizations.First().Status.ShouldBe(OpenIddictConstants.Statuses.Revoked);
     }
 
     [Fact]

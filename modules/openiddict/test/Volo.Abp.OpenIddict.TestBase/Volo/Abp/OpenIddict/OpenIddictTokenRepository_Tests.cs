@@ -62,10 +62,10 @@ public abstract class OpenIddictTokenRepository_Tests<TStartupModule> : OpenIddi
     [Fact]
     public async Task FindAsync()
     {
-        (await _tokenRepository.FindAsync( _testData.Subject1, new Guid())).Count.ShouldBe(0);
-        (await _tokenRepository.FindAsync( _testData.Subject1, _testData.App1Id)).Count.ShouldBe(1);
-        (await _tokenRepository.FindAsync( _testData.Subject1, _testData.App1Id, "NonExistsStatus")).Count.ShouldBe(0);
-        (await _tokenRepository.FindAsync( _testData.Subject1, _testData.App1Id, OpenIddictConstants.Statuses.Redeemed)).Count.ShouldBe(1);
+        (await _tokenRepository.FindAsync( _testData.Subject1, new Guid(), null, null)).Count.ShouldBe(0);
+        (await _tokenRepository.FindAsync( _testData.Subject1, _testData.App1Id, null, null)).Count.ShouldBe(1);
+        (await _tokenRepository.FindAsync( _testData.Subject1, _testData.App1Id, "NonExistsStatus", null)).Count.ShouldBe(0);
+        (await _tokenRepository.FindAsync( _testData.Subject1, _testData.App1Id, OpenIddictConstants.Statuses.Redeemed, null)).Count.ShouldBe(1);
         (await _tokenRepository.FindAsync( _testData.Subject1, _testData.App1Id, OpenIddictConstants.Statuses.Redeemed, "NonExistsType")).Count.ShouldBe(0);
         (await _tokenRepository.FindAsync( _testData.Subject1, _testData.App1Id, OpenIddictConstants.Statuses.Redeemed, "TestType1")).Count.ShouldBe(1);
     }
