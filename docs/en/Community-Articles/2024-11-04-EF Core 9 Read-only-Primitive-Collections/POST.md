@@ -34,7 +34,7 @@ public class Car
   
     protected Car()
     {
-    	  /* This constructor is for deserialization / ORM purpose */
+    	/* This constructor is for deserialization / ORM purpose */
     }
 
     public Car(string brand, string model, IEnumerable<Color> colors)
