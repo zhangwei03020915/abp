@@ -36,7 +36,7 @@ To avoid that, consider creating self-signed certificates and storing them in th
 
 `AddDevelopmentEncryptionAndSigningCertificate` is disabled in production environment. Signing and encryption of certificates is done using `openiddict.pfx` file in production environment.
 
-You can use the `dotnet dev-certs https -v -ep openiddict.pfx -p 00000000-0000-0000-0000-000000000000` command to generate the `authserver.pfx` certificate.
+You can use the `dotnet dev-certs https -v -ep openiddict.pfx -p 00000000-0000-0000-0000-000000000000` command to generate the `openiddict.pfx` certificate.
 
 > `00000000-0000-0000-0000-000000000000` is the password of the certificate, you can change it to any password you want.
 
