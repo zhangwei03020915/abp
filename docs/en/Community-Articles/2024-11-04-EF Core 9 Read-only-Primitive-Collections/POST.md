@@ -10,7 +10,7 @@ Entity Framework Core 9 introduces several enhancements, one of which is the sup
 
 Read-only Primitive Collections are particularly useful when you need to guarantee the integrity of certain data within your entities. For example, imagine you have a `Car` entity that has a collection of `Colors`, represented as a set of enums. You might not want these colors to be modified after they're initially set, ensuring that any business logic reliant on these values remains consistent.
 
-EF Core 9 introduces a convenient way to define these collections as immutable, helping developers maintain stricter control over their data.
+EF Core 9 introduces a convenient way to define these collections as read-only, helping developers maintain stricter control over their data.
 
 ### How It Works
 
@@ -32,7 +32,7 @@ public class Car
     public string Model { get; set; }
     public IReadOnlyList<Color> Colors { get; private set; } = new List<Color> { Color.Black, Color.White }.AsReadOnly();
   
-  	protected Car()
+    protected Car()
     {
     	  /* This constructor is for deserialization / ORM purpose */
     }
