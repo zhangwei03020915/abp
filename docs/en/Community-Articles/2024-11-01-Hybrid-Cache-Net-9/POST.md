@@ -120,5 +120,6 @@ With ABP Framework’s `AbpHybridCache` support, integrating this feature into a
 ## References
 
 - https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-9.0?view=aspnetcore-9.0#new-hybridcache-library
+- https://www.youtube.com/watch?v=TDyZc11cJfA
 - https://github.com/abpframework/abp/pull/20803
 - https://github.com/abpframework/abp/pull/20859
