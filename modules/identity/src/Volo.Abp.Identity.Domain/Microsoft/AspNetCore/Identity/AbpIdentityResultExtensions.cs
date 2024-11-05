@@ -39,6 +39,11 @@ public static class AbpIdentityResultExtensions
             }
         }
 
+        if (IdentityStrings.ContainsKey("InvalidUserName"))
+        {
+            IdentityStrings["InvalidUserName"] = "Username '{0}' is invalid.";
+        }
+
         if (!IdentityStrings.Any())
         {
             throw new AbpException("ResourceSet values of Identity is empty.");
