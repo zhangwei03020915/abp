@@ -168,11 +168,11 @@
               "path": "tutorials/microservice/part-01.md"
             },
             {
-              "text": "2: Creating the initial Products service",
+              "text": "2: Creating the initial Catalog service",
               "path": "tutorials/modular-crm/part-02.md"
             },
             {
-              "text": "3: Building the Products service",
+              "text": "3: Building the Catalog service",
               "path": "tutorials/modular-crm/part-03.md"
             },
             {
