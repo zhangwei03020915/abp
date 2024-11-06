@@ -356,7 +356,7 @@ public partial class TokenController
             {
                 ["userId"] = user.Id.ToString("N"),
                 ["email"] = user.Email,
-                ["phoneNumber"] = user.PhoneNumber
+                ["phoneNumber"] = user.PhoneNumber ?? ""
             });
 
         return Task.FromResult<IActionResult>(Forbid(properties, OpenIddictServerAspNetCoreDefaults.AuthenticationScheme));
