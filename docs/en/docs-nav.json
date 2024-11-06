@@ -1714,7 +1714,16 @@
         },
         {
           "text": "Account (Pro)",
-          "path": "modules/account-pro.md"
+          "items": [
+            {
+              "text": "Overview",
+              "path": "modules/account-pro.md"
+            },
+            {
+              "text": "Tenant impersonation & User impersonation",
+              "path": "modules/account/impersonation.md"
+            }
+          ]
         },
         {
           "text": "Audit Logging",
@@ -1928,12 +1937,16 @@
           "path": "samples"
         },
         {
+          "text": "EventHub",
+          "path": "https://github.com/abpframework/eventhub"
+        },
+        {
           "text": "eShopOnAbp",
           "path": "https://github.com/abpframework/eShopOnAbp"
         },
         {
-          "text": "EventHub",
-          "path": "https://github.com/abpframework/eventhub"
+          "text": "CMS Kit Demo",
+          "path": "https://github.com/abpframework/cms-kit-demo"
         },
         {
           "text": "Easy CRM",
