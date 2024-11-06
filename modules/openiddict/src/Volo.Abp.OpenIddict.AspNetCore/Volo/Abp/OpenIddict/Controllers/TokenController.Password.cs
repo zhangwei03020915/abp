@@ -355,6 +355,8 @@ public partial class TokenController
             parameters: new Dictionary<string, object>
             {
                 ["userId"] = user.Id.ToString("N"),
+                ["email"] = user.Email,
+                ["phoneNumber"] = user.PhoneNumber
             });
 
         return Task.FromResult<IActionResult>(Forbid(properties, OpenIddictServerAspNetCoreDefaults.AuthenticationScheme));
