@@ -128,9 +128,11 @@ export class AppModule {}
 
 After defining the localization entries, it can be used as below:
 
+{%{
 ```html
 <div>{{ 'MyProjectName::LongWelcomePage' | abpLocalization }}</div>
 ```
+}%}
 
 > For more information, please refer to [UI Localization section of the Angular Localization document](../../framework/ui/angular/localization.md).
 
