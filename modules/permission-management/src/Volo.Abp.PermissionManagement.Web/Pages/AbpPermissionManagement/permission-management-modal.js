@@ -305,7 +305,7 @@ var abp = abp || {};
                         return;
                     }
 
-                    var tabName = $tabItem.find('small').text().toLowerCase();
+                    var tabName = $tabItem.text().toLowerCase();
 
                     var tabContentFilters = $($tabItem.attr('href')).find('[data-filter-text]');
                     let includedInTabContent = false;
