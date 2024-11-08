@@ -32,7 +32,7 @@ It will ask to you which module you want to use:
 
 The `CloudCrm` microservice solution contains more than one .NET solution. Typically, each ABP Studio module represents a separate .NET solution (see the [concepts](../../studio/concepts.md) document). ABP Suite works on a single .NET solution to generate code, so we should select a module here.
 
-Select the `CloudCrm.Catalog` module and click the *OK* button. It will open ABP Suite as shown below:
+Select the `CloudCrm.CatalogService` module and click the *OK* button. It will open ABP Suite as shown below:
 
 ![abp-studio-abp-suite-inside](images/abp-studio-abp-suite-inside.png)
 

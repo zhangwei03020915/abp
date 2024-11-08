@@ -22,7 +22,7 @@ Right-click the `services` folder in the *Solution Explorer* panel, select the *
 
 ![abp-studio-add-new-microservice-command](images/abp-studio-add-new-microservice-command.png)
 
-This command opens a new dialog to define the properties of the new microservice. You can use the following values to create a new microservice named `Catalog`:
+This command opens a new dialog to define the properties of the new microservice. You can use the following values to create a new microservice named `CatalogService`:
 
 ![abp-studio-add-new-microservice-dialog](images/abp-studio-add-new-microservice-dialog.png)
 
@@ -40,11 +40,15 @@ Select *Entity Framework Core* option and proceed the *Next* step.
 
 In this step, we can select the options for integrating the new microservice to the rest of the solution components:
 
-![abp-studio-add-new-microservice-dialog-integration-step](D:\Github\abp\docs\en\tutorials\microservice\images\abp-studio-add-new-microservice-dialog-integration-step.png)
+![abp-studio-add-new-microservice-dialog-integration-step](images/abp-studio-add-new-microservice-dialog-integration-step.png)
 
 ABP Studio intelligently selects the right values for you, but you should still check them carefully since they directly affect what we will do in the next parts of this tutorial.
 
-**Ensure the options are configured the same as in the preceding figure**, and click the *Create* button.
+**Ensure the options are configured the same as in the preceding figure**, and click the *Next* button.
+
+![abp-studio-add-new-microservice-dialog-additional-options-step](images/abp-studio-add-new-microservice-dialog-additional-options-step.png)
+
+In this step, you can select additional options for the new microservice. You can leave them as default and click the *Create* button.
 
 That's all, ABP Studio creates the new microservice and arranges all the integration and configuration for you.
 
@@ -60,9 +64,9 @@ The new microservice is added under the `services` folder in the `CloudCrm` ABP 
 
 The new microservice has its own separate .NET solution that includes three packages (.NET projects):
 
-* `CloudCrm.Catalog` is the main project that you will implement your service. It typically contains your [entities](../../framework/architecture/domain-driven-design/entities.md), [repositories](../../framework/architecture/domain-driven-design/repositories.md), [application services](../../framework/architecture/domain-driven-design/application-services.md), API controllers, etc.
-* `CloudCrm.Catalog.Contracts` project can be shared with the other services and applications. It typically contains interfaces of your [application services](../../framework/architecture/domain-driven-design/application-services.md), [data transfer objects](../../framework/architecture/domain-driven-design/data-transfer-objects.md), and some other types you may want to share with the clients of this microservice.
-* `CloudCrm.Catalog.Tests` is for building your unit and integration tests for this microservice.
+* `CloudCrm.CatalogService` is the main project that you will implement your service. It typically contains your [entities](../../framework/architecture/domain-driven-design/entities.md), [repositories](../../framework/architecture/domain-driven-design/repositories.md), [application services](../../framework/architecture/domain-driven-design/application-services.md), API controllers, etc.
+* `CloudCrm.CatalogService.Contracts` project can be shared with the other services and applications. It typically contains interfaces of your [application services](../../framework/architecture/domain-driven-design/application-services.md), [data transfer objects](../../framework/architecture/domain-driven-design/data-transfer-objects.md), and some other types you may want to share with the clients of this microservice.
+* `CloudCrm.CatalogService.Tests` is for building your unit and integration tests for this microservice.
 
 ### Opening the Service in an IDE
 
@@ -70,7 +74,7 @@ You can open the new microservice in your favorite IDE for development. As a sho
 
 ![abp-studio-open-with-visual-studio](images/abp-studio-open-with-visual-studio.png)
 
-Here is the `CloudCrm.Catalog` .NET solution in Visual Studio:
+Here is the `CloudCrm.CatalogService` .NET solution in Visual Studio:
 
 ![visual-studio-solution-explorer-catalog-service](images/visual-studio-solution-explorer-catalog-service.png)
 
@@ -104,7 +108,7 @@ Assuming you've selected SQL Server as your DBMS, you can open the SQL Server Ma
 
 ![sql-server-management-studio-login-screen](images/sql-server-management-studio-login-screen.png)
 
-Use `localhost,1434` as the *Server name*, select the *SQL Server Authentication* as the *Authentication* type, use `sa` as the *Login* name and `myPassw@rd` as the *Password* value. You can find these values in the `appsettings.json` file in the `CloudCrm.Catalog` project of the .NET solution of the Catalog microservice.
+Use `localhost,1434` as the *Server name*, select the *SQL Server Authentication* as the *Authentication* type, use `sa` as the *Login* name and `myPassw@rd` as the *Password* value. You can find these values in the `appsettings.json` file in the `CloudCrm.CatalogService` project of the .NET solution of the Catalog microservice.
 
 Once you click the *Connect* button, you can see all the databases and explore their data:
 
