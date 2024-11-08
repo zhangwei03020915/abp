@@ -21,7 +21,7 @@ Follow the *[Get Stared](../../get-started/microservice.md)* guide to create a n
 
 You can select the other options based on your preference.
 
-> **Please complete the [Get Stared](../../get-started/layered-web-application.md) guide and run the web application before going further.**
+> **Please complete the *[Get Stared](../../get-started/layered-web-application.md)* guide and run the web application before going further.** You can skip the sections after the *Running the Solution* section, if you don't prefer to complete all.
 
 The initial solution structure should be like the following in ABP Studio's *[Solution Explorer](../../studio/solution-explorer.md)*:
 
