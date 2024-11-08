@@ -558,6 +558,7 @@ Open the `/src/app/route.provider.ts` and add `'BookStore.Books || BookStore.Aut
   layout: eLayoutType.application,
   requiredPolicy: 'BookStore.Books || BookStore.Authors',
 },
+````
 
 The final `configureRoutes` function declaration should be following:
 
@@ -676,6 +677,10 @@ export class AuthorComponent implements OnInit {
         this.selectedAuthor.birthDate ? new Date(this.selectedAuthor.birthDate) : null,
         Validators.required,
       ],
+      shortBio: [
+        this.selectedAuthor.shortBio ? this.selectedAuthor.shortBio : null,
+        Validators.required,
+      ],
     });
   }
 
@@ -767,6 +772,7 @@ Open the `/src/app/author/author.component.html` and replace the content as belo
           {%{{{ row.birthDate | date }}}%}
         </ng-template>
       </ngx-datatable-column>
+      <ngx-datatable-column [name]="'::ShortBio' | abpLocalization" prop="shortBio"></ngx-datatable-column>
     </ngx-datatable>
   </div>
 </div>
@@ -793,6 +799,10 @@ Open the `/src/app/author/author.component.html` and replace the content as belo
           ngbDatepicker
           (click)="datepicker.toggle()"
         />
+      </div>
+      <div class="form-group">
+        <label for="author-short-bio">{%{{{ '::Short Bio' | abpLocalization }}}%}</label><span> * </span>
+        <textarea id="author-short-bio" class="form-control" formControlName="shortBio" rows="12"></textarea>
       </div>
     </form>
   </ng-template>
