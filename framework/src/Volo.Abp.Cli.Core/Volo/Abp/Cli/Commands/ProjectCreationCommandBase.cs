@@ -347,16 +347,15 @@ public abstract class ProjectCreationCommandBase
         uiFramework = uiFramework == UiFramework.NotSpecified || uiFramework == UiFramework.None ? UiFramework.Mvc : uiFramework;
         databaseProvider = databaseProvider == DatabaseProvider.NotSpecified ? DatabaseProvider.EntityFrameworkCore : databaseProvider;
 
-        var urlPrefix = commercial ? "commercial" : "www";
         var tieredYesNo = tiered ? "yes" : "no";
-        var url = $"https://{urlPrefix}.abp.io/project-created-success?ui={uiFramework:g}&db={databaseProvider:g}&tiered={tieredYesNo}";
+        var url = $"https://abp.io/project-created-success?ui={uiFramework:g}&db={databaseProvider:g}&tiered={tieredYesNo}&commercial={(commercial ? "yes" : "no")}";
 
         CmdHelper.Open(url);
     }
 
     protected void OpenMicroserviceDocumentPage()
     {
-        var url = "https://docs.abp.io/en/commercial/latest/startup-templates/microservice/index";
+        var url = "https://abp.io/docs/latest/solution-templates/microservice";
 
         CmdHelper.Open(url);
     }
@@ -454,10 +453,19 @@ public abstract class ProjectCreationCommandBase
         var searchPattern = isWebassembly ? "*.Blazor.csproj" : "*.MauiBlazor.csproj";
         var path = projectArgs.OutputFolder;
 
+        if (isWebassembly && Directory.GetFiles(path, "*.Blazor.Client.csproj", SearchOption.AllDirectories).Any())
+        {
+            searchPattern = "*.Blazor.Client.csproj";
+        }
+
         if (isModuleTemplate)
         {
             path = Path.Combine(path, "host");
             searchPattern = "*.Blazor.Host.csproj";
+            if (Directory.GetFiles(path, "*.Blazor.Host.Client.csproj", SearchOption.AllDirectories).Any())
+            {
+                searchPattern = "*.Blazor.Host.Client.csproj";
+            }
         }
         else if (MicroserviceTemplateBase.IsMicroserviceTemplate(projectArgs.TemplateName))
         {
@@ -668,6 +676,8 @@ public abstract class ProjectCreationCommandBase
                 return UiFramework.Blazor;
             case "blazor-server":
                 return UiFramework.BlazorServer;
+            case "blazor-webapp":
+                return UiFramework.BlazorWebApp;
             case "maui-blazor" when template == AppProTemplate.TemplateName:
                 return UiFramework.MauiBlazor;
             default:

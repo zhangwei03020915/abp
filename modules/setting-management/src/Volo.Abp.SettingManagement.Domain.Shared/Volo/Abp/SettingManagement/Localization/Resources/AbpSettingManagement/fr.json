@@ -2,7 +2,7 @@
   "culture": "fr",
   "texts": {
     "Settings": "Paramètres",
-    "SuccessfullySaved": "Enregistré avec succès",
+    "SavedSuccessfully": "Enregistré avec succès",
     "Permission:SettingManagement": "Gestion des paramètres",
     "Permission:Emailing": "Envoi par e-mail",
     "Permission:EmailingTest": "Test d&#39;emailing",
@@ -15,6 +15,7 @@
     "TestEmailSubject": "E-mail test {0}",
     "TestEmailBody": "Testez le corps du message ici",
     "SuccessfullySent": "Envoyé avec succès",
+    "MailSendingFailed": "L'envoi de courrier a échoué, veuillez vérifier votre configuration de courrier électronique et réessayer.",
     "Send": "Envoyer",
     "Menu:Emailing": "Envoi par e-mail",
     "Menu:TimeZone": "Fuseau Horaire",
