@@ -34,8 +34,33 @@ When you create a new ABP solution, fundamental modules are already installed. Y
 
 ## The Startup Solution Templates
 
-We understood what is a startup solution template. Now, we can explore which startup solution templates are provided by ABP Platform.
+We understood what is a startup solution template. Now, we can explore which startup solution templates are provided by the ABP Platform.
 
-### Single-Layer Solution Template
+### Single-Layer Application Solution Template
+
+The [single-layer solution template](single-layer-web-application/index.md) is the most simple startup template. It provides a minimal solution architecture while starting a new project. Your .NET solution typically contains a single, or a few .NET projects depending on your UI and other preferences while creating your solution.
+
+The following figure shows a single-project web application that has [MVC (Razor Pages) UI](../framework/ui/mvc-razor-pages/overall.md) and [Entity Framework Core](../framework/data/entity-framework-core/index.md) database provider with default configuration:
+
+![single-layer-abp-solution](images/single-layer-abp-solution.png)
+
+As you see in the preceding figure, all the application code (entities, data access, services, UI pages, etc.) are located in a single .NET project.
+
+#### When to use the Single-Layer Solution Template?
+
+In the following conditions, you may consider to use the single-layer solution template:
+
+* If **your project is small** and you don't expect that it will grow by the time. But remember that many projects are thought as small in the beginning.
+* If your project is a **temporary project** and it will be thrown away in a short time. It can be a POC project or a temporary application for a short-term advertisement campaign.
+* If you are a single developer or there are only 2-3 developers working on your solution.
+* If the developer(s) working on your solution are not experienced or don't understand the structure and benefits of a layered application, and don't want to learn it.
+
+If the preceding conditions are meet with your case, you can consider to start with this solution template. However, be noticed that your solution can quickly become a [big ball of mud](https://thedomaindrivendesign.io/big-ball-of-mud/). We think that only a very small portion of applications are suitable for that kind of structure that has not an explicit architecture.
+
+#### Can I use the Single-Layer Solution Template for Modular Applications?
+
+If you want to [build a modular application](../tutorials/modular-crm/index.md) and want to use that single-layer application as only the host application, then it can be a good decision to get started with this solution template. In that case, you can use that single-layer application just for referencing to other modules' .NET projects and use that host application for configuring the modules to run a monolith application. In that case, do not add any application functionality to the host application. Even if you need to make multi-module functionalities, just create another module that uses the modules you want to work on.
+
+### Layered Solution Template
 
 TODO
