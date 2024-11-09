@@ -1,6 +1,11 @@
 # Solution Templates
 
-ABP provides pre-architected and production-ready templates to jump start a new solution. The following solution templates are provided out of the box:
+ABP provides pre-architected and production-ready templates to jump start a new solution.
+
+> **The Template Selection Guide**
+> Please [check that guide](guide.md) if you are not sure which solution template is suitable for you.
+
+The following solution templates are provided out of the box:
 
 * **[Single-Layer Solution](single-layer-web-application/index.md)**: A single-project solution. Recommended for building an application with a **simpler and easy to understand** architecture.
 * **[Layered Solution](layered-web-application/index.md)**: A fully layered (multiple projects) solution based on [Domain Driven Design](../framework/architecture/domain-driven-design) practices. Recommended for long-term projects that need a **maintainable and extensible** codebase.
