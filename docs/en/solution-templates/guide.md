@@ -101,8 +101,48 @@ In the following conditions, you may consider to use the layered solution templa
 
 ### Modular Monolith Applications
 
-TODO
+ABP doesn't provide a specific modular monolith application startup template. However, it is not needed. Let us explain why.
+
+The ABP Framework and [ABP Studio](../studio/index.md) are already designed to support modular application development from their beginning. ABP framework provides all the **necessary infrastructure** for [modularity](../framework/architecture/modularity/basics.md) and all other framework features are **compatible with modular solutions**.
+
+On the other hand, the main purpose of ABP Studio's [Solution Explorer panel](../studio/solution-explorer.md) is to **architect and build modular and complex software solutions**. You can easily create new modules, arrange dependencies between the modules and import/install these modules into a monolith application. While you can do all these manually yourself, ABP Studio make it extremely easy to do and understand it.
+
+#### How to Build a Modular Monolith Application?
+
+A **modular monolith** application consists of a **single host** application and **multiple sub-modules**. Typically, each module has its own .NET solution that contains the code related to that module. So, the general structure is shown in the following figure:
+
+![example-modular-solution](images/example-modular-solution.png)
+
+In this example, `MyCrm.Host` is an almost-empty host application that has package references to other modules. Every module consists of two-packages (implementation and contracts).
+
+You can follow the steps below to create such a modular solution with ABP Studio:
+
+* **Create a new application** using either [single-layer](single-layer-web-application/index.md) or [layered](layered-web-application/index.md) application startup template. That application will be the **host application** of your solution.
+* **Create new modules** (right-click to the solution root, select the *Add* -> *New Module* -> ... command).
+* **Import & Install** these **modules** to the host application.
+
+> You can follow the **[Modular Monolith Application Development Tutorial](../tutorials/modular-crm/index.md)** to learn how to build a modular application step by step.
+
+#### Which Startup Template to use for a Modular Application?
+
+So, both of [single-layer](single-layer-web-application/index.md) and [layered](layered-web-application/index.md) application startup templates are inherently modular. Just use one of them and start your modular solution. You may wonder which one to start:
+
+* Use the **[single-layer startup template](single-layer-web-application/index.md)** for the host application of your modular monolith if you will leave the host application as empty. It will contain some configuration code of course, but it won't contain any actual application code. **This is the suggested approach.**
+* Use the **[layered application startup template](layered-web-application/index.md)** if you will write some application code into the hosting application. You may want that to write some code that makes multiple module operations that is not easily to implement in a particular module. In that case, a layered hosting application will be a better way to organize your codebase. However, this approach can quickly move your solution away from a modular system. So, take your own risk.
+
+#### When to Build a Modular Monolith Application?
+
+In the following conditions, you may consider to build a modular software solution:
+
+* If your **domain is too complex** to develop and maintain in a single monolith codebase.
+* If your business domain is easy to **split into sub-domains**.
+* If you have **multiple teams** that will work on the solution.
+* If you are considering to **migrate** your application to a **microservice system**.
+
+While all these are also suitable for microservice solutions (will be discussed in the next section), a modular solution is more suitable than microservices for most of the projects. Especially, if you don't need to have technology diversity, deploy and scale services independently and serve too many users concurrently with a fault tolerant system, a modular monolith application would be a better choice to not deal with complexity of a microservice system.
+
+Also, even if you are considering to build a microservice system, most of the times it is advised to [start with a monolith modular first](https://martinfowler.com/bliki/MonolithFirst.html), then migrate to microservices later once your business and module boundaries are more stable.
 
 ### Microservice Solution Template
 
-TODO
+ABP's [microservice startup template](microservice/index.md) ...
