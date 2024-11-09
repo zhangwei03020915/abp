@@ -4,7 +4,8 @@ This template provides a simple solution structure with a single project. This d
 
 ## Getting Started
 
-Follow the [Getting Started guide](../../get-started/single-layer-web-application.md) to create a new solution using this startup solution template.
+* Follow the [Getting Started guide](../../get-started/single-layer-web-application.md) to create a new solution using this startup solution template.
+* Follow the [TODO application tutorial](../../tutorials/todo/single-layer/index.md) to learn how to create a simple application with this startup solution template.
 
 ## The Solution Structure
 
