@@ -63,6 +63,17 @@ In the following conditions, you may consider to use the single-layer solution t
 
 If the preceding conditions are meet with your case, you can consider to start with this solution template. However, be noticed that your solution can quickly become a **[big ball of mud](https://thedomaindrivendesign.io/big-ball-of-mud/)**. We think that only a **very small portion of applications** are suitable for that kind of solution structure.
 
+Last, but not least, the single-layer solution template doesn't provide the following options/features:
+
+* Mobile application integration
+* Public website (a second web application for landing page of your product)
+* Tiered architecture (for MVC applications, separates UI and service layers)
+* Separate tenant schema (for multi-tenant applications)
+* Kubernetes / Helm configuration
+* Automated (unit/integration) test projects
+
+These options are not implemented to keep the solution structure as simple as possible. If you need some of these, consider to use the layered solution template.
+
 ### Layered Solution Template
 
 The [layered application startup template](layered-web-application/index.md) is a .NET solution that consists of many projects. Each project represents a layer of the application or has a specific functionality for the solution.
