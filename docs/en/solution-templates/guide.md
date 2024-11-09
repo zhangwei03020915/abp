@@ -151,3 +151,7 @@ In the following conditions, you may consider to build a microservice system:
 * If you need to use **multiple technology stacks** (some services can be built with .NET and some others can be built with other technologies).
 * If you need to serve **too many users** concurrently with a **high available** and **fault tolerant** system.
 * If you have **devops** knowledge and culture in your company. If you can deal with **complex** development, build, test, deployment and production environments.
+
+## Conclusion
+
+In summary, the ABP Platform offers a variety of solution templates tailored to different architectural needs, including layered applications, microservices, and modular development. These templates provide a great foundation for building robust applications by implementing best practices and providing essential features. By selecting the right template, you can streamline the development process, ensuring scalability and maintainability in your project.
