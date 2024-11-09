@@ -2,8 +2,7 @@
 
 ABP provides pre-architected and production-ready templates to jump start a new solution.
 
-> **The Template Selection Guide**
-> Please [check that guide](guide.md) if you are not sure which solution template is suitable for you.
+> **You can see the [Solution Template Selection Guide](guide.md) if you are not sure which solution template is suitable for you.**
 
 The following solution templates are provided out of the box:
 
@@ -15,3 +14,8 @@ The following solution templates are provided out of the box:
   - [MAUI Application](../get-started/maui.md)
   - [WPF Application](../get-started/wpf.md)
   - [Console Application](../get-started/console.md)
+
+## See Also
+
+* [Solution Template Selection Guide](guide.md)
+* [Get Started with ABP Platform](../get-started/index.md)
