@@ -63,4 +63,4 @@ If the preceding conditions are meet with your case, you can consider to start w
 
 ### Layered Solution Template
 
-TODO
+The [layered application startup template](layered-web-application/index.md)
