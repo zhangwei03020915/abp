@@ -126,7 +126,7 @@ So, both of [single-layer](single-layer-web-application/index.md) and [layered](
 In the following conditions, you may consider to build a modular software solution:
 
 * If your **domain is too complex** to develop and maintain in a single monolith codebase.
-* If your business domain is easy to **split into sub-domains**.
+* If your business domain is possible to **split into sub-domains**.
 * If you have **multiple teams** that will work on the solution.
 * If you are considering to **migrate** your application to a **microservice system**.
 
@@ -136,4 +136,18 @@ Also, even if you are considering to build a microservice system, most of the ti
 
 ### Microservice Solution Template
 
-ABP's [microservice startup template](microservice/index.md) ...
+ABP's [microservice startup template](microservice/index.md) includes multiple services, API gateways and applications that are well integrated to each other and ready to be a great **base solution for your microservice system**. Here, is an overall diagram that shows the main components of the solution (they vary based on the options while you are creating your solution):
+
+![ms-overall-architecture](microservice/images/overall-architecture.png)
+
+#### When to use the Microservice Solution Template?
+
+In the following conditions, you may consider to build a microservice system:
+
+* If your **domain is too complex** to develop and maintain in a single monolith codebase.
+* If your business domain is possible to **split into sub-domains**.
+* If you have **multiple teams** that will work on the solution in parallel.
+* If you need to **develop**, **test**, **deploy** and **scale services** independently.
+* If you need to use **multiple technology stacks** (some services can be built with .NET and some others can be built with other technologies).
+* If you need to serve **too many users** concurrently with a **high available** and **fault tolerant** system.
+* If you have **devops** knowledge and culture in your company. If you can deal with **complex** development, build, test, deployment and production environments.
