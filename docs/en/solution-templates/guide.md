@@ -63,18 +63,13 @@ In the following conditions, you may consider to use the single-layer solution t
 
 If the preceding conditions are meet with your case, you can consider to start with this solution template. However, be noticed that your solution can quickly become a **[big ball of mud](https://thedomaindrivendesign.io/big-ball-of-mud/)**. We think that only a **very small portion of applications** are suitable for that kind of solution structure.
 
-> **Can I use the Single-Layer Solution Template for Modular Applications?**
->
-> If you want to [build a modular application](../tutorials/modular-crm/index.md) and want to use that single-layer application as only the host application, then **it can be a good decision** to get started with this solution template. In that case, you can use that single-layer application just for referencing to other modules' .NET projects and configuring them to run as a monolith application. In that case, **do not add any application functionality to the host application**. Even if you need to make multi-module functionalities, just create another module that consumes these modules you want to work on.
->
-
 ### Layered Solution Template
 
 The [layered application startup template](layered-web-application/index.md) is a .NET solution that consists of many projects. Each project represents a layer of the application or has a specific functionality for the solution.
 
 Exact project count in your solution depends on the options you've selected. The following figure shows a solution with [MVC (Razor Pages) UI](../framework/ui/mvc-razor-pages/overall.md) and [Entity Framework Core](../framework/data/entity-framework-core/index.md) database provider with the default configuration:
 
-![layered-abp-application](D:\Github\abp\docs\en\solution-templates\images\layered-abp-application.png)
+![layered-abp-application](images/layered-abp-application.png)
 
 The solution is layered based on Domain-Driven Design principles and extended based on real-world business application requirements. It includes test projects for each layer. Layering the solution has great benefits:
 
@@ -94,10 +89,6 @@ In the following conditions, you may consider to use the layered solution templa
 * If your project is a **long-term** project and you want to design it as **maintainable** for long years.
 * If you are **a team of developers** working on your solution.
 * If your solution will have **multiple** web, mobile or other type of **applications** that need to **share** the same business logic.
-
-> **Can I use the Single-Layer Solution Template for Modular Applications?**
->
-> If you want to [build a modular application](../tutorials/modular-crm/index.md), you may want to use that layered application as a host application. After creating your solution, you can add modules and import these modules to the host application. You can also use the application's .NET solution as a unification layer in some cases you need to write code that utilizes multiple modules. However, if you don't consider to write any application code into the host application (which can be considered as a good practice), you can use the single-layer startup solution template as your host application as explained before.
 
 ### Modular Monolith Applications
 
