@@ -1643,6 +1643,10 @@
           "path": "solution-templates"
         },
         {
+          "text": "Template Guide",
+          "path": "solution-templates/guide.md"
+        },
+        {
           "text": "Single-Layer Solution",
           "path": "solution-templates/single-layer-web-application"
         },
