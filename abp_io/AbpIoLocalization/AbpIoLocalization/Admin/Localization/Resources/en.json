@@ -22,6 +22,7 @@
     "Permission:Accounting": "Accounting",
     "Permission:Accounting:Quotation": "Quotation",
     "Permission:Accounting:Invoice": "Invoice",
+    "Permission:Export" : "Export",
     "Menu:Organizations": "Organizations",
     "Menu:Accounting": "Accounting",
     "Menu:Packages": "Packages",
