@@ -63,7 +63,50 @@ You can leave the other configurations as default.
 
 ### Generating the Code
 
+![abp-suite-product-generating.png](images/abp-suite-product-generating.png)
+
 That's all. You can click the *Save and generate* button to start the code generation process.
 
-TODO: I give a break in that point since we are waiting ABP Suite team to complete generating UI for microservices.
+![abp-suite-product-generated](images/abp-suite-product-generated.png)
+
+ABP Suite will generate the necessary code for you. It will take some time to complete the process. After the process is completed, you will see a success message click the *OK* button.
+
+### Generating the UI Proxy
+
+Now, we need to generate the [Static API Proxy](../../framework/api-development/static-csharp-clients.md) for the *Web* project. Right-click the *CloudCrm.Web* [package](../../studio/concepts.md#package) and select the *ABP CLI* -> *Generate Proxy* -> *C#* command:
+
+![abp-studio-generate-proxy](images/abp-studio-generate-proxy.png)
+
+It will open the *Generate C# Proxies* window. Select the `CloudCrm.CatalogService` application, and it will automatically populate the *URL* field. Choose the *catalog* module, and check the *Without contracts* checkbox, since we already have a dependency on the `CloudCrm.CatalogService.Contracts` package in the `CloudCrm.Web` project.
+
+![abp-studio-generate-proxy-window](images/abp-studio-generate-proxy-window.png)
+
+> To be able to select the *Application*, you must *Build & Start* the related application beforehand. You can start the application using [Solution Runner](../../studio/running-applications.md).
+
+Lastly, we need to configure the use of a static HTTP client for the `CatalogService` in the `CloudCrm.Web` project. Open the `CloudCrmWebModule.cs` file in the `Web` project and add the following line to the `ConfigureServices` method:
+
+```csharp
+public override void ConfigureServices(ServiceConfigurationContext context)
+{
+    // Abbreviated code for brevity
+    context.Services.AddStaticHttpClientProxies(
+      typeof(CloudCrmCatalogServiceContractsModule).Assembly);
+}
+```
+
+### Running the Application
+
+Now, you can run the application by clicking the *Run* -> *Build & Start All* button in the *Solution Runner* panel:
+
+![abp-studio-run-build-and-start-all](images/abp-studio-run-build-and-start-all.png)
+
+After the application is started, you can rigth-click and [Browse](../../studio/running-applications.md#monitoring) on the `CloudCrm.Web` application to open it in the ABP Studio inside browser:
+
+![abp-studio-browse-cloud-crm-products](images/abp-studio-browse-cloud-crm-products.png)
+
+> If you can't see the *Products* menu item, you need to grant the `CatalogService` *Product* permission to the *admin* role. You can do this by navigating to *Identity Management* -> *Roles* and editing the *admin* role. Alternatively, you can restart the *CloudCrm.AdministrationService* application to automatically seed all permissions for the *admin* role.
+
+You can open the Sql Server Management Studio to see the created tables and data:
+
+![sql-server-management-studio-products](images/sql-server-management-studio-products.png)
 
