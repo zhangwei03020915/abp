@@ -87,7 +87,7 @@ public class AbpRedisCache : RedisCache, ICacheSupportsMultipleItems
         return await (ValueTask<IDatabase>)ConnectAsyncMethod.Invoke(this, new object[] { token })!;
     }
 
-    public byte[]?[] GetMany(
+    public virtual byte[]?[] GetMany(
         IEnumerable<string> keys)
     {
         keys = Check.NotNull(keys, nameof(keys));
@@ -95,7 +95,7 @@ public class AbpRedisCache : RedisCache, ICacheSupportsMultipleItems
         return GetAndRefreshMany(keys, true);
     }
 
-    public async Task<byte[]?[]> GetManyAsync(
+    public virtual async Task<byte[]?[]> GetManyAsync(
         IEnumerable<string> keys,
         CancellationToken token = default)
     {
@@ -104,7 +104,7 @@ public class AbpRedisCache : RedisCache, ICacheSupportsMultipleItems
         return await GetAndRefreshManyAsync(keys, true, token);
     }
 
-    public void SetMany(
+    public virtual void SetMany(
         IEnumerable<KeyValuePair<string, byte[]>> items,
         DistributedCacheEntryOptions options)
     {
@@ -121,7 +121,7 @@ public class AbpRedisCache : RedisCache, ICacheSupportsMultipleItems
         }
     }
 
-    public async Task SetManyAsync(
+    public virtual async Task SetManyAsync(
         IEnumerable<KeyValuePair<string, byte[]>> items,
         DistributedCacheEntryOptions options,
         CancellationToken token = default)
@@ -141,7 +141,7 @@ public class AbpRedisCache : RedisCache, ICacheSupportsMultipleItems
         }
     }
 
-    public void RefreshMany(
+    public virtual void RefreshMany(
         IEnumerable<string> keys)
     {
         keys = Check.NotNull(keys, nameof(keys));
@@ -149,7 +149,7 @@ public class AbpRedisCache : RedisCache, ICacheSupportsMultipleItems
         GetAndRefreshMany(keys, false);
     }
 
-    public async Task RefreshManyAsync(
+    public virtual async Task RefreshManyAsync(
         IEnumerable<string> keys,
         CancellationToken token = default)
     {
@@ -158,7 +158,7 @@ public class AbpRedisCache : RedisCache, ICacheSupportsMultipleItems
         await GetAndRefreshManyAsync(keys, false, token);
     }
 
-    public void RemoveMany(IEnumerable<string> keys)
+    public virtual void RemoveMany(IEnumerable<string> keys)
     {
         keys = Check.NotNull(keys, nameof(keys));
 
@@ -166,7 +166,7 @@ public class AbpRedisCache : RedisCache, ICacheSupportsMultipleItems
 
         try
         {
-            cache.KeyDelete(keys.Select(key => InstancePrefix.Append(key)).ToArray());
+            Task.WaitAll(PipelineRemoveManyAsync(cache, keys));
         }
         catch (Exception ex)
         {
@@ -175,7 +175,7 @@ public class AbpRedisCache : RedisCache, ICacheSupportsMultipleItems
         }
     }
 
-    public async Task RemoveManyAsync(IEnumerable<string> keys, CancellationToken token = default)
+    public virtual async Task RemoveManyAsync(IEnumerable<string> keys, CancellationToken token = default)
     {
         keys = Check.NotNull(keys, nameof(keys));
 
@@ -184,13 +184,18 @@ public class AbpRedisCache : RedisCache, ICacheSupportsMultipleItems
 
         try
         {
-            await cache.KeyDeleteAsync(keys.Select(key => InstancePrefix.Append(key)).ToArray());
+            await Task.WhenAll(PipelineRemoveManyAsync(cache, keys));
         }
         catch (Exception ex)
         {
             OnRedisError(ex, cache);
             throw;
         }
+    }
+    
+    protected virtual Task[] PipelineRemoveManyAsync(IDatabase cache, IEnumerable<string> keys)
+    {
+        return keys.Select(key => cache.KeyDeleteAsync(InstancePrefix.Append(key))).ToArray<Task>();
     }
 
     protected virtual byte[]?[] GetAndRefreshMany(
