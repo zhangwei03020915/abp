@@ -71,6 +71,14 @@ That's all. You can click the *Save and generate* button to start the code gener
 
 ABP Suite will generate the necessary code for you. It will take some time to complete the process. After the process is completed, you will see a success message click the *OK* button.
 
+![abp-studio-catalog-service-build-and-start](images/abp-studio-catalog-service-build-and-start.png)
+
+We can now build and start the `CloudCrm.CatalogService` application by clicking the *Run* -> *Build & Start* button in the *Solution Runner* panel.
+
+![abp-studio-browse-catalog-service-2](abp-studio-browse-catalog-service-2.png)
+
+After the application is started, you can rigth-click and [Browse](../../studio/running-applications.md#monitoring) on the `CloudCrm.CatalogService` application to open it in the ABP Studio inside browser. You can see the *Products* controller in the Swagger UI.
+
 ### Generating the UI Proxy
 
 Now, we need to generate the [Static API Proxy](../../framework/api-development/static-csharp-clients.md) for the *Web* project. Right-click the *CloudCrm.Web* [package](../../studio/concepts.md#package) and select the *ABP CLI* -> *Generate Proxy* -> *C#* command:
@@ -96,7 +104,7 @@ public override void ConfigureServices(ServiceConfigurationContext context)
 
 ### Running the Application
 
-Now, you can run the application by clicking the *Run* -> *Build & Start All* button in the *Solution Runner* panel:
+Now, stop any application running in the *Solution Runner* panel, and then run the application by clicking the *Run* -> *Build & Start All* button on the root item in the *Solution Runner* panel.
 
 ![abp-studio-run-build-and-start-all](images/abp-studio-run-build-and-start-all.png)
 
@@ -109,4 +117,3 @@ After the application is started, you can rigth-click and [Browse](../../studio/
 You can open the Sql Server Management Studio to see the created tables and data:
 
 ![sql-server-management-studio-products](images/sql-server-management-studio-products.png)
-
