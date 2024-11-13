@@ -75,7 +75,7 @@ ABP Suite will generate the necessary code for you. It will take some time to co
 
 We can now build and start the `CloudCrm.CatalogService` application by clicking the *Run* -> *Build & Start* button in the *Solution Runner* panel.
 
-![abp-studio-browse-catalog-service-2](abp-studio-browse-catalog-service-2.png)
+![abp-studio-browse-catalog-service-2](images/abp-studio-browse-catalog-service-2.png)
 
 After the application is started, you can rigth-click and [Browse](../../studio/running-applications.md#monitoring) on the `CloudCrm.CatalogService` application to open it in the ABP Studio inside browser. You can see the *Products* controller in the Swagger UI.
 
@@ -117,3 +117,7 @@ After the application is started, you can rigth-click and [Browse](../../studio/
 You can open the Sql Server Management Studio to see the created tables and data:
 
 ![sql-server-management-studio-products](images/sql-server-management-studio-products.png)
+
+## Summary
+
+In this part, we've created a new entity named *Product* and generated the necessary code for it. We've also generated the UI proxy for the `CatalogService` application and configured the static HTTP client for it in the `Web` project. We've run the application and tested the *Products* page.

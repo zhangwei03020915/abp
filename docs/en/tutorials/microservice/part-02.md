@@ -46,6 +46,8 @@ ABP Studio intelligently selects the right values for you, but you should still 
 
 **Ensure the options are configured the same as in the preceding figure**, and click the *Next* button.
 
+### Additional Options
+
 ![abp-studio-add-new-microservice-dialog-additional-options-step](images/abp-studio-add-new-microservice-dialog-additional-options-step.png)
 
 In this step, you can select additional options for the new microservice. You can leave them as default and click the *Create* button.
