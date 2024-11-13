@@ -92,7 +92,7 @@ For example, using **MapStaticAssets**, a file like `MudBlazor.min.css` is compr
 
 The ABP framework is 100% compatible with this new feature.
 
-However some JavaScript, CSS, and image files exist in the [Virtual File System](https://abp.io/docs/latest/framework/infrastructure/virtual-file-system), which ASP.NET Core's **MapStaticAssets** can't handle. For these files, additional **StaticFileMiddleware** is needed to serve them, which is where **MapAbpStaticAssets** comes in.
+However, some JavaScript, CSS, and image files exist in the [Virtual File System](https://abp.io/docs/latest/framework/infrastructure/virtual-file-system), which ASP.NET Core's **MapStaticAssets** can't handle. For these files, additional **StaticFileMiddleware** is needed to serve them, which is where **MapAbpStaticAssets** comes in.
 
 **MapAbpStaticAssets** adds the necessary **StaticFileMiddleware** to ensure that virtual files are correctly served. This middleware setup ensures seamless delivery of virtual resources alongside static assets.
 
@@ -104,5 +104,5 @@ Optimizing static asset delivery is essential for building fast, efficient web a
 
 ## References
 
-[Static files in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/static-files?view=aspnetcore-9.0)
-[What's new in ASP.NET Core 9.0](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-9.0?view=aspnetcore-8.0#optimize-static-web-asset-delivery)
+* [Static files in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/static-files?view=aspnetcore-9.0)
+* [What's new in ASP.NET Core 9.0](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-9.0?view=aspnetcore-8.0#optimize-static-web-asset-delivery)
