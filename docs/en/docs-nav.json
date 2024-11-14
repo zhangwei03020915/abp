@@ -893,7 +893,7 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/ui/mvc-razor-pages/overall"
+                  "path": "framework/ui/mvc-razor-pages/overall.md"
                 },
                 {
                   "text": "Navigation / Menus",
@@ -1641,6 +1641,10 @@
         {
           "text": "Overview",
           "path": "solution-templates"
+        },
+        {
+          "text": "Template Guide",
+          "path": "solution-templates/guide.md"
         },
         {
           "text": "Single-Layer Solution",
