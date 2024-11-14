@@ -22,7 +22,7 @@ OpenAPI Microsoft Documentation 👉 [https://aka.ms/aspnet/openapi](https://aka
 Replacement of Swagger UI with OpenAPI for API projects — Bye Swashbuckle 👋
 ----------------------------------------------------------------------------
 
-![Docs](D:\Github\abp\docs\en\Community-Articles\2024-11-13-BuiltIn-OpenApi-Documentation\img2.png)
+![Docs](img2.png)
 
 Swagger UI, a third-party tool used for documenting and testing APIs, is no longer integrated into NET 9, as Microsoft wants a solution with first-class support, better control, and enhanced security.
 
@@ -40,7 +40,7 @@ In the below issue, you can see the details of this decision:
 
 **Jeremy** -Product Manager- at Microsoft answers why they took this decision in [this post](https://github.com/dotnet/aspnetcore/issues/54599#issuecomment-2004975574).
 
-![Jeremy Comments](D:\Github\abp\docs\en\Community-Articles\2024-11-13-BuiltIn-OpenApi-Documentation\img3.png)
+![Jeremy Comments](img3.png)
 
 Why is SwaggerUI Removed from .NET 9?
 -------------------------------------
@@ -79,11 +79,11 @@ How to Use the New OpenAPI in .NET9?
 
 If you are creating a new ASP.NET Core project, you can see the below checkbox to add OpenAPI.
 
-![New .NET 9 Project Screen](D:\Github\abp\docs\en\Community-Articles\2024-11-13-BuiltIn-OpenApi-Documentation\img5.png)
+![New .NET 9 Project Screen](img5.png)
 
 When I created a new .NET 9 web project, I saw that OpenAPI had already been added.
 
-![Package Reference](D:\Github\abp\docs\en\Community-Articles\2024-11-13-BuiltIn-OpenApi-Documentation\img4.png)
+![Package Reference](img4.png)
 
 Add the required NuGet package [Microsoft.AspNetCore.OpenApi](https://www.nuget.org/packages/Microsoft.AspNetCore.OpenApi)
 
@@ -108,7 +108,7 @@ Your OpenAPI document URL is [_https://localhost:7077/openapi/v1.json_](https://
 
 Change the port to your active port. This is how it looks like:
 
-![Web UI of the Documentation](D:\Github\abp\docs\en\Community-Articles\2024-11-13-BuiltIn-OpenApi-Documentation\img1.png)
+![Web UI of the Documentation](img1.png)
 
 Alternative 3rd Party Tool: Scalar
 ==================================
