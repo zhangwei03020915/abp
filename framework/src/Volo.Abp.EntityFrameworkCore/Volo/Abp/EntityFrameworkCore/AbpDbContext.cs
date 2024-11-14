@@ -36,6 +36,7 @@ using Volo.Abp.ObjectExtending;
 using Volo.Abp.Reflection;
 using Volo.Abp.Timing;
 using Volo.Abp.Uow;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Volo.Abp.EntityFrameworkCore;
 
@@ -109,6 +110,12 @@ public abstract class AbpDbContext<TDbContext> : DbContext, IAbpEfCoreDbContext,
         : base(options)
     {
         DbContextOptions = options;
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.ConfigureWarnings(c => c.Ignore(RelationalEventId.PendingModelChangesWarning));
+        base.OnConfiguring(optionsBuilder);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -256,7 +263,10 @@ public abstract class AbpDbContext<TDbContext> : DbContext, IAbpEfCoreDbContext,
             {
                 EntityHistoryHelper.UpdateChangeList(entityChangeList);
                 auditLog!.EntityChanges.AddRange(entityChangeList);
-                Logger.LogDebug($"Added {entityChangeList.Count} entity changes to the current audit log");
+                if (entityChangeList.Count > 0)
+                {
+                    Logger.LogDebug($"Added {entityChangeList.Count} entity changes to the current audit log");
+                }
             }
 
             return result;
@@ -775,7 +785,7 @@ public abstract class AbpDbContext<TDbContext> : DbContext, IAbpEfCoreDbContext,
                                            property.PropertyInfo.CanWrite &&
                                            ReflectionHelper.GetSingleAttributeOfMemberOrDeclaringTypeOrDefault<DisableDateTimeNormalizationAttribute>(property.PropertyInfo) == null))
             {
-				modelBuilder
+                modelBuilder
                     .Entity<TEntity>()
                     .Property(property.Name)
                     .HasConversion(property.ClrType == typeof(DateTime)
