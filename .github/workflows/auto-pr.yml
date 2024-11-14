@@ -27,10 +27,12 @@ jobs:
           title: Merge branch rel-9.0 with rel-8.3
           body: This PR generated automatically to merge rel-9.0 with rel-8.3. Please review the changed files before merging to prevent any errors that may occur.
           reviewers: maliming
+          draft: true
           token: ${{ github.token }}
       - name: Merge Pull Request
         env:
           GH_TOKEN: ${{ secrets.BOT_SECRET }}
         run: |
+          gh pr ready
           gh pr review auto-merge/rel-8-3/${{github.run_number}} --approve
           gh pr merge auto-merge/rel-8-3/${{github.run_number}} --merge --auto --delete-branch
