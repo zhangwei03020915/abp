@@ -1,6 +1,6 @@
 # EF Core 9 LINQ & SQL translation
 
-EF Core will improve the translation of LINQ queries to SQL every release. EF Core 9 is no exception. This article will show you some of the improvements in EF Core 9.
+EF Core improves the translation of LINQ queries to SQL with every release. EF Core 9 is no exception. This article will show you some of the improvements in EF Core 9.
 
 EF Core 9 includes a lot of improvements in LINQ to SQL translation. we don't cover all of them in this article. You can find more information in the [official release notes](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-9.0/whatsnew#linq-and-sql-translation).
 
@@ -31,7 +31,7 @@ await context.Customers
     .ExecuteUpdateAsync(s => s.SetProperty(b => b.Address, newAddress));
 ```
 
-EF Core will updates each column of the complex type.
+EF Core updates each column of the complex type.
 
 ## Prune unneeded elements from SQL
 
