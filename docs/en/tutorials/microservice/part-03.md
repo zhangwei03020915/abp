@@ -96,7 +96,7 @@ Lastly, we need to configure the use of a static HTTP client for the `CatalogSer
 ```csharp
 public override void ConfigureServices(ServiceConfigurationContext context)
 {
-    // Abbreviated code for brevity
+    // Code omitted for brevity
     context.Services.AddStaticHttpClientProxies(
       typeof(CloudCrmCatalogServiceContractsModule).Assembly);
 }
