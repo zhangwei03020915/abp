@@ -89,7 +89,7 @@ The new `Microsoft.AspNetCore.OpenApi` package provides first-class citizen supp
 
 No need extra setup or 3rd party integrations. Just by defining controllers and endpoints, ASP.NET Core automatically generates OpenAPI specifications.
 
-### Wel Integration with Minimal APIs
+### Well Integration with Minimal APIs
 
 [Minimal APIs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis) introduced in .NET 6. There's an optimized built-in support for Minimal APIs. It automatically adds metadata for routes, request parameters, and responses. 
 
