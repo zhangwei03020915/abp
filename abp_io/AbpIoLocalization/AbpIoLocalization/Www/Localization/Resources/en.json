@@ -1691,8 +1691,8 @@
     "HurryUpLastDay": "Hurry Up! Last Day: {0}",
     "CreatingCRUDPagesWithABPSuite": "Creating CRUD pages with ABP Suite",
     "MultipleYearDiscount": "Multiple Year Discount",
-    "CampaignDiscountText": "New Platform Discount",
-    "CampaignDiscountName": "New Platform",
+    "CampaignDiscountText": "Black Friday Discount",
+    "CampaignDiscountName": "Black Friday",
     "CampaignName:BlackFriday": "Black Friday",
     "MultipleOrganizationInfo": "See All Your Organizations",
     "AbpStudioBetaAccessInfoTitle": "ABP Studio Beta Access",
@@ -1867,6 +1867,7 @@
     "NewsletterEmailFooterTemplateDeleteSubscription": "<a style=\"color: #007bff;\" href=\"{0}\" data-root=\"{1}\">If you change your mind, you're always welcome to resubscribe!</a>",
     "GenerateQuote" : "Generate Quote" ,
     "GeneratePriceQuote": "Generate a Price Quote",
-    "Qa:QuestionPageTitle": "Support"
+    "Qa:QuestionPageTitle": "Support",
+    "SelectedTrainingName" : "Trainings"
   }
 }

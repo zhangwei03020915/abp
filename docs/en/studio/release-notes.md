@@ -2,6 +2,14 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.5 (2024-11-06)
+
+* Added dynamic localization option to microservice template
+* Added new template creation options for the Application (No Layers)
+* Fixed the environment variable setting for .NET global tool and verification of tool installation
+* Fixed log view auto-scrolling issue, ensuring smooth scrolling experience
+* Upgraded templates to version `8.3.3`
+
 ## 0.9.4 (2024-10-31)
 
 * Made the `TopMenuLayout` as the default layout type for microservice public website
