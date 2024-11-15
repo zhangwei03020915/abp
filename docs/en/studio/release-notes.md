@@ -2,6 +2,15 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.6 (2024-11-15)
+
+* Added missing imports to templates
+* Fixed bugs during EF Core package installation
+* Show errors to the user when adding a database migration
+* Changed empty solution description on create new solution wizard
+* Fixed problems with templates created with Basic Theme
+* Ensure the correct version is used when adding a new module/package to an existing solution
+
 ## 0.9.5 (2024-11-06)
 
 * Added dynamic localization option to microservice template
