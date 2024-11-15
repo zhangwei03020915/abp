@@ -161,7 +161,7 @@ public class EfCoreBlogPostRepository : EfCoreRepository<ICmsKitDbContext, BlogP
             .AnyAsync(x => x.Status == BlogPostStatus.WaitingForReview, GetCancellationToken(cancellationToken));
     }
     
-    public async Task UpdateBlogAsync(Guid sourceBlogId, Guid? targetBlogId, CancellationToken cancellationToken = default)
+    public async Task UpdateBlogAsync(Guid sourceBlogId, Guid? targetBlogId = null, CancellationToken cancellationToken = default)
     {
         if (targetBlogId != null)
         {

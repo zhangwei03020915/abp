@@ -67,7 +67,7 @@ public class BlogAdminController : CmsKitAdminController, IBlogAdminAppService
     [Route("all")]
     public Task<ListResultDto<BlogDto>> GetAllListAsync()
     {
-        throw new NotImplementedException();
+        return BlogAdminAppService.GetAllListAsync();
     }
 
     [HttpPut]
