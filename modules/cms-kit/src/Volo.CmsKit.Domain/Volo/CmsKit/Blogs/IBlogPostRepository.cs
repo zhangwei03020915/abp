@@ -45,5 +45,5 @@ public interface IBlogPostRepository : IBasicRepository<BlogPost, Guid>
 
     Task<bool> HasBlogPostWaitingForReviewAsync(CancellationToken cancellationToken = default);
 
-    Task UpdateBlogAsync(Guid sourceBlogId, Guid? targetBlogId, CancellationToken cancellationToken = default);
+    Task UpdateBlogAsync(Guid sourceBlogId, Guid? targetBlogId = null, CancellationToken cancellationToken = default);
 }
