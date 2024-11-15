@@ -58,9 +58,9 @@ public partial class BlogAdminClientProxy : ClientProxyBase<IBlogAdminAppService
         });
     }
 
-    public virtual Task<ListResultDto<BlogDto>> GetAllListAsync()
+    public virtual async Task<ListResultDto<BlogDto>> GetAllListAsync()
     {
-        return RequestAsync<ListResultDto<BlogDto>>(nameof(GetAllListAsync));
+        return await RequestAsync<ListResultDto<BlogDto>>(nameof(GetAllListAsync));
     }
 
     public virtual async Task MoveAllBlogPostsAsync(Guid blogId, Guid? assignToBlogId)
