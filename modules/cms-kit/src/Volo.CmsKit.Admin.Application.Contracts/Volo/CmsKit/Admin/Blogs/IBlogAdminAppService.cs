@@ -9,5 +9,5 @@ public interface IBlogAdminAppService : ICrudAppService<BlogDto, Guid, BlogGetLi
 {
     Task<ListResultDto<BlogDto>> GetAllListAsync();
     
-    Task MoveAllBlogPostsAsync(Guid blogId, Guid? assignToBlogId);
+    Task MoveAllBlogPostsAsync(Guid blogId, Guid? assignToBlogId = null);
 }
