@@ -111,3 +111,31 @@ protected override void OnModelCreating(ModelBuilder builder)
 ```
 
 In this code snippet, we configure the `Order` entity to use the `Orders` table in the database. We also specify that the `CustomerName` property is required and has a maximum length of 120 characters.
+
+### Add a Database Migration
+
+Now, we can add a new database migration. You can use Entity Framework Core's `Add-Migration` (or `dotnet ef migrations add`) terminal command, but in this tutorial, we will use ABP Studio's shortcut UI.
+
+Ensure that the solution has built. You can right-click the `CloudCrm.OrderingService` (under the `services` folder) on ABP Studio *Solution Explorer* and select the *Dotnet CLI* -> *Graph Build* command.
+
+Right-click the `CloudCrm.OrderingService` package and select the *EF Core CLI* -> *Add Migration* command:
+
+![abp-studio-add-entity-framework-core-migration](images/abp-studio-add-entity-framework-core-migration.png)
+
+The *Add Migration* command opens a new dialog to get a migration name:
+
+![abp-studio-entity-framework-core-add-migration-order](images/abp-studio-entity-framework-core-add-migration-order.png)
+
+Once you click the *OK* button, a new database migration class is added to the `Migrations` folder of the `CloudCrm.OrderingService` project:
+
+![visual-studio-new-migration-class](images/visual-studio-new-migration-class.png)
+
+Now, you can return to ABP Studio, right-click the `CloudCrm.OrderingService` project and select the *EF Core CLI* -> *Update Database* command:
+
+![abp-studio-entity-framework-core-update-database](images/abp-studio-entity-framework-core-update-database.png)
+
+> Since we are using a Docker Compose setup, the *Docker-Dependencies* must be running to apply the migration. If it is not running, you can start it by right-clicking on the `Docker-Dependencies` [CLI application](../../studio/running-applications.md#cli-application-1) and selecting *Run* -> *Start* on the *Solution Runner*.
+
+After the operation completes, you can check your database to see the new `Orders` table has been created:
+
+![sql-server-orders-database-table](images/sql-server-orders-database-table.png)
