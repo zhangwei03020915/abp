@@ -138,7 +138,5 @@ public class AbpOpenIddictAspNetCoreModule : AbpModule
 
                 services.ExecutePreConfiguredActions(builder);
             });
-
-        services.ExecutePreConfiguredActions(openIddictBuilder);
     }
 }
