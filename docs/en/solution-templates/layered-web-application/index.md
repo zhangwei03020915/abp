@@ -4,6 +4,70 @@ This template provides a layered application structure based on the [Domain Driv
 
 ## Getting Started
 
+This document explains **the solution structure** and projects in details. If you want to start quickly, follow the guides below:
+
+* [The getting started document](../../get-started/layered-web-application.md) explains how to create a new application in a few minutes.
+* [The application development tutorial](../../tutorials/book-store/part-01.md) explains step by step application development.
+
+## How to Start With?
+
+You can use the [ABP CLI](../../cli) to create a new project using this startup template. Alternatively, you can generate a CLI command from the [Get Started](https://abp.io/get-started) page. CLI approach is used here.
+
+First, install the ABP CLI if you haven't installed it before:
+
+````bash
+dotnet tool install -g Volo.Abp.Studio.Cli
+````
+
+Then use the `abp new` command in an empty folder to create a new solution:
+
+````bash
+abp new Acme.BookStore -t app
+````
+
+* `Acme.BookStore` is the solution name, like *YourCompany.YourProduct*. You can use single-level, two-level or three-level naming.
+* This example specified the template name (`-t` or `--template` option). However, `app` is already the default template if you didn't specify it.
+
+### Specify the UI Framework
+
+This template provides multiple UI frameworks:
+
+* `mvc`: ASP.NET Core MVC UI with Razor Pages (default)
+* `blazor`: Blazor UI
+* `blazor-server`: Blazor Server UI
+* `angular`: Angular UI
+
+Use the `-u` or `--ui` option to specify the UI framework:
+
+````bash
+abp new Acme.BookStore -u angular
+````
+
+### Specify the Database Provider
+
+This template supports the following database providers:
+
+- `ef`: Entity Framework Core (default)
+- `mongodb`: MongoDB
+
+Use `-d` (or `--database-provider`) option to specify the database provider:
+
+````bash
+abp new Acme.BookStore -d mongodb
+````
+
+### Specify the Mobile Application Framework
+
+This template supports the following mobile application frameworks:
+
+- `react-native`: React Native (*Available for* ***Team*** *or higher licenses*)
+
+Use the `-m` (or `--mobile`) option to specify the mobile application framework:
+
+````bash
+abp new Acme.BookStore -m react-native
+````
+
 * [The getting started document](../../get-started/layered-web-application.md) explains how to create a new application with this startup template.
 * [The application development tutorial](../../tutorials/book-store/part-01.md) explains step by step application development with this startup template.
 
