@@ -139,3 +139,70 @@ Now, you can return to ABP Studio, right-click the `CloudCrm.OrderingService` pr
 After the operation completes, you can check your database to see the new `Orders` table has been created:
 
 ![sql-server-orders-database-table](images/sql-server-orders-database-table.png)
+
+## Creating the Application Service
+
+Now, we will create the application service to manage the `Order` entity. 
+
+### Defining the Application Service Contract
+
+First, we need to define the application service contract under the `CloudCrm.OrderingService.Contracts` project. Return to your IDE, open the `CloudCrm.OrderingService` module's .NET solution and create an `IOrderAppService` interface under the `Services` folder for the `CloudCrm.OrderingService.Contracts` project:
+
+```csharp
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Volo.Abp.Application.Services;
+
+namespace CloudCrm.OrderingService.Services;
+
+public interface IOrderAppService : IApplicationService
+{
+    Task<List<OrderDto>> GetListAsync();
+    Task CreateAsync(OrderCreationDto input);
+}
+```
+
+### Defining the Data Transfer Objects
+
+Next, we need to define the data transfer objects (DTOs) for the `Order` entity. The `GetListAsync` and `CreateAsync` methods will use these DTOs to communicate with the client applications. 
+
+Create a `OrderCreationDto` class under the `Services` folder in the `CloudCrm.OrderingService.Contracts` project:
+
+```csharp
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace CloudCrm.OrderingService.Services;
+
+public class OrderCreationDto
+{
+    [Required]
+    [StringLength(150)]
+    public string CustomerName { get; set; }
+
+    [Required]
+    public Guid ProductId { get; set; }
+}
+```
+
+Create a `OrderDto` class under the `Services` folder in the `CloudCrm.OrderingService.Contracts` project:
+
+```csharp
+using System;
+using CloudCrm.OrderingService.Enums;
+
+namespace CloudCrm.OrderingService.Services;
+
+public class OrderDto
+{
+    public Guid Id { get; set; }
+    public string CustomerName { get; set; }
+    public Guid ProductId { get; set; }
+    public OrderState State { get; set; }
+}
+```
+
+The final solution structure should look like this:
+
+![vs-ordering-contracts](images/vs-ordering-contracts.png)
+
