@@ -2,6 +2,10 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.8 (2024-11-20)
+
+* Upgraded templates to version `8.3.4`
+
 ## 0.9.7 (2024-11-19)
 
 * Added `AppearanceStyles` component to blazor server templates
