@@ -206,3 +206,81 @@ The final solution structure should look like this:
 
 ![vs-ordering-contracts](images/vs-ordering-contracts.png)
 
+## Implementing the Application Service
+
+Now, we will implement the `IOrderAppService` interface in the `OrderAppService` class. Create an `OrderAppService` class under the `Services` folder in the `CloudCrm.OrderingService` project:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using CloudCrm.OrderingService.Entities;
+using CloudCrm.OrderingService.Enums;
+using CloudCrm.OrderingService.Localization;
+using Volo.Abp.Application.Services;
+using Volo.Abp.Domain.Repositories;
+
+namespace CloudCrm.OrderingService.Services;
+
+public class OrderAppService : ApplicationService, IOrderAppService
+{
+    private readonly IRepository<Order> _orderRepository;
+
+    public OrderAppService(IRepository<Order, Guid> orderRepository)
+    {
+        LocalizationResource = typeof(OrderingServiceResource);
+        _orderRepository = orderRepository;
+    }
+
+    public async Task<List<OrderDto>> GetListAsync()
+    {
+        var orders = await _orderRepository.GetListAsync();
+        return ObjectMapper.Map<List<Order>, List<OrderDto>>(orders);
+    }
+
+    public async Task CreateAsync(OrderCreationDto input)
+    {
+        var order = new Order
+        {
+            CustomerName = input.CustomerName,
+            ProductId = input.ProductId,
+            State = OrderState.Placed
+        };
+
+        await _orderRepository.InsertAsync(order);
+    }
+}
+```
+
+In this code snippet, we inject the `IRepository<Order, Guid>` into the `OrderAppService` class. We use this repository to interact with the `Order` entity. The `GetListAsync` method retrieves a list of orders from the database and maps them to the `OrderDto` class. The `CreateAsync` method creates a new order entity and inserts it into the database.
+
+Afterward, we need to configure the *AutoMapper* object to map the `Order` entity to the `OrderDto` class. Open the `OrderingServiceApplicationAutoMapperProfile` class in the `CloudCrm.OrderingService` project, located in the `ObjectMapping` folder, and add the following code:
+
+```csharp
+using AutoMapper;
+using CloudCrm.OrderingService.Entities;
+using CloudCrm.OrderingService.Services;
+
+namespace CloudCrm.OrderingService.ObjectMapping;
+
+public class OrderingServiceApplicationAutoMapperProfile : Profile
+{
+    public OrderingServiceApplicationAutoMapperProfile()
+    {
+        CreateMap<Order, OrderDto>();
+    }
+}
+```
+
+## Testing the Application Service
+
+Now, we can test the `OrderAppService` class using the Swagger UI. Open the Solution Runner and right-click to `CloudCrm.OrderingService` project and select the *Run* -> *Build & Start* command. After the application starts, you can open the Swagger UI by [Browse](../../studio/running-applications.md#monitoring) command.
+
+![ordering-service-swagger-ui](images/ordering-service-swagger-ui.png)
+
+Expand the `api/ordering/order` API and click the *Try it out* button. Then, create a few orders by filling in the request body and clicking the *Execute* button:
+
+![ordering-service-order-swagger-ui](images/ordering-service-order-swagger-ui.png)
+
+If you check the database, you should see the entities created in the `Orders` table:
+
+![sql-server-orders-database-table-records](images/sql-server-orders-database-table-records.png)
