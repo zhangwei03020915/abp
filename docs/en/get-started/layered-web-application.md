@@ -3,7 +3,7 @@
 ````json
 //[doc-params]
 {
-    "UI": ["MVC", "Blazor", "BlazorServer", "BlazorWebApp" "NG"],
+    "UI": ["MVC", "Blazor", "BlazorServer", "BlazorWebApp", "NG"],
     "DB": ["EF", "Mongo"],
     "Tiered": ["Yes", "No"]
 }
