@@ -8,7 +8,7 @@
     "Path": "tutorials/microservice/part-04"
   },
   "Next": {
-    "Name": "Integrating the modules: Implementing Integration Services",
+    "Name": "Integrating the services: HTTP API Calls",
     "Path": "tutorials/microservice/part-06"
   }
 }
@@ -410,3 +410,23 @@ private static async Task ConfigureMainMenuAsync(MenuConfigurationContext contex
         );
 }
 ```
+
+## Building and Running the Application
+
+Now, we can build and run the application to see the changes. Please stop the applications if they are running. Then open the *Solution Runner* panel, right-click the `CloudCrm` root item, and select the *Run* -> *Build & Start* command.
+
+![abp-studio-run-build-start](images/abp-studio-run-build-start.png)
+
+After the applications start, you can *Browse* and navigate to the `Orders` page to see the list of orders:
+
+![web-orders-page](images/web-orders-page.png)
+
+Great! We have successfully implemented the Ordering module. However, there is a problme:
+
+- We see Product's GUID ID instead of its name. This is because the *Ordering* microservice has no integration with the *Catalog* microservice and doesn't have access to Product microservice's database to perform a JOIN query.
+
+We will solve this problem in the next part by implementing an integration service between the *Ordering* and *Catalog* microservices.
+
+## Summary
+
+In this part, we implemented the Ordering module manually. We created the `Order` entity, the `OrderState` enum, the `OrderAppService` application service, and the user interface for the `Orders` page. We also added a menu item to the sidebar to navigate to the `Orders` page.
