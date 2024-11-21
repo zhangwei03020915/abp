@@ -223,7 +223,7 @@ As seen below, ABP libraries are local project references.
 
 ## Using Existing Configuration
 
-If you want to programmaticaly create solutions, you can use an existing configuration instead of passing parameters to CLI one by one. ABP Studio keeps the solution creation history locally in `(UserProfile)\.abp\studio\solution-creation-history.json` file, there you can find the configurations of the solutions in your machine.
+If you want to programmaticaly create solutions, you can use an existing configuration instead of passing parameters to CLI one by one. ABP Studio keeps the solution creation history locally in `(UserProfile)\.abp\studio\solution-creation-history.json` file, there you can find the configurations of the solutions created in your machine.
 
 ### Using a Solution Id
 
@@ -265,7 +265,7 @@ To prepare a config file, you can check the records in `solution-creation-histor
         "mobileFramework": "none",
         "databaseManagementSystem": "sqlserver",
         "databaseManagementSystemBuilderExtensionMethod": "UseSqlServer",
-        "connectionString": "Server=(LocalDb)\\\\MSSQLLocalDB;Database=AbpSoludegdf;Trusted_Connection=True;TrustServerCertificate=true",
+        "connectionString": "Server=(LocalDb)\\\\MSSQLLocalDB;Database=BookStore;Trusted_Connection=True;TrustServerCertificate=true",
         "mauiBlazorApplicationIdGuid": "d3499a09-f3d4-4bb7-9d58-4c7b1caee331",
         "tiered": false,
         "publicWebsite": false,
