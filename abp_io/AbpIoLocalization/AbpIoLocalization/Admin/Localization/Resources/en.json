@@ -512,6 +512,7 @@
     "QuotationTemplate.BankAccount": "Our bank account information can be found at {0}",
     "Permission:Raffles": "Raffle",
     "Permission:Draw": "Draw",
+    "Permission:ExportAttendeesAsExcel": "Export at attendees as Excel",
     "Menu:Raffles": "Raffles",
     "RaffleIsNotDrawable": "Raffle is not drawable",
     "WinnerCountMustBeGreaterThanZero": "Winner count must be greater than zero",
