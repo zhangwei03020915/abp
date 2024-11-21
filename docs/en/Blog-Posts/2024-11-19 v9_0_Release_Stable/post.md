@@ -74,6 +74,7 @@ In addition to the ABP's .NET 9.0 upgrade, our team has created many great artic
 
 In addition to [the articles to highlight .NET 9.0 features written by our team](https://volosoft.com/blog/Highlights-for-ASP-NET-Entity-Framework-Core-NET-9-0), here are some of the recent posts added to the [ABP Community](https://abp.io/community):
 
+* [Video: Building Modular Monolith Applications with ASP.NET Core & ABP Studio](https://abp.io/community/videos/building-modular-monolith-applications-with-asp.net-core-abp-studio-66znukvf) by [Halil İbrahim Kalkan](https://x.com/hibrahimkalkan)
 * [How to create your Own AI Bot on WhatsApp Using an ABP.io Template](https://abp.io/community/articles/how-to-create-your-own-ai-bot-on-whatsapp-using-the-abp-framework-c6jgvt9c) by [Michael Kokula](https://abp.io/community/members/Michal_Kokula)
 * [ABP Now Supports .NET 9](https://abp.io/community/articles/abp-now-supports-.net-9-zpkznc4f) by [Alper Ebiçoğlu](https://x.com/alperebicoglu)
 
