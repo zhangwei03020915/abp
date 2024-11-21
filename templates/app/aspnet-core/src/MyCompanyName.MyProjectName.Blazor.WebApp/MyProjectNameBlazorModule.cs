@@ -279,7 +279,7 @@ public class MyProjectNameBlazorModule : AbpModule
 
         app.UseHttpsRedirection();
         app.UseCorrelationId();
-        app.UseStaticFiles();
+        app.MapAbpStaticAssets();
         app.UseRouting();
         app.UseAuthentication();
         app.UseAbpOpenIddictValidation();

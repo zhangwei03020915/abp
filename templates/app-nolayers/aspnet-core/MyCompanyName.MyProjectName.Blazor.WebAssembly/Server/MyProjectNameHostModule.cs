@@ -331,7 +331,7 @@ public class MyProjectNameHostModule : AbpModule
 
             app.UseCorrelationId();
             app.UseBlazorFrameworkFiles();
-            app.UseStaticFiles();
+            app.MapAbpStaticAssets();
             app.UseRouting();
             app.UseCors();
             app.UseAuthentication();
