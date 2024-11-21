@@ -284,3 +284,129 @@ Expand the `api/ordering/order` API and click the *Try it out* button. Then, cre
 If you check the database, you should see the entities created in the `Orders` table:
 
 ![sql-server-orders-database-table-records](images/sql-server-orders-database-table-records.png)
+
+> Since we're using the [Auto API Controller](../../framework/api-development/auto-controllers.md) we don't need to create a controller for the `OrderAppService`. The ABP Framework automatically creates an API controller for the `OrderAppService` class. You can find the configuration in the `CloudCrmOrderingServiceModule` class, in the `ConfigureAutoControllers` method of the `CloudCrm.OrderingService` project.
+
+## Creating the User Interface
+
+Now, we will create the user interface for the Ordering module. We will use the `CloudCrm.Web` project to create the user interface. Open the `CloudCrm.Web` .NET solution in your favorite IDE.
+
+### Creating the Orders Page
+
+Create a new `Orders` folder under the `Pages` folder in the `CloudCrm.Web` project. Then, create an `Index.cshtml` Razor Page inside that new folder and edit the `Index.cshtml.cs` file as follows:
+
+```csharp
+using CloudCrm.OrderingService.Services;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace CloudCrm.Web.Pages.Orders;
+
+public class Index : PageModel
+{
+    public List<OrderDto> Orders { get; set; }
+
+    private readonly IOrderAppService _orderAppService;
+
+    public Index(IOrderAppService orderAppService)
+    {
+        _orderAppService = orderAppService;
+    }
+
+    public async Task OnGetAsync()
+    {
+        Orders = await _orderAppService.GetListAsync();
+    }
+}
+```
+
+Here, we inject the `IOrderAppService` into the `Index` Razor Page. We use this service to retrieve the list of orders from the database and assign them to the `Orders` property. Open the `Index.cshtml` file and add the following code:
+
+```html
+@page
+@model CloudCrm.Web.Pages.Orders.Index
+
+<h1>Orders</h1>
+
+<abp-card>
+    <abp-card-body>
+        <abp-list-group>
+            @foreach (var order in Model.Orders)
+            {
+                <abp-list-group-item>
+                    <strong>Customer:</strong> @order.CustomerName <br />
+                    <strong>Product:</strong> @order.ProductId <br />
+                    <strong>State:</strong> @order.State
+                </abp-list-group-item>
+            }
+        </abp-list-group>
+    </abp-card-body>
+</abp-card>
+```
+
+This page shows a list of orders on the UI. We haven't created a UI to create new orders, and we will not do it to keep this tutorial simple. If you want to learn how to create advanced UIs with ABP, please follow the [Book Store tutorial](../../tutorials/book-store/index.md).
+
+### Generating the UI Proxy
+
+Now, we need to generate the [Static API Proxy](../../framework/api-development/static-csharp-clients.md) for the *Web* project. Right-click the *CloudCrm.Web* [package](../../studio/concepts.md#package) and select the *ABP CLI* -> *Generate Proxy* -> *C#* command:
+
+![abp-studio-generate-proxy-2](images/abp-studio-generate-proxy-2.png)
+
+It will open the *Generate C# Proxies* window. Select the `CloudCrm.OrderingService` application, and it will automatically populate the *URL* field. Choose the *ordering* module, and check the *Without contracts* checkbox, since we already have a dependency on the `CloudCrm.OrderingService.Contracts` package in the `CloudCrm.Web` project.
+
+![abp-studio-generate-proxy-window-ordering-module](images/abp-studio-generate-proxy-window-ordering-module.png)
+
+> To be able to select the *Application*, you must *Build & Start* the related application beforehand. You can start the application using [Solution Runner](../../studio/running-applications.md).
+
+Lastly, we need to configure the use of a static HTTP client for the `OrderingService` in the `CloudCrm.Web` project. Open the `CloudCrmWebModule.cs` file in the `Web` project and add the following line to the `ConfigureServices` method:
+
+```csharp
+public override void ConfigureServices(ServiceConfigurationContext context)
+{
+    // Code omitted for brevity
+    context.Services.AddStaticHttpClientProxies(
+        typeof(CloudCrmOrderingServiceContractsModule).Assembly);
+}
+```
+
+### Adding the Menu Item
+
+ABP provides a modular navigation [menu system](../../framework/ui/mvc-razor-pages/navigation-menu.md) that allows you to define the menu items in a modular way.
+
+Finally, we need to add a menu item to the sidebar to navigate to the `Orders` page. Open the `CloudCrmMenus` file in the `Navigation` folder of the `CloudCrm.Web` project and edit with the following code:
+
+```csharp
+namespace CloudCrm.Web.Navigation;
+
+public class CloudCrmMenus
+{
+    private const string Prefix = "CloudCrm";
+
+    public const string Home = Prefix + ".Home";
+
+    public const string HostDashboard = Prefix + ".HostDashboard";
+
+    public const string TenantDashboard = Prefix + ".TenantDashboard";
+
+    public const string Products = Prefix + ".Products";
+
+    public const string Orders = Prefix + ".Orders";// NEW: ADD MENU ITEM
+}
+```
+
+Then, open the `CloudCrmMenuContributor` class in the `CloudCrm.Web` project, located in the `Navigation` folder, and add the following code to `ConfigureMainMenuAsync` method:
+
+```csharp
+private static async Task ConfigureMainMenuAsync(MenuConfigurationContext context)
+{
+    // Code omitted for brevity
+
+    context.Menu.AddItem(
+            new ApplicationMenuItem(
+                CloudCrmMenus.Orders, // Unique menu id
+                "Orders", // Menu display text
+                "~/Orders", // URL
+                "fa-solid fa-basket-shopping" // Icon CSS class
+            )
+        );
+}
+```
