@@ -658,6 +658,7 @@
     "DrawModal": "Private draw on the modal",
     "SetAsDrawable": "Set as drawable",
     "SetAsNoDrawable": "Set as non-drawable",
+    "SetAsCompleted": "Set as completed",
     "RemoveAllWinners": "Remove all winners",
     "EditWinners": "Edit winners",
     "EditAttendees": "Edit attendees",
