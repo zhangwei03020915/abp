@@ -1,4 +1,4 @@
-# Microservice Tutorial Part 02: Creating the initial Catalog Microservice
+# Microservice Tutorial Part 02: Creating the initial Catalog service
 
 ````json
 //[doc-nav]
@@ -8,7 +8,7 @@
     "Path": "tutorials/microservice/part-01"
   },
   "Next": {
-    "Name": "Building the Catalog microservice",
+    "Name": "Building the Catalog service",
     "Path": "tutorials/microservice/part-03"
   }
 }

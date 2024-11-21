@@ -1,10 +1,10 @@
-# Microservice Tutorial Part 05: Building the Ordering module
+# Microservice Tutorial Part 05: Building the Ordering service
 
 ````json
 //[doc-nav]
 {
   "Previous": {
-    "Name": "Creating the initial Ordering Microservice",
+    "Name": "Creating the initial Ordering service",
     "Path": "tutorials/microservice/part-04"
   },
   "Next": {
