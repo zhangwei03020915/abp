@@ -2,7 +2,7 @@
 
 ![](cover-image.png)
 
-Today, [ABP](https://abp.io/) 9.0 stable version have been released based on [.NET 9.0](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
+Today, [ABP](https://abp.io/) 9.0 stable version has been released based on [.NET 9.0](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
 
 ## What's New With Version 9.0?
 
@@ -14,7 +14,7 @@ All the new features were explained in detail in the [9.0 RC Announcement Post](
 
 You can check the [Get Started page](https://abp.io/get-started) to see how to get started with ABP. You can either download [ABP Studio](https://abp.io/get-started#abp-studio-tab) (**recommended**, if you prefer a user-friendly GUI application - desktop application) or use the [ABP CLI](https://abp.io/docs/latest/cli) to create new solutions.
 
-By default, ABP Studio uses stable versions to create solutions (please see [Version Mapping](https://abp.io/docs/latest/studio/version-mapping) documentation for ABP Studio & ABP Startup Template version mapping). Therefore, it will be creating the solution with the latest stable version, which is v9.0 for now, so you don't need to specify the version.
+By default, ABP Studio uses stable versions to create solutions. Therefore, it will be creating the solution with the latest stable version, which is v9.0 for now, so you don't need to specify the version. **You can create solutions with ABP 9.0 starting from v0.9.11.**
 
 ### How to Upgrade an Existing Solution
 
@@ -27,6 +27,8 @@ If you are already using the ABP Studio, you can upgrade it to the latest versio
 After upgrading the ABP Studio, then you can open your solution in the application, and simply click the **Switch to stable** action button to instantly upgrade your solution:
 
 ![](switch-to-stable.png)
+
+> Please note that ABP CLI & ABP Studio only upgrade the related ABP packages, so you need to upgrade the other packages for .NET 9.0 manually. 
 
 ### Upgrading via ABP CLI
 
@@ -50,7 +52,9 @@ After installing/updating the ABP CLI, you can use the [`update` command](https:
 abp update
 ```
 
-> You can run this command in the root folder of your solution.
+You can run this command in the root folder of your solution to update all ABP related packages.
+
+> Please note that ABP CLI & ABP Studio only upgrade the related ABP packages, so you need to upgrade the other packages for .NET 9.0 manually. 
 
 ## Migration Guides
 
