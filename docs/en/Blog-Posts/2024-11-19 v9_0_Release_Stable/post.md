@@ -2,7 +2,7 @@
 
 ![](cover-image.png)
 
-Today, [ABP](https://abp.io/) 9.0 stable version has been released based on [.NET 9.0](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
+Today, [ABP](https://abp.io/) 9.0 stable version has been released based on [.NET 9.0](https://dotnet.microsoft.com/en-us/download/dotnet/9.0). You can create solutions with ABP 9.0 starting from ABP Studio v0.9.11 or by using the ABP CLI as explained in the following sections.
 
 ## What's New With Version 9.0?
 
