@@ -85,7 +85,7 @@ Now, we need to generate the [Static API Proxy](../../framework/api-development/
 
 ![abp-studio-generate-proxy](images/abp-studio-generate-proxy.png)
 
-It will open the *Generate C# Proxies* window. Select the `CloudCrm.CatalogService` application, and it will automatically populate the *URL* field. Choose the *catalog* module, and check the *Without contracts* checkbox, since we already have a dependency on the `CloudCrm.CatalogService.Contracts` package in the `CloudCrm.Web` project.
+It will open the *Generate C# Proxies* window. Select the `CloudCrm.CatalogService` application, and it will automatically populate the *URL* field. Select the *catalog* module, set the service type to *application*, and check the *Without contracts* checkbox, as the `CloudCrm.Web` project already depends on the `CloudCrm.CatalogService.Contracts` package.
 
 ![abp-studio-generate-proxy-window](images/abp-studio-generate-proxy-window.png)
 

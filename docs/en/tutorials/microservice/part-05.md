@@ -18,7 +18,7 @@ In the previous part, we created the Ordering microservice. In this part, we wil
 
 ## Creating the Order Entity
 
-We will start by creating the `Order` entity, which will represent an order in our system. We'll add this entity to the `CloudCrm.OrderingService` project. Open the `Entities` folder and place `Order.cs` into that folder.
+We will start by creating the `Order` entity, which will represent an order in our system. We'll add this entity to the `CloudCrm.OrderingService` project. Create a new folder named `Entities` and add a class named `Order` inside it.
 
 ```csharp
 using CloudCrm.OrderingService.Enums;
@@ -38,9 +38,11 @@ To keep this example simple, we allow users to include only a single product wit
 
 ### Adding the OrderState Enum
 
-We also need to define the `OrderState` enum. Open an `Enums` folder in the `CloudCrm.OrderingService.Contracts` project and create an `OrderState.cs` file inside it:
+We also need to define the `OrderState` enum. In the `CloudCrm.OrderingService.Contracts` project, create a folder named `Enums` and add an `OrderState` enum inside it:
 
 ```csharp
+namespace CloudCrm.OrderingService.Enums;
+
 public enum OrderState : byte
 {
     Placed = 0,
@@ -130,15 +132,7 @@ Once you click the *OK* button, a new database migration class is added to the `
 
 ![visual-studio-new-migration-class](images/visual-studio-new-migration-class.png)
 
-Now, you can return to ABP Studio, right-click the `CloudCrm.OrderingService` project and select the *EF Core CLI* -> *Update Database* command:
-
-![abp-studio-entity-framework-core-update-database](images/abp-studio-entity-framework-core-update-database.png)
-
-> Since we are using a Docker Compose setup, the *Docker-Dependencies* must be running to apply the migration. If it is not running, you can start it by right-clicking on the `Docker-Dependencies` [CLI application](../../studio/running-applications.md#cli-application-1) and selecting *Run* -> *Start* on the *Solution Runner*.
-
-After the operation completes, you can check your database to see the new `Orders` table has been created:
-
-![sql-server-orders-database-table](images/sql-server-orders-database-table.png)
+The changes will be applied to the database during the next application startup. For more details, refer to the [database migrations on service startup](../../solution-templates/microservice/database-configurations.md#database-migrations-on-service-startup) section.
 
 ## Creating the Application Service
 
@@ -298,10 +292,11 @@ Create a new `Orders` folder under the `Pages` folder in the `CloudCrm.Web` proj
 ```csharp
 using CloudCrm.OrderingService.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Volo.Abp.AspNetCore.Mvc.UI.RazorPages;
 
 namespace CloudCrm.Web.Pages.Orders;
 
-public class Index : PageModel
+public class Index : AbpPageModel
 {
     public List<OrderDto> Orders { get; set; }
 
@@ -347,15 +342,15 @@ This page shows a list of orders on the UI. We haven't created a UI to create ne
 
 ### Generating the UI Proxy
 
+To select the *Application* during proxy generation, ensure that the `CloudCrm.OrderingService` is *Started* beforehand. You can start the application using [Solution Runner](../../studio/running-applications.md).  
+
 Now, we need to generate the [Static API Proxy](../../framework/api-development/static-csharp-clients.md) for the *Web* project. Right-click the *CloudCrm.Web* [package](../../studio/concepts.md#package) and select the *ABP CLI* -> *Generate Proxy* -> *C#* command:
 
 ![abp-studio-generate-proxy-2](images/abp-studio-generate-proxy-2.png)
 
-It will open the *Generate C# Proxies* window. Select the `CloudCrm.OrderingService` application, and it will automatically populate the *URL* field. Choose the *ordering* module, and check the *Without contracts* checkbox, since we already have a dependency on the `CloudCrm.OrderingService.Contracts` package in the `CloudCrm.Web` project.
+It will open the *Generate C# Proxies* window. Select the `CloudCrm.OrderingService` application, and it will automatically populate the *URL* field. Choose the *ordering* module and service type is *application* lastly check the *Without contracts* checkbox, since we already have a dependency on the `CloudCrm.OrderingService.Contracts` package in the `CloudCrm.Web` project.
 
 ![abp-studio-generate-proxy-window-ordering-module](images/abp-studio-generate-proxy-window-ordering-module.png)
-
-> To be able to select the *Application*, you must *Build & Start* the related application beforehand. You can start the application using [Solution Runner](../../studio/running-applications.md).
 
 Lastly, we need to configure the use of a static HTTP client for the `OrderingService` in the `CloudCrm.Web` project. Open the `CloudCrmWebModule.cs` file in the `Web` project and add the following line to the `ConfigureServices` method:
 
