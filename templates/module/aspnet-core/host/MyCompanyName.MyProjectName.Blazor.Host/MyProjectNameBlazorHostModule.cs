@@ -49,7 +49,7 @@ public class MyProjectNameBlazorHostModule : AbpModule
         }
 
         app.UseHttpsRedirection();
-        app.UseStaticFiles();
+        app.MapAbpStaticAssets();
         app.UseRouting();
         app.UseAntiforgery();
 
