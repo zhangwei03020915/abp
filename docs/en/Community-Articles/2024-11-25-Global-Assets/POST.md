@@ -5,38 +5,40 @@ With this feature, you don't need to run the `abp bundle` command to manually cr
 
 ## How Global Assets works?
 
-The new `Blazor wasm app` has two project.
+The new `Blazor wasm app` has two projects:
 
 1. `MyProjectName` (ASP.NET Core app)
 2. `MyProjectName.Client` (Blazor wasm app)
 
-The `MyProjectName` reference the `MyProjectName.Client` project, and will be the entry point of the application. which means the `MyProjectName` project will be the `host` project of the `MyProjectName.Client` project. 
+The `MyProjectName` reference the `MyProjectName.Client` project, and will be the entry point of the application, which means the `MyProjectName` project will be the `host` project of the `MyProjectName.Client` project. 
 
 The static/virtual files of `MyProjectName` can be accessed by the `MyProjectName.Client` project, so we can create dynamic global assets in the `MyProjectName` project and use them in the `MyProjectName.Client` project.
 
 ## How it works in ABP?
 
-We have created a new package `WebAssembly.Theme.Bundling` for the theme `WebAssembly` module. and use `Volo.Abp.AspNetCore.Mvc.UI.Bundling.BundleContributor` to add `JavaScript/CSS` files to the bundling system.
+We have created a new package `WebAssembly.Theme.Bundling` for the theme `WebAssembly` module and used the `Volo.Abp.AspNetCore.Mvc.UI.Bundling.BundleContributor` to add `JavaScript/CSS` files to the bundling system.
 
 * LeptonXLiteTheme: `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule`
 * LeptonXTheme: `AbpAspNetCoreComponentsWebAssemblyLeptonXThemeBundlingModule`
 * LeptonTheme: `AbpAspNetCoreComponentsWebAssemblyLeptonThemeBundlingModule`
 * BasicTheme: `AbpAspNetCoreComponentsWebAssemblyBasicThemeBundlingModule`
 
-The new `ThemeBundlingModule` only depends on `AbpAspNetCoreComponentsWebAssemblyThemingBundlingModule(new package)`, It's an `abstractions module` which only depends on `AbpAspNetCoreMvcUiBundlingAbstractionsModule`.
+The new `ThemeBundlingModule` only depends on `AbpAspNetCoreComponentsWebAssemblyThemingBundlingModule(new package)`. It's an `abstractions module`, which only depends on `AbpAspNetCoreMvcUiBundlingAbstractionsModule`.
 
-We will get all `JavaScript/CSS` files on `OnApplicationInitializationAsync` method of `AbpAspNetCoreMvcUiBundlingModule` from bundling system and add them to `IDynamicFileProvider` service. after that, we can access the `JavaScript/CSS` files in the Blazor wasm app.
+We will get all `JavaScript/CSS` files on `OnApplicationInitializationAsync` method of `AbpAspNetCoreMvcUiBundlingModule` from bundling system and add them to `IDynamicFileProvider` service. After that, we can access the `JavaScript/CSS` files in the Blazor wasm app.
 
 ## Use the Global Assets in the Blazor wasm app
 
 ### MyProject
 
-Convert your `MyProject` project to integrate the `ABP module` system and depend on the `AbpAspNetCoreMvcUiBundlingModule` and `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule`
+Convert your `MyProject` project to integrate the `ABP module` system and depend on the `AbpAspNetCoreMvcUiBundlingModule` and `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule`:
 
-* The `AbpAspNetCoreMvcUiBundlingModule` use to create the `JavaScript/CSS` files to virtual files.
-* The `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule` use to add theme `JavaScript/CSS` to the bundling system.
+* The `AbpAspNetCoreMvcUiBundlingModule` uses to create the `JavaScript/CSS` files to virtual files.
+* The `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule` uses to add theme `JavaScript/CSS` to the bundling system.
 
-`Program.cs` file:
+Here is how your project files look like:
+
+**`Program.cs`:**
 
 ```csharp
 public class Program
@@ -60,13 +62,13 @@ public class Program
 }
 ```
 
-`MyProjectNameBlazorModule.cs` file:
+**`MyProjectNameBlazorModule.cs`:**
 
 ```csharp
 [DependsOn(
     typeof(AbpAutofacModule),
     typeof(AbpAspNetCoreMvcUiBundlingModule),
-    typeof(AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule)
+    typeof(AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule) //Should be added!
 )]
 public class MyProjectNameBlazorModule : AbpModule
 {
@@ -114,7 +116,7 @@ public class MyProjectNameBlazorModule : AbpModule
 }
 ```
 
-`MyProjectName.csproj` file:
+**`MyProjectName.csproj`:**
 
 ```xml
 <ItemGroup>
@@ -134,7 +136,7 @@ public class MyProjectNameBlazorModule : AbpModule
 
 ### Check the Global Assets
 
-Run the `MyProject` project and check the `https://localhost/global.js` and `https://localhost/global.css` files. You will see the `JavaScript/CSS` files content from the Bundling system.
+Run the `MyProject` project and check the `https://localhost/global.js` and `https://localhost/global.css` files. You should be able to see the `JavaScript/CSS` files content from the Bundling system: 
 
 ![global](image.png)
 
