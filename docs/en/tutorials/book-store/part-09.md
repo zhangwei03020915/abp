@@ -2,7 +2,7 @@
 ````json
 //[doc-params]
 {
-    "UI": ["MVC","Blazor","BlazorServer","NG"],
+    "UI": ["MVC","Blazor","BlazorServer","BlazorWebApp","NG"],
     "DB": ["EF","Mongo"]
 }
 ````
@@ -677,6 +677,10 @@ export class AuthorComponent implements OnInit {
         this.selectedAuthor.birthDate ? new Date(this.selectedAuthor.birthDate) : null,
         Validators.required,
       ],
+      shortBio: [
+        this.selectedAuthor.shortBio ? this.selectedAuthor.shortBio : null,
+        Validators.required,
+      ],
     });
   }
 
@@ -768,6 +772,7 @@ Open the `/src/app/author/author.component.html` and replace the content as belo
           {%{{{ row.birthDate | date }}}%}
         </ng-template>
       </ngx-datatable-column>
+      <ngx-datatable-column [name]="'::ShortBio' | abpLocalization" prop="shortBio"></ngx-datatable-column>
     </ngx-datatable>
   </div>
 </div>
@@ -794,6 +799,10 @@ Open the `/src/app/author/author.component.html` and replace the content as belo
           ngbDatepicker
           (click)="datepicker.toggle()"
         />
+      </div>
+      <div class="form-group">
+        <label for="author-short-bio">{%{{{ '::Short Bio' | abpLocalization }}}%}</label><span> * </span>
+        <textarea id="author-short-bio" class="form-control" formControlName="shortBio" rows="12"></textarea>
       </div>
     </form>
   </ng-template>
@@ -839,13 +848,13 @@ That's all! This is a fully working CRUD page, you can create, edit and delete a
 
 {{end}}
 
-{{if UI == "Blazor" || UI == "BlazorServer"}}
+{{if UI == "Blazor" || UI == "BlazorServer" || UI == "BlazorWebApp"}}
 
 ## The Author Management Page
 
 ### Authors Razor Component
 
-Create a new Razor Component Page, `/Pages/Authors.razor`, in the `Acme.BookStore.Blazor.Client` project with the following content:
+Create a new Razor Component Page, `/Pages/Authors.razor`, in the {{ if UI == "BlazorServer" }}`Acme.BookStore.Blazor`{{ else }}`Acme.BookStore.Blazor.Client`{{ end }} project with the following content:
 
 ````xml
 @page "/authors"
@@ -1046,7 +1055,7 @@ using Blazorise.DataGrid;
 using Microsoft.AspNetCore.Authorization;
 using Volo.Abp.Application.Dtos;
 
-namespace Acme.BookStore.Blazor.Client.Pages;
+{{ if UI == "BlazorServer" }}namespace Acme.BookStore.Blazor.Pages;{{ else }}namespace Acme.BookStore.Blazor.Client.Pages;{{ end }}
 
 public partial class Authors
 {
@@ -1192,7 +1201,7 @@ This class typically defines the properties and methods used by the `Authors.raz
 
 `Authors` class uses the `IObjectMapper` in the `OpenEditAuthorModal` method. So, we need to define this mapping.
 
-Open the `BookStoreBlazorAutoMapperProfile.cs` in the `Acme.BookStore.Blazor.Client` project and add the following mapping code in the constructor:
+Open the `BookStoreBlazorAutoMapperProfile.cs` in the {{ if UI == "BlazorServer" }}`Acme.BookStore.Blazor`{{ else }}`Acme.BookStore.Blazor.Client`{{ end }} project and add the following mapping code in the constructor:
 
 ````csharp
 CreateMap<AuthorDto, UpdateAuthorDto>();
@@ -1202,7 +1211,7 @@ You will need to declare a `using Acme.BookStore.Authors;` statement to the begi
 
 ### Add to the Main Menu
 
-Open the `BookStoreMenuContributor.cs` in the `Acme.BookStore.Blazor.Client` project and add the following code to the end of the `ConfigureMainMenuAsync` method:
+Open the `BookStoreMenuContributor.cs` in the {{ if UI == "BlazorServer" }}`Acme.BookStore.Blazor`{{ else }}`Acme.BookStore.Blazor.Client`{{ end }} project and add the following code to the end of the `ConfigureMainMenuAsync` method:
 
 ````csharp
 if (await context.IsGrantedAsync(BookStorePermissions.Authors.Default))
