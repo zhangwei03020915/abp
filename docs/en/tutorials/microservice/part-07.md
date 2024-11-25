@@ -113,7 +113,7 @@ public class OrderAppService : ApplicationService, IOrderAppService
         // Save it to the database
         await _orderRepository.InsertAsync(order);
 
-        // Publish an event so other modules can be informed
+        // Publish an event so other microservices can be informed
         await _distributedEventBus.PublishAsync(
             new OrderPlacedEto
             {
@@ -150,3 +150,82 @@ Here, select the `CloudCrm.OrderingService.Contracts` package on the left side (
 You can check the ABP Studio's *Solution Explorer* panel to see the module and the project reference (dependency).
 
 ![catalog-service-dependency](images/catalog-service-dependency.png)
+
+### Handling the `OrderPlacedEto` Event
+
+Now, it's time to handle the `OrderPlacedEto` event in the Catalog service. Open the `CloudCrm.CatalogService` .NET solution in your IDE. Create a new `Orders` folder, and add a new class named `OrderEventHandler` inside that folder within the `CloudCrm.CatalogService` project.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using CloudCrm.CatalogService.Products;
+using CloudCrm.OrderingService.Events;
+using Volo.Abp.DependencyInjection;
+using Volo.Abp.Domain.Repositories;
+using Volo.Abp.EventBus.Distributed;
+
+namespace CloudCrm.CatalogService.Orders;
+
+public class OrderEventHandler :
+    IDistributedEventHandler<OrderPlacedEto>,
+    ITransientDependency
+{
+    private readonly IRepository<Product, Guid> _productRepository;
+
+    public OrderEventHandler(IRepository<Product, Guid> productRepository)
+    {
+        _productRepository = productRepository;
+    }
+
+    public async Task HandleEventAsync(OrderPlacedEto eventData)
+    {
+        // Find the related product
+        var product = await _productRepository.FindAsync(eventData.ProductId);
+        if (product == null)
+        {
+            return;
+        }
+
+        // Decrease the stock count
+        product.StockCount = product.StockCount - 1;
+
+        // Update the entity in the database
+        await _productRepository.UpdateAsync(product);
+    }
+}
+```
+
+The `OrderEventHandler` class implements the `IDistributedEventHandler<OrderPlacedEto>` interface to handle the `OrderPlacedEto` event. When the event is published, the `HandleEventAsync` method is called. In this method, we find the related product, decrease the stock count by one, and update the entity in the database.
+
+Implementing `ITransientDependency` registers the `OrderEventHandler` class to the dependency injection system as a transient object.
+
+### Testing the Order Creation
+
+To keep this tutorial simple, we will not implement a user interface for creating orders. Instead, we will use the Swagger UI to create an order. Open the *Solution Runner* panel in ABP Studio and use *Build & Start* to launch the `CloudCrm.OrderingService` and `CloudCrm.CatalogService` applications. Then, go to *Run* -> *Start All* to start the remaining applications listed in the [Solution Runner root item](../../studio/running-applications.md#run).
+
+Once the application is running and ready, [Browse](../../studio/running-applications.md#c-application) the `CloudCrm.OrderingService` application. Use the `POST /api/ordering/order` endpoint to create a new order.
+
+![Create Order](images/create-order.png)
+
+Find the *Order* API, click the *Try it out* button, enter a sample value the *Request body* section, and click the *Execute* button.
+
+```json
+{
+  "customerName": "David",
+  "productId": "5995897b-1de9-7272-b31c-3a165bbe7b18"
+}
+```
+
+> **IMPORTANT:** Here, you should type a valid Product Id from the Products table of your database!
+
+Once you press the *Execute* button, a new order is created. At that point, you check the `/Orders` page to see if the new order is listed. You can also check the `/Products` page to see if the stock count of the related product is decreased by one in the `CloudCrm.Web` application.
+
+Here are sample screenshots from the Orders and Products pages of the `CloudCrm.Web` application:
+
+![Orders](images/orders.png)
+
+We placed a new order for *Product A*. As a result, the stock count of *Product A* is decreased from 53 to 52 and a new line is added to the Orders page.
+
+## Conclusion
+
+In this tutorial, we used the distributed event bus to communicate between the `Order` and `Catalog` microservices. We published an event when a new order is placed and handled that event in the Catalog service to decrease the stock count of the related product. This is a simple example, but it shows how you can use distributed events to communicate between microservices.
