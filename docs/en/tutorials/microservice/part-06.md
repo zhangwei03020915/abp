@@ -260,6 +260,20 @@ It opens the *Generate C# proxies* window. Select the `CloudCrm.CatalogService` 
 
 ![generate-catalog-service-proxy](images/generate-catalog-service-proxy.png)
 
+We have generated the proxy classes for the `IProductIntegrationService` interface. Now, we must add the *Remote Service* url to the `appsettings.json` file of the `CloudCrm.OrderingService` project. Open the `appsettings.json` file (the `appsettings.json` file of the `CloudCrm.OrderingService` project of the `CloudCrm.OrderingService` .NET solution) and add the *CatalogService* section following configuration:
+
+```json
+{
+  "RemoteServices": {
+    "CatalogService": {
+      "BaseUrl": "http://localhost:44334"
+    }
+  }
+}
+```
+
+> **BaseUrl** refers to the base URL of the Catalog service. You can use the *Copy Url* option from the Catalog service's context menu in the ABP Studio **Solution Runner** to paste it here.
+
 ### Updating the UI to Display the Product Name
 
 Open the `Index.cshtml` file (the `Index.cshtml` file under the `Pages/Orders` folder of the `CloudCrm.Web` project of the `CloudCrm.Web` .NET solution) and update the table content to display the product name instead of the product ID:
@@ -286,4 +300,12 @@ Open the `Index.cshtml` file (the `Index.cshtml` file under the `Pages/Orders` f
 </abp-card>
 ```
 
-That's it! Now, you can *Build & Start* the application and run it in ABP Studio to see the result:
+That's it! Now, you can *Build & Start* the all applications and run it in ABP Studio to see the result:
+
+![web-orders-page-with-product-name](images/web-orders-page-with-product-name.png)
+
+Now, the Ordering service displays the product name instead of the product ID. We have successfully integrated the Ordering service with the Catalog service using HTTP API calls.
+
+> **Design Tip**
+>
+> It is suggested that you keep that type of communication to a minimum and not couple your modules with each other. It can make your solution complicated and may also decrease your system performance. When you need to do it, think about performance and try to make some optimizations. For example, if the Ordering service frequently needs product data, you can use a kind of [cache layer](../../framework/fundamentals/caching.md), so it doesn't make frequent requests to the Catalog service.
