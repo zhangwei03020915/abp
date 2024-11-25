@@ -101,7 +101,7 @@ public class ProductIntegrationService : ApplicationService, IProductIntegration
 
 `ProductIntegrationService` is a typical application service class that implements the `IProductIntegrationService` interface. It has a constructor that takes an `IRepository<Product, Guid>` object. This repository is used to fetch the product details from the database.
 
-> Here, we directly used `List<T>` classes, but instead, you could wrap inputs and outputs into [DTOs](../../framework/architecture/domain-driven-design/data-transfer-objects.md). In that way, it can be possible to add new properties to these DTOs without changing the signature of your integration service method (and without introducing breaking changes for your client modules).
+> Here, we directly used `List<T>` classes, but instead, you could wrap inputs and outputs into [DTOs](../../framework/architecture/domain-driven-design/data-transfer-objects.md). In that way, it can be possible to add new properties to these DTOs without changing the signature of your integration service method (and without introducing breaking changes for your client applications).
 
 ### Exposing the Integration Service as an API
 
@@ -137,7 +137,7 @@ In the *Add Package Reference* window, select the `CloudCrm.CatalogService.Contr
 
 ABP Studio adds the package reference and arranges the [module](../../framework/architecture/modularity/basics.md) dependency.
 
-> Instead of directly adding such a package reference, it can be best to import the module first (right-click the `CloudCrm.Ordering` module, select the _Import Module_ command and import the `CloudCrm.CatalogService` module), then install the package reference. In that way, it would be easy to see and keep track of inter-module dependencies.
+> Instead of directly adding such a package reference, it can be best to import the module first (right-click the `CloudCrm.OrderingService`, select the _Import Module_ command and import the `CloudCrm.CatalogService` module), then install the package reference. In that way, it would be easy to see and keep track of inter-module dependencies.
 
 ### Using the Products Integration Service
 
@@ -226,7 +226,7 @@ public class OrderDto
 }
 ```
 
-Lastly, open the `OrderingServiceApplicationAutoMapperProfile` class (the `OrderingServiceApplicationAutoMapperProfile.cs` file under the `ObjectMapping` folder of the `CloudCrm.Ordering` project of the `CloudCrm.Ordering` .NET solution) and ignore the `ProductName` property in the mapping configuration:
+Lastly, open the `OrderingServiceApplicationAutoMapperProfile` class (the `OrderingServiceApplicationAutoMapperProfile.cs` file under the `ObjectMapping` folder of the `CloudCrm.OrderingService` project of the `CloudCrm.OrderingService` .NET solution) and ignore the `ProductName` property in the mapping configuration:
 
 ```csharp
 using AutoMapper;
@@ -308,4 +308,4 @@ Now, the Ordering service displays the product name instead of the product ID. W
 
 > **Design Tip**
 >
-> It is suggested that you keep that type of communication to a minimum and not couple your modules with each other. It can make your solution complicated and may also decrease your system performance. When you need to do it, think about performance and try to make some optimizations. For example, if the Ordering service frequently needs product data, you can use a kind of [cache layer](../../framework/fundamentals/caching.md), so it doesn't make frequent requests to the Catalog service.
+> It is suggested that you keep that type of communication to a minimum and not couple your services with each other. It can make your solution complicated and may also decrease your system performance. When you need to do it, think about performance and try to make some optimizations. For example, if the Ordering service frequently needs product data, you can use a kind of [cache layer](../../framework/fundamentals/caching.md), so it doesn't make frequent requests to the Catalog service.
