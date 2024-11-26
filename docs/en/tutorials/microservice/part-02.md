@@ -92,7 +92,7 @@ Click the *Play* button near to the solution root:
 
 ### Browsing the Catalog Service
 
-Once all of the applications has started, right-click the Catalog service and select the *Browse* command:
+Once all of the applications have started, right-click the Catalog service and select the *Browse* command:
 
 ![abp-studio-browse-catalog-service](images/abp-studio-browse-catalog-service.png)
 
@@ -106,7 +106,7 @@ You can test the APIs on the Swagger UI to see if the new microservice is proper
 
 The new Catalog microservice has its own database. That database is created automatically by the microservice application, when you run the microservice. Also, [Entity Framework's database migrations](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/) are automatically applied by the microservice when it runs. So, you don't care about the database schema changes every time you deploy the microservice.
 
-Assuming you've selected SQL Server as your DBMS, you can open the SQL Server Management Studio to see its database:
+Assuming you've selected SQL Server as your DBMS, you can open the SQL Server Management Studio to see its databases:
 
 ![sql-server-management-studio-login-screen](images/sql-server-management-studio-login-screen.png)
 

@@ -10,7 +10,7 @@
 }
 ````
 
-Follow the *[Get Stared](../../get-started/microservice.md)* guide to create a new layered web application with the following configuration:
+Follow the *[Get Started](../../get-started/microservice.md)* guide to create a new layered web application with the following configurations:
 
 * **Solution name**: `CloudCrm`
 * **Database Provider**: Entity Framework Core
@@ -21,7 +21,7 @@ Follow the *[Get Stared](../../get-started/microservice.md)* guide to create a n
 
 You can select the other options based on your preference.
 
-> **Please complete the *[Get Stared](../../get-started/layered-web-application.md)* guide and run the web application before going further.** You can skip the sections after the *Running the Solution* section, if you don't prefer to complete all.
+> **Please complete the *[Get Started](../../get-started/layered-web-application.md)* guide and run the web application before going further.** You can skip the sections after the *Running the Solution* section, if you don't prefer to complete all.
 
 The initial solution structure should be like the following in ABP Studio's *[Solution Explorer](../../studio/solution-explorer.md)*:
 
@@ -37,4 +37,4 @@ You can see the *[Microservice Solution Template](../../solution-templates/micro
 
 ## Summary
 
-In this part, you've created the initial microservice solution which already contains a few infrastructure services. We will create our first business service in the [next part](part-02.md).
+In this part, you've created the initial microservice solution, which already contains a few infrastructure services. We will create our first business service in the [next part](part-02.md).

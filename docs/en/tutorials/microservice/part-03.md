@@ -38,11 +38,11 @@ Select the `CloudCrm.CatalogService` module and click the *OK* button. It will o
 
 ## Generating a Products Page
 
-In the next section, we will use ABP Suite to create a fully functional CRUD page with ABP Suite. The UI part will be in the main web application (`CloudCrm.Web`) and the application service and others parts will be generated in the Catalog microservice.
+In the next section, we will use ABP Suite to create a fully functional CRUD page with ABP Suite. The UI part will be in the main web application (`CloudCrm.Web`) and the application service and other parts will be generated in the Catalog microservice.
 
 ### Configuring the Product Entity Information
 
-Type `Product` for the *Name* field and leave the other options as is. ABP Suite will automatically calculate proper values for your:
+Type `Product` for the *Name* field and leave the other options as is. ABP Suite will automatically calculate proper values for you:
 
 ![abp-suite-product-info](images/abp-suite-product-info.png)
 
@@ -69,7 +69,7 @@ That's all. You can click the *Save and generate* button to start the code gener
 
 ![abp-suite-product-generated](images/abp-suite-product-generated.png)
 
-ABP Suite will generate the necessary code for you. It will take some time to complete the process. After the process is completed, you will see a success message click the *OK* button.
+ABP Suite will generate the necessary code for you. It will take some time to complete the process. After the process is completed, you will see a success message, click the *OK* button.
 
 ![abp-studio-catalog-service-build-and-start](images/abp-studio-catalog-service-build-and-start.png)
 
@@ -77,7 +77,7 @@ We can now build and start the `CloudCrm.CatalogService` application by clicking
 
 ![abp-studio-browse-catalog-service-2](images/abp-studio-browse-catalog-service-2.png)
 
-After the application is started, you can rigth-click and [Browse](../../studio/running-applications.md#monitoring) on the `CloudCrm.CatalogService` application to open it in the ABP Studio inside browser. You can see the *Products* controller in the Swagger UI.
+After the application is started, you can right-click and [Browse](../../studio/running-applications.md#monitoring) on the `CloudCrm.CatalogService` application to open it in the ABP Studio's pre-integrated browser. You can see the *Products* controller in the Swagger UI.
 
 ### Generating the UI Proxy
 
@@ -85,15 +85,18 @@ Now, we need to generate the [Static API Proxy](../../framework/api-development/
 
 ![abp-studio-generate-proxy](images/abp-studio-generate-proxy.png)
 
-It will open the *Generate C# Proxies* window. Select the `CloudCrm.CatalogService` application, and it will automatically populate the *URL* field. Select the *catalog* module, set the service type to *application*, and check the *Without contracts* checkbox, as the `CloudCrm.Web` project already depends on the `CloudCrm.CatalogService.Contracts` package.
+It will open the *Generate C# Proxies* window. Select the `CloudCrm.CatalogService` application, and it will automatically populate the *URL* field. Select the *catalog* module, set the service type to *application*, and check the *Without contracts* checkbox, as the `CloudCrm.Web` project already depends on the `CloudCrm.CatalogService.Contracts` package:
 
 ![abp-studio-generate-proxy-window](images/abp-studio-generate-proxy-window.png)
 
-> To be able to select the *Application*, you must *Build & Start* the related application beforehand. You can start the application using [Solution Runner](../../studio/running-applications.md).
+> To be able to select the *Application*, you must *Build & Start* the related application beforehand. You can start the application using [Solution Runner](../../studio/running-applications.md) as explained in the previous parts.
 
 Lastly, we need to configure the use of a static HTTP client for the `CatalogService` in the `CloudCrm.Web` project. Open the `CloudCrmWebModule.cs` file in the `Web` project and add the following line to the `ConfigureServices` method:
 
 ```csharp
+//...
+using CloudCrm.CatalogService;
+
 public override void ConfigureServices(ServiceConfigurationContext context)
 {
     // Code omitted for brevity
@@ -104,11 +107,11 @@ public override void ConfigureServices(ServiceConfigurationContext context)
 
 ### Running the Application
 
-Now, stop any application running in the *Solution Runner* panel, and then run the application by clicking the *Run* -> *Build & Start All* button on the root item in the *Solution Runner* panel.
+Now, stop any application running in the *Solution Runner* panel, and then run the applications by clicking the *Run* -> *Build & Start All* button on the root item in the *Solution Runner* panel:
 
 ![abp-studio-run-build-and-start-all](images/abp-studio-run-build-and-start-all.png)
 
-After the application is started, you can rigth-click and [Browse](../../studio/running-applications.md#monitoring) on the `CloudCrm.Web` application to open it in the ABP Studio inside browser:
+After the application is started, you can right-click and [Browse](../../studio/running-applications.md#monitoring) on the `CloudCrm.Web` application to open it in the ABP Studio's pre-integrated browser:
 
 ![abp-studio-browse-cloud-crm-products](images/abp-studio-browse-cloud-crm-products.png)
 
