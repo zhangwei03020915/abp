@@ -23,10 +23,14 @@ This tutorial is organized as the following parts:
 * [Part 01: Creating the initial solution](part-01.md)
 * [Part 02: Creating the initial Catalog microservice](part-02.md)
 * [Part 03: Building the Catalog microservice](part-03.md)
+* [Part 04: Creating the initial Ordering service](part-04.md)
+* [Part 05: Building the Ordering service](part-05.md)
+* [Part 06: Integrating the services: HTTP API Calls](part-06.md)
+* [Part 07: Integrating the services: Using Distributed Events](part-07.md)
 
 ## Download the Source Code
 
-*TODO*
+After logging in to the ABP website, you can download the source code for the final solution from [here](https://abp.io/api/download/samples/cloud-crm-mvc-ef).
 
 ## See Also
 
