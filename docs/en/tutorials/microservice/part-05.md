@@ -18,7 +18,7 @@ In the previous part, we created the Ordering microservice. In this part, we wil
 
 ## Creating the Order Entity
 
-We will start by creating the `Order` entity, which will represent an order in our system. We'll add this entity to the `CloudCrm.OrderingService` project. Create a new folder named `Entities` and add a class named `Order` inside it.
+We will start by creating the `Order` entity, which will represent an order in our system. We'll add this entity to the `CloudCrm.OrderingService` project. Create a new folder named `Entities` and add a class named `Order` inside it:
 
 ```csharp
 using CloudCrm.OrderingService.Enums;
@@ -267,7 +267,7 @@ public class OrderingServiceApplicationAutoMapperProfile : Profile
 
 ## Testing the Application Service
 
-Now, we can test the `OrderAppService` class using the Swagger UI. Open the Solution Runner and right-click to `CloudCrm.OrderingService` project and select the *Run* -> *Build & Start* command. After the application starts, you can open the Swagger UI by [Browse](../../studio/running-applications.md#monitoring) command.
+Now, we can test the `OrderAppService` class using the Swagger UI. Open the Solution Runner and right-click to `CloudCrm.OrderingService` project and select the *Run* -> *Build & Start* command. After the application starts, you can open the Swagger UI by clicking to the [Browse](../../studio/running-applications.md#monitoring) command:
 
 ![ordering-service-swagger-ui](images/ordering-service-swagger-ui.png)
 
@@ -348,13 +348,16 @@ Now, we need to generate the [Static API Proxy](../../framework/api-development/
 
 ![abp-studio-generate-proxy-2](images/abp-studio-generate-proxy-2.png)
 
-It will open the *Generate C# Proxies* window. Select the `CloudCrm.OrderingService` application, and it will automatically populate the *URL* field. Choose the *ordering* module and service type is *application* lastly check the *Without contracts* checkbox, since we already have a dependency on the `CloudCrm.OrderingService.Contracts` package in the `CloudCrm.Web` project.
+It will open the *Generate C# Proxies* window. Select the `CloudCrm.OrderingService` application, and it will automatically populate the *URL* field. Choose the *ordering* module and service type is *application* lastly check the *Without contracts* checkbox, since we already have a dependency on the `CloudCrm.OrderingService.Contracts` package in the `CloudCrm.Web` project:
 
 ![abp-studio-generate-proxy-window-ordering-module](images/abp-studio-generate-proxy-window-ordering-module.png)
 
 Lastly, we need to configure the use of a static HTTP client for the `OrderingService` in the `CloudCrm.Web` project. Open the `CloudCrmWebModule.cs` file in the `Web` project and add the following line to the `ConfigureServices` method:
 
 ```csharp
+//...
+using CloudCrm.OrderingService;
+
 public override void ConfigureServices(ServiceConfigurationContext context)
 {
     // Code omitted for brevity
@@ -365,7 +368,7 @@ public override void ConfigureServices(ServiceConfigurationContext context)
 
 ### Adding the Menu Item
 
-ABP provides a modular navigation [menu system](../../framework/ui/mvc-razor-pages/navigation-menu.md) that allows you to define the menu items in a modular way.
+> ABP provides a modular navigation [menu system](../../framework/ui/mvc-razor-pages/navigation-menu.md) that allows you to define the menu items in a modular way.
 
 Finally, we need to add a menu item to the sidebar to navigate to the `Orders` page. Open the `CloudCrmMenus` file in the `Navigation` folder of the `CloudCrm.Web` project and edit with the following code:
 
@@ -384,7 +387,7 @@ public class CloudCrmMenus
 
     public const string Products = Prefix + ".Products";
 
-    public const string Orders = Prefix + ".Orders";// NEW: ADD MENU ITEM
+    public const string Orders = Prefix + ".Orders"; // NEW: ADD MENU ITEM
 }
 ```
 
@@ -408,15 +411,15 @@ private static async Task ConfigureMainMenuAsync(MenuConfigurationContext contex
 
 ## Building and Running the Application
 
-Now, we can build and run the application to see the changes. Please stop the applications if they are running. Then open the *Solution Runner* panel, right-click the `CloudCrm` root item, and select the *Run* -> *Build & Start* command.
+Now, we can build and run the application to see the changes. Please stop the applications if they are running. Then open the *Solution Runner* panel, right-click the `CloudCrm` root item, and select the *Run* -> *Build & Start* command:
 
 ![abp-studio-run-build-start](images/abp-studio-run-build-start.png)
 
-After the applications start, you can *Browse* and navigate to the `Orders` page to see the list of orders:
+After the applications are started, you can *Browse* and navigate to the `Orders` page to see the list of orders:
 
 ![web-orders-page](images/web-orders-page.png)
 
-Great! We have successfully implemented the Ordering module. However, there is a problme:
+Great! We have successfully implemented the Ordering module. However, there is a problem:
 
 - We see Product's GUID ID instead of its name. This is because the *Ordering* microservice has no integration with the *Catalog* microservice and doesn't have access to Product microservice's database to perform a JOIN query.
 

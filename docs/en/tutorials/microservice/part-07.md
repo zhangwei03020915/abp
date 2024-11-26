@@ -26,7 +26,7 @@ In the example scenario, we want to publish an event when a new order is placed.
 
 ### Defining the Event Class
 
-Open the `CloudCrm.OrderingService` .NET solution in your IDE, create an `Events` folder and create a new class named `OrderPlacedEto` under the `CloudCrm.OrderingService.Contracts` project.
+Open the `CloudCrm.OrderingService` .NET solution in your IDE, create an `Events` folder and create a new class named `OrderPlacedEto` under the `CloudCrm.OrderingService.Contracts` project:
 
 ```csharp
 using System;
@@ -133,27 +133,27 @@ The Catalog service will subscribe to the `OrderPlacedEto` event and decrease th
 
 Since the `OrderPlacedEto` class is in the `CloudCrm.OrderingService.Contracts` project, we must add that package's reference to the Catalog service. This time, we will use the Import Module feature of ABP Studio (as an alternative to the approach we used in the Adding a Reference to the `CloudCrm.CatalogService.Contracts` Package section of the [previous part](./part-06.md#adding-a-reference-to-the-cloudcrmcatalogservicecontracts-package)).
 
-Open the ABP Studio UI and stop the applications if they are running. Then, open the *Solution Explorer* panel and right-click on the `CloudCrm.CatalogService`. Select *Import Module* from the context menu.
+Open the ABP Studio UI and stop the applications if they are running. Then, open the *Solution Explorer* panel and right-click on the `CloudCrm.CatalogService`. Select *Import Module* from the context menu:
 
 ![Import Module](images/import-module.png)
 
-In the opening dialog, find and select the `CloudCrm.OrderingService` module, check the *Install this module* option click the *OK* button.
+In the opening dialog, find and select the `CloudCrm.OrderingService` module, check the *Install this module* option, click the *OK* button:
 
 ![Import Module Dialog](images/import-module-dialog.png)
 
-Once you click the OK button, the Ordering service is imported to the Catalog service. It opens the *Install Module* dialog.
+Once you click the OK button, the Ordering service is imported to the Catalog service. It opens the *Install Module* dialog:
 
 ![Install Module Dialog](images/install-module-dialog.png)
 
 Here, select the `CloudCrm.OrderingService.Contracts` package on the left side (because we want to add that package reference) and `CloudCrm.CatalogService` package on the middle area (because we want to add the package reference to that project).
 
-You can check the ABP Studio's *Solution Explorer* panel to see the module and the project reference (dependency).
+You can check the ABP Studio's *Solution Explorer* panel to see the module and the project reference (dependency):
 
 ![catalog-service-dependency](images/catalog-service-dependency.png)
 
 ### Handling the `OrderPlacedEto` Event
 
-Now, it's time to handle the `OrderPlacedEto` event in the Catalog service. Open the `CloudCrm.CatalogService` .NET solution in your IDE. Create a new `Orders` folder, and add a new class named `OrderEventHandler` inside that folder within the `CloudCrm.CatalogService` project.
+Now, it's time to handle the `OrderPlacedEto` event in the Catalog service. Open the `CloudCrm.CatalogService` .NET solution in your IDE. Create a new `Orders` folder, and add a new class named `OrderEventHandler` inside that folder within the `CloudCrm.CatalogService` project:
 
 ```csharp
 using System;
@@ -203,11 +203,11 @@ Implementing `ITransientDependency` registers the `OrderEventHandler` class to t
 
 To keep this tutorial simple, we will not implement a user interface for creating orders. Instead, we will use the Swagger UI to create an order. Open the *Solution Runner* panel in ABP Studio and use *Build & Start* to launch the `CloudCrm.OrderingService` and `CloudCrm.CatalogService` applications. Then, go to *Run* -> *Start All* to start the remaining applications listed in the [Solution Runner root item](../../studio/running-applications.md#run).
 
-Once the application is running and ready, [Browse](../../studio/running-applications.md#c-application) the `CloudCrm.OrderingService` application. Use the `POST /api/ordering/order` endpoint to create a new order.
+Once the application is running and ready, [Browse](../../studio/running-applications.md#c-application) the `CloudCrm.OrderingService` application. Use the `POST /api/ordering/order` endpoint to create a new order:
 
 ![Create Order](images/create-order.png)
 
-Find the *Order* API, click the *Try it out* button, enter a sample value the *Request body* section, and click the *Execute* button.
+Find the *Order* API, click the *Try it out* button, enter a sample value the *Request body* section, and click the *Execute* button:
 
 ```json
 {
@@ -218,7 +218,7 @@ Find the *Order* API, click the *Try it out* button, enter a sample value the *R
 
 > **IMPORTANT:** Here, you should type a valid Product Id from the Products table of your database!
 
-Once you press the *Execute* button, a new order is created. At that point, you check the `/Orders` page to see if the new order is listed. You can also check the `/Products` page to see if the stock count of the related product is decreased by one in the `CloudCrm.Web` application.
+Once you press the *Execute* button, a new order is created. At that point, you can check the `/Orders` page to see if the new order is listed. You can also check the `/Products` page to see if the stock count of the related product is decreased by one in the `CloudCrm.Web` application.
 
 Here are sample screenshots from the Orders and Products pages of the `CloudCrm.Web` application:
 

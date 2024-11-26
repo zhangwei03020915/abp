@@ -119,7 +119,7 @@ public override void ConfigureServices(ServiceConfigurationContext context)
 }
 ```
 
-This code configures the `AbpAspNetCoreMvcOptions` to expose integration services as HTTP APIs. This is useful when you need to call the integration service from a different service using HTTP. You learn more about this in the [Integration Services](../../framework/api-development/integration-services.md#exposing-integration-services) document.
+This code configures the `AbpAspNetCoreMvcOptions` to expose integration services as HTTP APIs. This is useful when you need to call the integration service from a different service using HTTP. You can learn more about this in the [Integration Services](../../framework/api-development/integration-services.md#exposing-integration-services) document.
 
 ## Consuming the Products Integration Service
 

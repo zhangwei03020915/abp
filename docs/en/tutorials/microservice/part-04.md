@@ -80,13 +80,13 @@ Click the *Play* button near to the solution root:
 
 ### Browsing the Ordering Service
 
-After the application is started, you can right-click and [Browse](../../studio/running-applications.md#monitoring) on the `CloudCrm.OrderingService` application to open it in the ABP Studio inside browser. You can see the *Orders* controller in the Swagger UI.
+After the application is started, you can right-click and [Browse](../../studio/running-applications.md#monitoring) on the `CloudCrm.OrderingService` application to open it in the ABP Studio's pre-integrated browser. You can see the *Orders* controller in the Swagger UI:
 
 ![abp-studio-browse-ordering-service](images/abp-studio-browse-ordering-service.png)
 
 ### Opening the Ordering Database
 
-You can use the SQL Server Management Studio or any other tool to connect to the Ordering service's database. Use `localhost,1434` as the *Server name*, select the *SQL Server Authentication* as the *Authentication* type, use `sa` as the *Login* name and `myPassw@rd` as the *Password* value. You can find these values in the `appsettings.json` file in the `CloudCrm.OrderingService` project of the .NET solution of the Ordering microservice.
+You can use the SQL Server Management Studio or any other tool to connect to the Ordering service's database. Use `localhost,1434` as the *Server name*, select the *SQL Server Authentication* as the *Authentication* type, use `sa` as the *Login* name and `myPassw@rd` as the *Password* value. You can find these values in the `appsettings.json` file in the `CloudCrm.OrderingService` project of the .NET solution of the Ordering microservice:
 
 ![sql-server-management-studio-databases-2](images/sql-server-management-studio-databases-2.png)
 
