@@ -108,7 +108,7 @@ $projects = (
     "framework/src/Volo.Abp.AspNetCore.Components.Web.Theming",
     "framework/src/Volo.Abp.AspNetCore.Components.WebAssembly",
     "framework/src/Volo.Abp.AspNetCore.Components.WebAssembly.Theming",
-    "framework/src/Volo.Abp.AspNetCore.Components.WebAssembly.Theming.Bundling"
+    "framework/src/Volo.Abp.AspNetCore.Components.WebAssembly.Theming.Bundling",
     "framework/src/Volo.Abp.AspNetCore.Components.Server",
     "framework/src/Volo.Abp.AspNetCore.Components.Server.Theming",
     "framework/src/Volo.Abp.AspNetCore.Components.MauiBlazor.Theming",
