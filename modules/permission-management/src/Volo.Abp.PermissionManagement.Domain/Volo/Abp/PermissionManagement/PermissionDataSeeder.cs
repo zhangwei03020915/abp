@@ -36,6 +36,10 @@ public class PermissionDataSeeder : IPermissionDataSeeder, ITransientDependency
             var names = grantedPermissions.ToArray();
             var existsPermissionGrants = (await PermissionGrantRepository.GetListAsync(names, providerName, providerKey)).Select(x => x.Name).ToList();
             var permissions = names.Except(existsPermissionGrants).Select(permissionName => new PermissionGrant(GuidGenerator.Create(), permissionName, providerName, providerKey, tenantId)).ToList();
+            if (!permissions.Any())
+            {
+                return;
+            }
             await PermissionGrantRepository.InsertManyAsync(permissions);
         }
     }
