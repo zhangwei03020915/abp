@@ -30,7 +30,7 @@ This tutorial is organized as the following parts:
 
 ## Download the Source Code
 
-After logging in to the ABP website, you can download the source code for the final solution from [here](https://abp.io/api/download/samples/cloud-crm-mvc-ef).
+After logging in to the ABP website, you can download the source code from [here](https://abp.io/api/download/samples/cloud-crm-mvc-ef).
 
 ## See Also
 
