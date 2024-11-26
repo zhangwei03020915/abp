@@ -169,27 +169,27 @@
             },
             {
               "text": "2: Creating the initial Catalog service",
-              "path": "tutorials/modular-crm/part-02.md"
+              "path": "tutorials/microservice/part-02.md"
             },
             {
               "text": "3: Building the Catalog service",
-              "path": "tutorials/modular-crm/part-03.md"
+              "path": "tutorials/microservice/part-03.md"
             },
             {
               "text": "4: Creating the initial Ordering service",
-              "path": "tutorials/modular-crm/part-04.md"
+              "path": "tutorials/microservice/part-04.md"
             },
             {
               "text": "5: Building the Ordering service",
-              "path": "tutorials/modular-crm/part-05.md"
+              "path": "tutorials/microservice/part-05.md"
             },
             {
               "text": "6: Integrating the services: HTTP API Calls",
-              "path": "tutorials/modular-crm/part-06.md"
+              "path": "tutorials/microservice/part-06.md"
             },
             {
               "text": "7: Integrating the services: Using Distributed Events",
-              "path": "tutorials/modular-crm/part-07.md"
+              "path": "tutorials/microservice/part-07.md"
             }
           ]
         },
