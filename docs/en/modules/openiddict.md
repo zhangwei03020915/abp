@@ -1,4 +1,4 @@
-## ABP OpenIddict Module
+# ABP OpenIddict Module
 
 OpenIddict module provides an integration with the [OpenIddict](https://github.com/openiddict/openiddict-core) which provides advanced authentication features like single sign-on, single log-out, and API access control. This module persists applications, scopes, and other OpenIddict-related objects to the database.
 
@@ -516,7 +516,7 @@ In the module's `app` directory there are six projects(including `angular`)
 * `OpenIddict.Demo.Client.BlazorWASM:` ASP NET Core Blazor application using `OidcAuthentication` for authentication.
 * `angular`: An angular application that integrates the abp ng modules and uses oauth for authentication.
 
-#### How to run?
+### How to run?
 
 Confirm the connection string of `appsettings.json` in the `OpenIddict.Demo.Server` project. Running the project will automatically create the database and initialize the data. 
 After running the `OpenIddict.Demo.API` project, then you can run the rest of the projects to test.

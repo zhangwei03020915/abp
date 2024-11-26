@@ -3,7 +3,7 @@
 ````json
 //[doc-params]
 {
-    "UI": ["MVC", "Blazor", "BlazorServer", "NG"],
+    "UI": ["MVC", "Blazor", "BlazorServer", "BlazorWebApp", "NG"],
     "DB": ["EF", "Mongo"],
     "Tiered": ["Yes", "No"]
 }
@@ -41,7 +41,7 @@ The following tools should be installed on your development machine:
 
 ## Creating a New Solution
 
-> 🛈 This document uses [ABP Studio](../studio/index.md) to create new ABP solutions. **ABP Studio** is in the beta version now. If you have any issues, you can use the [ABP CLI](../cli/index.md) to create new solutions. You can also use the [getting started page](https://abp.io/get-started) to easily build ABP CLI commands for new project creations.
+> This document uses [ABP Studio](../studio/index.md) to create new ABP solutions. **ABP Studio** is in the beta version now. If you have any issues, you can use the [ABP CLI](../cli/index.md) to create new solutions. You can also use the [getting started page](https://abp.io/get-started) to easily build ABP CLI commands for new project creations.
 
 > ABP startup solution templates have many options for your specific needs. If you don't understand an option that probably means you don't need it. We selected common defaults for you, so you can leave these options as they are.
 
@@ -119,7 +119,7 @@ Here, you can select the database management systems (DBMS){{ if DB == "EF" }} a
 
 ![abp-studio-new-solution-dialog-additional-options](images/abp-studio-new-solution-dialog-additional-options.png)
 
-If you uncheck the *Kubernetes Configuration* option, the solution will not include the Kubernetes configuration files, such as Helm charts and other Kubernetes-related files. You can also specify *Social Logins*; if you uncheck this option, the solution will not be configured for social login.
+If you uncheck the *Kubernetes Configuration* option, the solution will not include the Kubernetes configuration files, such as Helm charts and other Kubernetes-related files. You can also specify *Social Logins*; if you uncheck this option, the solution will not be configured for social login. Lastly, you can specify the *Include Tests* option to include or exclude the test projects from the solution.
 
 Now, we are ready to allow ABP Studio to create our solution. Just click the *Create* button and let the ABP Studio do the rest for you. After clicking the Create button, the dialog is closed and your solution is loaded into ABP Studio:
 
@@ -162,7 +162,7 @@ You can start the following application(s):
 {{ else if UI == "Blazor" }}
 {{ if Tiered == "No" }}- `Acme.BookStore.HttpApi.Host`{{ end }}
 - `Acme.BookStore.Blazor`
-{{ else if UI == "BlazorServer" }}
+{{ else if UI == "BlazorServer" || UI == "BlazorWebApp" }}
 - `Acme.BookStore.Blazor`
 {{ else }}
 - `Acme.BookStore.Web`
@@ -174,7 +174,7 @@ You can start the following application(s):
 > Notice that the services running in docker-compose are exposed to your localhost. If any service in your localhost is already using the same port(s), you will get an error. In that case, stop your local services first.
 {{ end }}
 
-Once the `Acme.BookStore.{{ if UI == "NG" }}Angular{{ else if UI == "BlazorServer" || UI == "Blazor" }}Blazor{{ else }}Web{{ end }}` application started, you can right-click it and select the *Browse* command:
+Once the `Acme.BookStore.{{ if UI == "NG" }}Angular{{ else if UI == "BlazorServer" || UI == "Blazor" || UI == "BlazorWebApp" }}Blazor{{ else }}Web{{ end }}` application started, you can right-click it and select the *Browse* command:
 
 ![abp-studio-quick-start-browse-command](images/abp-studio-quick-start-browse-command.png)
 
@@ -206,7 +206,7 @@ Once the solution is opened in Visual Studio, you should see a screen like shown
 
 ![visual-studio-bookstore-application](images/visual-studio-bookstore-application.png)
 
-Right-click the `Acme.BookStore.{{ if UI == "NG" || UI == "Blazor" }}HttpApi.Host{{ else if UI == "BlazorServer" }}Blazor{{ else }}Web{{ end }}` project and select the *Set as Startup Project* command. You can then hit *F5* or *Ctrl + F5* to run the web application. It will run and open the application UI in your default browser:
+Right-click the `Acme.BookStore.{{ if UI == "NG" || UI == "Blazor" }}HttpApi.Host{{ else if UI == "BlazorServer" || UI == "BlazorWebApp" }}Blazor{{ else }}Web{{ end }}` project and select the *Set as Startup Project* command. You can then hit *F5* or *Ctrl + F5* to run the web application. It will run and open the application UI in your default browser:
 
 ![bookstore-browser-users-page](images/bookstore-browser-users-page.png)
 

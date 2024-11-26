@@ -2,6 +2,7 @@
 
 ABP offers an **opinionated architecture** to build enterprise software solutions with **best practices** on top of the **.NET** and the **ASP.NET Core** platforms. It provides the fundamental infrastructure, production-ready startup templates, pre-built application modules, UI themes, tooling, guides and documentation to implement that architecture properly and **automate the details** and repetitive works as much as possible.
 
+## Why ABP Platform?
 The following pages outline why you should use the ABP Platform and how it is used:
 
 * [Why choose ABP?](https://abp.io/why-choose-abp)
@@ -29,9 +30,19 @@ ABP can work with any database provider, while the following providers are suppo
 
 <img width="340" src="images/db-options.png" alt="ABP Database Providers" />
 
+## The ABP Platform
+
+ABP **bridges the gap** between ASP.NET Core and **real-world business application requirements**, allowing you to focus on your business code.
+
+The following diagram contains the core components of the **ABP Platform** and shows how ABP sits between **ASP.NET Core** and **Your Application**:
+
+![abp-overall-diagram-1600](images/abp-overall-diagram-1600.png)
+
 ## Exploring the Documentation
 
 ABP has a **comprehensive documentation** that not only explains ABP, but also includes **guides** and **samples** to help you on creating a **maintainable solution** by introducing and discussing common **software development principle and best practices**.
+
+The next sections highlight important ABP components and provides links to related documents.
 
 ### The Framework
 

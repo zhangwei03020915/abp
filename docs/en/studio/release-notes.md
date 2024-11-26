@@ -2,6 +2,69 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.8 (2024-11-20)
+
+* Upgraded templates to version `8.3.4`
+
+## 0.9.7 (2024-11-19)
+
+* Added `AppearanceStyles` component to blazor server templates
+* Fixed module import window
+* Made several enhancements to the existing features
+
+## 0.9.6 (2024-11-15)
+
+* Added missing imports to templates
+* Fixed bugs during EF Core package installation
+* Show errors to the user when adding a database migration
+* Changed empty solution description on create new solution wizard
+* Fixed problems with templates created with Basic Theme
+* Ensure the correct version is used when adding a new module/package to an existing solution
+
+## 0.9.5 (2024-11-06)
+
+* Added dynamic localization option to microservice template
+* Added new template creation options for the Application (No Layers)
+* Fixed the environment variable setting for .NET global tool and verification of tool installation
+* Fixed log view auto-scrolling issue, ensuring smooth scrolling experience
+* Upgraded templates to version `8.3.3`
+
+## 0.9.4 (2024-10-31)
+
+* Made the `TopMenuLayout` as the default layout type for microservice public website
+* Fixed application crashing problem when the ABP Suite is opened
+
+## 0.9.3 (2024-10-30)
+
+* Added the **standard module template**
+* Made enhancements on the pre-integrated browser
+* Fixed Blazor WebAssembly UI being not run on kubernetes problem
+* Added a database migration after a module added to the solution
+
+## 0.9.2 (2024-10-22)
+
+* Added a status bar to the pre-integrated browser for showing errors
+* Added **Sample CRUD Page** option to pro templates
+* Added test projects optionally for all templates
+* Added **AutoMapper** configurations to microservice host projects
+* Disabled **transaction** for *MongoDB* & *SQLite* by default.
+
+## 0.9.1 (2024-10-10)
+
+* Fixed the ABP Studio CLI's Bundle Command
+* Fixed the Public Web project for the Microservice Template
+* Removed the React Native for the Community Edition (open-source)
+* Added multiple gateway and UI selection option during microservice creation
+* Added External Logins item to user menu for the Blazor templates
+
+## 0.8.4 (2024-10-07)
+
+* Fixed the ABP Suite does not open problem for macOS
+* Made improvements on the new microservice creation
+* Allowed using browser shortcuts (copy, paste, new tab etc.) for macOS
+* Prevented application being crashed on solution runner exceptions
+* Included `WebApp.Client` project styles in the main application to enable CSS in Isolation
+
 ## 0.8.3 (2024-09-24)
 
 * Allowed to set Execution Order (or dependency) from Solution Runner
