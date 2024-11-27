@@ -62,16 +62,15 @@ public class AbpHttpClientTestModule : AbpModule
             options.PathConverts.Add(typeof(int), typeof(TestObjectToPath));
         });
 
-        Configure<AbpHttpClientExecuteHttpActionOptions>(options =>
+        Configure<AbpHttpClientOptions>(options =>
         {
-            options.ExecuteHttpAction = (method, httpclient) =>
+            options.ProxyHttpClientPreSendActions.Add("Default", (_, requestContext, httpclient) =>
             {
-                if (method.Name.Equals("TimeOutRequestAsync"))
-                { 
-                    httpclient.Timeout = TimeSpan.FromMilliseconds(2000);
+                if (requestContext.Action.Name.Equals("TimeOutRequestAsync"))
+                {
+                    httpclient.Timeout = TimeSpan.FromMilliseconds(1);
                 }
-            };
+            });
         });
-        
     }
 }

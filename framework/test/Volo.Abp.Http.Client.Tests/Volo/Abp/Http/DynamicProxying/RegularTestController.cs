@@ -157,8 +157,8 @@ public class RegularTestController : AbpController, IRegularTestController
     [Route("timeout-request")]
     public async Task<string> TimeOutRequestAsync()
     {
-        await Task.Delay(5000);
-        return "timeout-request";
+        await Task.Delay(100);
+        return "TimeOutRequestAsync";
     }
 }
 

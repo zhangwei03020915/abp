@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
@@ -191,12 +192,7 @@ public class RegularTestControllerClientProxy_Tests : AbpHttpClientTestBase
     [Fact]
     public async Task TimeOutRequestAsync()
     {
-        //This cannot be executed successfully because the unit test does not use SocketsHttpHandler for request processing,
-        //so the desired results cannot be obtained locally. At the same time,
-        //I can achieve the expected results by using other services locally.
-
-        //var exception = await Assert.ThrowsAsync<TaskCanceledException>(async () => await _controller.TimeOutRequestAsync());
-        //exception.InnerException.InnerException.InnerException.Message.ShouldBe("The client aborted the request.");   
-        await Task.CompletedTask;
+        var exception = await Assert.ThrowsAsync<HttpRequestException>(async () => await _controller.TimeOutRequestAsync());
+        exception.InnerException.InnerException.Message.ShouldBe("The client aborted the request.");
     }
 }
