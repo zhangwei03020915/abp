@@ -314,7 +314,11 @@ public class ClientProxyBase<TService> : ITransientDependency
         }
 
         //CorrelationId
-        requestMessage.Headers.Add(AbpCorrelationIdOptions.Value.HttpHeaderName, CorrelationIdProvider.Get());
+        var correlationId = CorrelationIdProvider.Get();
+        if (correlationId != null)
+        {
+            requestMessage.Headers.Add(AbpCorrelationIdOptions.Value.HttpHeaderName, correlationId);
+        }
 
         //TenantId
         if (CurrentTenant.Id.HasValue)
