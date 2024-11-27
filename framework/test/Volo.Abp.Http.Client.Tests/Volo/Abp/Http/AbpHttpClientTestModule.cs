@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Http.Client;
 using Volo.Abp.Http.Client.ClientProxying;
+using Volo.Abp.Http.Client.Proxying;
 using Volo.Abp.Http.DynamicProxying;
 using Volo.Abp.Http.Localization;
 using Volo.Abp.Localization;
@@ -64,7 +66,7 @@ public class AbpHttpClientTestModule : AbpModule
 
         Configure<AbpHttpClientOptions>(options =>
         {
-            options.ProxyHttpClientPreSendActions.Add("Default", (_, requestContext, httpclient) =>
+            options.AddPreSendAction("Default", (_, requestContext, httpclient) =>
             {
                 if (requestContext.Action.Name.Equals("TimeOutRequestAsync"))
                 {

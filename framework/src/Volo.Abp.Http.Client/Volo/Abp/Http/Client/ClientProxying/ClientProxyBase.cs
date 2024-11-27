@@ -146,7 +146,7 @@ public class ClientProxyBase<TService> : ITransientDependency
         HttpResponseMessage response;
         try
         {
-            foreach (var preSendAction in ClientOptions.Value.ProxyHttpClientPreSendActions.Where(x => x.Key  == clientConfig.RemoteServiceName).Select(x => x.Value))
+            foreach (var preSendAction in ClientOptions.Value.ProxyHttpClientPreSendActions.Where(x => x.Key  == clientConfig.RemoteServiceName).SelectMany(x => x.Value))
             {
                 preSendAction(clientConfig, requestContext, client);
             }
