@@ -27,6 +27,54 @@ The new `ThemeBundlingModule` only depends on `AbpAspNetCoreComponentsWebAssembl
 
 We will get all `JavaScript/CSS` files on `OnApplicationInitializationAsync` method of `AbpAspNetCoreMvcUiBundlingModule` from bundling system and add them to `IDynamicFileProvider` service. After that, we can access the `JavaScript/CSS` files in the Blazor wasm app.
 
+## Add the Global Assets in the module
+
+If your module has `JavaScript/CSS` files that need to the bundling system, You have to create a new project(`YourModuleName.Blazor.WebAssembly.Bundling`) to your module solution, and reference the new project in the `MyProjectName` project and module dependencies.
+
+The new project should **only** depend on the `AbpAspNetCoreComponentsWebAssemblyThemingBundlingModule` and define `BundleContributor` classes to contribute the `JavaScript/CSS` files.
+
+> Q: The new project(`YourModuleName.Blazor.WebAssembly.Bundling`) doesn't have the `libs/myscript.js` and `libs/myscript.css` files why the files can be added to the bundling system?
+
+> A: Because the `MyProjectName.Client` will depend on the `MyBlazorModule(YourModuleName.Blazor)` that contains the `JavaScript/CSS` files, The `MyProjectName` is referencing the `MyProjectName.Client` project, so the `MyProjectName` project can access the `JavaScript/CSS` files in the `MyProjectName.Client` project and add them to the bundling system.
+
+```csharp
+[DependsOn(
+    typeof(AbpAspNetCoreComponentsWebAssemblyThemingBundlingModule)
+)]
+public class MyBlazorWebAssemblyBundlingModule : AbpModule
+{
+    public override void ConfigureServices(ServiceConfigurationContext context)
+    {
+        Configure<AbpBundlingOptions>(options =>
+        {
+            // Script Bundles
+            options.ScriptBundles.Get(BlazorWebAssemblyStandardBundles.Scripts.Global).AddContributors(typeof(MyModuleBundleScriptContributor));
+
+            // Style Bundles
+            options.ScriptBundles.Get(BlazorWebAssemblyStandardBundles.Scripts.Global).AddContributors(typeof(MyModuleBundleStyleBundleContributor));
+        });
+    }
+}
+```
+
+```csharp
+public class MyModuleBundleScriptContributor : BundleContributor
+{
+    public override void ConfigureBundle(BundleConfigurationContext context)
+    {
+        context.Files.AddIfNotContains("_content/MyModule.Blazor/libs/myscript.js");
+    }
+}
+
+public class MyModuleBundleStyleBundleContributor : BundleContributor
+{
+    public override void ConfigureBundle(BundleConfigurationContext context)
+    {
+        context.Files.AddIfNotContains("_content/MyModule.Blazor/libs/myscript.css");
+    }
+}
+```
+
 ## Use the Global Assets in the Blazor wasm app
 
 ### MyProject
