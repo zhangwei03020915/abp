@@ -2,13 +2,81 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.13 (2024-11-25)
+
+* Angular - Theme-based Fixes for the Home Page.
+
+## 0.9.12 (2024-11-25)
+
+* Handled the `DynamicPermissionDefinitionsChangedEto` event to automatically add permissions for the admin role.
+* Enhanced the Solution Configuration window with a more intuitive design and updated content.
+* Improved MAUI application support by displaying all target frameworks in the Solution Runner and automatically setting the appropriate targetFramework based on the operating system.
+
+## 0.9.11 (2024-11-21)
+
+* Fixed the extension loading problem occured in v0.9.9 & v0.9.10.
+
+## 0.9.10 (2024-11-21)
+
+> Recommended to use v0.9.11+ for .NET 9.
+
+* Added shortcut for Build & Start operation (CTRL + Click)
+* Fixed extension loading loop problem in v0.9.9
+* Fixed MAUI template for android
+
+## 0.9.9 (2024-11-21)
+
+> Recommended to use v0.9.11+ for .NET 9.
+
+* Upgraded templates to .NET 9
+* Fixed blazor wasm bundle problem in microservice template
+
+## 0.9.8 (2024-11-20)
+
+* Upgraded templates to version `8.3.4`
+
+## 0.9.7 (2024-11-19)
+
+* Added `AppearanceStyles` component to blazor server templates
+* Fixed module import window
+* Made several enhancements to the existing features
+
+## 0.9.6 (2024-11-15)
+
+* Added missing imports to templates
+* Fixed bugs during EF Core package installation
+* Show errors to the user when adding a database migration
+* Changed empty solution description on create new solution wizard
+* Fixed problems with templates created with Basic Theme
+* Ensure the correct version is used when adding a new module/package to an existing solution
+
+## 0.9.5 (2024-11-06)
+
+* Added dynamic localization option to microservice template
+* Added new template creation options for the Application (No Layers)
+* Fixed the environment variable setting for .NET global tool and verification of tool installation
+* Fixed log view auto-scrolling issue, ensuring smooth scrolling experience
+* Upgraded templates to version `8.3.3`
+
+## 0.9.4 (2024-10-31)
+
+* Made the `TopMenuLayout` as the default layout type for microservice public website
+* Fixed application crashing problem when the ABP Suite is opened
+
+## 0.9.3 (2024-10-30)
+
+* Added the **standard module template**
+* Made enhancements on the pre-integrated browser
+* Fixed Blazor WebAssembly UI being not run on kubernetes problem
+* Added a database migration after a module added to the solution
+
 ## 0.9.2 (2024-10-22)
 
-* Added "Sample CRUD Page" option for pro templates
-* Generated *Signing-Certificate* for appnolayers template
+* Added a status bar to the pre-integrated browser for showing errors
+* Added **Sample CRUD Page** option to pro templates
 * Added test projects optionally for all templates
-* Added automapper configuration to apps/web project for ms template
-* Disabled *transaction* for `MongoDB` and `SQLite` by default
+* Added **AutoMapper** configurations to microservice host projects
+* Disabled **transaction** for *MongoDB* & *SQLite* by default.
 
 ## 0.9.1 (2024-10-10)
 

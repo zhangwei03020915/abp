@@ -157,6 +157,43 @@
           ]
         },
         {
+          "text": "Microservice Solution",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "tutorials/microservice/index.md"
+            },
+            {
+              "text": "1: Creating the initial solution",
+              "path": "tutorials/microservice/part-01.md"
+            },
+            {
+              "text": "2: Creating the initial Catalog service",
+              "path": "tutorials/microservice/part-02.md"
+            },
+            {
+              "text": "3: Building the Catalog service",
+              "path": "tutorials/microservice/part-03.md"
+            },
+            {
+              "text": "4: Creating the initial Ordering service",
+              "path": "tutorials/microservice/part-04.md"
+            },
+            {
+              "text": "5: Building the Ordering service",
+              "path": "tutorials/microservice/part-05.md"
+            },
+            {
+              "text": "6: Integrating the services: HTTP API Calls",
+              "path": "tutorials/microservice/part-06.md"
+            },
+            {
+              "text": "7: Integrating the services: Using Distributed Events",
+              "path": "tutorials/microservice/part-07.md"
+            }
+          ]
+        },
+        {
           "text": "Community Articles",
           "path": "https://abp.io/community"
         }
@@ -227,8 +264,8 @@
               "path": "studio/concepts.md"
             },
             {
-              "text": "Version Compatibility",
-              "path": "studio/version-compatibility.md"
+              "text": "Version Mapping",
+              "path": "studio/version-mapping.md"
             },
             {
               "text": "Release Notes",
@@ -893,7 +930,7 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/ui/mvc-razor-pages/overall"
+                  "path": "framework/ui/mvc-razor-pages/overall.md"
                 },
                 {
                   "text": "Navigation / Menus",
@@ -1643,6 +1680,10 @@
           "path": "solution-templates"
         },
         {
+          "text": "Template Guide",
+          "path": "solution-templates/guide.md"
+        },
+        {
           "text": "Single-Layer Solution",
           "path": "solution-templates/single-layer-web-application"
         },
@@ -1718,7 +1759,16 @@
         },
         {
           "text": "Account (Pro)",
-          "path": "modules/account-pro.md"
+          "items": [
+            {
+              "text": "Overview",
+              "path": "modules/account-pro.md"
+            },
+            {
+              "text": "Tenant impersonation & User impersonation",
+              "path": "modules/account/impersonation.md"
+            }
+          ]
         },
         {
           "text": "Audit Logging",
