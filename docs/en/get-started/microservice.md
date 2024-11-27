@@ -171,17 +171,17 @@ Once you run the `IdentityService` in Visual Studio, it will be completely integ
 
 As an alternative approach, especially if you don't need to debug your service, you can enable the watching feature of ABP Studio to automatically re-build and re-start when there is change in your application/service.
 
-To enable watching, right-click the application/service you want to watch, select the *Run* -> *Enable Watch* command as shown in the following figure:
+To enable watching, right-click the application/service you want to watch, select the *Properties* -> *Watch changes while running* option as shown in the following figure:
 
-![abp-studio-microservice-solution-runner-enable-watch](images/abp-studio-microservice-solution-runner-enable-watch.png)
+![abp-studio-microservice-solution-runner-enable-watch-1](images/abp-studio-microservice-solution-runner-enable-watch-1.png)
+
+![abp-studio-microservice-solution-runner-enable-watch-2](images/abp-studio-microservice-solution-runner-enable-watch-2.png)
 
 Now, you can make your development on the `IdentityService`. Whenever you save a code file, it is automatically rebuilt and restarted by ABP Studio, so any change will be effective on the running solution in a few seconds.
 
 When you enable watch for an application an *eye* icon is added near to the application:
 
 ![abp-studio-microservice-solution-runner-watch-enabled-icon](images/abp-studio-microservice-solution-runner-watch-enabled-icon.png)
-
-You can disable watching by right-clicking an application and selecting *Run* -> *Disable Watch* command.
 
 ## Kubernetes Integration: Working with Helm Charts
 
