@@ -81,6 +81,8 @@ public class MyModuleBundleStyleBundleContributor : BundleContributor
 
 Convert your `MyProject` project to integrate the `ABP module` system and depend on the `AbpAspNetCoreMvcUiBundlingModule` and `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule`:
 
+> If the `BlazorWebAssembly modules` in `MyProject.Client` contain `BundleContributor`, Please also add the `BlazorWebAssemblyBundlingModule` of the module to the `MyProject` project.
+
 * The `AbpAspNetCoreMvcUiBundlingModule` uses to create the `JavaScript/CSS` files to virtual files.
 * The `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule` uses to add theme `JavaScript/CSS` to the bundling system.
 
