@@ -1,10 +1,10 @@
 # Idle Session Timeout
 
-Idle Session Timeout feature allows you to automatically log out users after a certain period of inactivity.
+The `Idle Session Timeout` feature allows you to automatically log out users after a certain period of inactivity.
 
 ## Configure Idle Session Timeout
 
-You can enable/disable the `Idle Session Timeout` feature in the `Setting -> Account -> Idle Session Timeout` page.
+You can enable/disable the `Idle Session Timeout` feature in the `Setting > Account > Idle Session Timeout` page.
 
 The default idle session timeout is 1 hour. You can change it by selecting a different value from the dropdown list or entering a custom value(in minutes).
 
