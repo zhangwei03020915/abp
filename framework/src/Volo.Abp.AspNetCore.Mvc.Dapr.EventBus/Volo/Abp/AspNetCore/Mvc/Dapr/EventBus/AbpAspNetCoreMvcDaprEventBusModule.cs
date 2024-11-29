@@ -30,7 +30,7 @@ public class AbpAspNetCoreMvcDaprEventBusModule : AbpModule
         {
             options.EndpointConfigureActions.Add(endpointContext =>
             {
-                var topicEndpoints = endpointContext.Endpoints.DataSources.SelectMany(x => x.Endpoints).OfType<RouteEndpoint>()
+                var topicMetadatas = endpointContext.Endpoints.DataSources.SelectMany(x => x.Endpoints).OfType<RouteEndpoint>()
                     .Where(e => e.Metadata.GetOrderedMetadata<ITopicMetadata>().Any(t => t.Name != null))
                     .SelectMany(e => e.Metadata.GetOrderedMetadata<ITopicMetadata>())
                     .ToList();
@@ -38,15 +38,15 @@ public class AbpAspNetCoreMvcDaprEventBusModule : AbpModule
                 var endpointConventionBuilder = endpointContext.Endpoints.MapPost(
                     "/api/abp/dapr/event", async httpContext =>
                     {
-                        await EventAsync(httpContext);
+                        await HandleEventAsync(httpContext);
                     });
 
-                var subscriptions = GetAbpEvents(endpointContext);
-                foreach (var subscription in subscriptions.Where(x => !topicEndpoints.Any(t => t.PubsubName == x.PubsubName && t.Name == x.Name)))
+                var abpEvents = GetAbpEvents(endpointContext);
+                foreach (var @event in abpEvents.Where(x => !topicMetadatas.Any(t => t.PubsubName == x.PubsubName && t.Name == x.Name)))
                 {
                     endpointConventionBuilder.WithMetadata(new TopicAttribute(
-                        subscription.PubsubName,
-                        subscription.Name,
+                        @event.PubsubName,
+                        @event.Name,
                         true));
                 }
 
@@ -73,7 +73,7 @@ public class AbpAspNetCoreMvcDaprEventBusModule : AbpModule
         return subscriptions;
     }
 
-    private async static Task EventAsync(HttpContext httpContext)
+    private async static Task HandleEventAsync(HttpContext httpContext)
     {
         var logger = httpContext.RequestServices.GetRequiredService<ILogger<AbpAspNetCoreMvcDaprEventBusModule>>();
 
