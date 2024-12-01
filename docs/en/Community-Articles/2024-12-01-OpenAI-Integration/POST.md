@@ -1,6 +1,6 @@
 # How to Use OpenAI API with ABP Framework
 
-In this article, I will show you how to integrate and use the [OpenAI API](https://github.com/openai/openai-dotnet?tab=readme-ov-file#getting-started) within the [ABP Framework](https://abp.io/). We will explore step-by-step how these technologies can work together to enhance your application with powerful AI capabilities, such as natural language processing, image generation, and more.
+In this article, I will show you how to integrate and use the [OpenAI API](https://github.com/openai/openai-dotnet?tab=readme-ov-file#getting-started) with the [ABP Framework](https://abp.io/). We will explore step-by-step how these technologies can work together to enhance your application with powerful AI capabilities, such as natural language processing, image generation, and more.
 
 ## Creating an ABP Project
 
@@ -13,17 +13,15 @@ The ABP CLI is a command-line interface tool that helps you create and manage AB
 dotnet tool install -g Volo.Abp.Studio.Cli
 ```
 
-> Ensure you have installed the .NET SDK before proceeding.
-
 ### Step 2: Create a New ABP Project
 
 Once you have installed the ABP CLI, you can create a new ABP project using the following command:
 
 ```bash
 abp new Acme.OpenAIIntegration -t app --ui-framework mvc --database-provider ef -dbms PostgreSQL --csf
-```  
+```
 
-> This command will generate a complete ABP project with an MVC UI. The examples provided in this article make use of UI controllers for demonstration purposes. However, the same approach can easily be applied to other UI types supported by ABP, such as Blazor or Angular. You can find other options [here](https://abp.io/docs/latest/cli).
+> This command will generate a complete ABP project with an [MVC UI](https://abp.io/docs/latest/framework/ui/mvc-razor-pages/overall). The examples provided in this article make use of UI controllers for demonstration purposes. However, the same approach can easily be applied to other UI types supported by ABP, such as Blazor or Angular. You can find other options [here](https://abp.io/docs/latest/cli).
 ## OpenAI Integration Setup
 
 To begin integrating OpenAI API with ABP Framework, follow these steps:
@@ -34,13 +32,13 @@ To use the OpenAI services, you first need an API key. To obtain one, first [cr
 
 This key will be used to authenticate your application when making requests to the OpenAI endpoints.
 
-### Step 2: Adding Microsoft.Extensions.AI Package
+### Step 2: Adding *Microsoft.Extensions.AI* Package
 
 To integrate OpenAI API with ABP, we use [Microsoft.Extensions.AI](https://www.nuget.org/packages/Microsoft.Extensions.AI.OpenAI/). This package offers a unified API for integrating AI services, making it easy for developers to work with different AI providers. You can find more details in [this blog post](https://devblogs.microsoft.com/dotnet/introducing-microsoft-extensions-ai-preview/).
 
 To begin integrating OpenAI API with ABP Framework, follow these steps:
 
-1. Add the **Microsoft.Extensions.AI** and **Microsoft.Extensions.AI.OpenAI** (used to interact specifically with OpenAI services. Additionally, this package supports alternatives like [Azure OpenAI](https://www.nuget.org/packages/Microsoft.Extensions.AI.OpenAI/), [Azure AI Inference](https://www.nuget.org/packages/Microsoft.Extensions.AI.AzureAIInference/), and [Ollama](https://www.nuget.org/packages/Microsoft.Extensions.AI.Ollama/), offering flexibility for developers to choose the AI provider that best fits their needs) packages:
+1. Add the **Microsoft.Extensions.AI** and **Microsoft.Extensions.AI.OpenAI** (used to interact specifically with OpenAI services. Additionally, this package has alternatives like [Azure OpenAI](https://www.nuget.org/packages/Microsoft.Extensions.AI.OpenAI/), [Azure AI Inference](https://www.nuget.org/packages/Microsoft.Extensions.AI.AzureAIInference/), and [Ollama](https://www.nuget.org/packages/Microsoft.Extensions.AI.Ollama/), offering flexibility for developers to choose the AI provider that best fits their needs) packages:
 
 ```bash
 dotnet add package Microsoft.Extensions.AI --prerelease
@@ -55,9 +53,6 @@ dotnet add package Microsoft.Extensions.AI.OpenAI --prerelease
         "Key": "YOUR-API-KEY",
         "Chat": {
             "ModelId": "gpt-4o-mini"
-        },
-        "Embedding": {
-            "ModelId": "text-embedding-3-small"
         }
     }
 }
@@ -82,7 +77,7 @@ To demonstrate the use of OpenAI API, let's create a page named `Sample` in the 
 
 Open the `Index.cshtml` and change the whole content as shown below:
 
-> Note: This example demonstrates a simple implementation of a sample page that interacts with the OpenAI API, covering chat, [retrieval-augmented generation (RAG)](https://github.com/openai/openai-dotnet?tab=readme-ov-file#how-to-use-assistants-with-retrieval-augmented-generation-rag), and image generation features. Each example is explained in detail in the next section, so feel free to continue for a better understanding of the steps and logic involved.x
+> Note: This example demonstrates a simple implementation of a sample page that interacts with the OpenAI API, covering chat, [retrieval-augmented generation (RAG)](https://github.com/openai/openai-dotnet?tab=readme-ov-file#how-to-use-assistants-with-retrieval-augmented-generation-rag), and image generation features. Each example is explained in detail in the next section, so feel free to continue for a better understanding of the steps and logic involved.
 
 ```html
 @page
@@ -334,7 +329,7 @@ public class Sample : PageModel
                ````C#
                throw new BusinessException(QaErrorCodes.CanNotVoteYourOwnAnswer);
                ````
-               
+
                ### User Friendly Exception
                
                If an exception implements the `IUserFriendlyException` interface, then ABP does not change it's `Message` and `Details` properties and directly send it to the client.
@@ -347,7 +342,7 @@ public class Sample : PageModel
                );
                ````
                * The `IUserFriendlyException` interface is derived from the `IBusinessException` and the `UserFriendlyException` class is derived from the `BusinessException` class.
-
+    
                """u8;
     }
 }
@@ -358,7 +353,7 @@ public class Sample : PageModel
 After completing the setup, you can run the application using the following command:
 
 ```bash
-dotnet run --project Acme.OpenAIIntegration.Web
+ dotnet run --project ./src/Acme.OpenAIIntegration.Web
 ```
 
 Once the application is running, open your browser and navigate to `/Sample`. You should see the `Sample` page we created, which contains sections for Chat, RAG (Retrieval-Augmented Generation), and Image Generation. You can find the screenshot of the page below:
