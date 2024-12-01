@@ -71,9 +71,9 @@ context.Services.AddChatClient(services =>
 
 ## Creating a Sample Page
 
-To demonstrate the use of OpenAI API, let's create a page named `Sample` in the `Acme.OpenAIIntegration.Web` project.
+To demonstrate the use of OpenAI API, let's create a page named `Sample` in the `Acme.OpenAIIntegration.Web` project:
 
-1. Create a `Sample` folder under the `Pages` folder of the `Acme.OpenAIIntegration.Web` project. Add a new Razor Page by right-clicking the `Sample` folder then selecting `Add > Razor Page`. Name it `Index`.
+Create a `Sample` folder under the `Pages` folder of the `Acme.OpenAIIntegration.Web` project. Add a new Razor Page by right-clicking the `Sample` folder then selecting `Add > Razor Page`. Name it `Index`.
 
 Open the `Index.cshtml` and change the whole content as shown below:
 
