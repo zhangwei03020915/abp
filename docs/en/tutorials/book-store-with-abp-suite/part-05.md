@@ -40,7 +40,7 @@ You can write your custom code in those classes (with the `*.Extended.cs` extens
 
 On the UI side, ABP Suite provides convenient comment placeholders within pages for MVC, Blazor, and Angular UIs. These comment sections serve as hook points where you can add your custom code.
 
-For example, if you open *Books/Index.cshtml* file in your IDE, you will see those placeholders like follows:
+For example, if you open the *Books/Index.cshtml* file in your IDE, you will see those placeholders like following:
 
 ```xml
 <!-- Code omitted for brevity -->
@@ -58,11 +58,11 @@ You can write your custom codes between the _**<suite-custom-code-block-n></suit
 
 > For more information, please refer to [Customizing the Generated Code documentation](../../suite/customizing-the-generated-code.md)
 
-## Adding Custom Code to Application Services
+## Implementing Custom Code
 
-Let's see the custom code support in action. We can demonstrate this feature with an easy sample.
+Let's see the custom code support in action. We can demonstrate this feature with an easy example.
 
-Assume that we want to show author name with his abbrevated name. For example, for the author *John Ronald Reuel Tolkien*, we want to show the name as *John Ronald Reuel Tolkien (a.k.a J.R.R.T)*. Achiving that is pretty straightforward.
+Assume that we want to show the author's name with his abbreviated name. For example, for the author *John Ronald Reuel Tolkien*, we want to show the name *John Ronald Reuel Tolkien (a.k.a J.R.R.T)*. Achieving that is pretty straightforward.
 
 We just need to open the *src/Acme.BookStore.Application/Books/BooksAppService.Extended.cs* file and override the base `GetListAsync` method, which is called on the books page:
 
@@ -103,16 +103,21 @@ namespace Acme.BookStore.Books
 }
 ```
 
-Here, we have overriden the `GetListAsync` method and changed its result according to our need. Now, we can open ABP Suite and try to regenerate the book entity and see if our custom code is gone or not:
+* Here, we have overridden the `GetListAsync` method and changed its result according to our need. 
+* Notice, this class is derieved from the `BooksAppServiceBase` class and implements the `IBooksAppService`.
+* Thus, ABP Suite only modifies the `BooksAppServiceBase` class and implements the necessary services in each generation, but does not generate the files with the `*.Extended` postfixes and let you implement your own custom code.
+* You can create new methods, override an existing method and change its behaviour, add custom hookpoints to extend customization capabilities and more...
+
+Now, we can open ABP Suite and try to regenerate the book entity and see if our custom code is gone or not:
 
 ![](./images/suite-end-of-generation-modal.png)
 
-After the regeneration has been completed, we can check the **BooksAppService.Extended.cs** file and we should see our custom code is there without any modification. ABP Suite didn't override our custom code, and finally we can run the application to see the final result:
+After the regeneration has been completed, we can check the **BooksAppService.Extended.cs** file and we should see our custom code is there without any modification. ABP Suite didn't override our custom code, and finally, we can run the application to see the final result:
 
 ![](./images/suite-custom-code-result.png)
 
-ABP Suite's custom code support is not limited with backend side. You can also override the UI. You can refer to the [Customizing the Generated Code document](../../suite/customizing-the-generated-code.md) for further info.
+ABP Suite's custom code support is not limited to the backend side. You can also override the UI. You can refer to the [Customizing the Generated Code document](../../suite/customizing-the-generated-code.md) for further info.
 
-## Conclusion
+## Summary
 
 In this tutorial, you created the bookstore application without needing to write a single line of code with ABP Suite. Then, in this last part, you have written custom code in the specified hookpoints and it did not override by ABP Suite.
