@@ -32,7 +32,7 @@ Click the entity selection box in the top right of the *CRUD page generation* pa
 
 ![](/images/suite-author-new-entity.png)
 
-Then, you can type `Author` for the *Name* field and leave the other options as is (you can change the menu icon as **pen**, if you wish). ABP Suite automatically calculates proper values for the rest of the inputs for you:
+Then, you can type `Author` for the *Name* field and leave the other options as is (you can change the menu icon as **pen** for a proper menu icon, and/or other options, if you wish). ABP Suite automatically calculates proper values for the rest of the inputs for you:
 
 ![](/images/suite-author-entity-1.png)
 
@@ -70,10 +70,10 @@ After the application is started, you can right-click and *Browse* on the applic
 
 ![](./images/suite-author-pages-1.png)
 
+As you can see, the *Name* field is **required**, the *Birth Date* field shows a datepicker, and the *Short Bio* field is also **required** and it's a **textarea**. You just configured how you want your properties with some options (for example, setting the short bio as **textarea** and **required**), and ABP Suite generated code according that.
+
 ## Summary
 
-In this part, we've created a new entity named `Author` and generated the necessary code for it with [ABP Suite](../../suite/index.md) within a few clicks. ABP Suite generated the all code for us, including the **entity**, **application service**, **database relations**, **unit & integration tests**, **UI** and **defined the custom hooks for code customization**.
+In this part, you've created a new entity named `Author` and generated the necessary code for it with [ABP Suite](../../suite/index.md) with a few clicks. ABP Suite generated the all code for you, including the **entity**, **application service**, **database relations**, **unit & integration tests**, **UI** and **defined the custom hooks for code customization**.
 
-So far, we have created the `Book` (in the previous part) and `Author` entities (& generated code for all functionalities) for the book store application. However, currently there is no relation between these entities.
-
-In the next part, we will establish [one-to-many relation](../../suite/generating-crud-page.md) between these two entities.
+In the next part, you will establish [one-to-many relation](../../suite/generating-crud-page.md) between the `Book` and `Author` entities.
