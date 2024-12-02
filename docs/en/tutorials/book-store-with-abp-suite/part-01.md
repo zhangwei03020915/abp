@@ -1,4 +1,5 @@
 # Web Application Development (with ABP Suite) Tutorial - Part 1: Creating the Solution
+
 ````json
 //[doc-params]
 {
@@ -21,7 +22,7 @@ Before starting the development, create a new solution named `Acme.BookStore` an
 You can use the following configurations:
 
 * **Solution Name:** `Acme.BookStore`
-* **UI Framework:** {{if UI=="MVC}} ASP.NET Core MVC / Razor Pages {{end}}
+* **UI Framework:** {{if UI=="MVC"}} ASP.NET Core MVC / Razor Pages {{end}}
 * **UI Theme:** LeptonX
 * **Mobile Framework:** None
 * **Database Provider:** {{if DB=="EF"}} Entity Framework Core {{end}}
