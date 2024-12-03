@@ -3,6 +3,10 @@
 ````json
 //[doc-nav]
 {
+  "Previous": {
+    "Name": "Index",
+    "Path": "solution-templates/layered-web-application/index"
+  },
   "Next": {
     "Name": "Solution Structure",
     "Path": "solution-templates/layered-web-application/solution-structure"

@@ -3,6 +3,10 @@
 ````json
 //[doc-nav]
 {
+  "Previous": {
+    "Name": "Overview",
+    "Path": "solution-templates/layered-web-application/overview"
+  },
   "Next": {
     "Name": "Main Components",
     "Path": "solution-templates/layered-web-application/main-components"
@@ -191,7 +195,7 @@ The solution structure is shown below:
 
 As different from the default structure, two new projects come into play: `.AuthServer` & `.HttpApi.Host`.
 
-#### .AuthServer Project
+### .AuthServer Project
 
 This project is used as an authentication server for other projects. `.Web` project uses OpenId Connect Authentication to get identity and access tokens for the current user from the AuthServer. Then uses the access token to call the HTTP API server. HTTP API server uses bearer token authentication to obtain claims from the access token to authorize the current user.
 
@@ -201,17 +205,17 @@ ABP uses the [OpenIddict Module](../../modules/openiddict.md) that uses the open
 
 It has its own `appsettings.json` that contains database connection and other configurations.
 
-#### .HttpApi.Host Project
+### .HttpApi.Host Project
 
 This project is an application that hosts the API of the solution. It has its own `appsettings.json` that contains database connection and other configurations.
 
-#### .Web Project
+### .Web Project
 
 Just like the default structure, this project contains the User Interface (UI) of the application. It contains razor pages, JavaScript files, style files, images and so on...
 
 This project contains an `appsettings.json` file, but this time it does not have a connection string because it never connects to the database. Instead, it mainly contains the endpoint of the remote API server and the authentication server.
 
-#### How to Run?
+### How to Run?
 
 You can open the [Solution Runner](../../studio/running-applications.md) panel and start the all applications. The default username is `admin` and the password is `1q2w3E*`.
 
