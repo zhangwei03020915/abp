@@ -19,10 +19,10 @@ First things first! Let's setup your development environment before creating the
 
 The following tools should be installed on your development machine:
 
-* [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) (v17.3+) for Windows / [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/). <sup id="a-editor">[1](#f-editor)</sup>
+* [Visual Studio 2022](https://visualstudio.microsoft.com/) or another IDE that supports [.NET 9.0+](https://dotnet.microsoft.com/download/dotnet) development.  <sup id="a-editor">[1](#f-editor)</sup>
 * [.NET 9.0+](https://dotnet.microsoft.com/en-us/download/dotnet)
 {{ if UI != "Blazor" }}
-* [Node v18.19+](https://nodejs.org/)
+* [Node v22+](https://nodejs.org/)
 * [Yarn v1.22+ (not v2)](https://classic.yarnpkg.com/en/docs/install) <sup id="a-yarn">[2](#f-yarn)</sup> or npm v10+ (already installed with Node)
 {{ end }}
 {{ if Tiered == "Yes" }}
