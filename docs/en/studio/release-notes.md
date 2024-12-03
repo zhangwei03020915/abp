@@ -2,6 +2,14 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.14 (2024-12-03)
+
+* Refactored `dotnet watch` command in solution runner.
+* Added multi-tenancy option for open source startup templates.
+* Implemented adding angular library when a new microservice is created.
+* Adjusted *Optional Modules* section in solution configurations
+* Fixed bugs in the nolayers host project.
+
 ## 0.9.13 (2024-11-25)
 
 * Angular - Theme-based Fixes for the Home Page.
