@@ -217,7 +217,7 @@ namespace CloudCrm.OrderingService.Services;
 
 public class OrderAppService : ApplicationService, IOrderAppService
 {
-    private readonly IRepository<Order> _orderRepository;
+    private readonly IRepository<Order, Guid>  _orderRepository;
 
     public OrderAppService(IRepository<Order, Guid> orderRepository)
     {
