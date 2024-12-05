@@ -256,6 +256,19 @@ We have generated the proxy classes for the `IProductIntegrationService` interfa
 
 > **BaseUrl** refers to the base URL of the Catalog service. You can use the *Copy Url* option from the Catalog service's context menu in the ABP Studio **Solution Runner** to paste it here.
 
+Lastly, open the `CloudCrmOrderingServiceModule` class (the `CloudCrmOrderingServiceModule.cs` file under the `CloudCrm.OrderingService` project of the `CloudCrm.OrderingService` .NET solution) and add the following code to the `ConfigureServices` method:
+
+```csharp
+public override void ConfigureServices(ServiceConfigurationContext context)
+{
+    // Other configurations...
+    context.Services.AddStaticHttpClientProxies(
+        typeof(CloudCrmCatalogServiceContractsModule).Assembly,
+        "CatalogService");
+}
+
+```
+
 ### Updating the UI to Display the Product Name
 
 Open the `Index.cshtml` file (the `Index.cshtml` file under the `Pages/Orders` folder of the `CloudCrm.Web` project of the `CloudCrm.Web` .NET solution) and update the table content to display the product name instead of the product ID:
