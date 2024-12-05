@@ -1,5 +1,19 @@
 # Layered Solution: Web Applications
 
+````json
+//[doc-nav]
+{
+  "Previous": {
+    "Name": "Main Components",
+    "Path": "solution-templates/layered-web-application/main-components"
+  },
+  "Next": {
+    "Name": "Db Migrator",
+    "Path": "solution-templates/layered-web-application/db-migrator"
+  }
+}
+````
+
 The web applications are the main user interfaces of the solution. They are the entry points for users to interact with the system. The Layered Solution Template supports the following web applications:
 
 - **MVC / Razor Pages**: This is an ASP.NET Core MVC application. It is a traditional web application that serves HTML pages to users and is suitable for building web applications with server-side rendering.  
