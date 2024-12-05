@@ -113,3 +113,50 @@ See the [testing document](https://angular.io/guide/testing).
 * [Chart.js](https://www.chartjs.org/) is used to create widgets.
 * [ngx-validate](https://github.com/ng-turkey/ngx-validate) is used for dynamic validation of reactive forms.
 
+## Blazor UI
+
+Blazor is a flexible framework for building web applications with .NET. It supports various hosting models, including Blazor WebAssembly, Blazor Server, Blazor WebApp, and Maui Blazor (Hybrid).
+
+### Blazor WebAssembly
+
+Blazor WebAssembly is a client-side SPA that runs entirely in the user's browser. It communicates with the server using HTTP requests and is suitable for modern web applications with rich interactivity and offline capabilities.
+
+When you select the Blazor WebAssembly option in the Layered Solution Template, it generates:  
+- A Blazor application located under the solution's root folder, typically named `*.Blazor`, which serves as the main Blazor host project.
+- A Blazor client application, named `*.Blazor.Client`, where you can write the client-side (UI logic) code.  
+- An ASP.NET Core application, named `*.HttpApi.Host`, where the server-side (business logic) code runs.  
+
+The Blazor client application communicates with the server by sending HTTP requests to the `*.HttpApi.Host` application.
+
+### Blazor Server
+
+Blazor Server is a server-side SPA that runs on the server and communicates with the client in real time using SignalR. It is ideal for applications requiring constant connectivity and rapid server updates.
+
+When you select the Blazor Server option in the Layered Solution Template, it generates:  
+- A Blazor application located under the solution's root folder, typically named `*.Blazor`, which serves as the main Blazor host project.  
+
+### Blazor WebApp
+
+Blazor WebApp is a combination of Blazor technologies optimized for building hybrid web applications that can leverage both client-side and server-side capabilities.
+
+When you select the Blazor WebApp option in the Layered Solution Template, it generates:  
+- A Blazor application located under the solution's root folder, typically named `*.Blazor`, which serves as the main Blazor host project.
+- A Blazor client application, named `*.Blazor.Client`, where you can write the client-side (UI logic) code.
+
+The Blazor client application communicates with the server by sending HTTP requests to the `*.Blazor` application.
+
+### Maui Blazor (Hybrid)
+
+Maui Blazor (Hybrid) enables building cross-platform applications that combine Blazor for the UI with .NET MAUI for native device integration. It is suitable for building apps that work across desktop and mobile platforms.
+
+When you select the Maui Blazor (Hybrid) option in the Layered Solution Template, it generates:  
+- A Maui Blazor (Hybrid) application located under the solution's root folder, typically named `*.MauiBlazor`, which serves as the main UI host project.  
+- An ASP.NET Core application, named `*.HttpApi.Host`, where the server-side (business logic) code runs.  
+
+The Maui Blazor (Hybrid) application communicates with the server by sending HTTP requests to the `*.HttpApi.Host` application.
+
+## No UI
+
+This option creates a backend-only solution without a web interface, suitable for scenarios like API-only applications or headless services.  
+
+When you select the No UI option in the Layered Solution Template, it generates an ASP.NET Core application named `*.HttpApi.Host` that serves as the backend API for your solution.
