@@ -21,3 +21,95 @@ MVC (Model-View-Controller) is a design pattern commonly used for building web a
 
 When you select the MVC / Razor Pages option in the Layered Solution Template, it generates an ASP.NET Core MVC application named something like `Acme.BookStore.Web`. This application serves as the web interface for your solution, using server-side rendering to deliver dynamic HTML pages to users.
 
+## Angular
+
+Angular is a popular front-end framework for building single-page applications (SPAs). It offers a rich set of features for creating modern web applications with dynamic and interactive user interfaces.  
+
+When you select the Angular option in the Layered Solution Template, it generates:  
+- An Angular application located under the solution's root folder, typically named `angular`.  
+- An ASP.NET Core application, usually named something like `Acme.Bookstore.HttpApi.Host`.  
+
+The Angular application runs as a client-side SPA in the user's browser and communicates with the server by sending HTTP requests to the `*.HttpApi.Host` application.
+
+![angular-folder-structure](images/angular-folder-structure.png)
+
+Each of ABP modules is an NPM package. Some ABP modules are added as a dependency in `package.json`. These modules install with their dependencies. To see all ABP packages, you can run the following command in the `angular` folder:
+
+```bash
+yarn list --pattern abp
+```
+
+Angular application module structure:
+
+![Angular template structure diagram](images/angular-template-structure-diagram.png)
+
+### AppModule
+
+`AppModule` is the root module of the application. Some of the ABP modules and some essential modules are imported to `AppModule`.
+
+ABP Config modules have also been imported to `AppModule` for initial requirements of the lazy-loadable ABP modules.
+
+### AppRoutingModule
+
+There are lazy-loadable ABP modules in the `AppRoutingModule` as routes.
+
+> Paths of ABP Modules should not be changed.
+
+You should add `routes` property in the `data` object to add a link on the menu to redirect to your custom pages.
+
+```js
+{
+   path: 'dashboard',
+   loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+   canActivate: [authGuard, permissionGuard],
+   data: {
+      routes: {
+         name: 'ProjectName::Menu:Dashboard',
+         order: 2,
+         iconClass: 'fa fa-dashboard',
+         requiredPolicy: 'ProjectName.Dashboard.Host'
+      } as ABP.Route
+   }
+}
+```
+In the above example;
+*  If the user is not logged in, authGuard blocks access and redirects to the login page.
+*  permissionGuard checks the user's permission with the `requiredPolicy` property of the `routes` object. If the user is not authorized to access the page, the 403 page appears.
+*  The `name` property of `routes` is the menu link label. A localization key can be defined.
+*  The `iconClass` property of the `routes` object is the menu link icon class.
+*  The `requiredPolicy` property of the `routes` object is the required policy key to access the page.
+
+After the above `routes` definition, if the user is authorized, the dashboard link will appear on the menu.
+
+### Shared Module
+
+The modules that may be required for all modules have been imported to the `SharedModule`. You should import `SharedModule` to all modules.
+
+See the [Sharing Modules](https://angular.io/guide/sharing-ngmodules) document.
+
+### Environments
+
+The files under the `src/environments` folder have the essential configuration of the application.
+
+### Home Module
+
+Home module is an example lazy-loadable module that loads on the root address of the application.
+
+### Styles
+
+The required style files are added to the `styles` array in `angular.json`. `AppComponent` loads some style files lazily via `LazyLoadService` after the main bundle is loaded to shorten the first rendering time.
+
+### Testing
+
+You should create your tests in the same folder as the file you want to test.
+
+See the [testing document](https://angular.io/guide/testing).
+
+### Depended Packages
+
+* [NG Bootstrap](https://ng-bootstrap.github.io/) is used as UI component library.
+* [NGXS](https://www.ngxs.io/) is used as state management library.
+* [angular-oauth2-oidc](https://github.com/manfredsteyer/angular-oauth2-oidc) is used to support for OAuth 2 and OpenId Connect (OIDC).
+* [Chart.js](https://www.chartjs.org/) is used to create widgets.
+* [ngx-validate](https://github.com/ng-turkey/ngx-validate) is used for dynamic validation of reactive forms.
+
