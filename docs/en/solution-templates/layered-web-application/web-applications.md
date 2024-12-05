@@ -14,3 +14,10 @@ The web applications are the main user interfaces of the solution. They are the 
 You can select the web application type that fits your requirements during the solution creation process in the *UI Framework* step. The Layered Solution Template generates the selected web applications with the necessary configurations and integrations.
 
 ![Web Applications](images/web-applications.png)
+
+## MVC / Razor Pages
+
+MVC (Model-View-Controller) is a design pattern commonly used for building web applications. Razor Pages, on the other hand, is a page-based programming model designed to make building web applications simpler and more productive.  
+
+When you select the MVC / Razor Pages option in the Layered Solution Template, it generates an ASP.NET Core MVC application named something like `Acme.BookStore.Web`. This application serves as the web interface for your solution, using server-side rendering to deliver dynamic HTML pages to users.
+
