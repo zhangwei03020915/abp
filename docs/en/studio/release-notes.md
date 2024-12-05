@@ -2,6 +2,13 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.15 (2024-12-05)
+
+* Upgraded templates to version `9.0.1`.
+* Fixed problems in the microservice service_nolayers template.
+* Fixed microservice angular template for wrong file-management module reference.
+* Fixed added extra lines in the hosts.txt file.
+
 ## 0.9.14 (2024-12-03)
 
 * Refactored `dotnet watch` command in solution runner.
