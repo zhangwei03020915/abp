@@ -228,27 +228,29 @@ public class VoloNugetPackagesVersionUpdater : ITransientDependency
                             continue;
                         }
 
-                        if (isLeptonXPackage && !string.IsNullOrWhiteSpace(leptonXPackageVersion))
-                        {
-                            specifiedVersion = leptonXPackageVersion;
-                        }
+                        var isLeptonXPackageWithVersion = isLeptonXPackage && !string.IsNullOrWhiteSpace(leptonXPackageVersion);
 
-                        if (await SpecifiedVersionExists(specifiedVersion, packageId))
+                        if (isLeptonXPackageWithVersion || await SpecifiedVersionExists(specifiedVersion, packageId))
                         {
-                            var specifiedSemanticVersion = SemanticVersion.Parse(specifiedVersion);
-                            if (specifiedSemanticVersion > currentSemanticVersion)
-                            {
-                                Logger.LogInformation("Updating package \"{PackageId}\" from v{CurrentVersion} to v{SpecifiedVersion}", packageId, currentVersion, specifiedVersion);
-                                versionAttribute.Value = specifiedVersion;
-                            }
-                            else
-                            {
-                                Logger.LogWarning("Unable to update package \"{PackageId}\" version v{CurrentVersion} to v{SpecifiedVersion}", packageId, currentVersion, specifiedVersion);
-                            }
+                            TryUpdatingPackage(isLeptonXPackageWithVersion ? leptonXPackageVersion : specifiedVersion);
                         }
                         else
                         {
                             Logger.LogWarning("Package \"{PackageId}\" specified version v{SpecifiedVersion} does not exist!", packageId, specifiedVersion);
+                        }
+                        
+                        void TryUpdatingPackage(string versionToUpdate)
+                        {
+                            var specifiedSemanticVersion = SemanticVersion.Parse(versionToUpdate);
+                            if (specifiedSemanticVersion > currentSemanticVersion)
+                            {
+                                Logger.LogInformation("Updating package \"{PackageId}\" from v{CurrentVersion} to v{SpecifiedVersion}", packageId, currentVersion, versionToUpdate);
+                                versionAttribute.Value = versionToUpdate;
+                            }
+                            else
+                            {
+                                Logger.LogWarning("Unable to update package \"{PackageId}\" version v{CurrentVersion} to v{SpecifiedVersion}", packageId, currentVersion, versionToUpdate);
+                            }
                         }
                     }
                     else
@@ -273,7 +275,7 @@ public class VoloNugetPackagesVersionUpdater : ITransientDependency
                             }
                             else
                             {
-                                latestVersion = latestMyGetVersion == null ? await GetLatestVersionFromMyGet(packageId) : latestMyGetVersion;
+                                latestVersion = latestMyGetVersion ?? await GetLatestVersionFromMyGet(packageId);
                             }
 
                             if(latestVersion == null)
