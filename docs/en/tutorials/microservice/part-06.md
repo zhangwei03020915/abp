@@ -103,24 +103,6 @@ public class ProductIntegrationService : ApplicationService, IProductIntegration
 
 > Here, we directly used `List<T>` classes, but instead, you could wrap inputs and outputs into [DTOs](../../framework/architecture/domain-driven-design/data-transfer-objects.md). In that way, it can be possible to add new properties to these DTOs without changing the signature of your integration service method (and without introducing breaking changes for your client applications).
 
-### Exposing the Integration Service as an API
-
-Integration services are not exposed as HTTP APIs by default. However, you can expose them as HTTP APIs if you need to. To do this, you should configure the `AbpAspNetCoreMvcOptions` in the `ConfigureServices` method of the `CloudCrmCatalogServiceModule`. Open the `CloudCrm.CatalogService` project and locate the `CloudCrmCatalogServiceModule` class. Add the following code to the `ConfigureServices` method:
-
-```csharp
-public override void ConfigureServices(ServiceConfigurationContext context)
-{
-    // Other configurations...
-
-    Configure<AbpAspNetCoreMvcOptions>(options =>
-    {
-        options.ExposeIntegrationServices = true;
-    });
-}
-```
-
-This code configures the `AbpAspNetCoreMvcOptions` to expose integration services as HTTP APIs. This is useful when you need to call the integration service from a different service using HTTP. You can learn more about this in the [Integration Services](../../framework/api-development/integration-services.md#exposing-integration-services) document.
-
 ## Consuming the Products Integration Service
 
 Now that we have created the `IProductIntegrationService` interface and the `ProductIntegrationService` class, we can consume this service from the Ordering service.
