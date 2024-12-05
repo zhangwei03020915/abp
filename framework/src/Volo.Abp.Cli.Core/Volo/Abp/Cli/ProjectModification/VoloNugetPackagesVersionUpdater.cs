@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NuGet.Versioning;
 using System.IO;
 using System.Linq;
@@ -39,6 +40,7 @@ public class VoloNugetPackagesVersionUpdater : ITransientDependency
             var latestVersionInfo = await _packageVersionCheckerService.GetLatestVersionOrNullAsync("Volo.Abp.Core", includeReleaseCandidates: includeReleaseCandidates);
             var latestReleaseCandidateVersionInfo = await _packageVersionCheckerService.GetLatestVersionOrNullAsync("Volo.Abp.Core", includeReleaseCandidates: true);
             var latestVersionFromMyGet = await GetLatestVersionFromMyGet("Volo.Abp.Core");
+            var latestStableVersions = await _packageVersionCheckerService.GetLatestStableVersionsAsync();
 
             async Task UpdateAsync(string filePath)
             {
@@ -55,7 +57,8 @@ public class VoloNugetPackagesVersionUpdater : ITransientDependency
                             latestVersionInfo.Version,
                             latestReleaseCandidateVersionInfo.Version,
                             latestVersionFromMyGet,
-                            version);
+                            version,
+                            latestStableVersions: latestStableVersions);
 
                         fs.Seek(0, SeekOrigin.Begin);
                         fs.SetLength(0);
@@ -83,6 +86,7 @@ public class VoloNugetPackagesVersionUpdater : ITransientDependency
             var latestVersionInfo = await _packageVersionCheckerService.GetLatestVersionOrNullAsync("Volo.Abp.Core");
             var latestReleaseCandidateVersionInfo = await _packageVersionCheckerService.GetLatestVersionOrNullAsync("Volo.Abp.Core", includeReleaseCandidates: true);
             var latestVersionFromMyGet = await GetLatestVersionFromMyGet("Volo.Abp.Core");
+            var latestStableVersions = await _packageVersionCheckerService.GetLatestStableVersionsAsync();
 
             using (var fs = File.Open(projectPath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
             {
@@ -97,7 +101,8 @@ public class VoloNugetPackagesVersionUpdater : ITransientDependency
                         latestVersionInfo.Version,
                         latestReleaseCandidateVersionInfo.Version,
                         latestVersionFromMyGet,
-                        version);
+                        version,
+                        latestStableVersions: latestStableVersions);
 
                     fs.Seek(0, SeekOrigin.Begin);
                     fs.SetLength(0);
@@ -114,13 +119,20 @@ public class VoloNugetPackagesVersionUpdater : ITransientDependency
 
     protected virtual async Task UpdateInternalAsync(string projectPath, bool includeNightlyPreviews = false, bool includeReleaseCandidates = false, bool switchToStable = false)
     {
+        var latestStableVersions = await _packageVersionCheckerService.GetLatestStableVersionsAsync();
+        
         using (var fs = File.Open(projectPath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
         {
             using (var sr = new StreamReader(fs, Encoding.Default, true))
             {
                 var fileContent = await sr.ReadToEndAsync();
 
-                var updatedContent = await UpdateVoloPackagesAsync(fileContent, includeNightlyPreviews, includeReleaseCandidates, switchToStable);
+                var updatedContent = await UpdateVoloPackagesAsync(
+                    fileContent, 
+                    includeNightlyPreviews, 
+                    includeReleaseCandidates, 
+                    switchToStable,
+                    latestStableVersions: latestStableVersions);
 
                 fs.Seek(0, SeekOrigin.Begin);
                 fs.SetLength(0);
@@ -153,7 +165,8 @@ public class VoloNugetPackagesVersionUpdater : ITransientDependency
         SemanticVersion latestNugetVersion = null,
         SemanticVersion latestNugetReleaseCandidateVersion = null,
         string latestMyGetVersion = null,
-        string specifiedVersion = null)
+        string specifiedVersion = null,
+        List<PackageVersionCheckerService.LatestStableVersionResult> latestStableVersions = null)
     {
         string packageId = null;
 
@@ -206,10 +219,18 @@ public class VoloNugetPackagesVersionUpdater : ITransientDependency
 
                     if (!specifiedVersion.IsNullOrWhiteSpace())
                     {
-                        if (isLeptonXPackage || isStudioPackage)
+                        var leptonXPackageVersion = latestStableVersions?
+                            .FirstOrDefault(v => v.Version.Equals(specifiedVersion, StringComparison.InvariantCultureIgnoreCase))?.LeptonX?.Version;
+                        
+                        if ((isLeptonXPackage && string.IsNullOrWhiteSpace(leptonXPackageVersion)) || isStudioPackage)
                         {
                             Logger.LogWarning("Package: {PackageId} could not be updated. Please manually update the package version yourself to prevent version mismatches!", packageId);
                             continue;
+                        }
+
+                        if (isLeptonXPackage && !string.IsNullOrWhiteSpace(leptonXPackageVersion))
+                        {
+                            specifiedVersion = leptonXPackageVersion;
                         }
 
                         if (await SpecifiedVersionExists(specifiedVersion, packageId))
