@@ -126,9 +126,22 @@ public static class AbpApplicationBuilderExtensions
     {
         return app.UseMiddleware<AbpDynamicClaimsMiddleware>();
     }
-   
+
     /// <summary>
-    /// Configures the application to serve static files that match the specified filename patterns.
+    /// Configures the application to serve static files that match the specified filename patterns with the WebRootFileProvider of the application.
+    /// </summary>
+    /// <param name="app">The <see cref="IApplicationBuilder"/> used to configure the application pipeline.</param>
+    /// <param name="includeFileNamePatterns">The file name patterns to include when serving static files (e.g., "appsettings*.json").
+    /// Supports glob patterns. See <see href="https://learn.microsoft.com/en-us/dotnet/core/extensions/file-globbing">Glob patterns documentation</see>.
+    /// </param>
+    /// <returns>The <see cref="IApplicationBuilder"/> instance.</returns>
+    public static IApplicationBuilder UseStaticFilesForPatterns(this IApplicationBuilder app, params string[] includeFileNamePatterns)
+    {
+        return UseStaticFilesForPatterns(app, includeFileNamePatterns, app.ApplicationServices.GetRequiredService<IWebHostEnvironment>().WebRootFileProvider);
+    }
+
+    /// <summary>
+    /// Configures the application to serve static files that match the specified filename patterns with the specified file provider.
     /// </summary>
     /// <param name="app">The <see cref="IApplicationBuilder"/> used to configure the application pipeline.</param>
     /// <param name="includeFileNamePatterns">The file name patterns to include when serving static files (e.g., "appsettings*.json").
