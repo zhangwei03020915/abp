@@ -13,12 +13,14 @@ public class AbpStaticFileProvider : IFileProvider
     private readonly IFileProvider _fileProvider;
 
     /// <param name="fileProvider">The file provider to be used to get the files.</param>
-    /// <param name="fileNames">The file names to get from the file provider. Supports glob patterns. See https://learn.microsoft.com/en-us/dotnet/core/extensions/file-globbing.</param>
-    public AbpStaticFileProvider(IReadOnlyList<string> fileNames, IFileProvider fileProvider)
+    /// <param name="fileNamePatterns">The file name patterns to include when serving static files (e.g., "appsettings*.json").
+    /// Supports glob patterns. See <see href="https://learn.microsoft.com/en-us/dotnet/core/extensions/file-globbing">Glob patterns documentation</see>.
+    /// </param>
+    public AbpStaticFileProvider(IReadOnlyList<string> fileNamePatterns, IFileProvider fileProvider)
     {
         _fileProvider = fileProvider;
         _matcher = new Matcher(StringComparison.OrdinalIgnoreCase);
-        _matcher.AddIncludePatterns(fileNames);
+        _matcher.AddIncludePatterns(fileNamePatterns);
     }
 
     public IDirectoryContents GetDirectoryContents(string subpath)
