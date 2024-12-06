@@ -227,15 +227,15 @@ For more samples, go to [ABP CLI Create Solution Samples](new-command-samples.md
 * `--no-kubernetes-configuration` or `-nkc`: Skips the Kubernetes configuration files.
 * `--no-social-logins` or `-nsl`: Skipts the social login configuration.
 * `--no-tests` or `-ntp`: Does not add test projects.
-* *Module Options*: You can skip some modules if you don't want to add them to your solution (*Available for* ***Team*** *or higher licenses*). Available commands:
+* *Module Options*: You can skip some modules if you don't want to add them to your solution, or include if you want them (*Available for* ***Team*** *or higher licenses*). Available commands:
   * `-no-saas`: Skips the Saas module.
   * `-no-gdpr`: Skips the GDPR module.
   * `-no-openiddict-admin-ui`: Skips the OpenIddict Admin UI module.
   * `-no-audit-logging`: Skips the Audit Logging module.
-  * `-no-file-management`: Skips the File Management module.
   * `-no-language-management`: Skips the Language Management module.
   * `-no-text-template-management`: Skips the Text Template Management module.
-  * `-no-chat`: Skips the Chat module.
+  * `-file-management`: Includes the File Management module.
+  * `-chat`: Includes the Chat module.
 * `--legacy`: Generates a legacy solution.
   * `trust-version`: Trusts the user's version and does not check if the version exists or not. If the template with the given version is found in the cache, it will be used, otherwise throws an exception.
 
