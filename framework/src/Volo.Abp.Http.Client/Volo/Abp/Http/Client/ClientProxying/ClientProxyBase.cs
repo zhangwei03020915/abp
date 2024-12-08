@@ -256,7 +256,7 @@ public class ClientProxyBase<TService> : ITransientDependency
                     new RemoteServiceErrorInfo
                     {
                         Message = response.ReasonPhrase,
-                        Code = response.StatusCode.ToString(),
+                        Code = $"{(int)response.StatusCode}",
                         Details = errorDescription
                     },
                     ex
@@ -277,7 +277,7 @@ public class ClientProxyBase<TService> : ITransientDependency
                 new RemoteServiceErrorInfo
                 {
                     Message = response.ReasonPhrase,
-                    Code = response.StatusCode.ToString(),
+                    Code = $"{(int)response.StatusCode}",
                     Details = errorDescription
                 }
             )
