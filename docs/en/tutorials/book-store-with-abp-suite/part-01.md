@@ -10,6 +10,10 @@
 ````json
 //[doc-nav]
 {
+  "Previous": {
+    "Name": "Overview",
+    "Path": "tutorials/book-store-with-abp-suite/index"
+  },
   "Next": {
     "Name": "Creating the Books",
     "Path": "tutorials/book-store-with-abp-suite/part-02"
@@ -21,11 +25,14 @@ Before starting the development, create a new solution named `Acme.BookStore` an
 
 You can use the following configurations:
 
+* **Solution Template:** Application (Layered)
 * **Solution Name:** `Acme.BookStore`
 * **UI Framework:** {{if UI=="MVC"}} ASP.NET Core MVC / Razor Pages {{end}}
 * **UI Theme:** LeptonX
 * **Mobile Framework:** None
 * **Database Provider:** {{if DB=="EF"}} Entity Framework Core {{end}}
+* **Public Website:** No
+* **Tiered:** No
 
 You can select the other options based on your preference.
 
