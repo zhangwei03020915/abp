@@ -41,22 +41,22 @@ When you click *Add New Profile*, it opens the *Create New Profile* window. You 
 
 ## Using the Profile
 
-After selecting the current profile, which is the *Default* profile that comes pre-configured, we can utilize the tree items. This allows us to execute collective commands and create various tree structures based on our specific needs. You can navigate through the root of the tree and right-click to view the context menu, which includes 3 options: `Start All`, `Stop All`, `Build`, `Add` and `Manage Start Actions`.
+After selecting the current profile, which is the *Default* profile that comes pre-configured, we can utilize the tree items. This allows us to execute collective commands and create various tree structures based on our specific needs. You can navigate through the root of the tree and right-click to view the context menu, which includes the following options: `Start All`, `Stop All`, `Build`, `Add`, and `Manage Start Actions`.
 
 ![profile-root-context-menu](images/solution-runner/profile-root-context-menu.png)
 
 ### Start/Stop All
 
-We can start/stop the applications with this options. Go to root of the tree and right-click to view the context menu:
+We can start/stop the applications with these options. Go to the root of the tree and right-click to view the context menu:
 
 - `Start All`: Start all(CLI, C#) applications.
 - `Stop All`: Stop all(CLI, C#) applications.
 
-> You can change the current profile while applications are running in the previous profile. The applications continue to run under the previous profile. For example if we start the `Acme.BookStore.AdministrationService`, `Acme.BookStore.IdentityService` applications when current profile is *team-1* and after change the current profile to *team-2* the applications continue to run under *team-1*.
+> You can change the current profile while applications are running in the previous profile. The applications continue to run under the previous profile. For example, if we start the `Acme.BookStore.AdministrationService`, `Acme.BookStore.IdentityService` applications when the current profile is *team-1* and after changing the current profile to *team-2* the applications continue to run under *team-1*.
 
 ### Build
 
-We can use common [dotnet](https://learn.microsoft.com/en-us/dotnet/core/tools) commands in this option. Go to root of the tree and right-click to view the context menu, in this example *Acme.Bookstore(Default)* -> *Build*, there are 4 options available:
+We can use common [dotnet](https://learn.microsoft.com/en-us/dotnet/core/tools) commands in this option. Go to the root of the tree and right-click to view the context menu, in this example *Acme.Bookstore(Default)* -> *Build*, there are 4 options available:
 
 ![profile-root-context-menu-build](images/solution-runner/profile-root-context-menu-build.png)
 
@@ -75,7 +75,7 @@ We can add 3 different item type to *Profile* for defining the tree structure. T
 
 #### C# Application
 
-When we go to root of the tree and right-click, in this example *Acme.BookStore(Default)* -> *Add* -> *C# Application* it opens the *Add Application* window. There are two methods to add applications: *This solution* and *External*. To add via the *This solution* tab, follow these steps:
+When we go to the root of the tree and right-click, in this example *Acme.BookStore(Default)* -> *Add* -> *C# Application* it opens the *Add Application* window. There are two methods to add applications: *This solution* and *External*. To add via the *This solution* tab, follow these steps:
 
 ![profile-root-add-csharp-application](images/solution-runner/profile-root-add-csharp-application.png)
 
@@ -93,7 +93,7 @@ The C# project doesn't have to be within the current [Solution Explorer](./solut
 
 - `Path`: Provide the path to the .csproj file you wish to add. The path will be [normalized](https://learn.microsoft.com/en-us/dotnet/standard/io/file-path-formats#path-normalization), allowing the project location to be flexible, as long as it's accessible from the current [ABP Solution](./concepts.md#solution).
 - `Name`: Give an arbitrary name to see in solution runner. This name should be unique for each profile.
-- `Launch url`: Is the url when we want to browse. But if added project doesn't have launch url we can leave it empty.
+- `Launch url`: This is the url when we want to browse. But if the added project doesn't have launch url we can leave it empty.
 - `Kubernetes service`: If you're not using the *Kubernetes* panel leave it empty. But if there is a helm chart for added application we should give the correct regex pattern. It's necessary for browse, when we connect the kubernetes cluster we should browse the services instead *Launch url*. Give the matching regex pattern for your helm chart kubernetes service name.
 
 You can click the `OK` button to add the C# application to the profile.
@@ -162,7 +162,7 @@ You can see the context menu by right-clicking *Folder*. It will start/stop all 
 
 ### Add
 
-*Folder* -> *Add* context menu, it's the [same](#add) options like *Acme.BookStore(Default)* -> *Add* there are 3 options avaiable. The only difference, it's gonna add item to selected folder.
+*Folder* -> *Add* context menu, it's the [same](#add) options like *Acme.BookStore(Default)* -> *Add* there are 3 options avaiable. The only difference, it's gonna add item to the selected folder.
 
 ![folder-context-menu-add](images/solution-runner/folder-context-menu-add.png)
 
@@ -173,7 +173,7 @@ You can see the context menu by right-clicking *Folder*. It will start/stop all 
 
 ## C# Application
 
-The .NET icon indicates that the application is a C# project. After we [add](#c-application) the C# applications to root of the tree or folder, we can go to any C# application and right-click to view the context menu; `Start`, `Build`, `Browse`, `Requests`, `Exceptions`, `Logs`, `Copy URL`, `Properties`, `Remove`.
+The .NET icon indicates that the application is a C# project. After we [add](#c-application) the C# applications to the root of the tree or folder, we can go to any C# application and right-click to view the context menu; `Start`, `Build`, `Browse`, `Requests`, `Exceptions`, `Logs`, `Copy URL`, `Properties`, `Remove`.
 
 ![csharp-application-context-menu](images/solution-runner/csharp-application-context-menu.png)
 
