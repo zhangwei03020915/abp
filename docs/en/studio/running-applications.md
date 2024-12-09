@@ -132,6 +132,18 @@ You can click the `OK` button to add the folder to the profile.
 - To remove a folder from the tree, open the context menu by right-clicking the folder and selecting *Delete*.
 - When starting applications, they continue to restart until the application starts gracefully. To stop the restarting process when attempting to restart the application, click the icon on the left. Additionally, you can review the *Logs* to understand why the application isn't starting gracefully.
 
+### Manage Start Actions
+
+This command will open a dialog where you can set start actions and start orders of sub-applications and sub-folders.
+
+![manage-start-actions](images/solution-runner/manage-start-actions.png)
+
+You can order the applications by dragging the icon in the first columng. In the screenshot below, applications & folders are ordered like this: *Applications under infrastructure* > *Applications under services* > *Applications under gateways* > *AuthServer* > *Angular*. You can also set starting order and other actions for each folder by performing `right click > Manage Start Actions` on them.
+
+- **Action**: There are two options: `Start` and `Don't start`. This is usefull if you want to exclude applications from batch start.
+- **Build**: This option allows to disable/enable build before starting the application. If you are working on a single application, you can exclude the other applications from build to save time. This option also can be set by performing `right click > properties` on applications.
+- **Watch**: When enabled, changes in your code are watched and dotnet hot-reloads the application or restarts it if needed. This option also can be set by performing `right click > properties` on applications.
+
 ## Folder
 
 We already now why we need folder in the [previous](./running-applications.md#folder) section, we can use collective commands within this folder items. To do that go to folder and open the context menu by right-clicking, which includes 5 options `Start`, `Stop`, `Build`, `Add`, `Manage Start Actions`, `Rename` and `Delete`.
@@ -194,7 +206,8 @@ We can open the *Application Properties* window to change *Launch url*, *Kuberne
 
 ![solutioın-runner-properties](images/solution-runner/solutioın-runner-properties.png)
 
-When *Watch changes while running* is enable you should see an *eye* icon next to the application name.
+- **Skip build before starting**: When enabled, application is started without build and it makes starting faster. This is useful when you are working on a single application out of multiple, so you don't need to build others everytime they start.
+- **Watch changes while running**: When enabled, you should see an *eye* icon next to the application name.
 
 ![csharp-application-context-menu-run-connection](images/solution-runner/csharp-application-context-menu-run-connection.png)
 
