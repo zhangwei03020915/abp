@@ -138,10 +138,10 @@ This command will open a dialog where you can set start actions and start orders
 
 ![manage-start-actions](images/solution-runner/manage-start-actions.png)
 
-You can order the applications by dragging the icon in the first columng. In the screenshot below, applications & folders are ordered like this: *Applications under infrastructure* > *Applications under services* > *Applications under gateways* > *AuthServer* > *Angular*. You can also set starting order and other actions for each folder by performing `right click > Manage Start Actions` on them.
+You can order the applications by dragging the icon in the first column. In the screenshot above, applications & folders are ordered like this: *Applications under infrastructure* > *Applications under services* > *Applications under gateways* > *AuthServer* > *Angular*. You can also set starting order and other actions for each folder by performing `right click > Manage Start Actions` on them.
 
 - **Action**: There are two options: `Start` and `Don't start`. This is usefull if you want to exclude applications from batch start.
-- **Build**: This option allows to disable/enable build before starting the application. If you are working on a single application, you can exclude the other applications from build to save time. This option also can be set by performing `right click > properties` on applications.
+- **Build**: This option allows to disable/enable build before starting the application. If you are working on a single application, you can exclude the other applications from build to save time. This option can also be set by performing `right click > properties` on applications.
 - **Watch**: When enabled, changes in your code are watched and dotnet hot-reloads the application or restarts it if needed. This option also can be set by performing `right click > properties` on applications.
 
 ## Folder
