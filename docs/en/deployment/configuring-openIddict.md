@@ -4,7 +4,7 @@ This document introduces how to configure `OpenIddict` in the `AuthServer` proje
 
 There are different configurations in the `AuthServer` project for the `Development` and `Production` environments.
 
-> If your solution does not include a project named `.AuthServer`, It means the project that depends on `AbpAccountPublicWebOpenIddictModule`. The project name can be `MyProject`, `MyProject.Web`, or `MyProject.HttpApi.Host`. They are both `Authentication Server` projects.
+> If your solution does not include a project named `.AuthServer`, it means that you might have another project that depends on `AbpAccountPublicWebOpenIddictModule`. The project name can be `MyProject`, `MyProject.Web`, or `MyProject.HttpApi.Host`. They are both `Authentication Server` projects in that context.
 
 ````csharp
 public override void PreConfigureServices(ServiceConfigurationContext context)
