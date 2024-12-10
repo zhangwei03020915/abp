@@ -42,7 +42,7 @@ public class AspNetCoreAuditLogContributor : AuditLogContributor, ITransientDepe
 
         if (context.AuditInfo.Url == null)
         {
-            context.AuditInfo.Url = BuildUrl(context, httpContext);
+            context.AuditInfo.Url = GetUrl(context, httpContext);
         }
 
         var clientInfoProvider = context.ServiceProvider.GetRequiredService<IWebClientInfoProvider>();
@@ -90,34 +90,27 @@ public class AspNetCoreAuditLogContributor : AuditLogContributor, ITransientDepe
         context.AuditInfo.HttpStatusCode = httpContext.Response.StatusCode;
     }
 
-    protected virtual string BuildUrl(AuditLogContributionContext context, HttpContext httpContext)
+    protected virtual string GetUrl(AuditLogContributionContext context, HttpContext httpContext)
     {
         var options = context.ServiceProvider.GetRequiredService<IOptions<AbpAspNetCoreAuditingUrlOptions>>();
         var stringBuilder = new StringBuilder();
-        var uriBuilder = new UriBuilder
-        {
-            Scheme = httpContext.Request.Scheme,
-            Host = httpContext.Request.Host.Host,
-            Path = httpContext.Request.Path.ToString(),
-            Query = httpContext.Request.QueryString.ToString()
-        };
-        
+
         if (options.Value.IncludeSchema)
         {
-            stringBuilder.Append(uriBuilder.Scheme);
+            stringBuilder.Append(httpContext.Request.Scheme);
             stringBuilder.Append("://");
         }
         
         if (options.Value.IncludeHost)
         {
-            stringBuilder.Append(uriBuilder.Host);
+            stringBuilder.Append(httpContext.Request.Host.Host);
         }
         
-        stringBuilder.Append(uriBuilder.Path);
+        stringBuilder.Append(httpContext.Request.Path.ToString());
         
         if (options.Value.IncludeQuery)
         {
-            stringBuilder.Append(uriBuilder.Query);
+            stringBuilder.Append(httpContext.Request.QueryString.ToString());
         }
         
         return stringBuilder.ToString();
