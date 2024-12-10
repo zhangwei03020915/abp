@@ -607,7 +607,9 @@
     "OrganizationDoesNotHaveACreditCardInGateway": "Organization does not have a credit card in the gateway!",
     "Permission:EditWinners": "Edit Winners",
     "Permission:ChangeDrawingStatus": "Change Drawing Status",
-    "Menu:Licenses": "Licensing",
+    "Menu:Licenses": "Licenses",
+    "Menu:Licensing": "Licensing",
+    "Menu:Campaigns": "Campaigns",
     "OrganizationId": "Organization Id",
     "RemoveAllWinnersConfirmationMessage": "Are you sure you want to remove all winners?",
     "AutoRenewals": "Auto Renewals",
@@ -664,6 +666,19 @@
     "EditWinners": "Edit winners",
     "EditAttendees": "Edit attendees",
     "ExportAttendeesAsExcel": "Export attendees as Excel",
-    "DuplicateRaffle": "Duplicate raffle"
+    "DuplicateRaffle": "Duplicate raffle",
+    "NewLicenseMonthDuration": "New License Month Duration",
+    "RenewLicenseMonthDuration": "Renew License Month Duration",
+    "RenewLicenseQuestionCountPerDeveloper": "Renew License Question Count Per Developer",
+    "NewLicenseQuestionCountPerDeveloper": "New License Question Count Per Developer",
+    "IncludedDeveloperCount": "Included Developer Count",
+    "CanBuyAdditionalDevelopers": "Can Buy Additional Developers",
+    "HasEmailSupport": "Has Email Support",
+    "IsSupportPrivateQuestion": "Is Support Private Question",
+    "AdditionalDeveloperPrice": "Additional Developer Price",
+    "LicenseUpgradePrice": "License Upgrade Price",
+    "AdditionalDeveloperUpgradePrice": "Additional Developer Upgrade Price",
+    "EditLicense{0}": "Edit {0} License",
+    "CampaignNameAlreadyExists": "Campaign name already exists"
   }
 }
