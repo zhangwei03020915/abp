@@ -2,6 +2,31 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.15 (2024-12-05)
+
+* Upgraded templates to version `9.0.1`.
+* Fixed problems in the microservice service_nolayers template.
+* Fixed microservice angular template for wrong file-management module reference.
+* Fixed added extra lines in the hosts.txt file.
+
+## 0.9.14 (2024-12-03)
+
+* Refactored `dotnet watch` command in solution runner.
+* Added multi-tenancy option for open source startup templates.
+* Implemented adding angular library when a new microservice is created.
+* Adjusted *Optional Modules* section in solution configurations
+* Fixed bugs in the nolayers host project.
+
+## 0.9.13 (2024-11-25)
+
+* Angular - Theme-based Fixes for the Home Page.
+
+## 0.9.12 (2024-11-25)
+
+* Handled the `DynamicPermissionDefinitionsChangedEto` event to automatically add permissions for the admin role.
+* Enhanced the Solution Configuration window with a more intuitive design and updated content.
+* Improved MAUI application support by displaying all target frameworks in the Solution Runner and automatically setting the appropriate targetFramework based on the operating system.
+
 ## 0.9.11 (2024-11-21)
 
 * Fixed the extension loading problem occured in v0.9.9 & v0.9.10.
