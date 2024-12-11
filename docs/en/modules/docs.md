@@ -672,22 +672,18 @@ The **Docs Module** supports referencing previous and next documents. It's usefu
 
 To reference the previous and next documents from a document, you should specify the documentation titles and their paths as follows:
 
-```
-
-	  ````json
-	  //[doc-nav]
-	  {
-	    "Previous": {
-	      "Name": "Overall",
-	      "Path": "testing/overall"
-	    },
-	    "Next": {
-	      "Name": "Integration tests",
-	      "Path": "testing/integration-tests"
-	    }
-	  }
-	  ````
-
+```json
+//[doc-nav]
+{
+  "Previous": {
+    "Name": "Overall",
+    "Path": "testing/overall"
+  },
+  "Next": {
+    "Name": "Integration tests",
+    "Path": "testing/integration-tests"
+  }
+}
 ```
 
 After you specify the next & previous documents, they will appear at the end of the current documentation like in the following figure:
