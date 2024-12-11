@@ -279,8 +279,6 @@
         initSocialShareLinks();
 
         initSections();
-
-        initDocumentNodeBreadcrumb();
         
         Element.prototype.querySelector = function (selector) {
             var result = $(this).find(decodeURI(selector));
