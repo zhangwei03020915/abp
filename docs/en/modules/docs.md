@@ -490,9 +490,6 @@ Since not every single document in your projects may not have sections or may no
 
 For example [Getting-Started.md](https://github.com/abpio/abp-commercial-docs/blob/master/en/getting-started.md):
 
-```
-.....
-
 ​```json
 //[doc-params]
 {
@@ -502,9 +499,6 @@ For example [Getting-Started.md](https://github.com/abpio/abp-commercial-docs/bl
 }
 ​```
 
-........
-```
-
 This section will be automatically deleted during render. And f course, those key values must match with the ones in **Parameter document**.
 
 ![Interface](../images/docs-section-ui.png)
@@ -513,7 +507,7 @@ Now you can use **Scriban** syntax to create sections in your document.
 
 For example:
 
-````
+````text
 {{ if UI == "NG" }}
 
 * `-u` argument specifies the UI framework, `angular` in this case.
