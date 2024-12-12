@@ -323,14 +323,14 @@
                                                                 </span>
                                                 </li>
                                             }
-
+                            
                                             previousNode = indexDocument;
                                         }
-
+                            
                                         currentNode = currentNode?.Items?.FirstOrDefault(n => n.IsSelected(Model.DocumentNameWithExtension));
                                     }
                                 }
-
+                            
                                 void PrintNode(NavigationNode node, string text = null)
                                 {
                                     var extension = System.IO.Path.GetExtension(node.Path);
@@ -341,7 +341,7 @@
                                         </a>
                                     </li>
                                 }
-
+                            
                                 NavigationNode FindIndexNode(NavigationNode node)
                                 {
                                     var nextNode = node.Items?.FirstOrDefault(n => n.IsSelected(Model.DocumentNameWithExtension));
@@ -349,15 +349,15 @@
                                     {
                                         nextNode = nextNode.Items.FirstOrDefault(n => n.IsSelected(Model.DocumentNameWithExtension));
                                     }
-
+                            
                                     if(nextNode == null)
                                     {
-                                        return node.Items?.FirstOrDefault(n => n.Text == "Overview");
+                                        return node.Items?.FirstOrDefault(n => n.IsIndex);
                                     }
-
+                            
                                     var lastSlashIndex = nextNode.Path.LastIndexOf('/');
                                     var path = lastSlashIndex < 0 ? nextNode.Path : nextNode.Path.Substring(0, lastSlashIndex);
-                                    return node.Items.FirstOrDefault(n => n.Path != null && (n.IsSelected(path + documentExtension) || n.IsSelected(path + "/index" + documentExtension))) ?? node.Items.FirstOrDefault(n => n.Text == "Overview");
+                                    return node.Items.FirstOrDefault(n => n.Path != null && (n.IsSelected(path + documentExtension) || n.IsSelected(path + "/index" + documentExtension))) ?? node.Items.FirstOrDefault(n => n.IsIndex);
                                 }
                             }
                         </ol>
