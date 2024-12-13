@@ -2,6 +2,16 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.16 (2024-12-11)
+
+> This version does not work for macOS, we are currently working on that manner.
+
+* Added a new command for refreshing the previously runned C#/Js Proxies.
+* Added kubernetes configurations to Blazor WebApp for Microservice Template.
+* Handled multiple dbcontexts for ef core migration operations.
+* Made enhancements for dynamic localization feature in Microservice Template.
+* Upgraded LeptonX Theme package versions to `4.0.2`.
+
 ## 0.9.15 (2024-12-05)
 
 * Upgraded templates to version `9.0.1`.
