@@ -1941,7 +1941,7 @@
         },
         {
           "text": "The Basic Theme",
-          "path": "framework/ui/mvc-razor-pages/basic-theme.md"
+          "path": "ui-themes/basic-theme"
         },
         {
           "text": "LeptonX Theme",
