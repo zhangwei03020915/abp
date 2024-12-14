@@ -23,7 +23,7 @@ namespace Volo.Abp.EventBus.RabbitMq;
 /* TODO: How to handle unsubscribe to unbind on RabbitMq (may not be possible for)
  */
 [Dependency(ReplaceServices = true)]
-[ExposeServices(typeof(IDistributedEventBus), typeof(RabbitMqDistributedEventBus), typeof(IRabbitMqDistributedEventBus)]
+[ExposeServices(typeof(IDistributedEventBus), typeof(RabbitMqDistributedEventBus), typeof(IRabbitMqDistributedEventBus))]
 public class RabbitMqDistributedEventBus : DistributedEventBusBase, IRabbitMqDistributedEventBus, ISingletonDependency
 {
     protected AbpRabbitMqEventBusOptions AbpRabbitMqEventBusOptions { get; }
