@@ -112,7 +112,7 @@ abp cli clear-cache
 
 ### new
 
-Generates a new solution based on the ABP [startup templates](../solution-templates).
+Generates a new solution based on the ABP [startup templates](../solution-templates). See [new solution create sample commands](new-command-samples.md)
 
 Usage:
 
