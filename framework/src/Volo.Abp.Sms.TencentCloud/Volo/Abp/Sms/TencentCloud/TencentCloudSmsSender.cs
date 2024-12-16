@@ -22,7 +22,7 @@ public class TencentCloudSmsSender : ISmsSender, ITransientDependency
     {
         var client = CreateClient();
 
-        await client.SendSms(new SendSmsRequest
+        var result = await client.SendSms(new SendSmsRequest()
         {
             SmsSdkAppId = Options.SmsSdkAppId,
             SignName = smsMessage.Properties.GetOrDefault(TencentCloudSmsProperties.SignName) as string,
@@ -30,6 +30,7 @@ public class TencentCloudSmsSender : ISmsSender, ITransientDependency
             TemplateParamSet = smsMessage.Text.Split(','),
             PhoneNumberSet = [smsMessage.PhoneNumber]
         });
+
     }
 
     protected virtual SmsClient CreateClient()

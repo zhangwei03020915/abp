@@ -18,13 +18,9 @@
     <ItemGroup>
         <ProjectReference Include="..\Volo.Abp.Sms\Volo.Abp.Sms.csproj" />
     </ItemGroup>
-
+    
     <ItemGroup>
-        <PackageReference Include="TencentCloudSDK" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageVersion Update="TencentCloudSDK" Version="3.0.1142" />
+      <PackageReference Include="TencentCloudSDK.Sms" />
     </ItemGroup>
 
 </Project>
