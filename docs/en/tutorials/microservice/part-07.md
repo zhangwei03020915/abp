@@ -16,7 +16,7 @@ ABP provides two types of event buses for loosely coupled communication:
 
 * [Local Event Bus](../../framework/infrastructure/event-bus/local/index.md) is suitable for in-process messaging. However, it’s not suitable for microservices as it cannot communicate across different processes. For distributed systems, consider using a distributed event bus.
 
-* **[Distributed Event Bus](../../framework/infrastructure/event-bus/distributed/index.md)** is normal for inter-process messaging, like microservices, for publishing and subscribing to distributed events. However, ABP's distributed event bus works as local (in-process) by default (actually, it uses the Local Event Bus under the hood by default) unless you configure an external message broker.
+* [Distributed Event Bus](../../framework/infrastructure/event-bus/distributed/index.md) is normal for inter-process messaging, like microservices, for publishing and subscribing to distributed events. However, ABP's distributed event bus works as local (in-process) by default (actually, it uses the Local Event Bus under the hood by default) unless you configure an external message broker.
 
 In this tutorial, we will use the distributed event bus to communicate between the `Order` and `Catalog` microservices.
 
