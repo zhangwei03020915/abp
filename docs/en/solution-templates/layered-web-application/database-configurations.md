@@ -240,3 +240,27 @@ public override void ConfigureServices(ServiceConfigurationContext context)
 ```
 
 We are basically setting the SQL Server as the default DBMS for this application. and registering the `BookstoreDbContext` class to the [dependency injection](../../framework/fundamentals/dependency-injection.md) system.
+
+### SaaS Module: The Tenant Management UI **\***
+
+SaaS module provides the necessary UI to set and change connection string for tenants and trigger the database migrations.
+
+#### The Connection String Management Modal
+
+You can click to the *Database Connection Strings* command in the *Actions* dropdown button for a tenant in the *Tenants* page of the SaaS module:
+
+![Database Connection Strings](images/database-connection-strings.png)
+
+It opens the *Database Connection Strings* modal as shown below:
+
+![Database Connection Strings Modal](images/database-connection-strings-modal.png)
+
+Here, we can set a *Default connection string* for the tenant.
+
+When you make the changes and save the dialog, the database is automatically created and migrated. If you later update the connection string (for example if you change the database name), it will also trigger the database migration process again.
+
+#### Manually Applying the Database Migrations
+
+If you need to manually trigger the database migrations for a specific tenant, click the *Actions* dropdown for the related tenant and select the *Apply Database Migrations* command on the *Tenant Management* page of the SaaS module:
+
+![Apply Database Migrations](images/apply-database-migrations.png)
