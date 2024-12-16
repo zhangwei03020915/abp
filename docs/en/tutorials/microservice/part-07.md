@@ -170,9 +170,9 @@ public class OrderEventHandler :
     IDistributedEventHandler<OrderPlacedEto>,
     ITransientDependency
 {
-    private readonly IRepository<Product, Guid> _productRepository;
+    private readonly IProductRepository _productRepository;
 
-    public OrderEventHandler(IRepository<Product, Guid> productRepository)
+    public OrderEventHandler(IProductRepository productRepository)
     {
         _productRepository = productRepository;
     }
