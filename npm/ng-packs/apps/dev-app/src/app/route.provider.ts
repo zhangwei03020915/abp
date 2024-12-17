@@ -3,11 +3,12 @@ import { inject, provideAppInitializer } from '@angular/core';
 
 export const APP_ROUTE_PROVIDER = [
   provideAppInitializer(() => {
-    configureRoutes(inject(RoutesService));
+    configureRoutes();
   }),
 ];
 
-function configureRoutes(routesService: RoutesService) {
+function configureRoutes() {
+  const routesService = inject(RoutesService);
   routesService.add([
     {
       path: '/',
