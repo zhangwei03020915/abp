@@ -1,13 +1,14 @@
-import { APP_INITIALIZER } from '@angular/core';
+import { inject, provideAppInitializer } from '@angular/core';
 import { NgbInputDatepickerConfig, NgbTypeaheadConfig } from '@ng-bootstrap/ng-bootstrap';
 
 export const NG_BOOTSTRAP_CONFIG_PROVIDERS = [
-  {
-    provide: APP_INITIALIZER,
-    useFactory: configureNgBootstrap,
-    deps: [NgbInputDatepickerConfig, NgbTypeaheadConfig],
-    multi: true,
-  },
+  provideAppInitializer(() => {
+    const initializerFn = configureNgBootstrap(
+      inject(NgbInputDatepickerConfig),
+      inject(NgbTypeaheadConfig),
+    );
+    return initializerFn();
+  }),
 ];
 
 export function configureNgBootstrap(

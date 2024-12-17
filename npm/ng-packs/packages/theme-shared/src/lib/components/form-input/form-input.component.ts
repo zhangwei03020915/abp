@@ -3,6 +3,7 @@ import { Component, EventEmitter, forwardRef, Injector, Input, Output } from '@a
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
+  standalone: false,
   selector: 'abp-form-input',
   template: `
     <div class="mb-3">

@@ -1,16 +1,14 @@
 import { NavItemsService } from '@abp/ng.theme.shared';
-import { APP_INITIALIZER } from '@angular/core';
+import { inject, provideAppInitializer } from '@angular/core';
 import { CurrentUserComponent } from '../components/nav-items/current-user.component';
 import { LanguagesComponent } from '../components/nav-items/languages.component';
 import { eThemeBasicComponents } from '../enums/components';
 
 export const BASIC_THEME_NAV_ITEM_PROVIDERS = [
-  {
-    provide: APP_INITIALIZER,
-    useFactory: configureNavItems,
-    deps: [NavItemsService],
-    multi: true,
-  },
+  provideAppInitializer(() => {
+    const initializerFn = configureNavItems(inject(NavItemsService));
+    return initializerFn();
+  }),
 ];
 
 export function configureNavItems(navItems: NavItemsService) {

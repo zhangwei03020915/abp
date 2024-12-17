@@ -1,15 +1,13 @@
 import { SettingTabsService } from '@abp/ng.setting-management/config';
-import { APP_INITIALIZER } from '@angular/core';
+import { inject, provideAppInitializer } from '@angular/core';
 import { eFeatureManagementTabNames } from '../enums/feature-management-tab-names';
 import { FeatureManagementTabComponent } from '../components';
 
 export const FEATURE_MANAGEMENT_SETTINGS_PROVIDERS = [
-  {
-    provide: APP_INITIALIZER,
-    useFactory: configureSettingTabs,
-    deps: [SettingTabsService],
-    multi: true,
-  },
+  provideAppInitializer(() => {
+    const initializerFn = configureSettingTabs(inject(SettingTabsService));
+    return initializerFn();
+  }),
 ];
 
 export function configureSettingTabs(settingtabs: SettingTabsService) {

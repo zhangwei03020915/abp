@@ -1,9 +1,11 @@
 import { eLayoutType, RoutesService } from '@abp/ng.core';
-import { APP_INITIALIZER } from '@angular/core';
+import { inject, provideAppInitializer } from '@angular/core';
 import { eAccountRouteNames } from '../enums/route-names';
 
 export const ACCOUNT_ROUTE_PROVIDERS = [
-  { provide: APP_INITIALIZER, useFactory: configureRoutes, deps: [RoutesService], multi: true },
+  provideAppInitializer(() => {
+    configureRoutes(inject(RoutesService));
+  }),
 ];
 
 export function configureRoutes(routes: RoutesService) {

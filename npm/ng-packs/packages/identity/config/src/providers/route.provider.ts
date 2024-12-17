@@ -1,11 +1,14 @@
 import { eLayoutType, RoutesService } from '@abp/ng.core';
 import { eThemeSharedRouteNames } from '@abp/ng.theme.shared';
-import { APP_INITIALIZER } from '@angular/core';
+import { inject, provideAppInitializer } from '@angular/core';
 import { eIdentityPolicyNames } from '../enums/policy-names';
 import { eIdentityRouteNames } from '../enums/route-names';
 
 export const IDENTITY_ROUTE_PROVIDERS = [
-  { provide: APP_INITIALIZER, useFactory: configureRoutes, deps: [RoutesService], multi: true },
+  provideAppInitializer(() => {
+    const initializerFn = configureRoutes(inject(RoutesService));
+    return initializerFn();
+  }),
 ];
 
 export function configureRoutes(routesService: RoutesService) {

@@ -9,7 +9,7 @@ import {
   AuthErrorFilterService,
   noop,
 } from '@abp/ng.core';
-import { APP_INITIALIZER, Provider, makeEnvironmentProviders } from '@angular/core';
+import { Provider, makeEnvironmentProviders, inject, provideAppInitializer } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OAuthModule, OAuthStorage } from 'angular-oauth2-oidc';
 import { AbpOAuthGuard, abpOAuthGuard } from '../guards';
@@ -51,12 +51,11 @@ export function provideAbpOAuth() {
       multi: true,
     },
     NavigateToManageProfileProvider,
-    {
-      provide: APP_INITIALIZER,
-      multi: true,
-      deps: [OAuthConfigurationHandler],
-      useFactory: noop,
-    },
+    provideAppInitializer(() => {
+      const initializerFn = noop();
+      inject(OAuthConfigurationHandler);
+      return initializerFn();
+    }),
     OAuthModule.forRoot().providers as Provider[],
     { provide: OAuthStorage, useClass: AbpLocalStorageService },
     { provide: AuthErrorFilterService, useExisting: OAuthErrorFilterService },
