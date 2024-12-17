@@ -74,7 +74,7 @@ namespace ModularCrm.Ordering.Services;
 
 public class OrderAppService : OrderingAppService, IOrderAppService
 {
-    private readonly IRepository<Order> _orderRepository;
+    private readonly IRepository<Order, Guid>  _orderRepository;
     private readonly IProductIntegrationService _productIntegrationService;
     private readonly IDistributedEventBus _distributedEventBus;
 
@@ -184,9 +184,9 @@ namespace ModularCrm.Products.Orders
         IDistributedEventHandler<OrderPlacedEto>, 
         ITransientDependency
     {
-        private readonly IRepository<Product, Guid> _productRepository;
+        private readonly IProductRepository _productRepository;
 
-        public OrderEventHandler(IRepository<Product, Guid> productRepository)
+        public OrderEventHandler(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
