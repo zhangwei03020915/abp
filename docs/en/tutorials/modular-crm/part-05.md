@@ -320,7 +320,7 @@ namespace ModularCrm.Ordering.Services;
 
 public class OrderAppService : OrderingAppService, IOrderAppService
 {
-    private readonly IRepository<Order> _orderRepository;
+    private readonly IRepository<Order, Guid>  _orderRepository;
 
     public OrderAppService(IRepository<Order, Guid> orderRepository)
     {
