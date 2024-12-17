@@ -143,13 +143,11 @@ In the *Solution Runner* section (on the left side) you can see all the runnable
 
 As shown in the figure above, the executable applications are grouped into folders like `apps`, `gateways`, `infrastructure`, and `services`. You can start/stop them all, a group (folder) of them, or one by one.
 
-Before running the applications, it is good to be sure that all applications are built. To do that, right-click the root item in the *Solution Runner* and select *Build* -> *Build All* action.
+Before running the applications, you can run the all application by right-clicking the root item in the *Solution Runner* and select *Build* -> *Build All* action. However, you don't need to do that, because ABP Studio builds the applications before running them by default.
 
-![abp-studio-microservice-solution-runner-build-all](images/abp-studio-microservice-solution-runner-build-all.png)
+> If you want to change this behavior, and don't want ABP Studio to build before running the applications, you can click the *Manage start actions* button in the *Solution Runner*, which you can see from the root item or per folder.
 
-> *Solution Runner* doesn't build an application before running it. That provides a great performance gain because most of the time you will work on one or a few services and you don't need to build all of the other applications in every run. However, if you want to build before running, you can right-click an item in the *Solution Runner* tree and select *Run* -> *Build & Start* command.
-
-It will take some time to build all. Once all is done, you can start the system. You can click the *Play* button on the root item in Solution Runner to start all the applications.
+You can click the *Play* button on the root item in *Solution Runner* to start all the applications.
 
 > **About the Docker Containers**
 >
