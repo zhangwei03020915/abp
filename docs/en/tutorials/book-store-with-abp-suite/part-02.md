@@ -1,11 +1,5 @@
-# Web Application Development (with ABP Suite) Tutorial - Part 2: Creating the Books
-````json
-//[doc-params]
-{
-    "UI": ["MVC"],
-    "DB": ["EF"]
-}
-````
+# Web Application Development Tutorial (with ABP Suite) - Part 2: Creating the Books
+
 ````json
 //[doc-nav]
 {

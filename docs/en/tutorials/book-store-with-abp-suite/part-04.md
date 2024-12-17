@@ -1,11 +1,5 @@
-# Web Application Development (with ABP Suite) Tutorial - Part 4: Book to Author Relation
-````json
-//[doc-params]
-{
-    "UI": ["MVC"],
-    "DB": ["EF"]
-}
-````
+# Web Application Development Tutorial (with ABP Suite) - Part 4: Book to Author Relation
+
 ````json
 //[doc-nav]
 {

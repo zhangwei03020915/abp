@@ -1,11 +1,5 @@
-# Web Application Development (with ABP Suite) Tutorial - Part 3: Creating the Authors
-````json
-//[doc-params]
-{
-    "UI": ["MVC"],
-    "DB": ["EF"]
-}
-````
+# Web Application Development Tutorial (with ABP Suite) - Part 3: Creating the Authors
+
 ````json
 //[doc-nav]
 {
