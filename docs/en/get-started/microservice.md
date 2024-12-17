@@ -4,6 +4,22 @@
 
 In this quick start guide, you will learn how to create and run a microservice solution using [ABP Studio](../studio/index.md).
 
+## Setup your development environment
+
+First things first! Let's setup your development environment before creating the first project.
+
+### Pre-requirements
+
+The following tools should be installed on your development machine:
+
+* [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or another IDE that supports .NET development
+* [.NET 9.0+](https://dotnet.microsoft.com/en-us/download/dotnet)
+* [Node v22.11+](https://nodejs.org/)
+* [Docker Desktop with Kubernetes](https://www.docker.com/products/docker-desktop/)
+* [helm](https://helm.sh/docs/intro/install/)
+* [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)
+* [mkcert](https://github.com/FiloSottile/mkcert#installation)
+
 ## Creating a New Solution
 
 > 🛈 This document uses [ABP Studio](../studio/index.md) to create new ABP solutions. **ABP Studio** is in the beta version now. If you have any issues, you can use the [ABP CLI](../cli/index.md) to create new solutions. You can also use the [getting started page](https://abp.io/get-started) to easily build ABP CLI commands for new project creations.

@@ -118,7 +118,7 @@ In this code snippet, we configure the `Order` entity to use the `Orders` table 
 
 Now, we can add a new database migration. You can use Entity Framework Core's `Add-Migration` (or `dotnet ef migrations add`) terminal command, but in this tutorial, we will use ABP Studio's shortcut UI.
 
-Ensure that the solution has built. You can right-click the `CloudCrm.OrderingService` (under the `services` folder) on ABP Studio *Solution Explorer* and select the *Dotnet CLI* -> *Graph Build* command.
+Please stop the applications if they are running and ensure that the solution has built. You can right-click the `CloudCrm.OrderingService` (under the `services` folder) on ABP Studio *Solution Explorer* and select the *Dotnet CLI* -> *Graph Build* command.
 
 Right-click the `CloudCrm.OrderingService` package and select the *EF Core CLI* -> *Add Migration* command:
 
@@ -217,7 +217,7 @@ namespace CloudCrm.OrderingService.Services;
 
 public class OrderAppService : ApplicationService, IOrderAppService
 {
-    private readonly IRepository<Order> _orderRepository;
+    private readonly IRepository<Order, Guid>  _orderRepository;
 
     public OrderAppService(IRepository<Order, Guid> orderRepository)
     {
