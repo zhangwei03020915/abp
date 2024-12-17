@@ -5,7 +5,8 @@
       "items": [
         {
           "text": "Overview",
-          "path": "get-started"
+          "path": "get-started",
+          "isIndex": true
         },
         {
           "text": "Single Layer Web Application",
@@ -47,14 +48,16 @@
       "items": [
         {
           "text": "Overview",
-          "path": "tutorials"
+          "path": "tutorials",
+          "isIndex": true
         },
         {
           "text": "TODO Application",
           "items": [
             {
               "text": "Overview",
-              "path": "tutorials/todo"
+              "path": "tutorials/todo",
+              "isIndex": true
             },
             {
               "text": "Single-Layer Solution",
@@ -71,7 +74,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "tutorials/book-store"
+              "path": "tutorials/book-store",
+              "isIndex": true
             },
             {
               "text": "1: Creating the Server Side",
@@ -120,7 +124,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "tutorials/book-store-with-abp-suite"
+              "path": "tutorials/book-store-with-abp-suite",
+              "isIndex": true
             },
             {
               "text": "1: Creating the Solution",
@@ -149,7 +154,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "tutorials/modular-crm/index.md"
+              "path": "tutorials/modular-crm/index.md",
+              "isIndex": true
             },
             {
               "text": "1: Creating the Initial Solution",
@@ -190,7 +196,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "tutorials/microservice/index.md"
+              "path": "tutorials/microservice/index.md",
+              "isIndex": true
             },
             {
               "text": "1: Creating the initial solution",
@@ -233,14 +240,16 @@
       "items": [
         {
           "text": "Overview",
-          "path": "tools.md"
+          "path": "tools.md",
+          "isIndex": true
         },
         {
           "text": "ABP CLI",
           "items": [
             {
               "text": "Overview",
-              "path": "cli"
+              "path": "cli",
+              "isIndex": true
             },
             {
               "text": "New Solution Sample Commands",
@@ -253,7 +262,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "studio"
+              "path": "studio",
+              "isIndex": true
             },
             {
               "text": "Installation",
@@ -264,7 +274,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "studio/overview.md"
+                  "path": "studio/overview.md",
+                  "isIndex": true
                 },
                 {
                   "text": "Solution Explorer",
@@ -307,7 +318,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "suite"
+              "path": "suite",
+              "isIndex": true
             },
             {
               "text": "How to Install",
@@ -330,7 +342,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "suite/generating-crud-page.md"
+                  "path": "suite/generating-crud-page.md",
+                  "isIndex": true
                 },
                 {
                   "text": "Creating Many-To-Many Relationship",
@@ -382,7 +395,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "framework/fundamentals"
+              "path": "framework/fundamentals",
+              "isIndex": true
             },
             {
               "text": "Application Startup",
@@ -393,7 +407,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/fundamentals/authorization.md"
+                  "path": "framework/fundamentals/authorization.md",
+                  "isIndex": true
                 },
                 {
                   "text": "Dynamic Claims",
@@ -406,7 +421,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/fundamentals/caching.md"
+                  "path": "framework/fundamentals/caching.md",
+                  "isIndex": true
                 },
                 {
                   "text": "Redis Cache",
@@ -427,7 +443,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/fundamentals/dependency-injection.md"
+                  "path": "framework/fundamentals/dependency-injection.md",
+                  "isIndex": true
                 },
                 {
                   "text": "AutoFac Integration",
@@ -460,7 +477,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/fundamentals/validation.md"
+                  "path": "framework/fundamentals/validation.md",
+                  "isIndex": true
                 },
                 {
                   "text": "FluentValidation Integration",
@@ -475,7 +493,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "framework/infrastructure"
+              "path": "framework/infrastructure",
+              "isIndex": true
             },
             {
               "text": "Audit Logging",
@@ -486,7 +505,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/infrastructure/background-jobs"
+                  "path": "framework/infrastructure/background-jobs",
+                  "isIndex": true
                 },
                 {
                   "text": "Hangfire Integration",
@@ -507,7 +527,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/infrastructure/background-workers"
+                  "path": "framework/infrastructure/background-workers",
+                  "isIndex": true
                 },
                 {
                   "text": "Quartz Integration",
@@ -524,7 +545,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/infrastructure/blob-storing"
+                  "path": "framework/infrastructure/blob-storing",
+                  "isIndex": true
                 },
                 {
                   "text": "Storage Providers",
@@ -598,7 +620,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/infrastructure/emailing.md"
+                  "path": "framework/infrastructure/emailing.md",
+                  "isIndex": true
                 },
                 {
                   "text": "MailKit Integration",
@@ -615,7 +638,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/infrastructure/event-bus"
+                  "path": "framework/infrastructure/event-bus",
+                  "isIndex": true
                 },
                 {
                   "text": "Local Event Bus",
@@ -626,7 +650,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/infrastructure/event-bus/distributed"
+                      "path": "framework/infrastructure/event-bus/distributed",
+                      "isIndex": true
                     },
                     {
                       "text": "Azure Service Bus Integration",
@@ -693,7 +718,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/infrastructure/text-templating"
+                  "path": "framework/infrastructure/text-templating",
+                  "isIndex": true
                 },
                 {
                   "text": "Razor Integration",
@@ -720,14 +746,16 @@
           "items": [
             {
               "text": "Overview",
-              "path": "framework/architecture"
+              "path": "framework/architecture",
+              "isIndex": true
             },
             {
               "text": "Module Development Best Practices",
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/architecture/best-practices"
+                  "path": "framework/architecture/best-practices",
+                  "isIndex": true
                 },
                 {
                   "text": "Module Architecture",
@@ -738,7 +766,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/architecture/best-practices/domain-layer-overview.md"
+                      "path": "framework/architecture/best-practices/domain-layer-overview.md",
+                      "isIndex": true
                     },
                     {
                       "text": "Entities",
@@ -759,7 +788,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/architecture/best-practices/application-layer-overview.md"
+                      "path": "framework/architecture/best-practices/application-layer-overview.md",
+                      "isIndex": true
                     },
                     {
                       "text": "Application Services",
@@ -776,7 +806,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/architecture/best-practices/data-access-overview.md"
+                      "path": "framework/architecture/best-practices/data-access-overview.md",
+                      "isIndex": true
                     },
                     {
                       "text": "Entity Framework Core Integration",
@@ -795,7 +826,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/architecture/modularity/basics.md"
+                  "path": "framework/architecture/modularity/basics.md",
+                  "isIndex": true
                 },
                 {
                   "text": "Plug-In Modules",
@@ -806,7 +838,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/architecture/modularity/extending/customizing-application-modules-guide.md"
+                      "path": "framework/architecture/modularity/extending/customizing-application-modules-guide.md",
+                      "isIndex": true
                     },
                     {
                       "text": "Module Entity Extension System",
@@ -829,14 +862,16 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/architecture/domain-driven-design"
+                  "path": "framework/architecture/domain-driven-design",
+                  "isIndex": true
                 },
                 {
                   "text": "Domain Layer",
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/architecture/domain-driven-design/domain-layer.md"
+                      "path": "framework/architecture/domain-driven-design/domain-layer.md",
+                      "isIndex": true
                     },
                     {
                       "text": "Entities & Aggregate Roots",
@@ -865,7 +900,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/architecture/domain-driven-design/application-layer.md"
+                      "path": "framework/architecture/domain-driven-design/application-layer.md",
+                      "isIndex": true
                     },
                     {
                       "text": "Application Services",
@@ -902,14 +938,16 @@
           "items": [
             {
               "text": "Overview",
-              "path": "framework/api-development"
+              "path": "framework/api-development",
+              "isIndex": true
             },
             {
               "text": "ABP Endpoints",
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/api-development/standard-apis"
+                  "path": "framework/api-development/standard-apis",
+                  "isIndex": true
                 },
                 {
                   "text": "Application Configuration",
@@ -952,14 +990,16 @@
           "items": [
             {
               "text": "Overview",
-              "path": "framework/ui"
+              "path": "framework/ui",
+              "isIndex": true
             },
             {
               "text": "MVC / Razor Pages",
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/ui/mvc-razor-pages/overall.md"
+                  "path": "framework/ui/mvc-razor-pages/overall.md",
+                  "isIndex": true
                 },
                 {
                   "text": "Navigation / Menus",
@@ -1006,7 +1046,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/ui/mvc-razor-pages/tag-helpers"
+                      "path": "framework/ui/mvc-razor-pages/tag-helpers",
+                      "isIndex": true
                     },
                     {
                       "text": "Form Elements",
@@ -1047,7 +1088,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/ui/mvc-razor-pages/theming.md"
+                      "path": "framework/ui/mvc-razor-pages/theming.md",
+                      "isIndex": true
                     },
                     {
                       "text": "The Basic Theme",
@@ -1064,7 +1106,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/ui/mvc-razor-pages/javascript-api"
+                      "path": "framework/ui/mvc-razor-pages/javascript-api",
+                      "isIndex": true
                     },
                     {
                       "text": "Localization",
@@ -1125,7 +1168,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/ui/mvc-razor-pages/customization-user-interface.md"
+                      "path": "framework/ui/mvc-razor-pages/customization-user-interface.md",
+                      "isIndex": true
                     },
                     {
                       "text": "Entity Action Extensions",
@@ -1157,7 +1201,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/ui/blazor/overall.md"
+                  "path": "framework/ui/blazor/overall.md",
+                  "isIndex": true
                 },
                 {
                   "text": "Navigation / Menu",
@@ -1176,7 +1221,8 @@
                   "items": [
                     {
                       "text": "Overview",
-                      "path": "framework/ui/blazor/theming.md"
+                      "path": "framework/ui/blazor/theming.md",
+                      "isIndex": true
                     },
                     {
                       "text": "The Basic Theme",
@@ -1298,7 +1344,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/ui/angular/overview.md"
+                  "path": "framework/ui/angular/overview.md",
+                  "isIndex": true
                 },
                 {
                   "text": "Quick Start",
@@ -1492,7 +1539,8 @@
                       "items": [
                         {
                           "text": "Overview",
-                          "path": "framework/ui/angular/theming.md"
+                          "path": "framework/ui/angular/theming.md",
+                          "isIndex": true
                         },
                         {
                           "text": "Configuration",
@@ -1529,7 +1577,8 @@
                       "items": [
                         {
                           "text": "Overview",
-                          "path": "framework/ui/angular/extensions-overall.md"
+                          "path": "framework/ui/angular/extensions-overall.md",
+                          "isIndex": true
                         },
                         {
                           "text": "Entity Action Extensions",
@@ -1591,7 +1640,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/ui/react-native"
+                  "path": "framework/ui/react-native",
+                  "isIndex": true
                 }
               ]
             },
@@ -1600,7 +1650,8 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/ui/maui"
+                  "path": "framework/ui/maui",
+                  "isIndex": true
                 }
               ]
             },
@@ -1629,14 +1680,16 @@
           "items": [
             {
               "text": "Overview",
-              "path": "framework/data"
+              "path": "framework/data",
+              "isIndex": true
             },
             {
               "text": "Entity Framework Core",
               "items": [
                 {
                   "text": "Overview",
-                  "path": "framework/data/entity-framework-core"
+                  "path": "framework/data/entity-framework-core",
+                  "isIndex": true
                 },
                 {
                   "text": "Database Migrations",
@@ -1706,7 +1759,8 @@
       "items": [
         {
           "text": "Overview",
-          "path": "solution-templates"
+          "path": "solution-templates",
+          "isIndex": true
         },
         {
           "text": "Template Guide",
@@ -1780,7 +1834,8 @@
       "items": [
         {
           "text": "Overview",
-          "path": "modules"
+          "path": "modules",
+          "isIndex": true
         },
         {
           "text": "Account",
@@ -1791,7 +1846,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "modules/account-pro.md"
+              "path": "modules/account-pro.md",
+              "isIndex": true
             },
             {
               "text": "Tenant impersonation & User impersonation",
@@ -1856,7 +1912,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "modules/identity-server.md"
+              "path": "modules/identity-server.md",
+              "isIndex": true
             },
             {
               "text": "IdentityServer Migration Guide",
@@ -1877,7 +1934,8 @@
           "items": [
             {
               "text": "Overview",
-              "path": "modules/openiddict.md"
+              "path": "modules/openiddict.md",
+              "isIndex": true
             },
             {
               "text": "OpenIddict Migration Guide",
@@ -1937,7 +1995,8 @@
       "items": [
         {
           "text": "Overview",
-          "path": "ui-themes"
+          "path": "ui-themes",
+          "isIndex": true
         },
         {
           "text": "The Basic Theme",
@@ -1954,7 +2013,8 @@
       "items": [
         {
           "text": "Overview",
-          "path": "testing/overall.md"
+          "path": "testing/overall.md",
+          "isIndex": true
         },
         {
           "text": "Unit tests",
@@ -1975,7 +2035,8 @@
       "items": [
         {
           "text": "Overview",
-          "path": "deployment"
+          "path": "deployment",
+          "isIndex": true
         },
         {
           "text": "Configuring SSL certificate(HTTPS)",
@@ -2008,7 +2069,8 @@
       "items": [
         {
           "text": "Overview",
-          "path": "samples"
+          "path": "samples",
+          "isIndex": true
         },
         {
           "text": "EventHub",
@@ -2033,7 +2095,8 @@
       "items": [
         {
           "text": "Overview",
-          "path": "https://abp.io/books"
+          "path": "https://abp.io/books",
+          "isIndex": true
         },
         {
           "text": "Mastering ABP Framework",
@@ -2050,7 +2113,8 @@
       "items": [
         {
           "text": "Overview",
-          "path": "release-info"
+          "path": "release-info",
+          "isIndex": true
         },
         {
           "text": "Release Notes",
