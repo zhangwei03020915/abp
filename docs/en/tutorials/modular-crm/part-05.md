@@ -491,7 +491,7 @@ Now, we will run the application to see the result. Please stop the application 
 
 ![abp-studio-solution-runner-graph-build](images/abp-studio-solution-runner-graph-build.png)
 
-We've performed a graph build since we've made a change on a module, and more than building the main application is needed. *Graph Build* command also builds the depended modules if necessary. Alternatively, you could build the Ordering module first (on ABP Studio or your IDE), then right-click the `ModularCrm.Web` application and select the *Run* -> *Build & Start*. This approach can be faster if you have too many modules and you make a change in one of the modules. Now you can run the application by right-clicking the `ModularCrm.Web` application and selecting the *Run* -> *Start* command.
+We've performed a graph build since we've made a change on a module, and more than building the main application is needed. *Graph Build* command also builds the depended modules if necessary. Alternatively, you could build the Ordering module first (on ABP Studio or your IDE). This approach can be faster if you have too many modules and you make a change in one of the modules. Now you can run the application by right-clicking the `ModularCrm.Web` application and selecting the *Start* command.
 
 ![abp-studio-browser-orders-menu-item](images/abp-studio-browser-orders-menu-item.png)
 

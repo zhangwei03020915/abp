@@ -55,9 +55,9 @@ After, specifying the metadata, you can click the *Ok* button to close the modal
 
 ![](./images/suite-end-of-generation-modal.png)
 
-It will take some time to complete the process. After the process is completed, you will see a success message, you can click the *Ok* button, and build & start the application by clicking the *Run -> Build & Start* button in the *Solution Runner* panel:
+It will take some time to complete the process. After the process is completed, you will see a success message, you can click the *Ok* button, and then run the application by clicking the *Start* button (or alternatively, directly clicking the *run* icon) in the *Solution Runner* panel:
 
-![](./images/suite-book-entity-6.png)
+![](./images/book-store-studio-run-app.png)
 
 After the application is started, you can right-click and *Browse* on the application to open it in the ABP Studio's pre-integrated browser. You can first create an author and then create a book with the author for testing:
 
