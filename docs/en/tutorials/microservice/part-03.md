@@ -71,9 +71,9 @@ That's all. You can click the *Save and generate* button to start the code gener
 
 ABP Suite will generate the necessary code for you. It will take some time to complete the process. After the process is completed, you will see a success message, click the *OK* button.
 
-![abp-studio-catalog-service-build-and-start](images/abp-studio-catalog-service-build-and-start.png)
+![abp-studio-catalog-service-build-and-start](images/abp-studio-catalog-service-start.png)
 
-We can now build and start the `CloudCrm.CatalogService` application by clicking the *Run* -> *Build & Start* button in the *Solution Runner* panel.
+We can now start the `CloudCrm.CatalogService` application by clicking the *Start* button (or alternatively, directly clicking the *run* icon) in the *Solution Runner* panel.
 
 ![abp-studio-browse-catalog-service-2](images/abp-studio-browse-catalog-service-2.png)
 
@@ -89,7 +89,7 @@ It will open the *Generate C# Proxies* window. Select the `CloudCrm.CatalogServi
 
 ![abp-studio-generate-proxy-window](images/abp-studio-generate-proxy-window.png)
 
-> To be able to select the *Application*, you must *Build & Start* the related application beforehand. You can start the application using [Solution Runner](../../studio/running-applications.md) as explained in the previous parts.
+> To be able to select the *Application*, you must *Start* the related application beforehand. You can start the application using [Solution Runner](../../studio/running-applications.md) as explained in the previous parts.
 
 Lastly, we need to configure the use of a static HTTP client for the `CatalogService` in the `CloudCrm.Web` project. Open the `CloudCrmWebModule.cs` file in the `Web` project and add the following line to the `ConfigureServices` method:
 
@@ -107,9 +107,9 @@ public override void ConfigureServices(ServiceConfigurationContext context)
 
 ### Running the Application
 
-Now, stop any application running in the *Solution Runner* panel, and then run the applications by clicking the *Run* -> *Build & Start All* button on the root item in the *Solution Runner* panel:
+Now, stop any application running in the *Solution Runner* panel, and then run the applications by clicking the *Start All* button on the root item in the *Solution Runner* panel:
 
-![abp-studio-run-build-and-start-all](images/abp-studio-run-build-and-start-all.png)
+![abp-studio-run-build-and-start-all](images/abp-studio-run-start-all.png)
 
 After the application is started, you can right-click and [Browse](../../studio/running-applications.md#monitoring) on the `CloudCrm.Web` application to open it in the ABP Studio's pre-integrated browser:
 

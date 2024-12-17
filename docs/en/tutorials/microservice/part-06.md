@@ -234,7 +234,7 @@ Let's explain the changes we made:
 
 ### Generating Proxy Classes for the Integration Service
 
-We have created the `IProductIntegrationService` interface and the `ProductIntegrationService` class in the `CloudCrm.CatalogService` solution. Now, we need to generate the proxy classes for the integration service in the `CloudCrm.OrderingService` package. First, *Build & Start* the `CloudCrm.CatalogService` application in ABP Studio *Solution Runner*. Then, open the *Solution Explorer* and right-click on the `CloudCrm.OrderingService` package. Select the *ABP CLI* -> *Generate Proxy* -> *C#* command:
+We have created the `IProductIntegrationService` interface and the `ProductIntegrationService` class in the `CloudCrm.CatalogService` solution. Now, we need to generate the proxy classes for the integration service in the `CloudCrm.OrderingService` package. First, *Start* the `CloudCrm.CatalogService` application in ABP Studio *Solution Runner*. Then, open the *Solution Explorer* and right-click on the `CloudCrm.OrderingService` package. Select the *ABP CLI* -> *Generate Proxy* -> *C#* command:
 
 ![generate-proxy-catalog-service](images/generate-proxy-catalog-service.png)
 
@@ -295,7 +295,7 @@ Open the `Index.cshtml` file (the `Index.cshtml` file under the `Pages/Orders` f
 </abp-card>
 ```
 
-That's it! Now, you can *Build & Start* the all applications and run it in ABP Studio to see the result:
+That's it! Now, you can *Start* the all applications and browse it in ABP Studio to see the result:
 
 ![web-orders-page-with-product-name](images/web-orders-page-with-product-name.png)
 
