@@ -6,19 +6,18 @@ import { eSettingManagementRouteNames } from '../enums/route-names';
 import { SettingTabsService } from '../services/settings-tabs.service';
 import { Observable } from 'rxjs';
 
-export function configureRoutes(routesService: RoutesService) {
-  return () => {
-    routesService.add([
-      {
-        name: eSettingManagementRouteNames.Settings,
-        path: '/setting-management',
-        parentName: eThemeSharedRouteNames.Administration,
-        layout: eLayoutType.application,
-        order: 100,
-        iconClass: 'fa fa-cog',
-      },
-    ]);
-  };
+export function configureRoutes() {
+  const routesService = inject(RoutesService);
+  routesService.add([
+    {
+      name: eSettingManagementRouteNames.Settings,
+      path: '/setting-management',
+      parentName: eThemeSharedRouteNames.Administration,
+      layout: eLayoutType.application,
+      order: 100,
+      iconClass: 'fa fa-cog',
+    },
+  ]);
 }
 
 export const SETTING_MANAGEMENT_HAS_SETTING = new InjectionToken<Observable<boolean>>(
@@ -36,7 +35,7 @@ export const SETTING_MANAGEMENT_HAS_SETTING = new InjectionToken<Observable<bool
 
 export const SETTING_MANAGEMENT_ROUTE_PROVIDERS = [
   provideAppInitializer(() => {
-    configureRoutes(inject(RoutesService));
+    configureRoutes();
     inject(SETTING_MANAGEMENT_HAS_SETTING);
   }),
 ];

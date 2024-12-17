@@ -1,5 +1,5 @@
 import { registerLocaleData } from '@angular/common';
-import { InjectFlags, Injector } from '@angular/core';
+import { inject, Injector } from '@angular/core';
 import { tap, catchError } from 'rxjs/operators';
 import { lastValueFrom, throwError } from 'rxjs';
 import { ABP } from '../models/common';
@@ -16,7 +16,8 @@ import { AuthService } from '../abstracts';
 import { CHECK_AUTHENTICATION_STATE_FN_KEY } from '../tokens/check-authentication-state';
 import { noop } from './common-utils';
 
-export async function getInitialData(injector: Injector) {
+export async function getInitialData() {
+  const injector = inject(Injector);
   const environmentService = injector.get(EnvironmentService);
   const configState = injector.get(ConfigStateService);
   const options = injector.get(CORE_OPTIONS) as ABP.Root;
@@ -51,7 +52,8 @@ export async function getInitialData(injector: Injector) {
   await lastValueFrom(result$);
 }
 
-export function localeInitializer(injector: Injector) {
+export function localeInitializer() {
+  const injector = inject(Injector);
   const sessionState = injector.get(SessionStateService);
   const { registerLocaleFn }: ABP.Root = injector.get(CORE_OPTIONS);
 

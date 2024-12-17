@@ -1,4 +1,4 @@
-import { ConfigStateService, featuresFactory, noop } from '@abp/ng.core';
+import { ConfigStateService, featuresFactory } from '@abp/ng.core';
 import { inject, InjectionToken, provideAppInitializer } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';

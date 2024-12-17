@@ -3,20 +3,13 @@ import { NgbInputDatepickerConfig, NgbTypeaheadConfig } from '@ng-bootstrap/ng-b
 
 export const NG_BOOTSTRAP_CONFIG_PROVIDERS = [
   provideAppInitializer(() => {
-    const initializerFn = configureNgBootstrap(
-      inject(NgbInputDatepickerConfig),
-      inject(NgbTypeaheadConfig),
-    );
-    return initializerFn();
+    configureNgBootstrap();
   }),
 ];
 
-export function configureNgBootstrap(
-  datepicker: NgbInputDatepickerConfig,
-  typeahead: NgbTypeaheadConfig,
-) {
-  return () => {
-    datepicker.container = 'body';
-    typeahead.container = 'body';
-  };
+export function configureNgBootstrap() {
+  const datepicker: NgbInputDatepickerConfig = inject(NgbInputDatepickerConfig);
+  const typeahead: NgbTypeaheadConfig = inject(NgbTypeaheadConfig);
+  datepicker.container = 'body';
+  typeahead.container = 'body';
 }

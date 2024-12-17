@@ -7,11 +7,12 @@ import { eSettingManagementRouteNames } from '../enums';
 
 export const SETTING_MANAGEMENT_VISIBLE_PROVIDERS = [
   provideAppInitializer(() => {
-    setSettingManagementVisibility(inject(Injector));
+    setSettingManagementVisibility();
   }),
 ];
 
-export function setSettingManagementVisibility(injector: Injector) {
+export function setSettingManagementVisibility() {
+  const injector = inject(Injector);
   const settingManagementHasSetting$ = injector.get(SETTING_MANAGEMENT_HAS_SETTING);
   const isSettingManagementFeatureEnable$ = injector.get(SETTING_MANAGEMENT_ROUTE_VISIBILITY);
   const routes = injector.get(RoutesService);

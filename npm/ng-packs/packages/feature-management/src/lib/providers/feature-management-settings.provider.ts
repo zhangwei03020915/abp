@@ -5,20 +5,18 @@ import { FeatureManagementTabComponent } from '../components';
 
 export const FEATURE_MANAGEMENT_SETTINGS_PROVIDERS = [
   provideAppInitializer(() => {
-    const initializerFn = configureSettingTabs(inject(SettingTabsService));
-    return initializerFn();
+    configureSettingTabs();
   }),
 ];
 
-export function configureSettingTabs(settingtabs: SettingTabsService) {
-  return () => {
-    settingtabs.add([
-      {
-        name: eFeatureManagementTabNames.FeatureManagement,
-        order: 100,
-        requiredPolicy: 'FeatureManagement.ManageHostFeatures',
-        component: FeatureManagementTabComponent,
-      },
-    ]);
-  };
+export function configureSettingTabs() {
+  const settingtabs = inject(SettingTabsService);
+  settingtabs.add([
+    {
+      name: eFeatureManagementTabNames.FeatureManagement,
+      order: 100,
+      requiredPolicy: 'FeatureManagement.ManageHostFeatures',
+      component: FeatureManagementTabComponent,
+    },
+  ]);
 }

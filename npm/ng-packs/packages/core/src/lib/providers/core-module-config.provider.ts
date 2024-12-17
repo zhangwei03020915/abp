@@ -1,10 +1,4 @@
-import {
-  makeEnvironmentProviders,
-  Injector,
-  Provider,
-  inject,
-  provideAppInitializer,
-} from '@angular/core';
+import { makeEnvironmentProviders, Provider, inject, provideAppInitializer } from '@angular/core';
 import { TitleStrategy } from '@angular/router';
 import {
   provideHttpClient,
@@ -111,9 +105,8 @@ export function provideAbpCore(...features: CoreFeature<CoreFeatureKind>[]) {
       }),
     ),
     provideAppInitializer(() => {
-      getInitialData(inject(Injector));
-      localeInitializer(inject(Injector));
-
+      getInitialData();
+      localeInitializer();
       inject(LocalizationService);
       inject(LocalStorageListenerService);
       inject(RoutesHandler);

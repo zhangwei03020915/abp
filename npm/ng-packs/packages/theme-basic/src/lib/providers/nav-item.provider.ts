@@ -6,24 +6,22 @@ import { eThemeBasicComponents } from '../enums/components';
 
 export const BASIC_THEME_NAV_ITEM_PROVIDERS = [
   provideAppInitializer(() => {
-    const initializerFn = configureNavItems(inject(NavItemsService));
-    return initializerFn();
+    configureNavItems();
   }),
 ];
 
-export function configureNavItems(navItems: NavItemsService) {
-  return () => {
-    navItems.addItems([
-      {
-        id: eThemeBasicComponents.Languages,
-        order: 100,
-        component: LanguagesComponent,
-      },
-      {
-        id: eThemeBasicComponents.CurrentUser,
-        order: 100,
-        component: CurrentUserComponent,
-      },
-    ]);
-  };
+export function configureNavItems() {
+  const navItems = inject(NavItemsService);
+  navItems.addItems([
+    {
+      id: eThemeBasicComponents.Languages,
+      order: 100,
+      component: LanguagesComponent,
+    },
+    {
+      id: eThemeBasicComponents.CurrentUser,
+      order: 100,
+      component: CurrentUserComponent,
+    },
+  ]);
 }

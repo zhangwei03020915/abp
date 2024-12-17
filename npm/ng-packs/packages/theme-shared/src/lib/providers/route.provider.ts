@@ -4,20 +4,18 @@ import { eThemeSharedRouteNames } from '../enums/route-names';
 
 export const THEME_SHARED_ROUTE_PROVIDERS = [
   provideAppInitializer(() => {
-    const initializerFn = configureRoutes(inject(RoutesService));
-    return initializerFn();
+    configureRoutes();
   }),
 ];
 
-export function configureRoutes(routesService: RoutesService) {
-  return () => {
-    routesService.add([
-      {
-        path: undefined,
-        name: eThemeSharedRouteNames.Administration,
-        iconClass: 'fa fa-wrench',
-        order: 100,
-      },
-    ]);
-  };
+export function configureRoutes() {
+  const routesService = inject(RoutesService);
+  routesService.add([
+    {
+      path: undefined,
+      name: eThemeSharedRouteNames.Administration,
+      iconClass: 'fa fa-wrench',
+      order: 100,
+    },
+  ]);
 }

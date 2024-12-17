@@ -7,7 +7,6 @@ import {
   CHECK_AUTHENTICATION_STATE_FN_KEY,
   AbpLocalStorageService,
   AuthErrorFilterService,
-  noop,
 } from '@abp/ng.core';
 import { Provider, makeEnvironmentProviders, inject, provideAppInitializer } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -52,9 +51,7 @@ export function provideAbpOAuth() {
     },
     NavigateToManageProfileProvider,
     provideAppInitializer(() => {
-      const initializerFn = noop();
       inject(OAuthConfigurationHandler);
-      return initializerFn();
     }),
     OAuthModule.forRoot().providers as Provider[],
     { provide: OAuthStorage, useClass: AbpLocalStorageService },
