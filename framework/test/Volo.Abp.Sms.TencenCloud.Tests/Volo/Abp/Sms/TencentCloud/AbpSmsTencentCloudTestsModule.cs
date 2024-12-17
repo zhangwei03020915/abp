@@ -10,8 +10,6 @@ public class AbpSmsTencentCloudTestsModule : AbpModule
     {
         var configuration = context.Services.GetConfiguration();
 
-        Configure<AbpTencentCloudSmsOptions>(
-            configuration.GetSection("AbpTencentCloudSms")
-        );
+        Configure<AbpTencentCloudSmsOptions>(configuration.GetSection("AbpTencentCloudSms"));
     }
 }

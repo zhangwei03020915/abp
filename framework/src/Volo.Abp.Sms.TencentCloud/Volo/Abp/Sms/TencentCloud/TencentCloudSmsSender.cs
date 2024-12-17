@@ -18,11 +18,11 @@ public class TencentCloudSmsSender : ISmsSender, ITransientDependency
         Options = options.CurrentValue;
     }
 
-    public async Task SendAsync(SmsMessage smsMessage)
+    public virtual async Task SendAsync(SmsMessage smsMessage)
     {
         var client = CreateClient();
 
-        var result = await client.SendSms(new SendSmsRequest()
+        await client.SendSms(new SendSmsRequest()
         {
             SmsSdkAppId = Options.SmsSdkAppId,
             SignName = smsMessage.Properties.GetOrDefault(TencentCloudSmsProperties.SignName) as string,
@@ -30,20 +30,22 @@ public class TencentCloudSmsSender : ISmsSender, ITransientDependency
             TemplateParamSet = smsMessage.Text.Split(','),
             PhoneNumberSet = [smsMessage.PhoneNumber]
         });
-
     }
 
     protected virtual SmsClient CreateClient()
     {
-        var cred = new Credential {
+        var credential = new Credential
+        {
             SecretId = Options.SecretId,
             SecretKey = Options.SecretKey
         };
-        var clientProfile = new ClientProfile();
-        clientProfile.HttpProfile = new HttpProfile()
+        var clientProfile = new ClientProfile
         {
-            Endpoint = Options.Endpoint
+            HttpProfile = new HttpProfile
+            {
+                Endpoint = Options.Endpoint
+            }
         };
-        return new SmsClient(cred,Options.Region,clientProfile);
+        return new SmsClient(credential, Options.Region, clientProfile);
     }
 }
