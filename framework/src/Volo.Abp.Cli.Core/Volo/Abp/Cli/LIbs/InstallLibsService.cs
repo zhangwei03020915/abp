@@ -72,7 +72,7 @@ public class InstallLibsService : IInstallLibsService, ITransientDependency
                 }
                 else
                 {
-                    NpmHelper.RunNpmInstall(projectDirectory, "--no-audit");
+                    NpmHelper.RunNpmInstall(projectDirectory, "--legacy-peer-deps");
                 }
             }
 
