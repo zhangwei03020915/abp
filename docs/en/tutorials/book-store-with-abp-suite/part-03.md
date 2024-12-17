@@ -50,9 +50,9 @@ After, specifying the entity metadata, open the *Properties* tab and create the 
 
 Here the details:
 
-* `Name` is **required**, it's a **string** property, and it's a **textarea**. Minimum length is **2** and maximum length is **128**.
+* `Name` is **required**, it's a **string** property. Minimum length is **2** and maximum length is **128**.
 * `BirthDate` is a **DateTime** property and **not nullable**.
-* `ShortBio` is a **string** property, it's **required**, maximum length is **256**. 
+* `ShortBio` is **required**, it's a **string** property, it's a **textarea**, maximum length is **256**. 
 
 You can leave the other configurations as default.
 
