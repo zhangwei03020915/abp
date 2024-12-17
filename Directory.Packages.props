@@ -168,6 +168,7 @@
     <PackageVersion Include="System.Text.Json" Version="9.0.0.0" />
     <PackageVersion Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
     <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.1.0" />
+    <PackageVersion Include="TencentCloudSDK.Sms" Version="3.0.1142" />
     <PackageVersion Include="TimeZoneConverter" Version="6.1.0" />
     <PackageVersion Include="Unidecode.NET" Version="2.1.0" />
     <PackageVersion Include="xunit" Version="2.9.2" />
