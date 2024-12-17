@@ -55,10 +55,13 @@ public class DefaultObjectMapper : IObjectMapper, ITransientDependency
                 return specificMapper.Map(source);
             }
 
-            var result = TryToMapCollection<TSource, TDestination>(scope, source, default);
-            if (result != null)
+            if (!(typeof(TSource).IsEnum || typeof(TSource).IsPrimitive))
             {
-                return result;
+                var result = TryToMapCollection<TSource, TDestination>(scope, source, default);
+                if (result != null)
+                {
+                    return result;
+                }
             }
         }
 
