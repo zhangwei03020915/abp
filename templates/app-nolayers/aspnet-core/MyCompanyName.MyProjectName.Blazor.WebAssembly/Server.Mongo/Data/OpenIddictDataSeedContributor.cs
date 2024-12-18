@@ -235,7 +235,7 @@ public class OpenIddictDataSeedContributor : IDataSeedContributor, ITransientDep
               if (grantType == OpenIddictConstants.GrantTypes.DeviceCode)
               {
                   application.Permissions.Add(OpenIddictConstants.Permissions.GrantTypes.DeviceCode);
-                  application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints. DeviceAuthorization);
+                  application.Permissions.Add(OpenIddictConstants.Permissions.Endpoints.DeviceAuthorization);
               }
 
               if (grantType == OpenIddictConstants.GrantTypes.Implicit)
