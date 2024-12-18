@@ -2,7 +2,7 @@
 
 The 6.0 release of OpenIddict is a major release that introduces breaking changes.
 
-Check this blog [OpenIddict 6.0 general availability](https://kevinchalet.com/2023/12/18/openiddict-5-0-general-availability/) for the new features introduced in OpenIddict 6.0. and the [Migrate to OpenIddict 6.0](https://documentation.openiddict.com/guides/migration/50-to-60) for more information about the changes.
+Check this blog [OpenIddict 6.0 general availability](https://kevinchalet.com/2024/12/17/openiddict-6-0-general-availability/) for the new features introduced in OpenIddict 6.0. and the [Migrate to OpenIddict 6.0](https://documentation.openiddict.com/guides/migration/50-to-60) for more information about the changes.
 
 In this guide, we will explain the changes you need to make to your ABP application.
 
