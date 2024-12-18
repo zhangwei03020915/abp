@@ -12,7 +12,7 @@ The following constants have been renamed:
 
 | Old Constant Name                                             | New Constant Name                                               |
 |---------------------------------------------------------------|-----------------------------------------------------------------|
-| `OpenIddictConstants.Permissions.Endpoints.LogoutPmar`        | `OpenIddictConstants.Permissions.Endpoints.EndSession`          |
+| `OpenIddictConstants.Permissions.Endpoints.Logout`            | `OpenIddictConstants.Permissions.Endpoints.EndSession`          |
 | `OpenIddictConstants.Permissions.Endpoints.Device`            | `OpenIddictConstants.Permissions.Endpoints.DeviceAuthorization` |
 
 That's all, It's a simple migration. If you have advanced usage of OpenIddict, Please check the [official migration guide](https://documentation.openiddict.com/guides/migration/50-to-60) for more information.
