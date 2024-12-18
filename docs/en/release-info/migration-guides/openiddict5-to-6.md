@@ -15,4 +15,14 @@ The following constants have been renamed:
 | `OpenIddictConstants.Permissions.Endpoints.Logout`            | `OpenIddictConstants.Permissions.Endpoints.EndSession`          |
 | `OpenIddictConstants.Permissions.Endpoints.Device`            | `OpenIddictConstants.Permissions.Endpoints.DeviceAuthorization` |
 
+
+## IdentityModel packages
+
+If you have reference `IdentityModel` directly, Please upgrade them to the latest(8.3.0)
+
+* [System.IdentityModel.Tokens.Jwt](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/)
+* [Microsoft.IdentityModel.Protocols.OpenIdConnect](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocols.OpenIdConnect/)
+* [Microsoft.IdentityModel.Tokens](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/)
+* [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/)
+
 That's all, It's a simple migration. If you have advanced usage of OpenIddict, Please check the [official migration guide](https://documentation.openiddict.com/guides/migration/50-to-60) for more information.
