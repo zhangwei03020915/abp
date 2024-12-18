@@ -116,8 +116,6 @@ In the Solution Runner section (on the left side) you can see all the runnable a
 
 To start an application, either click the *Play* icon near to the application or right-click and select the *Run* -> *Start* context menu item.
 
-> For the first run, you'll need to build the application. You can achieve this by selecting *Run* -> *Build & Start* from the context menu.
-
 You can start the `Acme.BookStore`{{ if UI == "NG" }} and `Acme.BookStore.Angular`{{ end }}. 
 
 Once the `Acme.BookStore{{ if UI == "NG" }}.Angular{{ end }}` application started, you can right-click it and select the *Browse* command:

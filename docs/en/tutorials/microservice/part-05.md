@@ -267,7 +267,7 @@ public class OrderingServiceApplicationAutoMapperProfile : Profile
 
 ## Testing the Application Service
 
-Now, we can test the `OrderAppService` class using the Swagger UI. Open the Solution Runner and right-click to `CloudCrm.OrderingService` project and select the *Run* -> *Build & Start* command. After the application starts, you can open the Swagger UI by clicking to the [Browse](../../studio/running-applications.md#monitoring) command:
+Now, we can test the `OrderAppService` class using the Swagger UI. Open the Solution Runner and right-click to `CloudCrm.OrderingService` project and select the *Start* command. After the application starts, you can open the Swagger UI by clicking to the [Browse](../../studio/running-applications.md#monitoring) command:
 
 ![ordering-service-swagger-ui](images/ordering-service-swagger-ui.png)
 
@@ -411,9 +411,9 @@ private static async Task ConfigureMainMenuAsync(MenuConfigurationContext contex
 
 ## Building and Running the Application
 
-Now, we can build and run the application to see the changes. Please stop the applications if they are running. Then open the *Solution Runner* panel, right-click the `CloudCrm` root item, and select the *Run* -> *Build & Start* command:
+Now, we can run the application to see the changes. Please stop the applications if they are running. Then open the *Solution Runner* panel, right-click the `CloudCrm` root item, and select the *Start* command:
 
-![abp-studio-run-build-start](images/abp-studio-run-build-start.png)
+![abp-studio-run-build-start](images/abp-studio-run-start-all.png)
 
 After the applications are started, you can *Browse* and navigate to the `Orders` page to see the list of orders:
 

@@ -15,6 +15,9 @@ namespace Volo.Docs.Documents
 
         [JsonPropertyName("items")]
         public List<NavigationNode> Items { get; set; }
+        
+        [JsonPropertyName("isIndex")]
+        public bool IsIndex { get; set; }
 
         public bool IsLeaf => !HasChildItems;
 
