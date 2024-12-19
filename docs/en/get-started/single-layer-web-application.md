@@ -24,11 +24,6 @@ The following tools should be installed on your development machine:
 * [Node v20.11+](https://nodejs.org/)
 * [Yarn v1.22+ (not v2)](https://classic.yarnpkg.com/en/docs/install) <sup id="a-yarn">[2](#f-yarn)</sup> or npm v10+ (already installed with Node)
 {{ end }}
-{{ if Tiered == "Yes" }}
-* [Redis](https://redis.io/) (as the [distributed cache](../framework/fundamentals/caching.md)).
-{{ else }}
-* [Redis](https://redis.io/) (as the [distributed cache](../framework/fundamentals/caching.md)) is required if you select the Public website option.
-{{ end }}
 
 <sup id="f-editor"><b>1</b></sup> _You can use another editor instead of Visual Studio as long as it supports .NET Core and ASP.NET Core._ <sup>[↩](#a-editor)</sup>
 
