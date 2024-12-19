@@ -50,68 +50,23 @@ To install Yarn using npm, run the following command:
 npm install --global yarn
 ```
 
-## Redis
+## Docker Engine or Docker Desktop
 
-### Why Redis is Needed
+ABP's [startup solution templates](../solution-templates/index.md) use Docker to run infrastructure services (e.g. Redis, RabbitMQ) required by your application. You can install Docker Engine or Docker Desktop (recommended) on Windows, macOS and Linux.
 
-For any application, if there are multiple instances, they should use `Redis(Distributed Cache)`. Otherwise, each instance will have its own internal memory cache for the same data, and there will be no way to invalidate that data.
-
-> [Why do we need to install `Redis`? When is it used?](https://abp.io/support/questions/6344/Why-do-we-need-to-install-Redis-When-is-it-used-Why-Redis-is-needed#answer-3a0f798f-8034-8ac8-c819-2103080bec13)
-
-### Installing Redis
-
-#### Windows
-
-`Redis` is not officially supported on `Windows`. However, you can refer to the [Redis documentation](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-windows/) to install `Redis` on Windows for development purposes.
-
-> We recommend using Docker to install `Redis` on `Windows`. You can refer to the `Redis in Docker` section below.
-
-#### macOS and Linux
-
-Installing `Redis` on `macOS` and `Linux` is relatively simple. Please refer to:
-
-* Install `Redis` on `macOS`: [https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-mac-os/](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-mac-os/)
-* Install `Redis` on `Linux`: [https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-linux](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/install-redis-on-linux)
-
-#### Redis in Docker
-
-We recommend using Docker to install and run your `Redis` server container, as it is the simplest way. You can run the following command to start the `Redis` container:
-
-```bash
-docker run -p 6379:6379 --name RedisServer -d redis
-```
-
-With this single command, you can start a `Redis` server locally. After that, you can access `Redis` via `localhost:6379` or `127.0.0.1:6379`.
-
-In the following sections, we will discuss how to install `Docker Engine` or `Docker Desktop`.
-
-#### Is Redis Free?
-
-The way we install and use `Redis` through the above method is free. It is the `Redis Community Edition`. The `Redis Community Edition` is freely available to the `Redis` community and our customers, and developers will continue to enjoy the freedom to use `Redis` under [dual licensing](https://redis.io/blog/announcing-redis-community-edition-and-redis-stack-74/).
-
-## Docker Engine & Docker Desktop
-
-The `ABP` microservices project uses `Docker` to manage the infrastructure services required for various microservices. You can install `Docker Engine` or `Docker Desktop` on `Windows`, `macOS`, and `Linux`.
-
-* Install `Docker Engine`: [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
-* Install `Docker Desktop` on `macOS`: [https://docs.docker.com/desktop/setup/install/mac-install/](https://docs.docker.com/desktop/setup/install/mac-install/)
-* Install `Docker Desktop` on `Windows`: [https://docs.docker.com/desktop/setup/install/windows-install/](https://docs.docker.com/desktop/setup/install/windows-install/)
-* Install `Docker Desktop` on `Linux`: [https://docs.docker.com/desktop/setup/install/linux/](https://docs.docker.com/desktop/setup/install/linux/)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/) (recommended)
+* [Docker Engine](https://docs.docker.com/engine/install/)
 
 ### Is Docker Engine or Docker Desktop Free?
 
-`Docker Engine` is an open-source containerization technology for building and containerizing your applications. [`Docker Engine` follows the Apache License 2.0](https://docs.docker.com/engine/#licensing).
+Docker Engine is an open-source and free containerization technology for building and containerizing your applications. [`Docker Engine` follows the Apache License 2.0](https://docs.docker.com/engine/#licensing).
 
-`Docker Desktop` is free [for small businesses (fewer than 250 employees and less than $10 million in annual revenue), personal use, education, and non-commercial open-source projects](https://docs.docker.com/subscription/desktop-license/).
+Docker Desktop is free [for small businesses (fewer than 250 employees and less than $10 million in annual revenue), personal use, education, and non-commercial open-source projects](https://docs.docker.com/subscription/desktop-license/).
 
 ## PowerShell
 
-ABP projects may use some PowerShell scripts (`*.ps1`) to perform certain tasks. You can refer to the [PowerShell documentation](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell) for guidance on how to install `PowerShell` on Windows, macOS, and Linux.
+ABP startup solution templates and tools use some PowerShell scripts (`*.ps1`) to perform certain tasks. You can refer to the [PowerShell documentation](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell) for guidance on how to install PowerShell on Windows, macOS, and Linux.
 
-* Install `PowerShell` on `Windows`: [https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)
-* Install `PowerShell` on `macOS`: [https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos)
-* Install `PowerShell` on `Linux`: [https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux)
-
-## Summary
-
-These are the tools and environments needed to develop `ABP` projects. You can install these tools and environments based on your needs. If you have any questions, you can seek help in the [ABP GitHub repository](https://github.com/abpframework/abp).
+* [Install PowerShell on Windows](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)
+* [Install PowerShell on macOS](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos)
+* [Install PowerShell on Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux)
