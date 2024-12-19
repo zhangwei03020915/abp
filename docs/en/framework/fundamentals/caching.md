@@ -1,12 +1,12 @@
 # Distributed Caching
 
-ABP extends the [ASP.NET Core distributed cache](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed).
+ABP extends the [ASP.NET Core distributed cache](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed) to provide a more comfortable and easy-to-use cache service.
 
-> **Default implementation of the `IDistributedCache` interface is` MemoryDistributedCache` which works in-memory.** See [ASP.NET Core's documentation](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed) to see how to switch to Redis or another cache provider. Also, see the [Redis Cache](./redis-cache.md) document if you want to use Redis as the distributed cache server.
+> **Default implementation of the `IDistributedCache` interface is` MemoryDistributedCache` which works in-memory.** Memory cache is only useful if you are building a monolith application and you run a single instance of your application. For other cases, consider to use a distributed cache server. See the ***[Why to Use a Distributed Cache Server](../../kb/when-to-use-a-distributed-cache-server.md)*** document for more details.
 
 ## Installation
 
-> This package is already installed by default with the [application startup template](../../solution-templates/layered-web-application). So, most of the time, you don't need to install it manually.
+> This package is already installed by default in [startup templates](../../solution-templates/index.md). So, most of the time, you don't need to install it manually.
 
 [Volo.Abp.Caching](https://www.nuget.org/packages/Volo.Abp.Caching) is the main package of the caching system. You can install it a project using the add-package command of the [ABP CLI](../../cli):
 
