@@ -1,6 +1,6 @@
-# Prerequisites for Developing ABP Projects
+# Prerequisites for Developing ABP Applications
 
-This document will guide you through preparing your development environment for ABP based project development.
+This document will guide you through preparing your development environment for ABP based application development.
 
 ## IDE
 
