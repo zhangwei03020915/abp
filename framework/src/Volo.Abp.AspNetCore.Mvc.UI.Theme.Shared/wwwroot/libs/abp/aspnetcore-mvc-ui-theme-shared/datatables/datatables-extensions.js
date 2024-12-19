@@ -87,7 +87,7 @@ var abp = abp || {};
             if (field.items.length === 1) {
                 var firstItem = field.items[0];
                 if (!getVisibilityValue(firstItem.visible, record, tableInstance)) {
-                    return $('');;
+                    return $('');
                 }
 
                 var $button = $('<button type="button" class="btn btn-primary btn-sm abp-action-button"></button>');
