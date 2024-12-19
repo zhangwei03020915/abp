@@ -242,7 +242,7 @@ public class CachedObjectExtensionsDtoService : ICachedObjectExtensionsDtoServic
                     e => e.GetProperties()
                 )
             )
-            .Where(p => p.Type.IsEnum)
+            .Where(p => p.Type.IsEnum || TypeHelper.IsNullableEnum(p.Type))
             .ToList();
 
         foreach (var enumProperty in enumProperties)
@@ -260,12 +260,23 @@ public class CachedObjectExtensionsDtoService : ICachedObjectExtensionsDtoServic
             LocalizationResource = enumProperty.GetLocalizationResourceNameOrNull()
         };
 
-        foreach (var enumValue in enumProperty.Type.GetEnumValues())
+        var enumType = enumProperty.Type.IsEnum
+            ? enumProperty.Type
+            : TypeHelper.IsNullableEnum(enumProperty.Type)
+                ? Nullable.GetUnderlyingType(enumProperty.Type)
+                : null;
+
+        if (enumType == null)
+        {
+            return extensionEnumDto;
+        }
+
+        foreach (var enumValue in enumType.GetEnumValues())
         {
             extensionEnumDto.Fields.Add(
                 new ExtensionEnumFieldDto
                 {
-                    Name = enumProperty.Type.GetEnumName(enumValue)!,
+                    Name = enumType.GetEnumName(enumValue)!,
                     Value = enumValue
                 }
             );
