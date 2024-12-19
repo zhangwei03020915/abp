@@ -30,9 +30,7 @@ export function provideThemeBasicConfig() {
     },
     LazyStyleHandler,
     provideAppInitializer(() => {
-      const initializerFn = noop();
       inject(LazyStyleHandler);
-      return initializerFn();
     }),
   ]);
 }
