@@ -1,6 +1,6 @@
 # Prerequisites for Developing ABP Projects
 
-This document will guide you through preparing your development environment for ABP based project development.
+This document will guide you through preparing your development environment for ABP-based project development.
 
 ## IDE
 
@@ -8,7 +8,7 @@ You need to use an IDE that supports .NET development. The following IDEs are th
 
 ### Visual Studio
 
-Visual Studio is Microsoft's IDE and is the de facto tool for developing .NET projects. You can download Visual Studio from the [Visual Studio official website](https://visualstudio.microsoft.com/). It also has a **free Community edition** which is more than enough for ABP projects.
+Visual Studio is Microsoft's IDE and is the de facto tool for developing .NET projects. You can download Visual Studio from the [Visual Studio official website](https://visualstudio.microsoft.com/). It also has a **free Community edition**, which is more than enough for ABP projects.
 
 ### Visual Studio Code
 
@@ -20,7 +20,7 @@ Visual Studio Code is a **free and cross-platform** lightweight code editor that
 
 ## .NET SDK
 
-ABP is based on NET, so you need to install the .NET SDK. You can download the .NET SDK from the [.NET official website](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
+ABP is based on NET, so you need to install the .NET SDK. You can download the .NET SDK from the [.NET official website](https://dotnet.microsoft.com/en-us/download/dotnet/).
 
 > Installing Visual Studio or JetBrains Rider may automatically install the .NET SDK.
 
@@ -42,9 +42,9 @@ dotnet tool update --global dotnet-ef
 
 ABP projects include some frontend resource packages, so you need to install Node.js and Yarn to manage these resource packages. You can download Node.js from the [official Node.js website](https://nodejs.org/). We recommend installing version v20.11+.
 
-Using Yarn (classic) to manage frontend resource packages is faster and more stable than using npm. You can download `Yarn` from the [Yarn official website](https://classic.yarnpkg.com/en/docs/install). We recommend installing Yarn v1.22+ (make sure to install the Classic version, not v2+).
+Using Yarn (classic) to manage frontend resource packages is faster and more stable than using NPM. You can download `Yarn` from the [Yarn official website](https://classic.yarnpkg.com/en/docs/install). We recommend installing Yarn v1.22+ (make sure to install the Classic version, not v2+).
 
-To install Yarn using npm, run the following command:
+To install Yarn using NPM, run the following command:
 
 ```bash
 npm install --global yarn
@@ -59,9 +59,9 @@ ABP's [startup solution templates](../solution-templates/index.md) use Docker to
 
 ### Is Docker Engine or Docker Desktop Free?
 
-Docker Engine is an open-source and free containerization technology for building and containerizing your applications. [`Docker Engine` follows the Apache License 2.0](https://docs.docker.com/engine/#licensing).
+[Docker Engine](https://docs.docker.com/engine/#licensing) is an open-source and free containerization technology for building and containerizing your applications. Docker Engine is licensed under the Apache License 2.0.
 
-Docker Desktop is free [for small businesses (fewer than 250 employees and less than $10 million in annual revenue), personal use, education, and non-commercial open-source projects](https://docs.docker.com/subscription/desktop-license/).
+[Docker Desktop](https://docs.docker.com/subscription/desktop-license/) is free for individuals and small businesses with fewer than 250 employees or less than $10 million in annual revenue, personal use, education, and non-commercial open-source projects. 
 
 ## PowerShell
 
