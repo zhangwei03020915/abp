@@ -6,19 +6,17 @@ In this quick start guide, you will learn how to create and run a microservice s
 
 ## Setup your development environment
 
-First things first! Let's setup your development environment before creating the first project.
-
-### Pre-requirements
-
-The following tools should be installed on your development machine:
+First things first! Let's setup your development environment before creating the first project. The following tools should be installed on your development machine:
 
 * [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or another IDE that supports .NET development
 * [.NET 9.0+](https://dotnet.microsoft.com/en-us/download/dotnet)
 * [Node v22.11+](https://nodejs.org/)
 * [Docker Desktop with Kubernetes](https://www.docker.com/products/docker-desktop/)
-* [helm](https://helm.sh/docs/intro/install/)
+* [Helm](https://helm.sh/docs/intro/install/)
 * [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)
 * [mkcert](https://github.com/FiloSottile/mkcert#installation)
+
+> Check the [Pre-requirements document](pre-requirements.md) for more detailed information about these tools.
 
 ## Creating a New Solution
 

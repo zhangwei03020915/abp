@@ -13,11 +13,7 @@ In this quick start guide, you will learn how to create and run a layered (and p
 
 ## Setup your development environment
 
-First things first! Let's setup your development environment before creating the first project.
-
-### Pre-requirements
-
-The following tools should be installed on your development machine:
+First things first! Let's setup your development environment before creating the first project. The following tools should be installed on your development machine:
 
 * [Visual Studio 2022](https://visualstudio.microsoft.com/) or another IDE that supports [.NET 9.0+](https://dotnet.microsoft.com/download/dotnet) development.  <sup id="a-editor">[1](#f-editor)</sup>
 * [.NET 9.0+](https://dotnet.microsoft.com/en-us/download/dotnet)
@@ -34,6 +30,8 @@ The following tools should be installed on your development machine:
 <sup id="f-yarn"><b>2</b></sup> _Yarn v2 works differently and is not supported._ <sup>[↩](#a-yarn)</sup>
 
 {{ end }}
+
+> Check the [Pre-requirements document](pre-requirements.md) for more detailed information about these tools.
 
 ## Creating a New Solution
 
