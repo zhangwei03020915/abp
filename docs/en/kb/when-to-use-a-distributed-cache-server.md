@@ -1,12 +1,12 @@
 # When to Use a Distributed Cache Server
 
-ABP provides a [distributed cache service](../framework/fundamentals/caching.md) that is based on [ASP.NET Core's distributed cache](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed). This document explains when do you need to have a separate cache server for your applications.
+ABP provides a [distributed cache service](../framework/fundamentals/caching.md) that is based on [ASP.NET Core's distributed cache](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed). This document explains when you need to have a separate cache server for your applications.
 
 ## Understanding the Default Cache Service
 
 **Default implementation of the cache service works in-memory**. Memory cache is only useful if you are building a monolith application and you run a single instance of your application. For other cases, **you should use a real distributed cache server**.
 
-Here, a few example cases where you should use a distributed cache server:
+Here are a few example cases where you should use a distributed cache server:
 
 * You have a **monolith application**, but you run **multiple instances** of that application concurrently, for example, in a [clustered environment](../deployment/clustered-environment.md)
 * You build a **microservice** or any kind of **distributed** system
@@ -16,7 +16,7 @@ The problem is obvious: If each application instance uses its internal in-memory
 
 ## What is a Distributed Cache Server
 
-A **distributed cache server** (e.g. [Redis](../framework/fundamentals/redis-cache.md)) stores cache objects in a separate server application and allows multiple applications/processes share the same cache objects. In that way;
+A **distributed cache server** (e.g. [Redis](../framework/fundamentals/redis-cache.md)) stores cache objects in a separate server application and allows multiple applications/processes to share the same cache objects. In that way;
 
 * All applications/services and all their instances use the same cache store and share the same cached objects. Once an application instance refreshes a cached object, all others use the new object.
 * Even if your applications stop and restart, the cached objects are not lost, since they are managed by a separate cache server.
@@ -29,7 +29,7 @@ ABP [solution templates](../solution-templates/index.md) come with Redis configu
 
 * The application startup template comes with Redis configured when you select multiple applications, tiered architecture, or some other configuration that requires a distributed cache server.
 
-In other cases, to keep the dependencies minimal, they come with the default (in-memory) cache configuration. In that cases, if you need a distributed cache server, you should manually switch to a distributed cache provider for your application.
+In other cases, to keep the dependencies minimal, they come with the default (in-memory) cache configuration. In those cases, if you need a distributed cache server, you should manually switch to a distributed cache provider for your application.
 
 See the *[Redis Cache](../framework/fundamentals/redis-cache.md)* document if you need to use Redis as the distributed cache server. See [ASP.NET Core's documentation](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed) to see how to switch to another cache provider.
 
