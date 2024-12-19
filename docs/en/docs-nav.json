@@ -71,6 +71,8 @@
         },
         {
           "text": "Book Store Application",
+          "isLazyExpandable": true,
+          "path": "tutorials/book-store",
           "items": [
             {
               "text": "Overview",

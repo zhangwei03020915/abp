@@ -53,6 +53,21 @@
 
     @if (Model.LoadSuccess)
     {
+        <script type="text/javascript">
+                var doc = doc || {};
+                doc.project = {
+                    id: '@Model.Project.Id',
+                    name: '@Model.Project.Name',
+                    languageCode: '@Model.LanguageCode',
+                    version: '@Model.Version',
+                    routeVersion: '@(Model.LatestVersionInfo == null || Model.LatestVersionInfo.IsSelected ? DocsAppConsts.Latest : Model.Version)',
+                }
+                doc.uiOptions = {
+                    routePrefix: '@DocsUiOptions.Value.RoutePrefix',
+                    multiLanguageMode : `@DocsUiOptions.Value.MultiLanguageMode`,
+                    singleProjectMode : `@DocsUiOptions.Value.SingleProjectMode.Enable`,
+                }
+        </script>
         <abp-script-bundle name="@typeof(IndexModel).FullName">
             <abp-script type="@typeof(MalihuCustomScrollbarPluginScriptBundleContributor)"/>
             <abp-script type="@typeof(ClipboardScriptBundleContributor)"/>
