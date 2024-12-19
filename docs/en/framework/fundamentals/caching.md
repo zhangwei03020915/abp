@@ -2,7 +2,7 @@
 
 ABP extends the [ASP.NET Core distributed cache](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed) to provide a more comfortable and easy-to-use cache service.
 
-> **Default implementation of the `IDistributedCache` interface is` MemoryDistributedCache` which works in-memory.** Memory cache is only useful if you are building a monolith application and you run a single instance of your application. For other cases, consider using a distributed cache server. See the ***[Why to Use a Distributed Cache Server](../../kb/when-to-use-a-distributed-cache-server.md)*** document for more details.
+> **Default implementation of the `IDistributedCache` interface is` MemoryDistributedCache` which works in-memory.** Memory cache is only useful if you are building a monolith application and you run a single instance of your application. For other cases, consider using a distributed cache server. See the ***[When to Use a Distributed Cache Server](../../kb/when-to-use-a-distributed-cache-server.md)*** document for more details.
 
 ## Installation
 
