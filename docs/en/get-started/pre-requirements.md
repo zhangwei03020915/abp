@@ -1,61 +1,50 @@
-# Prerequisites for Developing an ABP Project
+# Prerequisites for Developing ABP Projects
 
-Projects using the `ABP framework` require several common tools and environments. This document will guide you through preparing these tools and environments.
+This document will guide you through preparing your development environment for ABP based project development.
 
-## Visual Studio
+## IDE
 
-`Visual Studio` is Microsoft's IDE and is the preferred tool for developing `ABP` projects. The latest `ABP 9.0` is based on `.NET 9`, so `Visual Studio 2022` is the best choice.  
-You can download `Visual Studio 2022` from the [Visual Studio official website](https://visualstudio.microsoft.com/). You can also use the [free Community version of `Visual Studio 2022`](https://visualstudio.microsoft.com/free-developer-offers/).
+You need to use an IDE that supports .NET development. The following IDEs are the most popular ones for .NET development.
 
-## JetBrains Rider
+### Visual Studio
 
-`JetBrains Rider` is a cross-platform IDE and is also a preferred tool for developing ABP projects. You can download `JetBrains Rider` from the [JetBrains official website](https://www.jetbrains.com/rider/download). It supports `Windows`, `macOS`, and `Linux`. We recommend using the latest version or `>=2024.3` to support `.NET 9.0`.
+Visual Studio is Microsoft's IDE and is the de facto tool for developing .NET projects. You can download Visual Studio from the [Visual Studio official website](https://visualstudio.microsoft.com/). It also has a **free Community edition** which is more than enough for ABP projects.
 
-> [`JetBrains Rider` is free for non-commercial use](https://blog.jetbrains.com/blog/2024/10/24/webstorm-and-rider-are-now-free-for-non-commercial-use/)
+### Visual Studio Code
 
-## .NET 9.0 SDK
+Visual Studio Code is a **free and cross-platform** lightweight code editor that supports .NET development. You can [download from here](https://code.visualstudio.com/download).
 
-`ABP 9.0` is based on `.NET 9.0`, so you need to install the `.NET 9.0 SDK`. You can download the `.NET 9.0 SDK` from the [.NET official website](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
+### JetBrains Rider
 
-> Installing `Visual Studio 2022` or `JetBrains Rider` may automatically install the `.NET 9.0 SDK`. You can run the `dotnet --list-sdks` command to check if the `.NET 9.0 SDK` is installed.
+[JetBrains Rider](https://www.jetbrains.com/rider/download) is a cross-platform IDE by [JetBrains](https://www.jetbrains.com/) that supports .NET development. It is **[free for non-commercial use](https://blog.jetbrains.com/blog/2024/10/24/webstorm-and-rider-are-now-free-for-non-commercial-use/)**.
+
+## .NET SDK
+
+ABP is based on NET, so you need to install the .NET SDK. You can download the .NET SDK from the [.NET official website](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
+
+> Installing Visual Studio or JetBrains Rider may automatically install the .NET SDK.
 
 ### EF Core CLI
 
-If you are using `Entity Framework Core`, you need to install the [EF Core CLI](https://learn.microsoft.com/en-us/ef/core/cli/dotnet). You can install it by running the following command:
+If you are using [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/) as your database access provider, you need to install the [EF Core CLI](https://learn.microsoft.com/en-us/ef/core/cli/dotnet). You can install it by running the following command:
 
 ```bash
-dotnet tool install --global dotnet-ef --version 9.0.0
+dotnet tool install --global dotnet-ef
 ```
 
 If you have already installed the `EF Core CLI`, you can update it by running the following command:
 
 ```bash
-dotnet tool update --global dotnet-ef --version 9.0.0
-```
-
-### ABP CLI
-
-[ABP CLI](https://abp.io/cli) is a command line tool to perform common operations for ABP based solutions. Create new solutions, upgrade existing solutions, add modules, install packages, bundle your resources and much more…
-
-You can install `ABP CLI` by running the following command:
-
-```bash
-dotnet tool install -g Volo.Abp.Studio.Cli
-```
-
-If you have already installed the `ABP CLI`, you can update it by running the following command:
-
-```bash
-dotnet tool update -g Volo.Abp.Studio.Cli
+dotnet tool update --global dotnet-ef
 ```
 
 ## Node.js and Yarn
 
-`ABP` projects include some frontend resource packages, so you need to install `Node.js` and `Yarn` to manage these resource packages. You can download `Node.js` from the [Node.js official website](https://nodejs.org/). We recommend installing version v20.11+.
+ABP projects include some frontend resource packages, so you need to install Node.js and Yarn to manage these resource packages. You can download Node.js from the [official Node.js website](https://nodejs.org/). We recommend installing version v20.11+.
 
-Using `Yarn(Classic)` to manage frontend resource packages is faster and more stable than using `npm`. You can download `Yarn` from the [Yarn official website](https://classic.yarnpkg.com/en/docs/install). We recommend installing `Yarn v1.22+` (make sure to install the `Classic` version, not `v2`).
+Using Yarn (classic) to manage frontend resource packages is faster and more stable than using npm. You can download `Yarn` from the [Yarn official website](https://classic.yarnpkg.com/en/docs/install). We recommend installing Yarn v1.22+ (make sure to install the Classic version, not v2+).
 
-To install `Yarn` using `npm`, run the following command:
+To install Yarn using npm, run the following command:
 
 ```bash
 npm install --global yarn
