@@ -33,6 +33,16 @@ In other cases, to keep the dependencies minimal, they come with the default (in
 
 See the *[Redis Cache](../framework/fundamentals/redis-cache.md)* document if you need to use Redis as the distributed cache server. See [ASP.NET Core's documentation](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed) to see how to switch to another cache provider.
 
+### Installing a Redis Server to Your Local Environment
+
+If you want to use Redis as your distributed cache provider in your development environment, you can simply use the [official Redis docker image](https://hub.docker.com/_/redis). Once you have [Docker](https://www.docker.com/products/docker-desktop/) in your local machine, you can use the following command to run a Redis container and map the default Redis port:
+
+````bash
+docker run -p 6379:6379 --name RedisServer -d redis
+````
+
+You can check the [official Redis docker image](https://hub.docker.com/_/redis) document for more options.
+
 ## See Also
 
 * [ABP Distributed Cache](../framework/fundamentals/caching.md)
