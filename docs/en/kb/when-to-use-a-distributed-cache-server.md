@@ -1,6 +1,6 @@
-# Why to Use a Distributed Cache Server
+# When to Use a Distributed Cache Server
 
-ABP provides a [distributed cache service](../framework/fundamentals/caching.md) that is based on [ASP.NET Core's distributed cache](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed).
+ABP provides a [distributed cache service](../framework/fundamentals/caching.md) that is based on [ASP.NET Core's distributed cache](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed). This document explains when do you need to have a separate cache server for your applications.
 
 ## Understanding the Default Cache Service
 
