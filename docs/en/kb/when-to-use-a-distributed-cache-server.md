@@ -27,9 +27,9 @@ ABP [solution templates](../solution-templates/index.md) come with Redis configu
 
 * The [microservice startup template](../solution-templates/microservice/index.md) always comes with [Redis configured](../solution-templates/microservice/distributed-cache.md) and also included as a docker container.
 
-* The application startup template comes with Redis configured when you select multiple applications, tiered architecture, etc.
+* The application startup template comes with Redis configured when you select multiple applications, tiered architecture, or some other configuration that requires a distributed cache server.
 
-In other cases, to keep the dependencies minimal, they come with the default (in-memory) cache configuration. In that case, you should manually switch to a distributed cache provider for your application.
+In other cases, to keep the dependencies minimal, they come with the default (in-memory) cache configuration. In that cases, if you need a distributed cache server, you should manually switch to a distributed cache provider for your application.
 
 See the *[Redis Cache](../framework/fundamentals/redis-cache.md)* document if you need to use Redis as the distributed cache server. See [ASP.NET Core's documentation](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed) to see how to switch to another cache provider.
 
