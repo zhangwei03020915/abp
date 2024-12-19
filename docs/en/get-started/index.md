@@ -2,6 +2,8 @@
 
 Great that you've decided to create a new application with ABP. ABP provides multiple startup templates for different needs. Each startup template is a fine-tuned and production-ready .NET solution that you can immediately start to develop your application based on it.
 
+Before you start, You can check the [Pre-requirements](pre-requirements.md) to ensure you have all the necessary tools and environments installed.
+
 Please select one of the following documents best fits for your application:
 
 - **[Single-Layer Solution](single-layer-web-application.md)**: Creates a single-project solution. Recommended for building an application with a **simpler and easy to understand** architecture.
