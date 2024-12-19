@@ -8,10 +8,6 @@
           "path": "get-started"
         },
         {
-          "text": "Pre-Requirements",
-          "path": "get-started/pre-requirements.md"
-        },
-        {
           "text": "Single Layer Web Application",
           "path": "get-started/single-layer-web-application.md"
         },
@@ -43,6 +39,10 @@
               "path": "get-started/console.md"
             }
           ]
+        },
+        {
+          "text": "Pre-Requirements",
+          "path": "get-started/pre-requirements.md"
         }
       ]
     },
