@@ -21,27 +21,30 @@ var doc = doc || {};
                 }
                 return null;
             },
-            renderNodeAsHtml : function($lazyLiElement, node){
+            renderNodeAsHtml : function($lazyLiElement, node, isRootLazyNode){
                 if(node.isEmpty){
                     return;
                 }
-                
-                var $ul =  $(`<ul class="nav nav-list tree"></ul>`);
+
+                var textCss = node.path ? "": "tree-toggle";
+                var uiCss = isRootLazyNode ? "" : "style='display: none;'";
+                var $ul =  $(`<ul class="nav nav-list tree" ${uiCss}></ul>`);
                 var $li = $(`<li class="${node.hasChildItems ? 'nav-header' : 'last-link'}"></li>`);
                 
-                $li.append(`<span class="plus-icon"> <i class="fa fa-${node.hasChildItems ? 'chevron-right' : node.path ? 'has-link' : 'no-link'}"></i></span><a href="${normalPath(node.path)}">${node.text}</a>`)
+                $li.append(`<span class="plus-icon"> <i class="fa fa-${node.hasChildItems ? 'chevron-right' : node.path ? 'has-link' : 'no-link'}"></i></span><a href="${normalPath(node.path)}" class="${textCss}">${node.text}</a>`)
 
                 if(node.isLazyExpandable){
                     $li.addClass("lazy-expand");
                 }else if(node.hasChildItems){
                     node.items.forEach(function(item){
-                        doc.lazyExpandableNavigation.renderNodeAsHtml($li, item);
+                        doc.lazyExpandableNavigation.renderNodeAsHtml($li, item, false);
                     });
                 }
 
                 $ul.append($li);
                 $lazyLiElement.append($ul)
-                
+
+                window.Toc.helpers.initNavEvent();
                 function normalPath(path){
                     var pathWithoutFileExtension = removeFileExtensionFromPath(path);
 
@@ -94,7 +97,7 @@ var doc = doc || {};
                     if($li.has("ul").length === 0){
                         var node = doc.lazyExpandableNavigation.findNode($li.find("a").text(), doc.project.navigation);
                         node.items.forEach(item => {
-                            doc.lazyExpandableNavigation.renderNodeAsHtml($li, item);
+                            doc.lazyExpandableNavigation.renderNodeAsHtml($li, item, true);
                         })
                     }
 
@@ -404,7 +407,7 @@ var doc = doc || {};
                 
                 var node = doc.lazyExpandableNavigation.findNode($this.find("a").text(), doc.project.navigation);
                 node.items.forEach(item => {
-                    doc.lazyExpandableNavigation.renderNodeAsHtml($this, item);
+                    doc.lazyExpandableNavigation.renderNodeAsHtml($this, item, true);
                 })
 
                 $("li .lazy-expand").off('click');
