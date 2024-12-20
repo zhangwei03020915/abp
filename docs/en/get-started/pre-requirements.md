@@ -2,11 +2,11 @@
 
 This document will guide you through preparing your development environment for ABP based application development.
 
-> The prerequisites mentioned in this document are not all necessary. It based on your project type.
+> The prerequisites mentioned in this document are not all necessary. It is based on your project type.
 
 * You don't need to install the EF Core CLI if your application uses MongoDB instead of EF Core.
 * You don't need to use Redis(distributed cache) if your application has only one instance. See [When to Use a Distributed Cache Server](../kb/when-to-use-a-distributed-cache-server.md).
-* You don't need to install Helm, NGINX Ingress, or mkcert if you are developing a non-microservice application.
+* You don't need to install Docker, Helm, NGINX Ingress, or mkcert if you are developing a non-microservice application.
 * The `README.md` file in the solution will contain specific requirements for the current solution. Please refer to the `README.md` file of the solution.
 
 ## IDE
