@@ -82,6 +82,10 @@ ABP startup solution templates and tools use some PowerShell scripts (`*.ps1`) t
 
 The following tools are only required to develop ABP's [microservice solution](../solution-templates/microservice/index.md)
 
+### Docker Engine or Docker Desktop
+
+Docker is required to run essential infrastructure services like SQL Server/MongoDB, Redis, RabbitMQ, and Elastic Stack for your microservice application. Follow the instructions above to install Docker Engine or Docker Desktop.
+
 ### Helm
 
 [Helm](https://helm.sh/) is a package manager for Kubernetes. You can install Helm by following the [Helm installation guide](https://helm.sh/docs/intro/install/). 
@@ -93,6 +97,7 @@ See [Helm Deployment on Local Kubernetes Cluster](../solution-templates/microser
 [NGINX Ingress](https://kubernetes.github.io/ingress-nginx/deploy/) is an Ingress controller for Kubernetes. You can install NGINX Ingress by following the [NGINX Ingress installation guide](https://kubernetes.github.io/ingress-nginx/deploy/). 
 
 If you are using Helm, you can install NGINX Ingress using the following commands:
+
 ```cs
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
@@ -102,7 +107,3 @@ helm upgrade --install --version=4.0.19 ingress-nginx ingress-nginx/ingress-ngin
 ### mkcert
 
 Use mkcert to generate trusted certificates for local development. You can install mkcert by following the [official mkcert installation guide](https://github.com/FiloSottile/mkcert#installation).
-
-### Docker Engine or Docker Desktop
-
-Docker is required to run the infrastructure services required by your application. You can install Docker Engine or Docker Desktop by following the above instructions.
