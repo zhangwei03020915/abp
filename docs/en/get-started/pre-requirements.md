@@ -59,7 +59,7 @@ npm install --global yarn
 
 ## Docker Engine or Docker Desktop
 
-ABP's [startup solution templates](../solution-templates/index.md) use Docker to run infrastructure services (e.g. Redis, RabbitMQ) required by your application. You can install Docker Engine or Docker Desktop (recommended) on Windows, macOS and Linux.
+ABP's [Layered Solution](../solution-templates/layered-web-application/index.md) and [Microservice Solution](../solution-templates/microservice/index.md) use Docker to run infrastructure services (e.g. SQL Server, Redis, RabbitMQ) required by your application. You can install Docker Engine or Docker Desktop (recommended) on Windows, macOS and Linux.
 
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/) (recommended)
 * [Docker Engine](https://docs.docker.com/engine/install/)
@@ -81,10 +81,6 @@ ABP startup solution templates and tools use some PowerShell scripts (`*.ps1`) t
 ## MicroService Solution
 
 The following tools are only required to develop ABP's [microservice solution](../solution-templates/microservice/index.md)
-
-### Docker Engine or Docker Desktop
-
-Docker is required to run essential infrastructure services like SQL Server/MongoDB, Redis, RabbitMQ, and Elastic Stack for your microservice application. Follow the instructions above to install Docker Engine or Docker Desktop.
 
 ### Helm
 
