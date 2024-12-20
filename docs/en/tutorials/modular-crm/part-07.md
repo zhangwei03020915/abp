@@ -184,9 +184,9 @@ namespace ModularCrm.Products.Orders
         IDistributedEventHandler<OrderPlacedEto>, 
         ITransientDependency
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IRepository<Product, Guid> _productRepository;
 
-        public OrderEventHandler(IProductRepository productRepository)
+        public OrderEventHandler(IRepository<Product, Guid> productRepository)
         {
             _productRepository = productRepository;
         }
