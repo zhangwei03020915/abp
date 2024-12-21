@@ -13,7 +13,7 @@
 ABP Studio provides pre-architected, production-ready templates to jump-start a new solution. One of these templates is the Layered solution template. It is designed for building monolithic layered systems that follow common application patterns based on [Domain-Driven Design](../../framework/architecture/domain-driven-design) (DDD) principles. The template includes multiple layers, integrates existing modules, and provides host applications based on your selections, making it an excellent foundation for your layered system.
 
 > **This document explains the Layered solution template in detail. It is a reference document to fully understand the solution and refer to when you have trouble.**
-
+>
 > **If you want to quickly create a layered solution, please refer to *[Quick Start: Creating a Layered Web Application with ABP Studio](../../get-started/layered-web-application.md)* document.**
 
 ## Contents
