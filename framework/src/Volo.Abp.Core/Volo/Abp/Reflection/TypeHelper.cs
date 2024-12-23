@@ -317,6 +317,10 @@ public static class TypeHelper
         {
             return "object";
         }
+        else if (type.IsEnum)
+        {
+            return "enum";
+        }
 
         return type.FullName ?? type.Name;
     }
