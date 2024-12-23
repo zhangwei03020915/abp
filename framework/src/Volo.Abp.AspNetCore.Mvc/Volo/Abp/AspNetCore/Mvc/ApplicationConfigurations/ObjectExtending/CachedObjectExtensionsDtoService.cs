@@ -247,8 +247,14 @@ public class CachedObjectExtensionsDtoService : ICachedObjectExtensionsDtoServic
 
         foreach (var enumProperty in enumProperties)
         {
-            // ReSharper disable once AssignNullToNotNullAttribute (enumProperty.Type.FullName can not be null for this case)
-            objectExtensionsDto.Enums[enumProperty.Type.FullName!] = CreateExtensionEnumDto(enumProperty);
+            if (TypeHelper.IsNullableEnum(enumProperty.Type))
+            {
+                objectExtensionsDto.Enums[Nullable.GetUnderlyingType(enumProperty.Type)!.FullName + "?"] = CreateExtensionEnumDto(enumProperty);
+            }
+            else
+            {
+                objectExtensionsDto.Enums[enumProperty.Type.FullName!] = CreateExtensionEnumDto(enumProperty);
+            }
         }
     }
 
