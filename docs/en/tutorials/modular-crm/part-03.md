@@ -164,7 +164,7 @@ Open the `ModularCrm` module (which is the main application) in your IDE:
 
 ![abp-studio-open-with-visual-studio-main-app](images/abp-studio-open-with-visual-studio-main-app.png)
 
-Open the `ModularCrmDbContext` class under the `ModularCrm` project `Data` folder:
+Open the `ModularCrmDbContext` class under the `ModularCrm` project's `Data` folder:
 
 ![visual-studio-main-dbcontext](images/visual-studio-main-dbcontext.png)
 
@@ -485,7 +485,7 @@ Here, we simply use the `IProductAppService` to get a list of all products and a
 </abp-card>
 ````
 
-Right-click the `ModularCrm` application on ABP Studio's solution runner and select the *Build & Restart* command:
+Right-click the `ModularCrm` application on ABP Studio's solution runner and select the *Start* command:
 
 ![abp-studio-build-and-restart-application](images/abp-studio-build-and-restart-application.png)
 
