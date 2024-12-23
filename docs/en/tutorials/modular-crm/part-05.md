@@ -156,7 +156,7 @@ public static class OrderingDbContextModelCreatingExtensions
 
 #### Configuring the Main Application
 
-Open the main application's solution in your IDE, find the `ModularCrmDbContext` class under the `ModularCrm` project `Data` folder and follow the 3 steps below:
+Open the main application's solution in your IDE, find the `ModularCrmDbContext` class under the `ModularCrm` project's `Data` folder, and follow the 3 steps below:
 
 **(1)** Add the following attribute on top of the `ModularCrmDbContext` class:
 
