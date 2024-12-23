@@ -3,17 +3,15 @@ var doc = doc || {};
 (function ($) {
     $(function () {        
         
-        var _documentAppService = volo.docs.documents.docsDocument;
-        
         doc.lazyExpandableNavigation = {
             isAllLoaded: false,
-            findNode : function(text, node){
-                if(node.text === text && node.isLazyExpandable){
+            findNode : function(text, href, node){
+                if(node.text === text && node.path === href && node.isLazyExpandable){
                     return node;
                 }
                 if(node.items){
                     for (let i = 0; i < node.items.length; i++) {
-                        var result = doc.lazyExpandableNavigation.findNode(text, node.items[i]);
+                        var result = doc.lazyExpandableNavigation.findNode(text, href, node.items[i]);
                         if(result){
                             return result;
                         }
@@ -26,12 +24,12 @@ var doc = doc || {};
                     return;
                 }
 
-                var textCss = node.path ? "": "tree-toggle";
+                var textCss = node.path === "javascript:;" ? "": "tree-toggle";
                 var uiCss = isRootLazyNode ? "" : "style='display: none;'";
                 var $ul =  $(`<ul class="nav nav-list tree" ${uiCss}></ul>`);
                 var $li = $(`<li class="${node.hasChildItems ? 'nav-header' : 'last-link'}"></li>`);
                 
-                $li.append(`<span class="plus-icon"> <i class="fa fa-${node.hasChildItems ? 'chevron-right' : node.path ? 'has-link' : 'no-link'}"></i></span><a href="${normalPath(node.path)}" class="${textCss}">${node.text}</a>`)
+                $li.append(`<span class="plus-icon"> <i class="fa fa-${node.hasChildItems ? 'chevron-right' : node.path === "javascript:;" ? 'has-link' : 'no-link'}"></i></span><a href="${node.path}" class="${textCss}">${node.text}</a>`)
 
                 if(node.isLazyExpandable){
                     $li.addClass("lazy-expand");
@@ -45,48 +43,6 @@ var doc = doc || {};
                 $lazyLiElement.append($ul)
 
                 window.Toc.helpers.initNavEvent();
-                function normalPath(path){
-                    var pathWithoutFileExtension = removeFileExtensionFromPath(path);
-
-                    if (!pathWithoutFileExtension)
-                    {
-                        return "javascript:;";
-                    }
-
-                    if (path.toLowerCase().startsWith("http://") || path.toLowerCase().startsWith("https://"))
-                    {
-                        return path;
-                    }
-                    
-                    path = abp.appPath + doc.uiOptions.routePrefix;
-
-                    if(doc.uiOptions.multiLanguageMode === `True`){
-                        path += doc.project.languageCode;
-                    }
-                    
-                    if(doc.uiOptions.singleProjectMode === `False`){
-                        path += "/" + doc.project.name
-                    }
-                    
-                    path += "/" + doc.project.routeVersion;
-                    path += "/" + pathWithoutFileExtension;
-                    return path.replace("//","/");
-                }
-                
-                function removeFileExtensionFromPath(path){
-                    if (!path)
-                    {
-                        return null;
-                    }
-
-                    var lastDotIndex = path.lastIndexOf(".");
-                    if (lastDotIndex < 0)
-                    {
-                        return path;
-                    }
-
-                    return path.substring(0, lastDotIndex);
-                }
             },
             loadAll : function(lazyLiElements){
                 if(doc.lazyExpandableNavigation.isAllLoaded){
@@ -95,7 +51,8 @@ var doc = doc || {};
                 for(var i = 0; i < lazyLiElements.length; i++){
                     var $li = $(lazyLiElements[i]);
                     if($li.has("ul").length === 0){
-                        var node = doc.lazyExpandableNavigation.findNode($li.find("a").text(), doc.project.navigation);
+                        var $a = $li.find("a");
+                        var node = doc.lazyExpandableNavigation.findNode($a.text(), $a.attr("href"), doc.project.navigation);
                         node.items.forEach(item => {
                             doc.lazyExpandableNavigation.renderNodeAsHtml($li, item, true);
                         })
@@ -215,11 +172,18 @@ var doc = doc || {};
         };
 
         var initDocProject = function(){
-            _documentAppService.getNavigation({
-                projectId: doc.project.id,
-                version: doc.project.version,
-                languageCode: doc.project.languageCode
-            }).done((data) => {
+            abp.ajax({
+                type :"GET",
+                url: '/docs/document-navigation',
+                data: {
+                    projectId: doc.project.id,
+                    version: doc.project.version,
+                    routeVersion: doc.project.routeVersion,
+                    languageCode: doc.project.languageCode,
+                    projectName: doc.project.name,
+                    projectFormat: doc.project.format
+                }
+            }).done(data => {
                 doc.project.navigation = data;
             })
         }
@@ -405,7 +369,8 @@ var doc = doc || {};
                     return;
                 }
                 
-                var node = doc.lazyExpandableNavigation.findNode($this.find("a").text(), doc.project.navigation);
+                var $a = $this.find("a");
+                var node = doc.lazyExpandableNavigation.findNode($a.text(), $a.attr("href") , doc.project.navigation);
                 node.items.forEach(item => {
                     doc.lazyExpandableNavigation.renderNodeAsHtml($this, item, true);
                 })
