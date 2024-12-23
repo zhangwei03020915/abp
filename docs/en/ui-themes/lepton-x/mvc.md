@@ -87,7 +87,7 @@ Configure<LeptonXThemeOptions>(options =>
 You can add extra logic by using javascript API when style is changed with the following event.
 ```js
 leptonx.CSSLoadEvent.on(event =>{
-    console.log("Theme changed from " + event.detail.previousTheme + " to "+ event.detail.theme);
+    console.log("Style is changed from " + event.detail.previousTheme + " to "+ event.detail.theme);
 });
 ```
 
