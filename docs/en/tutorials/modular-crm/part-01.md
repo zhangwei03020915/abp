@@ -22,7 +22,7 @@ Follow the *[Get Started](../../get-started/single-layer-web-application.md)* gu
 
 You can select the other options based on your preference.
 
-> **Please complete the [Get Stared](../../get-started/single-layer-web-application.md) guide and run the web application before going further.**
+> **Please complete the [Get Started](../../get-started/single-layer-web-application.md) guide and run the web application before going further.**
 
 The initial solution structure should be like the following in ABP Studio's *[Solution Explorer](../../studio/solution-explorer.md)*:
 
