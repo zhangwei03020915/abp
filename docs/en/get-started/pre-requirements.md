@@ -2,6 +2,15 @@
 
 This document will guide you through preparing your development environment for ABP based application development.
 
+## Notices
+
+The prerequisites mentioned in this document are not necessary for every project type;
+
+* You don't need to install the EF Core CLI if your application uses MongoDB instead of EF Core.
+* You don't need to install Helm, NGINX Ingress, or mkcert if you are developing a non-microservice application.
+
+`README.MD` files in new solutions contain specific requirements for your solution. Please refer to the `README.MD` file of your solution.
+
 ## IDE
 
 You need to use an IDE that supports .NET development. The following IDEs are the most popular ones for .NET development.
@@ -52,7 +61,7 @@ npm install --global yarn
 
 ## Docker Engine or Docker Desktop
 
-ABP's [startup solution templates](../solution-templates/index.md) use Docker to run infrastructure services (e.g. Redis, RabbitMQ) required by your application. You can install Docker Engine or Docker Desktop (recommended) on Windows, macOS and Linux.
+ABP's [Layered Solution](../solution-templates/layered-web-application/index.md) and [Microservice Solution](../solution-templates/microservice/index.md) use Docker to run infrastructure services (e.g. SQL Server, Redis, RabbitMQ) required by your application. You can install Docker Engine or Docker Desktop (recommended) on Windows, macOS and Linux.
 
 * [Docker Desktop](https://www.docker.com/products/docker-desktop/) (recommended)
 * [Docker Engine](https://docs.docker.com/engine/install/)
@@ -70,3 +79,29 @@ ABP startup solution templates and tools use some PowerShell scripts (`*.ps1`) t
 * [Install PowerShell on Windows](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)
 * [Install PowerShell on macOS](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-macos)
 * [Install PowerShell on Linux](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux)
+
+## MicroService Solution
+
+The following tools are only required to develop ABP's [microservice solution](../solution-templates/microservice/index.md)
+
+### Helm
+
+[Helm](https://helm.sh/) is a package manager for Kubernetes. You can install Helm by following the [Helm installation guide](https://helm.sh/docs/intro/install/). 
+
+See [Helm Deployment on Local Kubernetes Cluster](../solution-templates/microservice/helm-charts-and-kubernetes.md) for more information.
+
+### NGINX Ingress or NGINX Ingress using Helm
+
+[NGINX Ingress](https://kubernetes.github.io/ingress-nginx/deploy/) is an Ingress controller for Kubernetes. You can install NGINX Ingress by following the [NGINX Ingress installation guide](https://kubernetes.github.io/ingress-nginx/deploy/). 
+
+If you are using Helm, you can install NGINX Ingress using the following commands:
+
+```cs
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm upgrade --install --version=4.0.19 ingress-nginx ingress-nginx/ingress-nginx
+```
+
+### mkcert
+
+Use mkcert to generate trusted certificates for local development. You can install mkcert by following the [official mkcert installation guide](https://github.com/FiloSottile/mkcert#installation).

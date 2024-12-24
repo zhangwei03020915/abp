@@ -2,6 +2,12 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.18 (2024-12-24)
+
+* Fixed Blazor WebApp Kubernetes problems.
+* Added Visual Studio & Rider options to solution root.
+* Fixed problems in blazor-server nolayers template.
+
 ## 0.9.17 (2024-12-17)
 
 * Added social login option to the "No Layers" Blazor WebAssembly template.

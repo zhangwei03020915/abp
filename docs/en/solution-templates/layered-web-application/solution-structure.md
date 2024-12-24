@@ -214,9 +214,3 @@ This project is an application that hosts the API of the solution. It has its ow
 Just like the default structure, this project contains the User Interface (UI) of the application. It contains razor pages, JavaScript files, style files, images and so on...
 
 This project contains an `appsettings.json` file, but this time it does not have a connection string because it never connects to the database. Instead, it mainly contains the endpoint of the remote API server and the authentication server.
-
-### How to Run?
-
-You can open the [Solution Runner](../../studio/running-applications.md) panel and start the all applications. The default username is `admin` and the password is `1q2w3E*`.
-
-![run-solution-tiered](images/run-solution-tiered.png)
