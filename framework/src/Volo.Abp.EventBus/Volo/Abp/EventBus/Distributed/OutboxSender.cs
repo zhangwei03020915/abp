@@ -77,7 +77,7 @@ public class OutboxSender : IOutboxSender, ITransientDependency
             {
                 while (true)
                 {
-                    var waitingEvents = await Outbox.GetWaitingEventsAsync(EventBusBoxesOptions.OutboxWaitingEventMaxCount, EventBusBoxesOptions.OutboxProcessorFilter, StoppingToken);
+                    var waitingEvents = await GetWaitingEventsAsync();
                     if (waitingEvents.Count <= 0)
                     {
                         break;
@@ -105,6 +105,11 @@ public class OutboxSender : IOutboxSender, ITransientDependency
                 catch (TaskCanceledException) { }
             }
         }
+    }
+
+    protected virtual async Task<List<OutgoingEventInfo>> GetWaitingEventsAsync()
+    {
+        return await Outbox.GetWaitingEventsAsync(EventBusBoxesOptions.OutboxWaitingEventMaxCount, EventBusBoxesOptions.OutboxProcessorFilter, StoppingToken);
     }
 
     protected virtual async Task PublishOutgoingMessagesAsync(List<OutgoingEventInfo> waitingEvents)
