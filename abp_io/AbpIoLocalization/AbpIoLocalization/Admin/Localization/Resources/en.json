@@ -679,6 +679,7 @@
     "LicenseUpgradePrice": "License Upgrade Price",
     "AdditionalDeveloperUpgradePrice": "Additional Developer Upgrade Price",
     "EditLicense{0}": "Edit {0} License",
-    "CampaignNameAlreadyExists": "Campaign name already exists"
+    "CampaignNameAlreadyExists": "Campaign name already exists",
+    "DiscountRate": "Discount Rate"
   }
 }
