@@ -5,11 +5,11 @@ namespace Volo.Abp.EventBus.Distributed;
 
 public interface IOutgoingEventInfo : IHasExtraProperties
 {
-    public Guid Id { get; }
+    Guid Id { get; }
 
-    public string EventName { get; }
+    string EventName { get; }
 
-    public byte[] EventData { get; }
+    byte[] EventData { get; }
 
-    public DateTime CreationTime { get; }
+    DateTime CreationTime { get; }
 }
