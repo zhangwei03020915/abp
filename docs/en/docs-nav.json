@@ -1868,7 +1868,7 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "solution-templates/microservice/built-in-features"
+                  "path": "solution-templates/microservice/built-in-features.md"
                 },
                 {
                   "text": "Authentication",
@@ -1937,19 +1937,19 @@
               "items":[
                 {
                   "text": "Overview",
-                  "path": "solution-templates/microservice/communication"
+                  "path": "solution-templates/microservice/communication.md"
                 },
                 {
                   "text": "HTTP API Calls",
-                  "path": "solution-templates/microservice/communication/http-api-calls.md"
+                  "path": "solution-templates/microservice/http-api-calls.md"
                 },
                 {
                   "text": "gRPC Calls",
-                  "path": "solution-templates/microservice/communication/grpc-calls.md"
+                  "path": "solution-templates/microservice/grpc-calls.md"
                 },
                 {
                   "text": "Distributed Events",
-                  "path": "solution-templates/microservice/communication/distributed-events.md"
+                  "path": "solution-templates/microservice/distributed-events.md"
                 }
               ]
             },
@@ -1962,31 +1962,31 @@
               "items": [
                 {
                   "text": "Overview",
-                  "path": "solution-templates/microservice/guides"
+                  "path": "solution-templates/microservice/guides.md"
                 },
                 {
                   "text": "Adding new microservices",
-                  "path": "solution-templates/microservice/guides/adding-new-microservices.md"
+                  "path": "solution-templates/microservice/adding-new-microservices.md"
                 },
                 {
                   "text": "Adding new applications",
-                  "path": "solution-templates/microservice/guides/adding-new-applications.md"
+                  "path": "solution-templates/microservice/adding-new-applications.md"
                 },
                 {
                   "text": "Adding new API gateways",
-                  "path": "solution-templates/microservice/guides/adding-new-api-gateways.md"
+                  "path": "solution-templates/microservice/adding-new-api-gateways.md"
                 },
                 {
                   "text": "Mono-repo vs multiple repository approaches",
-                  "path": "solution-templates/microservice/guides/mono-repo-vs-multiple-repository-approaches.md"
+                  "path": "solution-templates/microservice/mono-repo-vs-multiple-repository-approaches.md"
                 },
                 {
                   "text": "Authoring unit and integration tests",
-                  "path": "solution-templates/microservice/guides/authoring-unit-and-integration-tests.md"
+                  "path": "solution-templates/microservice/authoring-unit-and-integration-tests.md"
                 },
                 {
                   "text": "How to use with ABP Suite",
-                  "path": "solution-templates/microservice/guides/how-to-use-with-abp-suite.md"
+                  "path": "solution-templates/microservice/how-to-use-with-abp-suite.md"
                 }
               ]
             }
@@ -2079,7 +2079,7 @@
         {
           "text": "IdentityServer",
           "isLazyExpandable": true,
-          "path": "modules/identity-server",
+          "path": "modules/identity-server.md",
           "items": [
             {
               "text": "Overview",
@@ -2103,7 +2103,7 @@
         {
           "text": "OpenIddict",
           "isLazyExpandable": true,
-          "path": "modules/openiddict",
+          "path": "modules/openiddict.md",
           "items": [
             {
               "text": "Overview",

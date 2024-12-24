@@ -60,10 +60,10 @@ var doc = doc || {};
 
                     var childLazyLiElements = $li.find("li.lazy-expand");
                     if(childLazyLiElements.length > 0){
+                        doc.lazyExpandableNavigation.isAllLoaded = false;
                         doc.lazyExpandableNavigation.loadAll(childLazyLiElements);
                     }
 
-                    $("li .lazy-expand").off('click');
                     initLazyExpandNavigation();
                 }
                 
@@ -363,6 +363,7 @@ var doc = doc || {};
         };
         
         var initLazyExpandNavigation = function(){
+            $("li .lazy-expand").off('click');
             $("li .lazy-expand").on('click', function(){
                 var $this = $(this);
                 if($this.has("ul").length > 0){
@@ -375,7 +376,6 @@ var doc = doc || {};
                     doc.lazyExpandableNavigation.renderNodeAsHtml($this, item, true);
                 })
 
-                $("li .lazy-expand").off('click');
                 initLazyExpandNavigation();
             });
         }
