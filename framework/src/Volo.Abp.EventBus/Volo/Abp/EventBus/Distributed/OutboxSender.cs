@@ -22,7 +22,7 @@ public class OutboxSender : IOutboxSender, ITransientDependency
     protected IEventOutbox Outbox { get; private set; } = default!;
     protected OutboxConfig OutboxConfig { get; private set; } = default!;
     protected AbpEventBusBoxesOptions EventBusBoxesOptions { get; }
-    protected string DistributedLockName { get; private set; } = default!;
+    protected string DistributedLockName { get; set; } = default!;
     public ILogger<OutboxSender> Logger { get; set; }
 
     protected CancellationTokenSource StoppingTokenSource { get; }

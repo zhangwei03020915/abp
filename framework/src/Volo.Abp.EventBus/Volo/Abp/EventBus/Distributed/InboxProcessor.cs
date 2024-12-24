@@ -28,7 +28,7 @@ public class InboxProcessor : IInboxProcessor, ITransientDependency
 
     protected DateTime? LastCleanTime { get; set; }
 
-    protected string DistributedLockName { get; private set; } = default!;
+    protected string DistributedLockName { get; set; } = default!;
     public ILogger<InboxProcessor> Logger { get; set; }
     protected CancellationTokenSource StoppingTokenSource { get; }
     protected CancellationToken StoppingToken { get; }
