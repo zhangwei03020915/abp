@@ -92,7 +92,7 @@ public class InboxProcessor : IInboxProcessor, ITransientDependency
 
                 while (true)
                 {
-                    var waitingEvents = await Inbox.GetWaitingEventsAsync(EventBusBoxesOptions.InboxWaitingEventMaxCount, StoppingToken);
+                    var waitingEvents = await Inbox.GetWaitingEventsAsync(EventBusBoxesOptions.InboxWaitingEventMaxCount, EventBusBoxesOptions.InboxProcessorFilter, StoppingToken);
                     if (waitingEvents.Count <= 0)
                     {
                         break;
