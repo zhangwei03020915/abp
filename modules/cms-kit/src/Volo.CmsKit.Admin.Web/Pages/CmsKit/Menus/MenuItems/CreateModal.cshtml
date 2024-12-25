@@ -66,6 +66,19 @@
             <abp-input asp-for="ViewModel.Target"/>
             <abp-input asp-for="ViewModel.ElementId"/>
             <abp-input asp-for="ViewModel.CssClass"/>
+            <div class="mb-3">
+                <label class="form-label" for="requiredPermissionName">@L["RequiredPermissionName"].Value</label>
+                <select id="requiredPermissionName" asp-for="ViewModel.RequiredPermissionName"
+                        class="auto-complete-select"
+                        data-autocomplete-api-url="/api/cms-kit-admin/menu-items/lookup/permissions"
+                        data-autocomplete-display-property="displayName"
+                        data-autocomplete-value-property="name"
+                        data-autocomplete-items-property="items"
+                        data-autocomplete-filter-param-name="filter"
+                        data-autocomplete-allow-clear="true"
+                        data-autocomplete-parent-selector="#menu-create-modal">
+                </select>
+            </div>
             
             @foreach (var propertyInfo in ObjectExtensionManager.Instance.GetProperties<CreateModalModel.MenuItemCreateViewModel>())
             {
