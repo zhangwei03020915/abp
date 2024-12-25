@@ -75,4 +75,33 @@ public async Task MigrateAsync()
 }
 ```
 
-The `BookstoreDbSchemaMigrator` class is used in the `MigrateDatabaseSchemaAsync` method for the database migration process. It is responsible for applying migrations to the database.  
+The `BookstoreDbSchemaMigrator` class is used in the `MigrateDatabaseSchemaAsync` method for the database migration process. It is responsible for applying migrations to the database.
+
+```csharp
+public class BookstoreDbSchemaMigrator : ITransientDependency
+{
+    private readonly IServiceProvider _serviceProvider;
+
+    public BookstoreDbSchemaMigrator(
+        IServiceProvider serviceProvider)
+    {
+        _serviceProvider = serviceProvider;
+    }
+
+    public async Task MigrateAsync()
+    {
+        
+        /* We intentionally resolving the BookstoreDbContext
+         * from IServiceProvider (instead of directly injecting it)
+         * to properly get the connection string of the current tenant in the
+         * current scope.
+         */
+
+        await _serviceProvider
+            .GetRequiredService<BookstoreDbContext>()
+            .Database
+            .MigrateAsync();
+
+    }
+}
+```
