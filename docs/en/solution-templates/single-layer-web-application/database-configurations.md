@@ -109,6 +109,33 @@ protected override void OnModelCreating(ModelBuilder builder)
 
 > The `Configure*` methods are extension methods defined in each module's `EntityFrameworkCore` project. These methods are used to configure the database schema for their respective modules.
 
+### Configuration
+
+In the `BookstoreModule` class, the `ConfigureEfCore` method is used to configure the database context. It registers the `BookstoreDbContext` class to the [dependency injection](../../framework/fundamentals/dependency-injection.md) system and sets the SQL Server as the default DBMS for the application.
+
+```csharp
+private void ConfigureEfCore(ServiceConfigurationContext context)
+{
+    context.Services.AddAbpDbContext<BookstoreDbContext>(options =>
+    {
+        /* You can remove "includeAllEntities: true" to create
+            * default repositories only for aggregate roots
+            * Documentatidon: https://docs.abp.io/en/abp/latest/Entity-Framework-Core#add-default-repositories
+            */
+        options.AddDefaultRepositories(includeAllEntities: true);
+    });
+
+    Configure<AbpDbContextOptions>(options =>
+    {
+        options.Configure(configurationContext =>
+        {
+            configurationContext.UseSqlServer();
+        });
+    });
+    
+}
+```
+
 ## The `IDesignTimeDbContextFactory` Implementation
 
 The `IDesignTimeDbContextFactory` interface is used to create a `DbContext` instance at design time. It is used by EF Core tools to create migrations and update the database. The `BookstoreDbContextFactory` class implements the `IDesignTimeDbContextFactory` interface to create a `BookstoreMigrationsDbContext` instance.
@@ -138,37 +165,26 @@ public class BookstoreDbContextFactory : IDesignTimeDbContextFactory<BookstoreDb
 }
 ```
 
-## Configuration
-
-In the `BookstoreModule` class, the `ConfigureEfCore` method is used to configure the database context. It registers the `BookstoreDbContext` class to the [dependency injection](../../framework/fundamentals/dependency-injection.md) system and sets the SQL Server as the default DBMS for the application.
-
-```csharp
-private void ConfigureEfCore(ServiceConfigurationContext context)
-{
-    context.Services.AddAbpDbContext<BookstoreDbContext>(options =>
-    {
-        /* You can remove "includeAllEntities: true" to create
-            * default repositories only for aggregate roots
-            * Documentation: https://docs.abp.io/en/abp/latest/Entity-Framework-Core#add-default-repositories
-            */
-        options.AddDefaultRepositories(includeAllEntities: true);
-    });
-
-    Configure<AbpDbContextOptions>(options =>
-    {
-        options.Configure(configurationContext =>
-        {
-            configurationContext.UseSqlServer();
-        });
-    });
-    
-}
-```
-
-### SaaS Module: The Tenant Management UI **\***
+## SaaS Module: The Tenant Management UI **\***
 
 SaaS module provides the necessary UI to set and change connection string for tenants and trigger the database migrations.
 
-#### The Connection String Management Modal
+### The Connection String Management Modal
 
 You can click to the *Database Connection Strings* command in the *Actions* dropdown button for a tenant in the *Tenants* page of the SaaS module:
+
+![Database Connection Strings](images/database-connection-strings.png)
+
+It opens the *Database Connection Strings* modal as shown below:
+
+![Database Connection Strings Modal](images/database-connection-strings-modal.png)
+
+Here, we can set a *Default connection string* for the tenant.
+
+When you make the changes and save the dialog, the database is automatically created and migrated. If you later update the connection string (for example if you change the database name), it will also trigger the database migration process again.
+
+### Manually Applying the Database Migrations
+
+If you need to manually trigger the database migrations for a specific tenant, click the *Actions* dropdown for the related tenant and select the *Apply Database Migrations* command on the *Tenant Management* page of the SaaS module:
+
+![Apply Database Migrations](images/apply-database-migrations.png)
