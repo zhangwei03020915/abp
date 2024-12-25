@@ -60,12 +60,6 @@
 
             <abp-input asp-for="ViewModel.ParentId"/>
             <abp-input asp-for="ViewModel.DisplayName"/>
-            <abp-input asp-for="ViewModel.IsActive"/>
-            <abp-input asp-for="ViewModel.Icon"/>
-            <abp-input asp-for="ViewModel.Order"/>
-            <abp-input asp-for="ViewModel.Target"/>
-            <abp-input asp-for="ViewModel.ElementId"/>
-            <abp-input asp-for="ViewModel.CssClass"/>
             <div class="mb-3">
                 <label class="form-label" for="requiredPermissionName">@L["RequiredPermissionName"].Value</label>
                 <select id="requiredPermissionName" asp-for="ViewModel.RequiredPermissionName"
@@ -79,6 +73,12 @@
                         data-autocomplete-parent-selector="#menu-create-modal">
                 </select>
             </div>
+            <abp-input asp-for="ViewModel.IsActive"/>
+            <abp-input asp-for="ViewModel.Icon"/>
+            <abp-input asp-for="ViewModel.Order"/>
+            <abp-input asp-for="ViewModel.Target"/>
+            <abp-input asp-for="ViewModel.ElementId"/>
+            <abp-input asp-for="ViewModel.CssClass"/>
             
             @foreach (var propertyInfo in ObjectExtensionManager.Instance.GetProperties<CreateModalModel.MenuItemCreateViewModel>())
             {
