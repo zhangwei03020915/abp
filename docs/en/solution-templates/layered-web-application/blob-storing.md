@@ -44,6 +44,8 @@ public class MyService : ITransientDependency
 }
 ```
 
+## File Management Module
+
 The *File Management* module is optional and can be added to the solution during the creation process. It provides a user interface to manage folders and files. You can learn more about the module in the [File Management *](../../modules/file-management.md) document.
 
 ![file-management](images/file-management-index-page.png)
