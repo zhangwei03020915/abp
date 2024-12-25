@@ -1,26 +1,26 @@
-# Layered Solution: Multi-Tenancy
+# Single Layer Solution: Multi-Tenancy
 
 ```json
 //[doc-nav]
 {
   "Previous": {
     "Name": "Swagger integration",
-    "Path": "solution-templates/layered-web-application/swagger-integration"
+    "Path": "solution-templates/single-layer-web-application/swagger-integration"
   },
   "Next": {
     "Name": "BLOB storing",
-    "Path": "solution-templates/layered-web-application/blob-storing"
+    "Path": "solution-templates/single-layer-web-application/blob-storing"
   }
 }
 ```
 
 > Some of the features mentioned in this document may not be available in the free version. We're using the **\*** symbol to indicate that a feature is available in the **[Team](https://abp.io/pricing)** and **[Higher](https://abp.io/pricing)** licenses.
 
-Multi-tenancy is a software architecture where a single instance(codebase) of software runs on a server and serves multiple tenants. Tenants are isolated from each other and can have their own data, configurations, and users. This document explains how the multi-tenancy mechanism works in the layered solution template. You can learn more about multi-tenancy in the [Multi-Tenancy](../../framework/architecture/multi-tenancy/index.md), [Tenant Management](../../modules/tenant-management.md) and [SaaS **\***](../../modules/saas.md) documents.
+Multi-tenancy is a software architecture where a single instance(codebase) of software runs on a server and serves multiple tenants. Tenants are isolated from each other and can have their own data, configurations, and users. This document explains how the multi-tenancy mechanism works in the single-layer solution template. You can learn more about multi-tenancy in the [Multi-Tenancy](../../framework/architecture/multi-tenancy/index.md), [Tenant Management](../../modules/tenant-management.md) and [SaaS **\***](../../modules/saas.md) documents.
 
-## Multi-Tenancy in Layered Solutions
+## Multi-Tenancy in Single Layer Solutions
 
-The layered solution templates use the *Multi-Tenancy* architecture only if you *Enable Multi-Tenancy **\**** option while creating the solution.
+The single-layer solution templates use the *Multi-Tenancy* architecture only if you *Enable Multi-Tenancy **\**** option while creating the solution.
 
 ![saas-module-selection](images/saas-module-selection.png)
 
