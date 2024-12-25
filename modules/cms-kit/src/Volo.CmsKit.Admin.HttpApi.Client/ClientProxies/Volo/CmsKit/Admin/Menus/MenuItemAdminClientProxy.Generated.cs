@@ -73,9 +73,9 @@ public partial class MenuItemAdminClientProxy : ClientProxyBase<IMenuItemAdminAp
         });
     }
 
-    public Task<ListResultDto<PermissionLookupDto>> GetPermissionLookupAsync(PermissionLookupInputDto inputDto)
+    public virtual async Task<ListResultDto<PermissionLookupDto>> GetPermissionLookupAsync(PermissionLookupInputDto inputDto)
     {
-        return RequestAsync<ListResultDto<PermissionLookupDto>>(nameof(GetPermissionLookupAsync), new ClientProxyRequestTypeValue
+        return await RequestAsync<ListResultDto<PermissionLookupDto>>(nameof(GetPermissionLookupAsync), new ClientProxyRequestTypeValue
         {
             { typeof(PermissionLookupInputDto), inputDto }
         });
