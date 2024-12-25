@@ -518,7 +518,7 @@ Now you can see the final result on your browser:
 
 ## Create a Books Page
 
-It's time to create something visible and usable! Right click on the `Pages` folder under the {{ if UI == "BlazorServer" }}`Acme.BookStore.Blazor`{{ else if UI == "Blazor" }}`Acme.BookStore.Blazor.Client`{{else}} `Acme.BookStore.MauiBlazor` {{ end }} project and add a new **razor component**, named `Books.razor`:
+It's time to create something visible and usable! Right click on the `Pages` folder under the {{ if UI == "BlazorServer" }}`Acme.BookStore.Blazor`{{ else if UI == "Blazor" || UI == "BlazorWebApp" }}`Acme.BookStore.Blazor.Client`{{else}} `Acme.BookStore.MauiBlazor` {{ end }} project and add a new **razor component**, named `Books.razor`:
 
 {{ if UI == "Blazor" || UI == "BlazorWebApp" }}
 ![blazor-add-books-component](images/blazor-add-books-component-client.png)
