@@ -176,13 +176,16 @@ public abstract class EmailSenderBase : IEmailSender
         }
     }
 
-    private static void ValidateEmailAddress(string emailAddress)
+    protected virtual Task ValidateEmailAddress(string emailAddress)
     {
-        if(ValidationHelper.IsValidEmailAddress(emailAddress))
+        try
         {
-            return;
+            _ = new MailAddressCollection { emailAddress };
+            return Task.CompletedTask;
         }
-
-        throw new ArgumentException($"Email address '{emailAddress}' is not valid!");
+        catch (Exception e)
+        {
+            throw new ArgumentException($"Email address '{emailAddress}' is not valid!");
+        }
     }
 }
