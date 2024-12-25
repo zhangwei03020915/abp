@@ -46,7 +46,7 @@ The following modules are pre-installed and configured for the solution:
 * **[Identity](../../modules/identity.md)** to manage roles and users
 * **[OpenIddict](../../modules/openiddict.md)** (the core part) to implement the OAuth authentication flows
 
-In addition these, [Feature Management](../../modules/feature-management.md), [Permission Management](../../modules/permission-management.md) and [Setting Management](../../modules/setting-management.md) modules are pre-installed as they are the fundamental feature modules of the ABP.
+In addition, [Feature Management](../../modules/feature-management.md), [Permission Management](../../modules/permission-management.md) and [Setting Management](../../modules/setting-management.md) modules are pre-installed as they are the fundamental feature modules of the ABP.
 
 ## Optional Modules
 
@@ -63,7 +63,7 @@ The following modules are optionally included in the solution, so you can select
 
 ## UI Theme
 
-The **[LeptonX Lite](../../ui-themes/lepton-x-lite/index.md) or [LeptonX theme](https://leptontheme.com/)** **\*** is pre-configured for the solution. You can select one of the color palettes (System, Light or Dark) as default, while the end-user dynamically change it on the fly.
+The **[LeptonX Lite](../../ui-themes/lepton-x-lite/index.md) or [LeptonX theme](https://leptontheme.com/)** **\*** is pre-configured for the solution. You can select one of the color palettes (System, Light, or Dark) as default, while the end-user dynamically change it on the fly.
 
 ## Other Options
 
@@ -73,14 +73,14 @@ Single-layer startup template asks for some preferences while creating your solu
 
 There are two database provider options are provided on a new solution creation:
 
-* **[Entity Framework Core](../../framework/data/entity-framework-core/index.md)** with SQL Server, MySQL and PostgreSQL DBMS options. You can [switch to anther DBMS](../../framework/data/entity-framework-core/other-dbms.md) manually after creating your solution.
+* **[Entity Framework Core](../../framework/data/entity-framework-core/index.md)** with SQL Server, MySQL and PostgreSQL DBMS options. You can [switch to another DBMS](../../framework/data/entity-framework-core/other-dbms.md) manually after creating your solution.
 * **[MongoDB](../../framework/data/mongodb/index.md)**
 
 ### UI Frameworks
 
 The solution comes with a main web application with the following UI Framework options:
 
-* **None** (doesn't include an UI application to the solution)
+* **None** (doesn't include a UI application to the solution)
 * **Angular**
 * **MVC / Razor Pages UI**
 * **Blazor WebAssembly**
