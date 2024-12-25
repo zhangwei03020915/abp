@@ -57,6 +57,8 @@
         },
         {
           "text": "TODO Application",
+          "isLazyExpandable": true,
+          "path": "tutorials/todo",
           "items": [
             {
               "text": "Overview",
@@ -75,6 +77,8 @@
         },
         {
           "text": "Book Store Application",
+          "isLazyExpandable": true,
+          "path": "tutorials/book-store",
           "items": [
             {
               "text": "Overview",
@@ -155,6 +159,8 @@
         },        
         {
           "text": "Modular Monolith Application",
+          "isLazyExpandable": true,
+          "path": "tutorials/modular-crm/index.md",
           "items": [
             {
               "text": "Overview",
@@ -1893,7 +1899,170 @@
         },
         {
           "text": "Microservice Solution",
-          "path": "solution-templates/microservice"
+          "isLazyExpandable": true,
+          "path": "solution-templates/microservice",
+          "items":[
+            {
+              "text": "Overview",
+              "path": "solution-templates/microservice"
+            },
+            {
+              "text": "Solution Structure",
+              "path": "solution-templates/microservice/solution-structure.md"
+            },
+            {
+              "text": "Main Components",
+              "items": [
+                {
+                  "text": "Overview",
+                  "path": "solution-templates/microservice/main-components"
+                },
+                {
+                  "text": "Microservices",
+                  "path": "solution-templates/microservice/microservices.md"
+                },
+                {
+                  "text": "API Gateways",
+                  "path": "solution-templates/microservice/api-gateways.md"
+                },
+                {
+                  "text": "Web Applications",
+                  "path": "solution-templates/microservice/web-applications.md" 
+                },
+                {
+                  "text": "Mobile Applications",
+                  "path": "solution-templates/microservice/mobile-applications.md"
+                }
+              ]
+            },
+            {
+              "text": "Built-In Features",
+              "items": [
+                {
+                  "text": "Overview",
+                  "path": "solution-templates/microservice/built-in-features.md"
+                },
+                {
+                  "text": "Authentication",
+                  "path": "solution-templates/microservice/authentication.md"
+                },
+                {
+                  "text": "Database configurations",
+                  "path": "solution-templates/microservice/database-configurations.md"
+                },
+                {
+                  "text": "Logging (with Serilog and Elasticsearch)",
+                  "path": "solution-templates/microservice/logging.md"
+                },
+                {
+                  "text": "Monitoring (with Prometheus and Grafana)",
+                  "path": "solution-templates/microservice/monitoring.md"
+                },
+                {
+                  "text": "Swagger integration",
+                  "path": "solution-templates/microservice/swagger.md"
+                },
+                {
+                  "text": "Permission management",
+                  "path": "solution-templates/microservice/permission-management.md"
+                },
+                {
+                  "text": "Feature management",
+                  "path": "solution-templates/microservice/feature-management.md"
+                },
+                {
+                  "text": "Localization system",
+                  "path": "solution-templates/microservice/localization-system.md"
+                },
+                {
+                  "text": "Background Jobs",
+                  "path": "solution-templates/microservice/background-jobs.md"
+                },
+                {
+                  "text": "Background Workers",
+                  "path": "solution-templates/microservice/background-workers.md"
+                },
+                {
+                  "text": "Distributed Locking",
+                  "path": "solution-templates/microservice/distributed-locking.md"
+                },
+                {
+                  "text": "Distributed Cache",
+                  "path": "solution-templates/microservice/distributed-cache.md"
+                },
+                {
+                  "text": "Multi-Tenancy",
+                  "path": "solution-templates/microservice/multi-tenancy.md"
+                },
+                {
+                  "text": "BLOB Storing",
+                  "path": "solution-templates/microservice/blob-storing.md"
+                },
+                {
+                  "text": "CORS configuration",
+                  "path": "solution-templates/microservice/cors-configuration.md"
+                }
+              ]
+            },
+            {
+              "text": "Communication",
+              "items":[
+                {
+                  "text": "Overview",
+                  "path": "solution-templates/microservice/communication.md"
+                },
+                {
+                  "text": "HTTP API Calls",
+                  "path": "solution-templates/microservice/http-api-calls.md"
+                },
+                {
+                  "text": "gRPC Calls",
+                  "path": "solution-templates/microservice/grpc-calls.md"
+                },
+                {
+                  "text": "Distributed Events",
+                  "path": "solution-templates/microservice/distributed-events.md"
+                }
+              ]
+            },
+            {
+              "text": "Helm Charts and Kubernetes",
+              "path": "solution-templates/microservice/helm-charts-and-kubernetes.md"
+            },
+            {
+              "text": "Guides",
+              "items": [
+                {
+                  "text": "Overview",
+                  "path": "solution-templates/microservice/guides.md"
+                },
+                {
+                  "text": "Adding new microservices",
+                  "path": "solution-templates/microservice/adding-new-microservices.md"
+                },
+                {
+                  "text": "Adding new applications",
+                  "path": "solution-templates/microservice/adding-new-applications.md"
+                },
+                {
+                  "text": "Adding new API gateways",
+                  "path": "solution-templates/microservice/adding-new-api-gateways.md"
+                },
+                {
+                  "text": "Mono-repo vs multiple repository approaches",
+                  "path": "solution-templates/microservice/mono-repo-vs-multiple-repository-approaches.md"
+                },
+                {
+                  "text": "Authoring unit and integration tests",
+                  "path": "solution-templates/microservice/authoring-unit-and-integration-tests.md"
+                },
+                {
+                  "text": "How to use with ABP Suite",
+                  "path": "solution-templates/microservice/how-to-use-with-abp-suite.md"
+                }
+              ]
+            }
+          ]
         },
         {
           "text": "Application Module",
@@ -1981,6 +2150,8 @@
         },
         {
           "text": "IdentityServer",
+          "isLazyExpandable": true,
+          "path": "modules/identity-server.md",
           "items": [
             {
               "text": "Overview",
@@ -2003,6 +2174,8 @@
         },
         {
           "text": "OpenIddict",
+          "isLazyExpandable": true,
+          "path": "modules/openiddict.md",
           "items": [
             {
               "text": "Overview",
