@@ -2,6 +2,19 @@
 
 This document contains **brief release notes** for each ABP Studio release. Release notes only include **major features** and **visible enhancements**. Therefore, they don't include all the development done in the related version. 
 
+## 0.9.18 (2024-12-24)
+
+* Fixed Blazor WebApp Kubernetes problems.
+* Added Visual Studio & Rider options to solution root.
+* Fixed problems in blazor-server nolayers template.
+
+## 0.9.17 (2024-12-17)
+
+* Added social login option to the "No Layers" Blazor WebAssembly template.
+* Fixed AutoMapper missing configuration exception problem during module import.
+* Fixed Blazor WebAssembly build issue for the MAUI template.
+* Fixed a problem that prevented ABP Studio from opening on macOS.
+
 ## 0.9.16 (2024-12-11)
 
 > This version does not work for macOS, we are currently working on that manner.

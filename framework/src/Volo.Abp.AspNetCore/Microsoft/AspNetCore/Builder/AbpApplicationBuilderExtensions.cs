@@ -177,13 +177,13 @@ public static class AbpApplicationBuilderExtensions
             throw new AbpException("The app(IApplicationBuilder) is not an IEndpointRouteBuilder.");
         }
 
-        app.UseVirtualStaticFiles();
-
         var options = app.ApplicationServices.GetRequiredService<IOptions<AbpAspNetCoreContentOptions>>().Value;
         foreach (var folder in options.AllowedExtraWebContentFolders)
         {
             app.UseVirtualStaticFiles(folder);
         }
+
+        app.UseVirtualStaticFiles();
 
         return endpoints.MapStaticAssets(staticAssetsManifestPath);
     }

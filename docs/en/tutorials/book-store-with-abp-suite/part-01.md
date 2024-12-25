@@ -1,12 +1,5 @@
-# Web Application Development (with ABP Suite) Tutorial - Part 1: Creating the Solution
+# Web Application Development Tutorial (with ABP Suite) - Part 1: Creating the Solution
 
-````json
-//[doc-params]
-{
-    "UI": ["MVC"],
-    "DB": ["EF"]
-}
-````
 ````json
 //[doc-nav]
 {
