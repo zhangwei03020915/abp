@@ -53,7 +53,7 @@ public class EfCoreOrganizationUnitRepository
     {
         return await (await GetDbSetAsync())
             .IncludeDetails(includeDetails)
-            .OrderBy(sorting.IsNullOrEmpty() ? nameof(OrganizationUnit.DisplayName) : sorting)
+            .OrderBy(sorting.IsNullOrEmpty() ? nameof(OrganizationUnit.CreationTime) + " desc" : sorting)
             .PageBy(skipCount, maxResultCount)
             .ToListAsync(GetCancellationToken(cancellationToken));
     }
