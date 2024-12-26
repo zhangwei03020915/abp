@@ -103,10 +103,9 @@ using Volo.Abp.AspNetCore.RazorViews;
         <h1>&#9888;&#65039; The Libs folder is missing!</h1>
     </header>
     <main>
-        <h2>The Libs Folder is Missing!</h2>
         <p>The Libs folder contains mandatory NPM Packages for running the project.</p>
-        <");
-            WriteLiteral(@"p>Make sure you run the <code>abp install-libs</code> CLI tool command.</p>
+        <p>Make sure you run the <code>abp install-lib");
+            WriteLiteral(@"s</code> CLI tool command.</p>
         <p>
             If your application does not use any client-side libraries, you can disable this check by setting
             <code>AbpMvcLibsOptions.CheckLibs</code> to <code>false</code>, as shown below:
