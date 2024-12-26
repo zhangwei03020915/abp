@@ -81,8 +81,6 @@ public class MyModuleBundleStyleBundleContributor : BundleContributor
 
 Convert your `MyCompanyName.MyProjectName.Blazor` project to integrate the `ABP module` system and depend on the `AbpAspNetCoreMvcUiBundlingModule` and `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule/AbpAspNetCoreComponentsWebAssemblyLeptonXThemeBundlingModule`:
 
-> If the `BlazorWebAssembly modules` in `MyCompanyName.MyProjectName.Blazor.Client` contain `BundleContributor`, Please also add the `BlazorWebAssemblyBundlingModule` of the module to the `MyCompanyName.MyProjectName.Blazor` project.
-
 * The `AbpAspNetCoreMvcUiBundlingModule` uses to create the `JavaScript/CSS` files to virtual files.
 * The `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule/AbpAspNetCoreComponentsWebAssemblyLeptonXThemeBundlingModule` uses to add theme `JavaScript/CSS` to the bundling system.
 
@@ -224,13 +222,24 @@ Configure<AbpBundlingOptions>(options =>
 });
 ```
 
+#### If the `BlazorWebAssembly modules` in `MyCompanyName.MyProjectName.Blazor.Client` contain `BundleContributor`, Please also add the `BlazorWebAssemblyBundlingModule` of the module to the `MyCompanyName.MyProjectName.Blazor` project.
+
+Here is the `Bundling Modules` list in the ABP commercial modules.
+
+| BundlingModules                             | Nuget Package                                        |
+|---------------------------------------------|-----------------------------------------------------|
+| AbpAuditLoggingBlazorWebAssemblyBundlingModule | Volo.Abp.AuditLogging.Blazor.WebAssembly.Bundling   |
+| FileManagementBlazorWebAssemblyBundlingModule | Volo.FileManagement.Blazor.WebAssembly.Bundling    |
+| SaasHostBlazorWebAssemblyBundlingModule       | Volo.Saas.Host.Blazor.WebAssembly.Bundling         |
+| ChatBlazorWebAssemblyBundlingModule           | Volo.Chat.Blazor.WebAssembly.Bundling              |
+| CmsKitProAdminBlazorWebAssemblyBundlingModule | Volo.CmsKit.Pro.Admin.Blazor.WebAssembly.Bundling  |
+
+
 ## Use the Global Assets in the Blazor WebApp
 
 ### MyCompanyName.MyProjectName.Blazor.WebApp
 
 Depending on the `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule/AbpAspNetCoreComponentsWebAssemblyLeptonXThemeBundlingModule` in your `MyCompanyName.MyProjectName.Blazor.WebApp` project.
-
-> If the `BlazorWebAssembly modules` in `MyCompanyName.MyProjectName.Blazor.WebApp.Client` contain `BundleContributor`, Please also add the `BlazorWebAssemblyBundlingModule` of the module to the `MyCompanyName.MyProjectName.Blazor.WebApp` project.
 
 * The `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule/AbpAspNetCoreComponentsWebAssemblyLeptonXThemeBundlingModule` uses to add theme `JavaScript/CSS` to the bundling system.
 
@@ -277,6 +286,19 @@ Configure<AbpBundlingOptions>(options =>
 	});
 });
 ```
+
+#### If the `BlazorWebAssembly modules` in `MyCompanyName.MyProjectName.Blazor.WebApp.Client` contain `BundleContributor`, Please also add the `BlazorWebAssemblyBundlingModule` of the module to the `MyCompanyName.MyProjectName.Blazor.WebApp` project.
+
+Here is the `Bundling Modules` list in the ABP commercial modules.
+
+| BundlingModules                             | Nuget Package                                        |
+|---------------------------------------------|-----------------------------------------------------|
+| AbpAuditLoggingBlazorWebAssemblyBundlingModule | Volo.Abp.AuditLogging.Blazor.WebAssembly.Bundling   |
+| FileManagementBlazorWebAssemblyBundlingModule | Volo.FileManagement.Blazor.WebAssembly.Bundling    |
+| SaasHostBlazorWebAssemblyBundlingModule       | Volo.Saas.Host.Blazor.WebAssembly.Bundling         |
+| ChatBlazorWebAssemblyBundlingModule           | Volo.Chat.Blazor.WebAssembly.Bundling              |
+| CmsKitProAdminBlazorWebAssemblyBundlingModule | Volo.CmsKit.Pro.Admin.Blazor.WebAssembly.Bundling  |
+
 
 ### Check the Global Assets
 
