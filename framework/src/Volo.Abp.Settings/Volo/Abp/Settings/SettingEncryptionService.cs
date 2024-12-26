@@ -38,9 +38,15 @@ public class SettingEncryptionService : ISettingEncryptionService, ITransientDep
         {
             return StringEncryptionService.Decrypt(encryptedValue);
         }
+        catch (FormatException) 
+        {
+            // not an encrypted value, return the original value
+            return encryptedValue;
+        }
         catch (Exception e)
         {
             Logger.LogException(e);
+            
             return string.Empty;
         }
     }
