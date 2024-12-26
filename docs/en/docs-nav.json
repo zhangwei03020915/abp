@@ -112,23 +112,6 @@
             {
               "text": "10: Book to Author Relation",
               "path": "tutorials/book-store/part-10.md"
-            },
-            {
-              "text": "Mobile Application Development",
-              "items": [
-                  {
-                    "text": "Overview",
-                    "path": "tutorials/mobile/index.md"
-                  },
-                  {
-                    "text": "MAUI",
-                    "path": "tutorials/mobile/maui/index.md"
-                  },
-                  {
-                    "text": "React Native",
-                    "path": "tutorials/mobile/react-native/index.md"
-                  }
-              ]
             }
           ]
         },
@@ -170,6 +153,23 @@
             {
               "text": "8: Integrating the Modules: Joining the Products and Orders Data",
               "path": "tutorials/modular-crm/part-08.md"
+            }
+          ]
+        },
+        {
+          "text": "Mobile Application Development",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "tutorials/mobile/index.md"
+            },
+            {
+              "text": "MAUI",
+              "path": "tutorials/mobile/maui/index.md"
+            },
+            {
+              "text": "React Native",
+              "path": "tutorials/mobile/react-native/index.md"
             }
           ]
         },
