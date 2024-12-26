@@ -75,16 +75,16 @@ public class MyModuleBundleStyleBundleContributor : BundleContributor
 }
 ```
 
-## Use the Global Assets in the Blazor wasm app
+## Use the Global Assets in the Blazor WASM
 
-### MyProject
+### MyCompanyName.MyProjectName.Blazor
 
-Convert your `MyProject` project to integrate the `ABP module` system and depend on the `AbpAspNetCoreMvcUiBundlingModule` and `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule`:
+Convert your `MyCompanyName.MyProjectName.Blazor` project to integrate the `ABP module` system and depend on the `AbpAspNetCoreMvcUiBundlingModule` and `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule/AbpAspNetCoreComponentsWebAssemblyLeptonXThemeBundlingModule`:
 
-> If the `BlazorWebAssembly modules` in `MyProject.Client` contain `BundleContributor`, Please also add the `BlazorWebAssemblyBundlingModule` of the module to the `MyProject` project.
+> If the `BlazorWebAssembly modules` in `MyCompanyName.MyProjectName.Blazor.Client` contain `BundleContributor`, Please also add the `BlazorWebAssemblyBundlingModule` of the module to the `MyCompanyName.MyProjectName.Blazor` project.
 
 * The `AbpAspNetCoreMvcUiBundlingModule` uses to create the `JavaScript/CSS` files to virtual files.
-* The `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule` uses to add theme `JavaScript/CSS` to the bundling system.
+* The `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule/AbpAspNetCoreComponentsWebAssemblyLeptonXThemeBundlingModule` uses to add theme `JavaScript/CSS` to the bundling system.
 
 Here is how your project files look like:
 
@@ -107,7 +107,7 @@ public class Program
         await app.RunAsync();
         return 0;
 
-		//...
+	//...
 	}
 }
 ```
@@ -118,7 +118,7 @@ public class Program
 [DependsOn(
     typeof(AbpAutofacModule),
     typeof(AbpAspNetCoreMvcUiBundlingModule),
-    typeof(AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule) //Should be added!
+    typeof(AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule/AbpAspNetCoreComponentsWebAssemblyLeptonXThemeBundlingModule) //Should be added!
 )]
 public class MyProjectNameBlazorModule : AbpModule
 {
@@ -166,7 +166,7 @@ public class MyProjectNameBlazorModule : AbpModule
 }
 ```
 
-**`MyProjectName.csproj`:**
+**`MyCompanyName.MyProjectName.Blazor.csproj`:**
 
 ```xml
 <ItemGroup>
@@ -174,15 +174,109 @@ public class MyProjectNameBlazorModule : AbpModule
 	<PackageReference Include="Volo.Abp.Autofac" Version="9.0.0" />
 	<PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Bundling" Version="9.0.0" />
 	<PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXLiteTheme.Bundling" Version="9.0.0" />
+	<!-- <PackageReference Include="Volo.Abp.AspNetCore.Components.WebAssembly.LeptonXTheme.Bundling" Version="9.0.0" />  --> if you're using LeptonXTheme
 	<ProjectReference Include="..\MyProjectName.Blazor.Client\MyProjectName.Blazor.Client.csproj" />
 </ItemGroup>
 ```
 
-### MyProjectName.Client
+### MyCompanyName.MyProjectName.Blazor.Client
 
-1. Remove the `global.JavaScript/CSS` files from the `MyProjectName.Client`'s `wwwroot` folder.
-2. Refactor all BundleContributor classes that inherit from `IBundleContributor` to inherit from `BundleContributor` instead.
-3. Remove the `AbpCli:Bundle` section from the `appsettings.json` file.
+1. Remove the `global.JavaScript/CSS` files from the `MyCompanyName.MyProjectName.Blazor`'s `wwwroot` folder.
+2. Remove the `AbpCli:Bundle` section from the `appsettings.json` file.
+3. Remove all BundleContributor classes that inherit from IBundleContributor. Then, create `MyProjectNameStyleBundleContributor` and `MyProjectNameScriptBundleContributor` classes to add your style and JavaScript files. Finally, add them to `AbpBundlingOptions`.
+
+
+```cs
+public class MyProjectNameStyleBundleContributor : BundleContributor
+{
+    public override void ConfigureBundle(BundleConfigurationContext context)
+    {
+        context.Files.Add(new BundleFile("main.css", true));
+    }
+}
+
+
+public class MyProjectNameScriptBundleContributor : BundleContributor
+{
+    public override void ConfigureBundle(BundleConfigurationContext context)
+    {
+        context.Files.Add(new BundleFile("main.js", true));
+    }
+}
+```
+
+```cs
+Configure<AbpBundlingOptions>(options =>
+{
+    options
+	.StyleBundles
+	.Add(BlazorStandardBundles.Styles.Global, bundle =>
+	{
+	    bundle.AddContributors(typeof(MyProjectNameStyleBundleContributor));
+	});
+
+    options
+	.ScriptBundles
+	.Add(BlazorStandardBundles.Scripts.Global, bundle =>
+	{
+	    bundle.AddContributors(typeof(MyProjectNameScriptBundleContributor));
+	});
+});
+```
+
+## Use the Global Assets in the Blazor WebApp
+
+### MyCompanyName.MyProjectName.Blazor.WebApp
+
+Depending on the `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule/AbpAspNetCoreComponentsWebAssemblyLeptonXThemeBundlingModule` in your `MyCompanyName.MyProjectName.Blazor.WebApp` project.
+
+> If the `BlazorWebAssembly modules` in `MyCompanyName.MyProjectName.Blazor.WebApp.Client` contain `BundleContributor`, Please also add the `BlazorWebAssemblyBundlingModule` of the module to the `MyCompanyName.MyProjectName.Blazor.WebApp` project.
+
+* The `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModule/AbpAspNetCoreComponentsWebAssemblyLeptonXThemeBundlingModule` uses to add theme `JavaScript/CSS` to the bundling system.
+
+### MyCompanyName.MyProjectName.Blazor.WebApp.Client
+
+1. Remove the `global.JavaScript/CSS` files from the `MyCompanyName.MyProjectName.Blazor.WebApp.Client`'s `wwwroot` folder.
+2. Remove the `AbpCli:Bundle` section from the `appsettings.json` file.
+3. Remove all BundleContributor classes that inherit from IBundleContributor. Then, create `MyProjectNameStyleBundleContributor` and `MyProjectNameScriptBundleContributor` classes to add your style and JavaScript files. Finally, add them to `AbpBundlingOptions`.
+
+```cs
+public class MyProjectNameStyleBundleContributor : BundleContributor
+{
+    public override void ConfigureBundle(BundleConfigurationContext context)
+    {
+        context.Files.Add(new BundleFile("main.css", true));
+    }
+}
+
+
+public class MyProjectNameScriptBundleContributor : BundleContributor
+{
+    public override void ConfigureBundle(BundleConfigurationContext context)
+    {
+        context.Files.Add(new BundleFile("main.js", true));
+    }
+}
+```
+
+```cs
+Configure<AbpBundlingOptions>(options =>
+{
+    options
+	.StyleBundles
+	.Add(BlazorStandardBundles.Styles.Global, bundle =>
+	{
+	    bundle.AddContributors(typeof(MyProjectNameStyleBundleContributor));
+	});
+
+    options
+	.ScriptBundles
+	.Add(BlazorStandardBundles.Scripts.Global, bundle =>
+	{
+	    bundle.AddContributors(typeof(MyProjectNameScriptBundleContributor));
+	});
+});
+```
 
 ### Check the Global Assets
 
