@@ -12,15 +12,16 @@ public class AbpSettingOptions
     public HashSet<string> DeletedSettings { get; }
 
     /// <summary>
-    /// If set to true, returns the original value if the decryption fails. Otherwise, returns empty.
+    /// Default: true.
+    /// This is useful when you change <see cref="SettingDefinition.IsEncrypted"/> of an existing setting definition to true and don't want to lose the original value.
     /// </summary>
-    public bool ReturnOrginalValueIfDecryptFailed { get; set; }
+    public bool ReturnOriginalValueIfDecryptFailed { get; set; }
 
     public AbpSettingOptions()
     {
         DefinitionProviders = new TypeList<ISettingDefinitionProvider>();
         ValueProviders = new TypeList<ISettingValueProvider>();
         DeletedSettings = new HashSet<string>();
-        ReturnOrginalValueIfDecryptFailed = true;
+        ReturnOriginalValueIfDecryptFailed = true;
     }
 }

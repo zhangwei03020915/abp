@@ -43,7 +43,7 @@ public class SettingEncryptionService : ISettingEncryptionService, ITransientDep
         }
         catch (Exception e)
         {
-            if (Options.Value.ReturnOrginalValueIfDecryptFailed)
+            if (Options.Value.ReturnOriginalValueIfDecryptFailed)
             {
                 Logger.LogWarning(e, "Failed to decrypt the setting: {0}. Returning the original value...", settingDefinition.Name);
                 return encryptedValue;
