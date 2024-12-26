@@ -11,6 +11,9 @@ public class AbpSettingOptions
 
     public HashSet<string> DeletedSettings { get; }
 
+    /// <summary>
+    /// If set to true, returns the original value if the decryption fails. Otherwise, returns null.
+    /// </summary>
     public bool ReturnOrginalValueIfDecryptFailed { get; set; }
 
     public AbpSettingOptions()
