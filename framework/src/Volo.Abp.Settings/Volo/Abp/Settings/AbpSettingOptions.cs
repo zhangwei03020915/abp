@@ -11,10 +11,13 @@ public class AbpSettingOptions
 
     public HashSet<string> DeletedSettings { get; }
 
+    public bool ReturnOrginalValueIfDecryptFailed { get; set; }
+
     public AbpSettingOptions()
     {
         DefinitionProviders = new TypeList<ISettingDefinitionProvider>();
         ValueProviders = new TypeList<ISettingValueProvider>();
         DeletedSettings = new HashSet<string>();
+        ReturnOrginalValueIfDecryptFailed = true;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Security.Encryption;
 
@@ -10,10 +11,12 @@ public class SettingEncryptionService : ISettingEncryptionService, ITransientDep
 {
     protected IStringEncryptionService StringEncryptionService { get; }
     public ILogger<SettingEncryptionService> Logger { get; set; }
+    protected IOptions<AbpSettingOptions> Options { get; }
 
-    public SettingEncryptionService(IStringEncryptionService stringEncryptionService)
+    public SettingEncryptionService(IStringEncryptionService stringEncryptionService, IOptions<AbpSettingOptions> options)
     {
         StringEncryptionService = stringEncryptionService;
+        Options = options;
         Logger = NullLogger<SettingEncryptionService>.Instance;
     }
 
@@ -38,13 +41,14 @@ public class SettingEncryptionService : ISettingEncryptionService, ITransientDep
         {
             return StringEncryptionService.Decrypt(encryptedValue);
         }
-        catch (FormatException) 
-        {
-            // not an encrypted value, return the original value
-            return encryptedValue;
-        }
         catch (Exception e)
         {
+            if (Options.Value.ReturnOrginalValueIfDecryptFailed)
+            {
+                Logger.LogWarning(e, "Failed to decrypt the setting: {0}. Returning the original value...", settingDefinition.Name);
+                return encryptedValue;
+            }
+            
             Logger.LogException(e);
             
             return string.Empty;
