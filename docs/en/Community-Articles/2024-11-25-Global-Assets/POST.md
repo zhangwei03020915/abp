@@ -179,7 +179,7 @@ public class MyProjectNameBlazorModule : AbpModule
 
 ### BlazorWebAssemblyBundlingModule in the ABP commercial
 
-Here is the `Bundling Modules` list in the ABP commercial. You should add them to `MyCompanyName.MyProjectName.Blazor` project.
+Here is the list of `Bundling Modules` in the ABP commercial. If you're using the pro template, you should add them to the `MyCompanyName.MyProjectName.Blazor` project.
 
 | BundlingModules                             | Nuget Package                                        |
 |---------------------------------------------|-----------------------------------------------------|
@@ -246,7 +246,7 @@ Depending on the `AbpAspNetCoreComponentsWebAssemblyLeptonXLiteThemeBundlingModu
 
 ### BlazorWebAssemblyBundlingModule in the ABP commercial
 
-Here is the `Bundling Modules` list in the ABP commercial. You should add them to `MyCompanyName.MyProjectName.Blazor.WebApp` project.
+Here is the list of `Bundling Modules` in the ABP commercial. If you're using the pro template, you should add them to the `MyCompanyName.MyProjectName.Blazor.WebApp` project.
 
 | BundlingModules                             | Nuget Package                                        |
 |---------------------------------------------|-----------------------------------------------------|
