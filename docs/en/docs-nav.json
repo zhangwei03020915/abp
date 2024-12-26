@@ -157,6 +157,23 @@
           ]
         },
         {
+          "text": "Mobile Application Development",
+          "items": [
+            {
+              "text": "Overview",
+              "path": "tutorials/mobile/index.md"
+            },
+            {
+              "text": "MAUI",
+              "path": "tutorials/mobile/maui/index.md"
+            },
+            {
+              "text": "React Native",
+              "path": "tutorials/mobile/react-native/index.md"
+            }
+          ]
+        },
+        {
           "text": "Community Articles",
           "path": "https://abp.io/community"
         }
