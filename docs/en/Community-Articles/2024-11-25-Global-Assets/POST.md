@@ -219,19 +219,11 @@ public class MyProjectNameScriptBundleContributor : BundleContributor
 ```cs
 Configure<AbpBundlingOptions>(options =>
 {
-    options
-	.StyleBundles
-	.Add(BlazorStandardBundles.Styles.Global, bundle =>
-	{
-	    bundle.AddContributors(typeof(MyProjectNameStyleBundleContributor));
-	});
-
-    options
-	.ScriptBundles
-	.Add(BlazorStandardBundles.Scripts.Global, bundle =>
-	{
-	    bundle.AddContributors(typeof(MyProjectNameScriptBundleContributor));
-	});
+	var globalStyles = options.StyleBundles.Get(BlazorWebAssemblyStandardBundles.Styles.Global);
+	globalStyles.AddContributors(typeof(MyProjectNameStyleBundleContributor));
+	
+	var globalScripts = options.ScriptBundles.Get(BlazorWebAssemblyStandardBundles.Scripts.Global);
+	globalScripts.AddContributors(typeof(MyProjectNameScriptBundleContributor));
 });
 ```
 
@@ -285,19 +277,11 @@ public class MyProjectNameScriptBundleContributor : BundleContributor
 ```cs
 Configure<AbpBundlingOptions>(options =>
 {
-    options
-	.StyleBundles
-	.Add(BlazorStandardBundles.Styles.Global, bundle =>
-	{
-	    bundle.AddContributors(typeof(MyProjectNameStyleBundleContributor));
-	});
-
-    options
-	.ScriptBundles
-	.Add(BlazorStandardBundles.Scripts.Global, bundle =>
-	{
-	    bundle.AddContributors(typeof(MyProjectNameScriptBundleContributor));
-	});
+	var globalStyles = options.StyleBundles.Get(BlazorWebAssemblyStandardBundles.Styles.Global);
+	globalStyles.AddContributors(typeof(MyProjectNameStyleBundleContributor));
+	
+	var globalScripts = options.ScriptBundles.Get(BlazorWebAssemblyStandardBundles.Scripts.Global);
+	globalScripts.AddContributors(typeof(MyProjectNameScriptBundleContributor));
 });
 ```
 
