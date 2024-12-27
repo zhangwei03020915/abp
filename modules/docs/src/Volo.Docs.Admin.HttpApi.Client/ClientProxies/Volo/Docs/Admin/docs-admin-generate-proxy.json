@@ -125,6 +125,14 @@
                     "type": "System.Collections.Generic.List<Volo.Docs.Admin.Documents.DocumentInfoDto>",
                     "typeSimple": "[Volo.Docs.Admin.Documents.DocumentInfoDto]"
                   }
+                },
+                {
+                  "name": "GetProjectsAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "System.Collections.Generic.List<Volo.Docs.Admin.Projects.ProjectWithoutDetailsDto>",
+                    "typeSimple": "[Volo.Docs.Admin.Projects.ProjectWithoutDetailsDto]"
+                  }
                 }
               ]
             }
@@ -555,6 +563,21 @@
               "returnValue": {
                 "type": "System.Collections.Generic.List<Volo.Docs.Admin.Documents.DocumentInfoDto>",
                 "typeSimple": "[Volo.Docs.Admin.Documents.DocumentInfoDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Docs.Admin.Documents.IDocumentAdminAppService"
+            },
+            "GetProjectsAsync": {
+              "uniqueName": "GetProjectsAsync",
+              "name": "GetProjectsAsync",
+              "httpMethod": "GET",
+              "url": "api/docs/admin/documents/GetProjects",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Volo.Docs.Admin.Projects.ProjectWithoutDetailsDto>",
+                "typeSimple": "[Volo.Docs.Admin.Projects.ProjectWithoutDetailsDto]"
               },
               "allowAnonymous": null,
               "implementFrom": "Volo.Docs.Admin.Documents.IDocumentAdminAppService"
