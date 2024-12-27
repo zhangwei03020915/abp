@@ -55,6 +55,7 @@ public partial class PermissionManagementModal
 
             _grantedPermissionCount = 0;
             _notGrantedPermissionCount = 0;
+            _permissionGroupSearchText = null;
 
             foreach (var permission in _groups.SelectMany(x => x.Permissions))
             {
