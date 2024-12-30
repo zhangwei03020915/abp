@@ -372,30 +372,14 @@ export class PermissionManagementComponent
 
   onClickSelectAll() {
     if (this.filter()) {
-      this.permissionGroups().forEach(group => {
-        group.permissions.forEach(permission => {
-          if (
-            permission.isGranted &&
-            this.isGrantedByOtherProviderName(permission.grantedProviders)
-          )
-            return;
+      this.filter.set('');
+    } 
 
-          const index = this.permissions.findIndex(per => per.name === permission.name);
-
-          this.permissions = [
-            ...this.permissions.slice(0, index),
-            { ...this.permissions[index], isGranted: !this.selectAllTab },
-            ...this.permissions.slice(index + 1),
-          ];
-        });
-      });
-    } else {
-      this.permissions = this.permissions.map(permission => ({
-        ...permission,
-        isGranted:
-          this.isGrantedByOtherProviderName(permission.grantedProviders) || !this.selectAllTab,
-      }));
-    }
+    this.permissions = this.permissions.map(permission => ({
+      ...permission,
+      isGranted:
+        this.isGrantedByOtherProviderName(permission.grantedProviders) || !this.selectAllTab,
+    }));
 
     if (!this.disableSelectAllTab) {
       this.selectThisTab = !this.selectAllTab;
