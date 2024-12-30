@@ -129,6 +129,8 @@
         },
         {
           "text": "Book Store Application (with ABP Suite)",
+          "isLazyExpandable": true,
+          "path": "tutorials/book-store-with-abp-suite/index.md",
           "items": [
             {
               "text": "Overview",
@@ -203,6 +205,8 @@
         },
         {
           "text": "Microservice Solution",
+          "isLazyExpandable": true,
+          "path": "tutorials/microservice/index.md",
           "items": [
             {
               "text": "Overview",
@@ -241,6 +245,8 @@
         },
         {
           "text": "Mobile Application Development",
+          "isLazyExpandable": true,
+          "path": "tutorials/mobile/index.md",
           "items": [
             {
               "text": "Overview",
