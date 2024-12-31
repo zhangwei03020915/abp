@@ -680,6 +680,9 @@
     "AdditionalDeveloperUpgradePrice": "Additional Developer Upgrade Price",
     "EditLicense{0}": "Edit {0} License",
     "CampaignNameAlreadyExists": "Campaign name already exists",
-    "DiscountRate": "Discount Rate"
+    "DiscountRate": "Discount Rate",
+    "Menu:RedisManagement": "Redis Management",
+    "RedisManagement": "Redis Management",
+    "Permission:RedisManagement": "Redis Management"
   }
 }

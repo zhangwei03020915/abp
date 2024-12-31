@@ -364,6 +364,11 @@ var doc = doc || {};
         
         var initLazyExpandNavigation = function(){
             $("li .lazy-expand").off('click');
+            $("li .lazy-expand a").on('click', function(e){
+                if($(this).attr("href") !== "javascript:;"){
+                    e.stopPropagation();
+                }
+            });
             $("li .lazy-expand").on('click', function(){
                 var $this = $(this);
                 if($this.has("ul").length > 0){
