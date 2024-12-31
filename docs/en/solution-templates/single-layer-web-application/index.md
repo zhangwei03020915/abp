@@ -30,6 +30,7 @@ ABP Studio offers pre-architected, production-ready templates to quickly start a
   * [Swagger integration](swagger-integration.md)
   * [Bacground Jobs](background-jobs.md)
   * [Background Workers](background-workers.md)
+  * [Distributed Locking](distributed-locking.md)
   * [Multi-Tenancy](multi-tenancy.md)
   * [BLOB storing](blob-storing.md)
   * [CORS configuration](cors-configuration.md)
