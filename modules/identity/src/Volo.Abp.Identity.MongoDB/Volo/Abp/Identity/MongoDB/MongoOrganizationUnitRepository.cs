@@ -71,7 +71,7 @@ public class MongoOrganizationUnitRepository
         CancellationToken cancellationToken = default)
     {
         return await (await GetMongoQueryableAsync(cancellationToken))
-                .OrderBy(sorting.IsNullOrEmpty() ? nameof(OrganizationUnit.DisplayName) : sorting)
+                .OrderBy(sorting.IsNullOrEmpty() ? nameof(OrganizationUnit.CreationTime) + " desc" : sorting)
                 .As<IMongoQueryable<OrganizationUnit>>()
                 .PageBy<OrganizationUnit, IMongoQueryable<OrganizationUnit>>(skipCount, maxResultCount)
                 .ToListAsync(GetCancellationToken(cancellationToken));

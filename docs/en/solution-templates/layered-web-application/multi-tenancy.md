@@ -24,7 +24,7 @@ The layered solution templates use the *Multi-Tenancy* architecture only if you 
 
 ![saas-module-selection](images/saas-module-selection.png)
 
-You can use different databases for each tenant or a shared database for all tenants. In the *SaaS **\*** module, you can specify the database connection strings in the [Connection Strings Management Modal](../../modules/saas.md#connection-string). All cached data is isolated by tenant. Each event, background job, and other data is stored with the tenant id.
+You can use different databases for each tenant or a shared database for some tenants. In the *SaaS **\*** module, you can specify the database connection strings in the [Connection Strings Management Modal](../../modules/saas.md#connection-string). All cached data is isolated by tenant. Each event, background job, and other data is stored with the tenant id.
 
 You can use the `ICurrentTenant` service to get the current tenant information in your application.
 
