@@ -4,8 +4,8 @@
 //[doc-nav]
 {
   "Previous": {
-    "Name": "Swagger integration",
-    "Path": "solution-templates/layered-web-application/swagger-integration"
+    "Name": "Background Workers",
+    "Path": "solution-templates/layered-web-application/background-workers"
   },
   "Next": {
     "Name": "BLOB storing",

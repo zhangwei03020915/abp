@@ -1,22 +1,22 @@
-# Single Layer Solution: Background Workers
+# Layered Solution: Background Workers
 
 ```json
 //[doc-nav]
 {
   "Previous": {
     "Name": "Background Jobs",
-    "Path": "solution-templates/single-layer-web-application/background-jobs"
+    "Path": "solution-templates/layered-web-application/background-jobs"
   },
   "Next": {
     "Name": "Multi-Tenancy",
-    "Path": "solution-templates/single-layer-web-application/multi-tenancy"
+    "Path": "solution-templates/layered-web-application/multi-tenancy"
   }
 }
 ```
 
-Background workers are long-running processes that run in the background of your application. They are useful for tasks that are not time-sensitive, such as processing data, sending notifications, or monitoring system health. Background workers are typically started when the application starts and run continuously until the application stops. You can learn more about background workers in the [Background Workers](../../framework/infrastructure/background-workers/index.md) document.
+Background workers are long-running processes that operate in the background of your application. They are ideal for non-time-sensitive tasks, such as processing data, sending notifications, or monitoring system health. Typically, background workers start when the application launches and run continuously until the application stops. For more information, refer to the [Background Workers](../../framework/infrastructure/background-workers/index.md) document.
 
-Basically, you can create scheduled workers for a specific time interval based on your requirements, such as checking the status of inactive users and changing their status to passive if they have not logged in to the application in the last 30 days.
+Basically, you can create scheduled workers to run at specific time intervals based on your requirements. For example, you might create a worker to check the status of inactive users and change their status to passive if they haven't logged in to the application in the last 30 days.
 
 ```csharp
 public class PassiveUserCheckerWorker : AsyncPeriodicBackgroundWorkerBase
@@ -48,10 +48,10 @@ public class PassiveUserCheckerWorker : AsyncPeriodicBackgroundWorkerBase
 }
 ```
 
-After creating a worker, we should also register it in the application. You can register your worker in the `OnApplicationInitializationAsync` method of your module class.
+After creating a worker, we should also register it in the application. We might add it in the *Domain* or *Application* layer. You can register your worker in the `OnApplicationInitializationAsync` method of your module class.
 
 ```csharp
-public class BookstoreModule : AbpModule
+public class BookstoreApplicationModule : AbpModule
 {
     public override async Task OnApplicationInitializationAsync(ApplicationInitializationContext context)
     {
