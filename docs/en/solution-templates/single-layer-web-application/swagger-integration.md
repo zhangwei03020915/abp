@@ -8,8 +8,8 @@
     "Path": "solution-templates/single-layer-web-application/logging"
   },
   "Next": {
-    "Name": "Multi-Tenancy",
-    "Path": "solution-templates/single-layer-web-application/multi-tenancy"
+    "Name": "Background Jobs",
+    "Path": "solution-templates/single-layer-web-application/background-jobs"
   }
 }
 ```

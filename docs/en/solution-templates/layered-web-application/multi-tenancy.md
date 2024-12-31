@@ -4,8 +4,8 @@
 //[doc-nav]
 {
   "Previous": {
-    "Name": "Swagger integration",
-    "Path": "solution-templates/layered-web-application/swagger-integration"
+    "Name": "Distribution Locking",
+    "Path": "solution-templates/layered-web-application/distributed-locking"
   },
   "Next": {
     "Name": "BLOB storing",
