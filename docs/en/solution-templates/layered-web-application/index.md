@@ -29,7 +29,7 @@ ABP Studio provides pre-architected, production-ready templates to jump-start a 
   * [Database configurations](database-configurations.md)
   * [Logging (with Serilog)](logging.md)
   * [Swagger integration](swagger-integration.md)
-  * [Bacground Jobs](background-jobs.md)
+  * [Background Jobs](background-jobs.md)
   * [Background Workers](background-workers.md)
   * [Distributed Locking](distributed-locking.md)
   * [Multi-Tenancy](multi-tenancy.md)

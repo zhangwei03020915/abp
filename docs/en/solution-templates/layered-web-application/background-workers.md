@@ -48,7 +48,7 @@ public class PassiveUserCheckerWorker : AsyncPeriodicBackgroundWorkerBase
 }
 ```
 
-After creating a worker, we should also register it in the application. We might add it in the *Domain* or *Application* layer. You can register your worker in the `OnApplicationInitializationAsync` method of your module class.
+After creating a worker, you should also register it in the application. You might add it in the *Domain* or *Application* layer. You can register your worker in the `OnApplicationInitializationAsync` method of your module class:
 
 ```csharp
 public class BookstoreApplicationModule : AbpModule
