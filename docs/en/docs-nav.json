@@ -1151,6 +1151,99 @@
                       "isIndex": true
                     },
                     {
+                      "text": "Components",
+                      "items": [
+                        {
+                          "text": "Alerts",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/alerts.md"
+                        },
+                        {
+                          "text": "Badges",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/badges.md"
+                        },
+                        {
+                          "text": "Blockquote",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/blockquote.md"
+                        },
+                        {
+                          "text": "Borders",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/borders.md"
+                        },
+                        {
+                          "text": "Breadcrumbs",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/breadcrumbs.md"
+                        },
+                        {
+                          "text": "Button Groups",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/button-groups.md"
+                        },
+                        {
+                          "text": "Buttons",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/buttons.md"
+                        },
+                        {
+                          "text": "Cards",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/cards.md"
+                        },
+                        {
+                          "text": "Carousel",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/carousel.md"
+                        },
+                        {
+                          "text": "Collapse",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/collapse.md"
+                        },
+                        {
+                          "text": "Dropdowns",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/dropdowns.md"
+                        },
+                        {
+                          "text": "Figure",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/figure.md"
+                        },
+                        {
+                          "text": "Grids",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/grids.md"
+                        },
+                        {
+                          "text": "List Groups",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/list-groups.md"
+                        },
+                        {
+                          "text": "Modals",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/modals.md"
+                        },
+                        {
+                          "text": "Navs",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/navs.md"
+                        },
+                        {
+                          "text": "Paginator",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/paginator.md"
+                        },
+                        {
+                          "text": "Popovers",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/popovers.md"
+                        },
+                        {
+                          "text": "Progress Bars",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/progress-bars.md"
+                        },
+                        {
+                          "text": "Tables",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/tables.md"
+                        },
+                        {
+                          "text": "Tabs",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/tabs.md"
+                        },
+                        {
+                          "text": "Tooltips",
+                          "path": "framework/ui/mvc-razor-pages/tag-helpers/tooltips.md"
+                        }
+                      ]
+                    },
+                    {
                       "text": "Form Elements",
                       "path": "framework/ui/mvc-razor-pages/tag-helpers/form-elements.md"
                     },
