@@ -28,6 +28,8 @@ ABP Studio offers pre-architected, production-ready templates to quickly start a
   * [Database configurations](database-configurations.md)
   * [Logging (with Serilog)](logging.md)
   * [Swagger integration](swagger-integration.md)
+  * [Bacground Jobs](background-jobs.md)
+  * [Background Workers](background-workers.md)
   * [Multi-Tenancy](multi-tenancy.md)
   * [BLOB storing](blob-storing.md)
   * [CORS configuration](cors-configuration.md)
