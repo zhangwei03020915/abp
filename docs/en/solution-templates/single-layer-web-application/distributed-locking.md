@@ -18,7 +18,7 @@ Distributed locking is a mechanism that allows multiple instances of an applicat
 
 ## Distributed Locking in Single Layer Solutions
 
-The single-layer solution templates does not include distributed lock package by default. You can add the [Volo.Abp.DistributedLock](https://www.nuget.org/packages/Volo.Abp.DistributedLocking) package to your project to use distributed locking. This package provides a distributed lock mechanism that works with Redis. You can inject the `IAbpDistributedLock` service to acquire and release. Here is an example of using distributed locking in your application:
+The single-layer solution template does not include distributed lock package by default. You can add the [Volo.Abp.DistributedLock](https://www.nuget.org/packages/Volo.Abp.DistributedLocking) package to your project to use distributed locking. This package provides a distributed lock mechanism that works with Redis. You can inject the `IAbpDistributedLock` service to acquire and release. Here is an example of using distributed locking in your application:
 
 ```csharp
 public class MyService : ITransientDependency

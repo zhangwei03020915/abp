@@ -4,8 +4,8 @@
 //[doc-nav]
 {
   "Previous": {
-    "Name": "Background Workers",
-    "Path": "solution-templates/layered-web-application/background-workers"
+    "Name": "Distribution Locking",
+    "Path": "solution-templates/layered-web-application/distributed-locking"
   },
   "Next": {
     "Name": "BLOB storing",

@@ -8,8 +8,8 @@
     "Path": "solution-templates/layered-web-application/background-jobs"
   },
   "Next": {
-    "Name": "Multi-Tenancy",
-    "Path": "solution-templates/layered-web-application/multi-tenancy"
+    "Name": "Distribution Locking",
+    "Path": "solution-templates/layered-web-application/distributed-locking"
   }
 }
 ```
