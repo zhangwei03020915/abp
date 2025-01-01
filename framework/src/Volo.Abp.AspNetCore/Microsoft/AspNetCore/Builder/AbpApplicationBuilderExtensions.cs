@@ -180,9 +180,11 @@ public static class AbpApplicationBuilderExtensions
         var environment = endpoints.ServiceProvider.GetRequiredService<IWebHostEnvironment>();
         if (environment.IsDevelopment())
         {
-            app.UseStaticFiles();
-            // Volo.Abp.AspNetCore.staticwebassets.endpoints.json is a empty file.
+            // MapStaticAssets in development mode will have a performance issue if there are many static files.
             // https://github.com/dotnet/aspnetcore/issues/59673
+            app.UseStaticFiles();
+
+            // Volo.Abp.AspNetCore.staticwebassets.endpoints.json is a empty file. Just compatible with the return type of MapAbpStaticAssets.
             var tempStaticAssetsManifestPath = Path.Combine(AppContext.BaseDirectory, "Volo.Abp.AspNetCore.staticwebassets.endpoints.json");
             if (!File.Exists(tempStaticAssetsManifestPath))
             {
