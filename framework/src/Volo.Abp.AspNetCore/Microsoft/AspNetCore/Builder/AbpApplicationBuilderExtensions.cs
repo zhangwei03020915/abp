@@ -177,6 +177,15 @@ public static class AbpApplicationBuilderExtensions
             throw new AbpException("The app(IApplicationBuilder) is not an IEndpointRouteBuilder.");
         }
 
+        var environment = endpoints.ServiceProvider.GetRequiredService<IWebHostEnvironment>();
+        if (environment.IsDevelopment())
+        {
+            app.UseStaticFiles();
+            // Volo.Abp.AspNetCore.staticwebassets.endpoints.json is a empty file.
+            // https://github.com/dotnet/aspnetcore/issues/59673
+            return endpoints.MapStaticAssets("Volo.Abp.AspNetCore.staticwebassets.endpoints.json");
+        }
+
         var options = app.ApplicationServices.GetRequiredService<IOptions<AbpAspNetCoreContentOptions>>().Value;
         foreach (var folder in options.AllowedExtraWebContentFolders)
         {
