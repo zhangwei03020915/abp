@@ -183,7 +183,12 @@ public static class AbpApplicationBuilderExtensions
             app.UseStaticFiles();
             // Volo.Abp.AspNetCore.staticwebassets.endpoints.json is a empty file.
             // https://github.com/dotnet/aspnetcore/issues/59673
-            return endpoints.MapStaticAssets("Volo.Abp.AspNetCore.staticwebassets.endpoints.json");
+            var tempStaticAssetsManifestPath = Path.Combine(AppContext.BaseDirectory, "Volo.Abp.AspNetCore.staticwebassets.endpoints.json");
+            if (!File.Exists(tempStaticAssetsManifestPath))
+            {
+                File.WriteAllText(tempStaticAssetsManifestPath, "{\"Version\":1,\"ManifestType\":\"Build\",\"Endpoints\":[]}");
+            }
+            return endpoints.MapStaticAssets(tempStaticAssetsManifestPath);
         }
 
         var options = app.ApplicationServices.GetRequiredService<IOptions<AbpAspNetCoreContentOptions>>().Value;
