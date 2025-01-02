@@ -184,7 +184,7 @@ public static class AbpApplicationBuilderExtensions
             // https://github.com/dotnet/aspnetcore/issues/59673
             app.UseStaticFiles();
 
-            // Volo.Abp.AspNetCore.staticwebassets.endpoints.json is a empty file. Just compatible with the return type of MapAbpStaticAssets.
+            // Volo.Abp.AspNetCore.staticwebassets.endpoints.json is an empty file. Just compatible with the return type of MapAbpStaticAssets.
             var tempStaticAssetsManifestPath = Path.Combine(AppContext.BaseDirectory, "Volo.Abp.AspNetCore.staticwebassets.endpoints.json");
             if (!File.Exists(tempStaticAssetsManifestPath))
             {
