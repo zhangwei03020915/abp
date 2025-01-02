@@ -135,7 +135,7 @@ public abstract class EventBusBase : IEventBus
     {
         await new SynchronizationContextRemover();
 
-        foreach (var handlerFactories in GetHandlerFactories(eventType))
+        foreach (var handlerFactories in GetHandlerFactories(eventType).ToList())
         {
             foreach (var handlerFactory in handlerFactories.EventHandlerFactories)
             {
