@@ -137,7 +137,7 @@ public abstract class EventBusBase : IEventBus
 
         foreach (var handlerFactories in GetHandlerFactories(eventType).ToList())
         {
-            foreach (var handlerFactory in handlerFactories.EventHandlerFactories)
+            foreach (var handlerFactory in handlerFactories.EventHandlerFactories.ToList())
             {
                 await TriggerHandlerAsync(handlerFactory, handlerFactories.EventType, eventData, exceptions, inboxConfig);
             }
