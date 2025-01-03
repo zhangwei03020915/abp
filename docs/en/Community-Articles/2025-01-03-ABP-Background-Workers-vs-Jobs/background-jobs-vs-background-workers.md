@@ -1,6 +1,6 @@
 # ABP Framework: Background Jobs vs Background Workers — When to Use Which?
 
-In the ABP Framework, **Background Jobs** and **Background Workers** serve different purposes but can sometimes seem interchangeable. Sometimes it can be confusing as asked [here at ABP Support forum](https://abp.io/support/questions/5931/Background-Jobs-vs-Background-Workers-when-to-use-which). Let’s clarify their distinctions and suggest how to decide between the two based on your scenario. The official documents are:
+In the ABP Framework, **Background Jobs** and **Background Workers** serve different purposes but can sometimes seem interchangeable. Sometimes it can be confusing. Let’s clarify their differences and I'll show you some real-world cases to understand how to decide between these two. We have official documents for these:
 
 📕 **Background Workers ABP Document**  https://abp.io/docs/latest/framework/infrastructure/background-workers
 
@@ -10,7 +10,7 @@ In the ABP Framework, **Background Jobs** and **Background Workers** serve diffe
 
 ---
 
-Recently, I came across [this support ticket](https://abp.io/support/questions/5931/Background-Jobs-vs-Background-Workers-when-to-use-which) on the ABP support website. I thought these terms could be confusing for devs. He has two tasks and is asking whether he needs to use Background Worker or Background Job. 
+I posted this article because recently, I came across [this support ticket](https://abp.io/support/questions/5931/Background-Jobs-vs-Background-Workers-when-to-use-which) on the ABP support website. I thought these terms could be confusing for devs. He has two tasks and is asking whether he needs to use Background Worker or Background Job. 
 
 * The first one is `FileRecievedActivity.` He says it's running 2 times a day. So, it's a recurring activity that needs to run in the background. So `FileRecievedActivity` is a "Background Worker". 
 * The second one is `ProcessQueueFiles`. It sounds like a polling task. It runs whenever a new file comes to the directory. So, it's also a recurring task that needs to be scheduled every 1 minute. Hence the `ProcessQueueFiles` is also "Backgrounder Worker."
