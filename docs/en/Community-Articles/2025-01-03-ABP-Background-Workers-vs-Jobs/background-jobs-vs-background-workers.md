@@ -1,10 +1,10 @@
 # ABP Framework: Background Jobs vs Background Workers — When to Use Which?
 
-In the ABP Framework, **Background Jobs** and **Background Workers** serve different purposes but can sometimes seem interchangeable. Sometimes it can be confusing. Let’s clarify their differences and I'll show you some real-world cases to understand how to decide between these two. We have official documents for these:
+In the ABP Framework, **Background Jobs** and **Background Workers** serve different purposes but can sometimes seem interchangeable. Sometimes it can be confusing. Let’s clarify their differences, and I'll show you some real-world cases to help you understand how to decide between these two. We have official documents for these:
 
 📕 **Background Workers ABP Document**  https://abp.io/docs/latest/framework/infrastructure/background-workers
 
-📘 **Background Jobs ABP Document ** https://abp.io/docs/latest/framework/infrastructure/background-jobs
+📘 **Background Jobs ABP Document** https://abp.io/docs/latest/framework/infrastructure/background-jobs
 
 
 
@@ -32,11 +32,11 @@ The background workers are stateless and runs in-memory as long as the applicati
 
 
 
-**Use Cases:** Use background workers for any task that needs to run repeatedly at fixed intervals. For example "Health checks", "Periodic cleanup tasks", "Monitoring tasks", "Processing daily data"...  In the last section you will find real world examples.
+**Use Cases:** Use background workers for any task that needs to run repeatedly at fixed intervals. For example "Health checks", "Periodic cleanup tasks", "Monitoring tasks", "Processing daily data"...  In the last section, you will find real-world examples.
 
 
 
->  In Microsoft docs this topic is called as "Background Tasks". Check out [Microsoft's official doc for running background tasks](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services).
+> In Microsoft Docs, this topic is called "Background Tasks". Check out [Microsoft's official doc for running background tasks](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services).
 
 
 
@@ -78,7 +78,7 @@ The background workers are stateless and runs in-memory as long as the applicati
 
 - The task should run as long as the application is running
 
-- You don't need persistence of task state
+- You don't need persistence in task state
 
 - You want in-memory, efficient execution
 
