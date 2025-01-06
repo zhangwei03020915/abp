@@ -1180,6 +1180,10 @@
                       "path": "framework/ui/mvc-razor-pages/basic-theme.md"
                     },
                     {
+                      "text": "LeptonX Lite",
+                      "path": "ui-themes/lepton-x-lite/mvc.md"
+                    },
+                    {
                       "text": "LeptonX",
                       "path": "ui-themes/lepton-x/mvc.md"
                     }
@@ -2314,6 +2318,10 @@
         {
           "text": "The Basic Theme",
           "path": "ui-themes/basic-theme"
+        },
+        {
+          "text": "LeptonX Lite",
+          "path": "ui-themes/lepton-x-lite"
         },
         {
           "text": "LeptonX Theme",
